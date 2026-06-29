@@ -1,0 +1,8 @@
+{
+  "name": "Tiep.dev Portfolio",
+  "description": "Persönliches Portfolio von Vu Xuan Tiep mit KI und IT-Engineering Fokus",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
