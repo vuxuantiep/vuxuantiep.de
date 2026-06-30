@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: 'standalone',
+  output: 'export',
   experimental: {
     serverActions: {
       bodySizeLimit: '2mb',
