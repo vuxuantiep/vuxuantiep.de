@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --animate-dotPan: dotPan 3s linear infinite;
+  
+  @keyframes dotPan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-24px); }
+  }
+}
+
+@media (max-width: 640px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide navigation, contact section, footer, and decorative glows */
+  nav, 
+  #kontakt, 
+  footer,
+  .fixed.inset-0,
+  .blur-\[120px\],
+  .blur-\[100px\],
+  .blur-\[80px\],
+  .blur-\[50px\],
+  .blur-\[40px\],
+  .blur-2xl,
+  .animate-\[dotPan_3s_linear_infinite\],
+  button {
+    display: none !important;
+  }
+
+  /* Ensure text is readable on white */
+  .text-white, .text-zinc-200, .text-zinc-300, .text-zinc-400, .text-zinc-500 {
+    color: #333333 !important;
+  }
+  
+  .text-emerald-400, .text-cyan-400, .text-purple-400 {
+    color: #059669 !important;
+  }
+
+  .text-emerald-300 {
+    color: #047857 !important;
+  }
+
+  /* Reset backgrounds for containers to save ink */
+  .bg-black, 
+  .bg-\[\#09090b\], 
+  .bg-\[\#111114\], 
+  .bg-\[\#0a0a0c\], 
+  .bg-\[\#0d0d12\],
+  .bg-\[\#050505\] {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  .bg-gradient-to-b, 
+  .bg-gradient-to-br, 
+  .bg-gradient-to-tr,
+  .bg-gradient-to-r,
+  [class*="bg-\[radial-gradient"] {
+    background: none !important;
+  }
+
+  /* Borders and shadows */
+  * {
+    box-shadow: none !important;
+  }
+
+  .border-zinc-800\/80, 
+  .border-emerald-500\/20, 
+  .border-zinc-900\/50,
+  .border-zinc-700\/50,
+  .border-zinc-800,
+  .border-zinc-900 {
+    border-color: #d1d5db !important;
+  }
+
+  .rounded-2xl, 
+  .rounded-3xl, 
+  .rounded-xl {
+    border: 1px solid #e5e7eb !important;
+  }
+
+  /* Page breaks */
+  section, 
+  .rounded-2xl, 
+  .rounded-3xl,
+  .grid > div {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Spacing adjustments for paper */
+  .space-y-32 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 3rem !important;
+  }
+
+  .pt-32, .lg\:pt-40, .pb-24, .lg\:pb-32 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+}

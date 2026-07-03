@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "savedAt": 1783000589419,
+  "enabled": false,
+  "paused": false,
+  "queue": [],
+  "inProgress": [],
+  "wipLimit": 3,
+  "pollIntervalMs": 5000,
+  "pausedStoryIds": []
+}
