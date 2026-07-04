@@ -49,11 +49,8 @@ function Portfolio() {
       ),
       link: "https://ai-os.vuxuantiep.de/",
       stackImages: [
-        "/images/AI-OS/Screenshot 2026-07-05 011554.png",
         "/images/AI-OS/temp_image_1783206019551.png",
         "/images/AI-OS/temp_image_1783206113009.png",
-        "/images/AI-OS/temp_image_1783206121805.png",
-        "/images/AI-OS/temp_image_1783206147326.png",
         "/images/AI-OS/temp_image_1783206156456.png",
       ],
     },
