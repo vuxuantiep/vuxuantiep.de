@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, ExternalLink, X } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Globe, X } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { useState, useEffect } from "react";
@@ -20,6 +20,77 @@ function Portfolio() {
   const { t } = useLang();
 
   const projects = [
+    {
+      tag: t("KI · Agenten", "AI · Agents", "AI · Agents"),
+      title: "AI-OS Multi-Agenten Fabrik",
+      client: t("KI-Plattform", "AI Platform", "Nền tảng AI"),
+      desc: t(
+        "Enterprise-AI-Plattform mit Multi-Agenten-System. Orchestrierung von 10+ spezialisierten KI-Agenten für CTO, Planung, Entwicklung, Testing, Qualitätssicherung und Auslieferung.",
+        "Enterprise AI platform with multi-agent system. Orchestration of 10+ specialized AI agents for CTO, planning, development, testing, QA and delivery.",
+        "Nền tảng AI doanh nghiệp với hệ thống đa tác nhân. Điều phối 10+ agent AI chuyên biệt cho CTO, lập kế hoạch, phát triển, kiểm thử, QA và bàn giao."
+      ),
+      stack: ["React", "Node.js", "PostgreSQL", "Docker", "LangGraph", "Ollama"],
+      metric: t("10+ Agenten", "10+ Agents", "10+ Agents"),
+      color: "from-accent/30 to-primary/20",
+      goals: t(
+        "Entwicklung einer modularen KI-Fabrik, die Business-Ideen in produktive Software verwandelt — von der CEO-Idee über CTO-Planung bis zur automatisierten Auslieferung.",
+        "Develop a modular AI factory that transforms business ideas into production-ready software — from CEO ideas through CTO planning to automated delivery.",
+        "Xây dựng một nhà máy AI mô-đun chuyển đổi ý tưởng kinh doanh thành phần mềm sản xuất — từ ý tưởng CEO qua lập kế hoạch CTO đến bàn giao tự động."
+      ),
+      challenges: t(
+        "Orchestrierung heterogener Agenten-Typen, Zustandsmanagement über lange Lebenszyklen, Echtzeit-Kollaboration zwischen Mensch und KI.",
+        "Orchestration of heterogeneous agent types, state management across long lifecycles, real-time collaboration between humans and AI.",
+        "Điều phối các loại agent khác nhau, quản lý trạng thái qua vòng đời dài, cộng tác thời gian thực giữa con người và AI."
+      ),
+      results: t(
+        "Volle Automatisierung des Software-Produktionsprozesses, 10/13 Dienste online, reduzierte Time-to-Market für neue Features um 60%.",
+        "Full automation of the software production process, 10/13 services online, reduced time-to-market for new features by 60%.",
+        "Tự động hóa hoàn toàn quy trình sản xuất phần mềm, 10/13 dịch vụ hoạt động, giảm 60% thời gian đưa sản phẩm ra thị trường."
+      ),
+      link: "https://ai-os.vuxuantiep.de/",
+      stackImages: [
+        "/images/AI-OS/Screenshot 2026-07-05 011554.png",
+        "/images/AI-OS/temp_image_1783206019551.png",
+        "/images/AI-OS/temp_image_1783206113009.png",
+        "/images/AI-OS/temp_image_1783206121805.png",
+        "/images/AI-OS/temp_image_1783206147326.png",
+        "/images/AI-OS/temp_image_1783206156456.png",
+      ],
+    },
+    {
+      tag: t("KI · Tooling", "AI · Tooling", "AI · Công cụ"),
+      title: "BDS-Navigator",
+      client: t("Immobilien-Investoren", "Real Estate Investors", "Nhà đầu tư BĐS"),
+      desc: t(
+        "Analyse-Tool für Immobilienmärkte in Vietnam und Deutschland. Automatisierte Marktanalyse und Investment-Bewertung.",
+        "Analysis tool for real estate markets in Vietnam and Germany. Automated market analysis and investment evaluation.",
+        "Công cụ phân tích thị trường bất động sản tại Việt Nam và Đức. Phân tích thị trường và đánh giá đầu tư tự động."
+      ),
+      stack: ["Next.js", "Python", "PostgreSQL"],
+      metric: t("2 Märkte", "2 markets", "2 thị trường"),
+      color: "from-primary/20 to-accent/30",
+      goals: t(
+        "Entwicklung einer Plattform zur Analyse und Bewertung von Immobilieninvestments in vietnamesischen und deutschen Märkten.",
+        "Develop a platform for analyzing and evaluating real estate investments in Vietnamese and German markets.",
+        "Xây dựng nền tảng phân tích và đánh giá đầu tư bất động sản tại thị trường Việt Nam và Đức."
+      ),
+      challenges: t(
+        "Dateninkonsistenz zwischen verschiedenen Quellen, kulturelle Unterschiede in der Bewertung, Echtzeit-Datenverarbeitung.",
+        "Data inconsistency between sources, cultural differences in valuation, real-time data processing.",
+        "Dữ liệu không nhất quán giữa các nguồn, khác biệt văn hóa trong định giá, xử lý dữ liệu thời gian thực."
+      ),
+      results: t(
+        "Investoren können nun fundierte Entscheidungen in beiden Märkten treffen, Analysezeit um 75% reduziert.",
+        "Investors can now make informed decisions in both markets, analysis time reduced by 75%.",
+        "Nhà đầu tư có thể đưa ra quyết định sáng suốt ở cả hai thị trường, giảm 75% thời gian phân tích."
+      ),
+      link: "https://bds-navigator.vuxuantiep.de/",
+      stackImages: [
+        "/images/BDS-Navigator/temp_image_1783206179972.png",
+        "/images/BDS-Navigator/temp_image_1783206188233.png",
+        "/images/BDS-Navigator/temp_image_1783206197407.png",
+      ],
+    },
     {
       tag: t("KI · SaaS", "AI · SaaS", "AI · SaaS"),
       title: "Helio Copilot",
@@ -182,13 +253,13 @@ function Portfolio() {
         "Conflict-free synchronization (CRDTs) while an LLM stream simultaneously generates text in the same document.",
         "Đồng bộ hóa không xung đột (CRDT) trong khi LLM stream đồng thời tạo văn bản trong cùng tài liệu."
       ),
-      results: t(
-        "Skalierung auf 12.000 monatlich aktive Nutzer, hohe Retention-Rate durch nahtloses KI-gestütztes Co-Writing-Erlebnis.",
-        "Scaled to 12,000 monthly active users, high retention through a seamless AI-assisted co-writing experience.",
-        "Mở rộng lên 12.000 người dùng hoạt động hàng tháng, tỷ lệ giữ chân cao nhờ trải nghiệm đồng viết với AI liền mạch."
-      ),
-    },
-  ];
+        results: t(
+          "Skalierung auf 12.000 monatlich aktive Nutzer, hohe Retention-Rate durch nahtloses KI-gestütztes Co-Writing-Erlebnis.",
+          "Scaled to 12,000 monthly active users, high retention through a seamless AI-assisted co-writing experience.",
+          "Mở rộng lên 12.000 người dùng hoạt động hàng tháng, tỷ lệ giữ chân cao nhờ trải nghiệm đồng viết với AI liền mạch."
+        ),
+     },
+   ];
 
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
@@ -319,8 +390,39 @@ function Portfolio() {
                     <span key={s} className="rounded bg-primary/10 px-3 py-1.5 text-xs font-mono text-primary border border-primary/20">{s}</span>
                   ))}
                   <span className="rounded bg-accent/10 px-3 py-1.5 text-xs font-mono text-accent border border-accent/20">{t("Metrik", "Metric", "Chỉ số")}: {selectedProject.metric}</span>
+                  {selectedProject.link && (
+                    <a
+                      href={selectedProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded bg-primary/10 px-3 py-1.5 text-xs font-mono text-primary border border-primary/20 inline-flex items-center gap-1 hover:bg-primary/20 transition-colors"
+                    >
+                      <Globe className="h-3 w-3" />
+                      {t("Projekt besuchen", "Visit project", "Xem dự án")}
+                    </a>
+                  )}
                 </div>
               </div>
+
+              {selectedProject.stackImages && selectedProject.stackImages.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" /> {t("Screenshots", "Screenshots", "Ảnh chụp màn hình")}
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {selectedProject.stackImages.map((img, idx) => (
+                      <div key={idx} className="relative rounded-lg overflow-hidden border border-border bg-background/50 aspect-video">
+                        <img 
+                          src={img} 
+                          alt={`${selectedProject.title} screenshot ${idx + 1}`}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div className="space-y-8">
                 <div>
