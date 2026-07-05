@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, ChevronRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 import { useState, useEffect } from 'react';
 
@@ -199,7 +199,7 @@ export function ProductCodeSlideshow() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="flex h-full flex-col"
+              className="flex flex-col"
             >
               <div className="flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg">
                 {currentMedia.type === 'video' ? (
@@ -225,6 +225,16 @@ export function ProductCodeSlideshow() {
               </div>
             </motion.div>
           </AnimatePresence>
+          <a
+            href="https://ai-os.vuxuantiep.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 flex items-center gap-2.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs font-medium text-emerald-300 transition-colors hover:border-emerald-400/60 hover:bg-emerald-500/20"
+          >
+            <img src="/animation/6.png" alt="LEGO Ai-Agent" className="h-8 w-8 shrink-0 object-contain" />
+            <span>LEGO Ai-Agent</span>
+            <ArrowRight className="ml-auto h-3.5 w-3.5 shrink-0" />
+          </a>
         </div>
       </div>
     </div>
