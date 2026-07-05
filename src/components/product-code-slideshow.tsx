@@ -236,13 +236,13 @@ export function ProductCodeSlideshow() {
                     muted
                     loop
                     playsInline
-                    className="h-full w-full object-contain"
+                    className="h-full w-full max-w-full object-contain"
                   />
                 ) : (
                   <img
                     src={currentMedia.src}
                     alt="AI-Agenten Fabrik-LEGO"
-                    className="h-full w-full object-contain"
+                    className="h-full w-full max-w-full object-contain"
                   />
                 )}
               </div>

@@ -7,7 +7,7 @@ import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { C as ArrowUp, S as Bot, T as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, y as Cloud } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-oUu6hphv.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-BZUs5QGP.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
@@ -305,11 +305,11 @@ function ProductCodeSlideshow() {
 										muted: true,
 										loop: true,
 										playsInline: true,
-										className: "h-full w-full object-contain"
+										className: "h-full w-full max-w-full object-contain"
 									}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 										src: currentMedia.src,
 										alt: "AI-Agenten Fabrik-LEGO",
-										className: "h-full w-full object-contain"
+										className: "h-full w-full max-w-full object-contain"
 									})
 								})
 							}, mediaIndex)
@@ -470,7 +470,7 @@ function Home() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 -z-10 bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/80 to-background" }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center relative z-10",
+						className: "grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center relative z-10",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								className: "inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 px-3 py-1 text-xs text-muted-foreground",
@@ -713,7 +713,7 @@ function Home() {
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "rounded-2xl border border-border bg-surface/30 p-8 md:p-12",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-						className: "grid gap-12 lg:grid-cols-[1fr_1.5fr]",
+						className: "grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.5fr]",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
 							initial: {
 								opacity: 0,
@@ -901,7 +901,7 @@ function Home() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 						className: "rounded-2xl border border-border bg-surface/30 overflow-hidden mb-6",
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "grid lg:grid-cols-[1fr_1fr] gap-8 p-8 md:p-12",
+							className: "grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 p-8 md:p-12",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex flex-wrap gap-2 mb-6",

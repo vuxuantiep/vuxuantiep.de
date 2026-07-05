@@ -177,7 +177,7 @@ function Home() {
       <section className="relative mx-auto max-w-6xl px-6 pt-20 pb-24">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/80 to-background" />
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center relative z-10">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center relative z-10">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 px-3 py-1 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
@@ -291,7 +291,7 @@ function Home() {
       {/* Tech Stack - Improved Version */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="rounded-2xl border border-border bg-surface/30 p-8 md:p-12">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.5fr]">
             {/* Left side text */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -379,7 +379,7 @@ function Home() {
 
         {/* Featured Project */}
         <div className="rounded-2xl border border-border bg-surface/30 overflow-hidden mb-6">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-8 p-8 md:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 p-8 md:p-12">
             <div>
               <div className="flex flex-wrap gap-2 mb-6">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
