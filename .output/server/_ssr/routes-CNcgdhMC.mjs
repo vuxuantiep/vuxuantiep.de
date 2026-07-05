@@ -7,7 +7,7 @@ import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { C as ArrowUp, S as Bot, T as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, y as Cloud } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-C7ZdEoTM.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-CNcgdhMC.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
@@ -162,168 +162,181 @@ function ProductCodeSlideshow() {
 	const totalChars = currentPhase.codeLines.reduce((sum, line) => sum + line.length, 0);
 	const displayed = getDisplayedText(currentPhase.codeLines, typedChars);
 	const isTyping = typedChars < totalChars;
-	if (!mounted) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "relative h-[420px]" });
+	if (!mounted) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "relative rounded-xl border border-zinc-800 bg-[#0d0d0f] shadow-2xl h-[420px]" });
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "relative",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "flex items-center gap-2 px-4 py-3",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+			"aria-hidden": true,
+			className: "absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-emerald-500/25 via-cyan-500/10 to-emerald-500/20 blur-2xl"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+			className: "relative rounded-xl border border-zinc-800 bg-[#0d0d0f] overflow-hidden shadow-2xl",
 			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					"aria-hidden": true,
+					className: "pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-400/[0.07] to-transparent"
+				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "flex gap-1.5",
+					className: "flex items-center gap-2 border-b border-zinc-800/80 bg-[#111114] px-4 py-3",
 					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-red-500/80" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-yellow-500/80" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-emerald-500/80" })
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+							className: "flex gap-1.5",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-red-500/80" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-yellow-500/80" }),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-emerald-500/80" })
+							]
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "ml-3 text-[11px] text-zinc-500 font-mono truncate",
+							children: FILE_PATH
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+							className: "ml-auto shrink-0 text-[11px] rounded-full border border-zinc-800 bg-zinc-900/60 px-2 py-0.5 text-zinc-400",
+							children: LANGUAGE
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+							type: "button",
+							onClick: replay,
+							"aria-label": t("Nochmal abspielen", "Replay", "Phát lại"),
+							title: t("Nochmal abspielen", "Replay", "Phát lại"),
+							className: "shrink-0 rounded-md p-1 text-zinc-500 transition-colors hover:bg-zinc-800/70 hover:text-emerald-300",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotateCcw, { className: "h-3.5 w-3.5" })
+						})
 					]
 				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "ml-3 text-[11px] text-zinc-500 font-mono truncate",
-					children: FILE_PATH
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "ml-auto shrink-0 text-[11px] rounded-full border border-zinc-800 bg-zinc-900/60 px-2 py-0.5 text-zinc-400",
-					children: LANGUAGE
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
-					type: "button",
-					onClick: replay,
-					"aria-label": t("Nochmal abspielen", "Replay", "Phát lại"),
-					title: t("Nochmal abspielen", "Replay", "Phát lại"),
-					className: "shrink-0 rounded-md p-1 text-zinc-500 transition-colors hover:bg-zinc-800/70 hover:text-emerald-300",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotateCcw, { className: "h-3.5 w-3.5" })
-				})
-			]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-			className: "grid grid-cols-1 lg:grid-cols-2",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-				className: "min-w-0 p-5 overflow-hidden",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
-					mode: "wait",
-					initial: false,
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
-						initial: { opacity: 0 },
-						animate: { opacity: 1 },
-						exit: { opacity: 0 },
-						transition: {
-							duration: .4,
-							ease: "easeOut"
-						},
-						className: "flex h-full flex-col gap-2",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "text-[11px] font-medium text-emerald-400/90",
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "grid grid-cols-1 lg:grid-cols-2",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "min-w-0 p-5 overflow-hidden",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
+							mode: "wait",
+							initial: false,
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+								initial: { opacity: 0 },
+								animate: { opacity: 1 },
+								exit: { opacity: 0 },
+								transition: {
+									duration: .4,
+									ease: "easeOut"
+								},
+								className: "flex h-full flex-col gap-2",
 								children: [
-									t("Phase", "Phase", "Giai đoạn"),
-									" ",
-									currentPhaseIndex + 1,
-									"/",
-									PHASES.length
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "text-xs text-zinc-300 min-h-[48px]",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
-										className: "text-zinc-100 font-medium",
-										children: [currentPhase.title, ":"]
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "text-[11px] font-medium text-emerald-400/90",
+										children: [
+											t("Phase", "Phase", "Giai đoạn"),
+											" ",
+											currentPhaseIndex + 1,
+											"/",
+											PHASES.length
+										]
 									}),
-									" ",
-									currentPhase.description
-								]
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden",
-								children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
-									className: "whitespace-pre-wrap break-words",
-									children: [displayed, isTyping && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
-										animate: { opacity: [1, 0] },
-										transition: {
-											repeat: Infinity,
-											duration: .7,
-											ease: "linear"
-										},
-										className: "ml-[3px] inline-block h-3 w-[8px] bg-emerald-400/90 align-middle shadow-[0_0_6px_rgba(52,211,153,0.8)]"
-									})]
-								})
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "flex items-center gap-2 pt-1",
-								children: [
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "flex items-center gap-1",
-										children: PHASES.map((_, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `h-1 rounded-full transition-all duration-300 ${idx <= currentPhaseIndex ? "w-4 bg-emerald-400" : "w-2 bg-zinc-700"}` }, idx))
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "text-xs text-zinc-300 min-h-[48px]",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+												className: "text-zinc-100 font-medium",
+												children: [currentPhase.title, ":"]
+											}),
+											" ",
+											currentPhase.description
+										]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "h-3 w-3 text-zinc-500" }),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "text-[11px] text-zinc-500 truncate",
-										children: t("AI-Agenten Fabrik-LEGO", "AI-Agent Factory-LEGO", "AI-Agent Fabrik-LEGO")
+										className: "rounded-lg border border-zinc-800/70 bg-[#0a0a0c] p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden",
+										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
+											className: "whitespace-pre-wrap break-words",
+											children: [displayed, isTyping && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+												animate: { opacity: [1, 0] },
+												transition: {
+													repeat: Infinity,
+													duration: .7,
+													ease: "linear"
+												},
+												className: "ml-[3px] inline-block h-3 w-[8px] bg-emerald-400/90 align-middle shadow-[0_0_6px_rgba(52,211,153,0.8)]"
+											})]
+										})
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+										className: "flex items-center gap-2 pt-1",
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "flex items-center gap-1",
+												children: PHASES.map((_, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `h-1 rounded-full transition-all duration-300 ${idx <= currentPhaseIndex ? "w-4 bg-emerald-400" : "w-2 bg-zinc-700"}` }, idx))
+											}),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "h-3 w-3 text-zinc-500" }),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+												className: "text-[11px] text-zinc-500 truncate",
+												children: t("AI-Agenten Fabrik-LEGO", "AI-Agent Factory-LEGO", "AI-Agent Fabrik-LEGO")
+											})
+										]
 									})
 								]
-							})
-						]
-					}, currentPhaseIndex)
-				})
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-				className: "min-w-0 p-5 overflow-hidden",
-				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
-					mode: "wait",
-					initial: false,
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
-						initial: {
-							opacity: 0,
-							scale: .98
-						},
-						animate: {
-							opacity: 1,
-							scale: 1
-						},
-						exit: {
-							opacity: 0,
-							scale: .98
-						},
-						transition: {
-							duration: .5,
-							ease: "easeInOut"
-						},
-						className: "flex flex-col",
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg",
-							children: currentMedia.type === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
-								src: currentMedia.src,
-								autoPlay: true,
-								muted: true,
-								loop: true,
-								playsInline: true,
-								className: "h-full w-full object-contain"
-							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-								src: currentMedia.src,
-								alt: "AI-Agenten Fabrik-LEGO",
-								className: "h-full w-full object-contain"
-							})
+							}, currentPhaseIndex)
 						})
-					}, mediaIndex)
-				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "mt-3 flex items-center justify-end",
-					children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-						href: "https://ai-os.vuxuantiep.de/",
-						target: "_blank",
-						rel: "noopener noreferrer",
-						className: "group flex items-center gap-1.5 whitespace-nowrap text-[11px] font-medium text-emerald-300 transition-colors hover:text-emerald-200",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-								src: "/animation/6.png",
-								alt: "LEGO Ai-Agent",
-								className: "h-6 w-6 shrink-0 object-contain"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-								className: "underline decoration-emerald-500/40 underline-offset-4 group-hover:decoration-emerald-300",
-								children: "LEGO Ai-Agent"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-3 w-3 shrink-0 transition-transform group-hover:translate-x-0.5" })
-						]
-					})
-				})]
-			})]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "min-w-0 p-5 overflow-hidden",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
+							mode: "wait",
+							initial: false,
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
+								initial: {
+									opacity: 0,
+									scale: .98
+								},
+								animate: {
+									opacity: 1,
+									scale: 1
+								},
+								exit: {
+									opacity: 0,
+									scale: .98
+								},
+								transition: {
+									duration: .5,
+									ease: "easeInOut"
+								},
+								className: "flex flex-col",
+								children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									className: "flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg",
+									children: currentMedia.type === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
+										src: currentMedia.src,
+										autoPlay: true,
+										muted: true,
+										loop: true,
+										playsInline: true,
+										className: "h-full w-full object-contain"
+									}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: currentMedia.src,
+										alt: "AI-Agenten Fabrik-LEGO",
+										className: "h-full w-full object-contain"
+									})
+								})
+							}, mediaIndex)
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "mt-3 flex items-center justify-end",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+								href: "https://ai-os.vuxuantiep.de/",
+								target: "_blank",
+								rel: "noopener noreferrer",
+								className: "group flex items-center gap-1.5 whitespace-nowrap text-[11px] font-medium text-emerald-300 transition-colors hover:text-emerald-200",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+										src: "/animation/6.png",
+										alt: "LEGO Ai-Agent",
+										className: "h-6 w-6 shrink-0 object-contain"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "underline decoration-emerald-500/40 underline-offset-4 group-hover:decoration-emerald-300",
+										children: "LEGO Ai-Agent"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-3 w-3 shrink-0 transition-transform group-hover:translate-x-0.5" })
+								]
+							})
+						})]
+					})]
+				})
+			]
 		})]
 	});
 }

@@ -134,12 +134,26 @@ export function ProductCodeSlideshow() {
   const isTyping = typedChars < totalChars;
 
   if (!mounted) {
-    return <div className="relative h-[420px]" />;
+    return (
+      <div className="relative rounded-xl border border-zinc-800 bg-[#0d0d0f] shadow-2xl h-[420px]" />
+    );
   }
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-2 px-4 py-3">
+      {/* Licht-Effekt hinter dem Fenster */}
+      <div
+        aria-hidden
+        className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-emerald-500/25 via-cyan-500/10 to-emerald-500/20 blur-2xl"
+      />
+      <div className="relative rounded-xl border border-zinc-800 bg-[#0d0d0f] overflow-hidden shadow-2xl">
+      {/* Sanfter Lichtschein am oberen Fensterrand */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-400/[0.07] to-transparent"
+      />
+
+      <div className="flex items-center gap-2 border-b border-zinc-800/80 bg-[#111114] px-4 py-3">
         <div className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
@@ -176,7 +190,7 @@ export function ProductCodeSlideshow() {
                 <span className="text-zinc-100 font-medium">{currentPhase.title}:</span>{' '}
                 {currentPhase.description}
               </div>
-              <div className="p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden">
+              <div className="rounded-lg border border-zinc-800/70 bg-[#0a0a0c] p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden">
                 <pre className="whitespace-pre-wrap break-words">
                   {displayed}
                   {isTyping && (
@@ -247,6 +261,7 @@ export function ProductCodeSlideshow() {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
