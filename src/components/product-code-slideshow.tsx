@@ -146,7 +146,7 @@ export function ProductCodeSlideshow() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="p-5 border-b lg:border-b-0 lg:border-r border-zinc-800/60 overflow-hidden">
+        <div className="p-5 overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentPhaseIndex}
@@ -201,7 +201,7 @@ export function ProductCodeSlideshow() {
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               className="flex flex-col"
             >
-              <div className="flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg">
+              <div className="flex h-[240px] lg:h-[208px] items-center justify-center overflow-hidden rounded-lg">
                 {currentMedia.type === 'video' ? (
                   <video
                     src={currentMedia.src}
