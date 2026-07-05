@@ -5,10 +5,10 @@ import { t as LangProvider } from "./LangContext-DlHRSoPA.mjs";
 import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-Qhu9H01V.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-Cyczcmia.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-hb2xzTOZ.css";
+var styles_default = "/assets/styles-Cor-wWRy.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -166,7 +166,7 @@ function RootComponent() {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LangProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {}) })
 	});
 }
-var $$splitComponentImporter$3 = () => import("./portfolio-C-Qjnebb.mjs");
+var $$splitComponentImporter$3 = () => import("./portfolio-BBrNYgKi.mjs");
 var Route$3 = createFileRoute("/portfolio")({
 	head: () => ({ meta: [{ title: "Portfolio — vuxuantiep.de" }, {
 		name: "description",
@@ -174,7 +174,7 @@ var Route$3 = createFileRoute("/portfolio")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-var $$splitComponentImporter$2 = () => import("./kontakt-DrApwjU1.mjs");
+var $$splitComponentImporter$2 = () => import("./kontakt-DaQS3R4L.mjs");
 var Route$2 = createFileRoute("/kontakt")({
 	head: () => ({ meta: [{ title: "Kontakt — vuxuantiep.de" }, {
 		name: "description",
@@ -182,7 +182,7 @@ var Route$2 = createFileRoute("/kontakt")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-var $$splitComponentImporter$1 = () => import("./blog-j2zzQMo-.mjs");
+var $$splitComponentImporter$1 = () => import("./blog-x9o1G6Nt.mjs");
 var Route$1 = createFileRoute("/blog")({
 	head: () => ({ meta: [{ title: "Blog — KI & neue Technologien · vuxuantiep.de" }, {
 		name: "description",
@@ -190,7 +190,7 @@ var Route$1 = createFileRoute("/blog")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./routes-BlbHMG64.mjs");
+var $$splitComponentImporter = () => import("./routes-Biu2FV7c.mjs");
 var Route = createFileRoute("/")({
 	head: () => ({ meta: [{ title: "vuxuantiep.de — IT Freelancer für Cloud, KI & Web" }, {
 		name: "description",

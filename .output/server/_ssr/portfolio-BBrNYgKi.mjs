@@ -6,8 +6,8 @@ import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { f as ExternalLink, t as X, u as Globe, x as ArrowUpRight } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
-import { n as Nav, t as Footer } from "./Footer-DyOFWCV2.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/portfolio-C-Qjnebb.js
+import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/portfolio-BBrNYgKi.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function Portfolio() {

@@ -9,7 +9,7 @@ import { n as Terminal, o as Menu, t as X } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as clsx, t as cva } from "../_libs/class-variance-authority+clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/Footer-DyOFWCV2.js
+//#region node_modules/.nitro/vite/services/ssr/assets/Footer-nJJ7xBAV.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function cn(...inputs) {
@@ -128,7 +128,7 @@ function Nav() {
 									to: "/blog",
 									activeProps: { className: "text-foreground" },
 									className: "hover:text-foreground transition-colors",
-									children: "Blog"
+									children: "AI-News"
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
 									to: "/kontakt",
@@ -214,7 +214,7 @@ function Nav() {
 									to: "/blog",
 									activeProps: { className: "text-foreground" },
 									className: "rounded-md px-2 py-2.5 text-muted-foreground hover:bg-surface hover:text-foreground transition-colors",
-									children: "Blog"
+									children: "AI-News"
 								})
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SheetClose, {

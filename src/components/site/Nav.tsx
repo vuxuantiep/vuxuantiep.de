@@ -51,7 +51,7 @@ export function Nav() {
           <Link to="/portfolio" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">
             {lang === "DE" ? "Projekte" : lang === "EN" ? "Projects" : "Dự án"}
           </Link>
-          <Link to="/blog" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">Blog</Link>
+          <Link to="/blog" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">AI-News</Link>
           <Link to="/kontakt" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">
             {lang === "DE" ? "Kontakt" : lang === "EN" ? "Contact" : "Liên hệ"}
           </Link>
@@ -106,7 +106,7 @@ export function Nav() {
           </SheetClose>
           <SheetClose asChild>
             <Link to="/blog" activeProps={{ className: "text-foreground" }} className="rounded-md px-2 py-2.5 text-muted-foreground hover:bg-surface hover:text-foreground transition-colors">
-              Blog
+              AI-News
             </Link>
           </SheetClose>
           <SheetClose asChild>

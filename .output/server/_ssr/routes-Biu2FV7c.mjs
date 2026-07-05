@@ -6,12 +6,38 @@ import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { S as ArrowRight, _ as ChevronRight, b as ArrowUp, d as Github, g as CircleCheck, h as Cloud, i as Shield, m as CodeXml, n as Terminal, p as Cpu, r as Sparkles, t as X, y as Bot } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
-import { n as Nav, t as Footer } from "./Footer-DyOFWCV2.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-BlbHMG64.js
+import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-Biu2FV7c.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
 var LANGUAGE = "TypeScript";
+var MEDIA = [
+	{
+		type: "image",
+		src: "/animation/0.png"
+	},
+	{
+		type: "image",
+		src: "/animation/1.png"
+	},
+	{
+		type: "video",
+		src: "/animation/2.mp4"
+	},
+	{
+		type: "image",
+		src: "/animation/3.png"
+	},
+	{
+		type: "video",
+		src: "/animation/4.mp4"
+	},
+	{
+		type: "image",
+		src: "/animation/5.png"
+	}
+];
 var PHASES = [
 	{
 		title: "Idee",
@@ -25,11 +51,7 @@ var PHASES = [
 			"  skills: string[];",
 			"  memory?: Memory;",
 			"}"
-		],
-		media: {
-			type: "image",
-			src: "/animation/phase-1-idee.png"
-		}
+		]
 	},
 	{
 		title: "Architektur",
@@ -43,11 +65,7 @@ var PHASES = [
 			"  routing: \"intent-aware\",",
 			"  memory: new Memory({ model: \"nomic-768\" })",
 			"});"
-		],
-		media: {
-			type: "image",
-			src: "/animation/phase-2-architektur.png"
-		}
+		]
 	},
 	{
 		title: "Implementierung",
@@ -61,12 +79,7 @@ var PHASES = [
 			"  routing: \"intent-aware\",",
 			"  autonomy: \"high\"",
 			"});"
-		],
-		media: {
-			type: "video",
-			src: "/animation/phase-3-demo.mp4",
-			poster: "/animation/phase-3-implementierung.png"
-		}
+		]
 	},
 	{
 		title: "Betrieb",
@@ -78,15 +91,12 @@ var PHASES = [
 			"// 12 Agents deployed in 8s",
 			"// Autonomy loop: OK",
 			"// Observability: ENABLED"
-		],
-		media: {
-			type: "video",
-			src: "/animation/phase-4-betrieb.mp4"
-		}
+		]
 	}
 ];
 var CHAR_DELAY_MS = 38;
 var PHASE_HOLD_MS = 3200;
+var MEDIA_HOLD_MS = 6500;
 function getDisplayedText(lines, typedChars) {
 	const totalChars = lines.reduce((sum, line) => sum + line.length, 0);
 	let remaining = Math.max(0, Math.min(typedChars, totalChars));
@@ -102,9 +112,15 @@ function ProductCodeSlideshow() {
 	const [mounted, setMounted] = (0, import_react.useState)(false);
 	const [currentPhaseIndex, setCurrentPhaseIndex] = (0, import_react.useState)(0);
 	const [typedChars, setTypedChars] = (0, import_react.useState)(0);
+	const [mediaIndex, setMediaIndex] = (0, import_react.useState)(0);
 	(0, import_react.useEffect)(() => {
 		setMounted(true);
 	}, []);
+	(0, import_react.useEffect)(() => {
+		if (!mounted || mediaIndex + 1 >= MEDIA.length) return;
+		const timer = setTimeout(() => setMediaIndex(mediaIndex + 1), MEDIA_HOLD_MS);
+		return () => clearTimeout(timer);
+	}, [mounted, mediaIndex]);
 	(0, import_react.useEffect)(() => {
 		if (!mounted) return;
 		const isLastPhase = currentPhaseIndex + 1 >= PHASES.length;
@@ -123,6 +139,7 @@ function ProductCodeSlideshow() {
 		return () => clearTimeout(timer);
 	}, [mounted, currentPhaseIndex]);
 	const currentPhase = PHASES[currentPhaseIndex] ?? PHASES[0];
+	const currentMedia = MEDIA[mediaIndex] ?? MEDIA[0];
 	const totalChars = currentPhase.codeLines.reduce((sum, line) => sum + line.length, 0);
 	const displayed = getDisplayedText(currentPhase.codeLines, typedChars);
 	const isTyping = typedChars < totalChars;
@@ -247,24 +264,23 @@ function ProductCodeSlideshow() {
 							className: "flex h-full flex-col",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 								className: "flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg border border-zinc-800/60 bg-[#0a0a0c]",
-								children: currentPhase.media.type === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
-									src: currentPhase.media.src,
-									poster: currentPhase.media.poster,
+								children: currentMedia.type === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
+									src: currentMedia.src,
 									autoPlay: true,
 									muted: true,
 									loop: true,
 									playsInline: true,
 									className: "h-full w-full object-contain"
 								}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-									src: currentPhase.media.src,
-									alt: `${currentPhase.title} — AI-Agenten Fabrik-LEGO`,
+									src: currentMedia.src,
+									alt: "AI-Agenten Fabrik-LEGO",
 									className: "h-full w-full object-contain"
 								})
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 								className: "mt-3 flex items-center gap-2 text-[11px] text-zinc-400",
 								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "h-3.5 w-3.5 text-emerald-400 shrink-0" }), t("Live-Vorschau", "Live Preview", "Xem trước trực tiếp")]
 							})]
-						}, currentPhaseIndex)
+						}, mediaIndex)
 					})
 				})]
 			})

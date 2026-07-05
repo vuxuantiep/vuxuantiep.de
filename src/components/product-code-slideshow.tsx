@@ -5,51 +5,56 @@ import { CheckCircle2, ChevronRight } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 import { useState, useEffect } from 'react';
 
-interface PhaseMedia {
+interface MediaItem {
   type: 'image' | 'video';
   src: string;
-  poster?: string;
 }
 
 interface StoryPhase {
   title: string;
   description: string;
   codeLines: string[];
-  media: PhaseMedia;
 }
 
 const FILE_PATH = 'packages/factory/src/evolution.ts';
 const LANGUAGE = 'TypeScript';
+
+// Reihenfolge entspricht der Nummerierung der Dateien in src/animation (0–5).
+const MEDIA: MediaItem[] = [
+  { type: 'image', src: '/animation/0.png' },
+  { type: 'image', src: '/animation/1.png' },
+  { type: 'video', src: '/animation/2.mp4' },
+  { type: 'image', src: '/animation/3.png' },
+  { type: 'video', src: '/animation/4.mp4' },
+  { type: 'image', src: '/animation/5.png' },
+];
 
 const PHASES: StoryPhase[] = [
   {
     title: 'Idee',
     description: 'Wie bauen wir eine Fabrik aus wiederverwendbaren KI-Agenten?',
     codeLines: ['// Phase 1 — Idee', '// Ziel: Agenten wie LEGO kombinieren', '', 'interface AgentSpec {', '  role: string;', '  skills: string[];', '  memory?: Memory;', '}'],
-    media: { type: 'image', src: '/animation/phase-1-idee.png' },
   },
   {
     title: 'Architektur',
     description: 'Modulare Registry mit Intent-Routing und Memory-Layer.',
     codeLines: ['// Phase 2 — Architektur', 'import { Registry } from "@lego/core";', 'import { Memory } from "@lego/memory";', '', 'const registry = new Registry({', '  routing: "intent-aware",', '  memory: new Memory({ model: "nomic-768" })', '});'],
-    media: { type: 'image', src: '/animation/phase-2-architektur.png' },
   },
   {
     title: 'Implementierung',
     description: 'Stack aus Planner, Retriever und Writer wird zusammengebaut.',
     codeLines: ['// Phase 3 — Implementierung', 'const stack = ["planner", "retriever", "writer"];', '', 'export const agents = AgentRegistry.build({', '  stack,', '  routing: "intent-aware",', '  autonomy: "high"', '});'],
-    media: { type: 'video', src: '/animation/phase-3-demo.mp4', poster: '/animation/phase-3-implementierung.png' },
   },
   {
     title: 'Betrieb',
     description: 'Die Fabrik läuft autonom und skaliert in Produktion.',
     codeLines: ['// Phase 4 — Produktiv', 'agents.deploy("prod-eu-central-1");', '', '// 12 Agents deployed in 8s', '// Autonomy loop: OK', '// Observability: ENABLED'],
-    media: { type: 'video', src: '/animation/phase-4-betrieb.mp4' },
   },
 ];
 
 const CHAR_DELAY_MS = 38;
 const PHASE_HOLD_MS = 3200;
+const MEDIA_HOLD_MS = 6500;
 
 function getDisplayedText(lines: string[], typedChars: number) {
   const totalChars = lines.reduce((sum, line) => sum + line.length, 0);
@@ -70,10 +75,18 @@ export function ProductCodeSlideshow() {
   const [mounted, setMounted] = useState(false);
   const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0);
   const [typedChars, setTypedChars] = useState(0);
+  const [mediaIndex, setMediaIndex] = useState(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Medien laufen die Nummerierung 0–5 genau einmal durch und bleiben beim letzten stehen.
+  useEffect(() => {
+    if (!mounted || mediaIndex + 1 >= MEDIA.length) return;
+    const timer = setTimeout(() => setMediaIndex(mediaIndex + 1), MEDIA_HOLD_MS);
+    return () => clearTimeout(timer);
+  }, [mounted, mediaIndex]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -106,6 +119,7 @@ export function ProductCodeSlideshow() {
   }, [mounted, currentPhaseIndex]);
 
   const currentPhase = PHASES[currentPhaseIndex] ?? PHASES[0];
+  const currentMedia = MEDIA[mediaIndex] ?? MEDIA[0];
   const totalChars = currentPhase.codeLines.reduce((sum, line) => sum + line.length, 0);
   const displayed = getDisplayedText(currentPhase.codeLines, typedChars);
   const isTyping = typedChars < totalChars;
@@ -179,7 +193,7 @@ export function ProductCodeSlideshow() {
         <div className="p-5 overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
-              key={currentPhaseIndex}
+              key={mediaIndex}
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.98 }}
@@ -187,10 +201,9 @@ export function ProductCodeSlideshow() {
               className="flex h-full flex-col"
             >
               <div className="flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg border border-zinc-800/60 bg-[#0a0a0c]">
-                {currentPhase.media.type === 'video' ? (
+                {currentMedia.type === 'video' ? (
                   <video
-                    src={currentPhase.media.src}
-                    poster={currentPhase.media.poster}
+                    src={currentMedia.src}
                     autoPlay
                     muted
                     loop
@@ -199,8 +212,8 @@ export function ProductCodeSlideshow() {
                   />
                 ) : (
                   <img
-                    src={currentPhase.media.src}
-                    alt={`${currentPhase.title} — AI-Agenten Fabrik-LEGO`}
+                    src={currentMedia.src}
+                    alt="AI-Agenten Fabrik-LEGO"
                     className="h-full w-full object-contain"
                   />
                 )}
