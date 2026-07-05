@@ -7,7 +7,7 @@ import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { C as ArrowUp, S as Bot, T as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, y as Cloud } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CNcgdhMC.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-oUu6hphv.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
@@ -167,13 +167,13 @@ function ProductCodeSlideshow() {
 		className: "relative",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 			"aria-hidden": true,
-			className: "absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-emerald-500/25 via-cyan-500/10 to-emerald-500/20 blur-2xl"
+			className: "absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-emerald-500/10 via-cyan-500/5 to-emerald-500/10 blur-2xl"
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 			className: "relative rounded-xl border border-zinc-800 bg-[#0d0d0f] overflow-hidden shadow-2xl",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					"aria-hidden": true,
-					className: "pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-400/[0.07] to-transparent"
+					className: "pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-emerald-400/[0.04] to-transparent"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 					className: "flex items-center gap-2 border-b border-zinc-800/80 bg-[#111114] px-4 py-3",
@@ -243,7 +243,7 @@ function ProductCodeSlideshow() {
 										]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-										className: "rounded-lg border border-zinc-800/70 bg-[#0a0a0c] p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden",
+										className: "p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden",
 										children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
 											className: "whitespace-pre-wrap break-words",
 											children: [displayed, isTyping && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
