@@ -1,6 +1,6 @@
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
-import { S as Calendar, d as MapPin, f as Mail, h as Github, p as Linkedin } from "../_libs/lucide-react.mjs";
+import { d as MapPin, f as Mail, h as Github, p as Linkedin, x as Calendar } from "../_libs/lucide-react.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/kontakt-iDOUOiKG.js
 var import_jsx_runtime = require_jsx_runtime();

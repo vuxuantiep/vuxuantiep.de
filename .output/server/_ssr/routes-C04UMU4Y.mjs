@@ -4,18 +4,16 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { C as Bot, E as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, w as ArrowUp, x as ChevronDown, y as Cloud } from "../_libs/lucide-react.mjs";
+import { C as ArrowUp, S as Bot, T as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, y as Cloud } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-DapK_VDX.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-C04UMU4Y.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function ScrollDots({ sections }) {
 	const [active, setActive] = (0, import_react.useState)(0);
-	const [atTop, setAtTop] = (0, import_react.useState)(true);
 	(0, import_react.useEffect)(() => {
 		const onScroll = () => {
-			setAtTop(window.scrollY < 80);
 			const mid = window.innerHeight / 2;
 			let current = 0;
 			sections.forEach((s, i) => {
@@ -34,7 +32,7 @@ function ScrollDots({ sections }) {
 			block: "start"
 		});
 	};
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
 		"aria-label": "Seitenbereiche",
 		className: "fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-3 md:flex",
 		children: sections.map((s, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
@@ -48,36 +46,7 @@ function ScrollDots({ sections }) {
 				children: s.label
 			})]
 		}, s.id))
-	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.button, {
-		type: "button",
-		onClick: () => sections[1] && scrollTo(sections[1].id),
-		"aria-label": "Nach unten scrollen",
-		initial: { opacity: 0 },
-		animate: {
-			opacity: atTop ? 1 : 0,
-			pointerEvents: atTop ? "auto" : "none"
-		},
-		transition: { duration: .4 },
-		className: "fixed bottom-5 left-1/2 z-40 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.span, {
-			animate: { y: [
-				0,
-				6,
-				0
-			] },
-			transition: {
-				repeat: Infinity,
-				duration: 1.8,
-				ease: "easeInOut"
-			},
-			className: "flex flex-col items-center gap-0.5",
-			children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-1 w-1 rounded-full bg-current opacity-40" }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-1 w-1 rounded-full bg-current opacity-70" }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "h-4 w-4" })
-			]
-		})
-	})] });
+	});
 }
 function useScrollDotSections() {
 	const { t } = useLang();
