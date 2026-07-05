@@ -30,9 +30,9 @@ function Home() {
       tag: t("KI-Automatisierung", "AI Automation", "Tự động hóa AI"), tagColor: "text-green-500 bg-green-500/10", tag2: t("Immobilien", "Real Estate", "Bất động sản"),
       title: t("Immobilien-Verwaltung", "Real Estate Management", "Quản lý bất động sản"),
       desc: t(
-        "KI-gesteuertes Agenten-System: Agent für den Einkauf, spezialisierter Agent für Auswertung & Optimierung und ein Agent für den Verkauf.",
-        "AI-driven agent system: an agent for acquisition, a specialized agent for evaluation & optimization, and an agent for sales.",
-        "Hệ thống agent điều khiển bởi AI: agent cho thu mua, agent chuyên biệt cho đánh giá & tối ưu, và agent cho bán hàng."
+        "KI-gesteuertes Agenten-System: Agent für den Einkauf, spezialisierter Agent für Auswertung und Optimierung sowie ein Agent für den Verkauf.",
+        "AI-driven agent system: an agent for acquisition, a specialized agent for evaluation and optimization, and an agent for sales.",
+        "Hệ thống agent điều khiển bởi AI: agent cho thu mua, agent chuyên biệt cho đánh giá và tối ưu, cùng một agent cho bán hàng."
       ),
       status: t("Produktion", "Production", "Đang vận hành"),
       goals: t(
@@ -80,7 +80,7 @@ function Home() {
       tag: t("KI-Agent", "AI Agent", "AI Agent"), tagColor: "text-purple-400 bg-purple-500/10", tag2: "Finance",
       title: t("Buchhaltung-Agent", "Accounting Agent", "Agent kế toán"),
       desc: t(
-        "Automatisierte Rechnungs- und Belegverarbeitung, Vorkontierung und Auswertungen speziell für Einzelhändler und Restaurant-Betreiber.",
+        "Automatisierte Rechnungs- und Belegverarbeitung, Vorkontierung sowie Auswertungen speziell für Einzelhändler und Restaurant-Betreiber.",
         "Automated invoice and receipt processing, pre-accounting, and reporting tailored for retailers and restaurant operators.",
         "Xử lý hóa đơn và chứng từ tự động, hạch toán sơ bộ và báo cáo dành riêng cho nhà bán lẻ và chủ nhà hàng."
       ),
@@ -320,7 +320,7 @@ function Home() {
                   <Shield className="h-4 w-4" /> AI Governance Layer
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {t("Architektur konzipiert für DSGVO, AI Act & NIS2 Compliance durch Auditing, Security & Privacy AI Layer.", "Architecture designed for GDPR, AI Act & NIS2 Compliance through Auditing, Security & Privacy AI Layer.", "Kiến trúc được thiết kế cho sự tuân thủ GDPR, AI Act & NIS2 qua lớp Auditing, bảo mật và riêng tư AI.")}
+                  {t("Architektur konzipiert für DSGVO, AI Act und NIS2 Compliance durch Auditing, Security & Privacy AI Layer.", "Architecture designed for GDPR, AI Act and NIS2 compliance through Auditing, Security & Privacy AI Layer.", "Kiến trúc được thiết kế cho sự tuân thủ GDPR, AI Act và NIS2 qua lớp Auditing, bảo mật và riêng tư AI.")}
                 </p>
               </div>
             </motion.div>
@@ -398,7 +398,7 @@ function Home() {
                 )}{" "}
                 {t("Arbeitet als", "Operates as a", "Hoạt động như một")} <strong className="text-foreground">{t("Multi-Agenten-Team", "multi-agent team", "đội ngũ đa tác nhân")}</strong>{" "}
                 {t(
-                  "mit getrennten Rollen, wo jeder Agent ein hochspezialisierter Experte in seinem Bereich ist (z.B. Planner, Architect, DevOps, Security, SEO, Support).",
+                  "mit getrennten Rollen, wobei jeder Agent ein hochspezialisierter Experte in seinem Bereich ist (z.B. Planner, Architect, DevOps, Security, SEO, Support).",
                   "with separate roles, where each agent is a highly specialized expert in its domain (e.g. Planner, Architect, DevOps, Security, SEO, Support).",
                   "với các vai trò riêng biệt, mỗi agent là chuyên gia chuyên sâu trong lĩnh vực của mình (ví dụ: Planner, Architect, DevOps, Security, SEO, Support)."
                 )}

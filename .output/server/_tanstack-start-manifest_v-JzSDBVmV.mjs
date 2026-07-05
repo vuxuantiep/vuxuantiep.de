@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-rIdVSqGV.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-JzSDBVmV.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/__root.tsx",
@@ -8,49 +8,49 @@ var tsrStartManifest = () => ({ routes: {
 			"/kontakt",
 			"/portfolio"
 		],
-		preloads: ["/assets/index-DjVKYGjS.js"],
+		preloads: ["/assets/index-DnM07Dmx.js"],
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-DjVKYGjS.js"
+			src: "/assets/index-DnM07Dmx.js"
 		} }]
 	},
 	"/": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/routes-CpPePYlY.js",
-			"/assets/Footer-_lYt6lvv.js",
-			"/assets/arrow-right-CzLeehA9.js",
-			"/assets/github-D3lYX1jg.js",
-			"/assets/AnimatePresence-BJSECOpf.js"
+			"/assets/routes-Da3nrB4V.js",
+			"/assets/Footer-BHemV7g2.js",
+			"/assets/arrow-right-B7HeOvov.js",
+			"/assets/github-C5sKY-OM.js",
+			"/assets/AnimatePresence-CHAhxgV5.js"
 		]
 	},
 	"/blog": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/blog.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/blog-WCOJ71wi.js",
-			"/assets/Footer-_lYt6lvv.js",
-			"/assets/arrow-right-CzLeehA9.js"
+			"/assets/blog-DtmWbvhX.js",
+			"/assets/Footer-BHemV7g2.js",
+			"/assets/arrow-right-B7HeOvov.js"
 		]
 	},
 	"/kontakt": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/kontakt.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/kontakt--8DB4mIZ.js",
-			"/assets/Footer-_lYt6lvv.js",
-			"/assets/github-D3lYX1jg.js"
+			"/assets/kontakt-BEjojET1.js",
+			"/assets/Footer-BHemV7g2.js",
+			"/assets/github-C5sKY-OM.js"
 		]
 	},
 	"/portfolio": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/portfolio.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/portfolio-C6Z7Swv_.js",
-			"/assets/Footer-_lYt6lvv.js",
-			"/assets/AnimatePresence-BJSECOpf.js"
+			"/assets/portfolio-my4asFu4.js",
+			"/assets/Footer-BHemV7g2.js",
+			"/assets/AnimatePresence-CHAhxgV5.js"
 		]
 	}
 } });

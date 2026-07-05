@@ -7,7 +7,7 @@ import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { S as ArrowRight, _ as ChevronRight, b as ArrowUp, f as Github, g as Cloud, h as CodeXml, i as Shield, m as Cpu, n as Terminal, o as RotateCcw, r as Sparkles, t as X, y as Bot } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-C2NoJhhY.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-DY1cHVjr.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
@@ -339,7 +339,7 @@ function Home() {
 			tagColor: "text-green-500 bg-green-500/10",
 			tag2: t("Immobilien", "Real Estate", "Bất động sản"),
 			title: t("Immobilien-Verwaltung", "Real Estate Management", "Quản lý bất động sản"),
-			desc: t("KI-gesteuertes Agenten-System: Agent für den Einkauf, spezialisierter Agent für Auswertung & Optimierung und ein Agent für den Verkauf.", "AI-driven agent system: an agent for acquisition, a specialized agent for evaluation & optimization, and an agent for sales.", "Hệ thống agent điều khiển bởi AI: agent cho thu mua, agent chuyên biệt cho đánh giá & tối ưu, và agent cho bán hàng."),
+			desc: t("KI-gesteuertes Agenten-System: Agent für den Einkauf, spezialisierter Agent für Auswertung und Optimierung sowie ein Agent für den Verkauf.", "AI-driven agent system: an agent for acquisition, a specialized agent for evaluation and optimization, and an agent for sales.", "Hệ thống agent điều khiển bởi AI: agent cho thu mua, agent chuyên biệt cho đánh giá và tối ưu, cùng một agent cho bán hàng."),
 			status: t("Produktion", "Production", "Đang vận hành"),
 			goals: t("Vollständige Automatisierung der Akquise, Bewertung und Vermarktung von Immobilien.", "Full automation of real estate acquisition, valuation, and marketing.", "Tự động hóa hoàn toàn việc thu mua, định giá và tiếp thị bất động sản."),
 			challenges: t("Datenbereinigung aus unstrukturierten Exposés und dynamische Wertermittlung durch LLMs.", "Data cleansing from unstructured listings and dynamic valuation through LLMs.", "Làm sạch dữ liệu từ các tin đăng phi cấu trúc và định giá động thông qua LLM."),
@@ -361,7 +361,7 @@ function Home() {
 			tagColor: "text-purple-400 bg-purple-500/10",
 			tag2: "Finance",
 			title: t("Buchhaltung-Agent", "Accounting Agent", "Agent kế toán"),
-			desc: t("Automatisierte Rechnungs- und Belegverarbeitung, Vorkontierung und Auswertungen speziell für Einzelhändler und Restaurant-Betreiber.", "Automated invoice and receipt processing, pre-accounting, and reporting tailored for retailers and restaurant operators.", "Xử lý hóa đơn và chứng từ tự động, hạch toán sơ bộ và báo cáo dành riêng cho nhà bán lẻ và chủ nhà hàng."),
+			desc: t("Automatisierte Rechnungs- und Belegverarbeitung, Vorkontierung sowie Auswertungen speziell für Einzelhändler und Restaurant-Betreiber.", "Automated invoice and receipt processing, pre-accounting, and reporting tailored for retailers and restaurant operators.", "Xử lý hóa đơn và chứng từ tự động, hạch toán sơ bộ và báo cáo dành riêng cho nhà bán lẻ và chủ nhà hàng."),
 			status: t("Produktion", "Production", "Đang vận hành"),
 			goals: t("Automatisierung der Vorkontierung und Extraktion von Rechnungsdaten zur Entlastung der Buchhaltung.", "Automating pre-accounting and invoice data extraction to relieve the accounting department.", "Tự động hóa hạch toán sơ bộ và trích xuất dữ liệu hóa đơn để giảm tải cho bộ phận kế toán."),
 			challenges: t("Zuverlässige Erkennung von Handschriften, zerknitterten Belegen und diversen Rechnungsformaten (OCR + LLM).", "Reliable recognition of handwriting, crumpled receipts, and diverse invoice formats (OCR + LLM).", "Nhận dạng đáng tin cậy chữ viết tay, biên lai nhàu nát và nhiều định dạng hóa đơn khác nhau (OCR + LLM)."),
@@ -756,7 +756,7 @@ function Home() {
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Shield, { className: "h-4 w-4" }), " AI Governance Layer"]
 									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "mt-3 text-sm text-muted-foreground leading-relaxed",
-										children: t("Architektur konzipiert für DSGVO, AI Act & NIS2 Compliance durch Auditing, Security & Privacy AI Layer.", "Architecture designed for GDPR, AI Act & NIS2 Compliance through Auditing, Security & Privacy AI Layer.", "Kiến trúc được thiết kế cho sự tuân thủ GDPR, AI Act & NIS2 qua lớp Auditing, bảo mật và riêng tư AI.")
+										children: t("Architektur konzipiert für DSGVO, AI Act und NIS2 Compliance durch Auditing, Security & Privacy AI Layer.", "Architecture designed for GDPR, AI Act and NIS2 compliance through Auditing, Security & Privacy AI Layer.", "Kiến trúc được thiết kế cho sự tuân thủ GDPR, AI Act và NIS2 qua lớp Auditing, bảo mật và riêng tư AI.")
 									})]
 								})
 							]
@@ -924,7 +924,7 @@ function Home() {
 											children: t("Multi-Agenten-Team", "multi-agent team", "đội ngũ đa tác nhân")
 										}),
 										" ",
-										t("mit getrennten Rollen, wo jeder Agent ein hochspezialisierter Experte in seinem Bereich ist (z.B. Planner, Architect, DevOps, Security, SEO, Support).", "with separate roles, where each agent is a highly specialized expert in its domain (e.g. Planner, Architect, DevOps, Security, SEO, Support).", "với các vai trò riêng biệt, mỗi agent là chuyên gia chuyên sâu trong lĩnh vực của mình (ví dụ: Planner, Architect, DevOps, Security, SEO, Support).")
+										t("mit getrennten Rollen, wobei jeder Agent ein hochspezialisierter Experte in seinem Bereich ist (z.B. Planner, Architect, DevOps, Security, SEO, Support).", "with separate roles, where each agent is a highly specialized expert in its domain (e.g. Planner, Architect, DevOps, Security, SEO, Support).", "với các vai trò riêng biệt, mỗi agent là chuyên gia chuyên sâu trong lĩnh vực của mình (ví dụ: Planner, Architect, DevOps, Security, SEO, Support).")
 									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
