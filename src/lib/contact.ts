@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { WorkerMailer } from "worker-mailer";
 
 interface ContactInput {
   name: string;
@@ -6,6 +7,11 @@ interface ContactInput {
   projectType: string;
   message: string;
 }
+
+const SMTP_HOST = "smtp.ionos.de";
+const SMTP_PORT = 465;
+const MAILBOX = "tiep@vuxuantiep.de";
+const CC_ADDRESS = "vuxuantiep@gmail.com";
 
 function escapeHtml(value: string) {
   return value
@@ -27,12 +33,15 @@ export const sendContactMessage = createServerFn({ method: "POST" })
     return { name, email, projectType, message };
   })
   .handler(async ({ data }) => {
-    // Cloudflare-Bindings sind nur im Worker-Runtime verfügbar.
+    // Cloudflare-Runtime: Secrets und TCP-Sockets gibt es nur im Worker.
     const { env } = (await import("cloudflare:workers")) as unknown as {
-      env: { EMAIL?: { send: (msg: Record<string, unknown>) => Promise<unknown> } };
+      env: { SMTP_PASSWORD?: string };
     };
-    if (!env?.EMAIL) {
-      throw new Error("E-Mail-Versand ist derzeit nicht verfügbar.");
+    if (!env?.SMTP_PASSWORD) {
+      console.error("SMTP_PASSWORD secret is not configured.");
+      throw new Error(
+        "Der Versand ist momentan nicht möglich. Bitte schreib direkt an tiep@vuxuantiep.de."
+      );
     }
 
     const lines = [
@@ -47,22 +56,31 @@ export const sendContactMessage = createServerFn({ method: "POST" })
     ];
 
     try {
-      await env.EMAIL.send({
-        to: "tiep@vuxuantiep.de",
-        cc: "vuxuantiep@gmail.com",
-        from: { email: "kontakt@vuxuantiep.de", name: "vuxuantiep.de Kontaktformular" },
-        replyTo: data.email,
-        subject: `Kontaktanfrage: ${data.projectType} — ${data.name}`,
-        text: lines.join("\n"),
-        html: `<h2>Neue Anfrage über das Kontaktformular</h2>
+      await WorkerMailer.send(
+        {
+          host: SMTP_HOST,
+          port: SMTP_PORT,
+          secure: true,
+          credentials: { username: MAILBOX, password: env.SMTP_PASSWORD },
+          authType: ["login", "plain"],
+        },
+        {
+          from: { name: "vuxuantiep.de Kontaktformular", email: MAILBOX },
+          to: MAILBOX,
+          cc: CC_ADDRESS,
+          reply: { name: data.name, email: data.email },
+          subject: `Kontaktanfrage: ${data.projectType} — ${data.name}`,
+          text: lines.join("\n"),
+          html: `<h2>Neue Anfrage über das Kontaktformular</h2>
 <p><strong>Name:</strong> ${escapeHtml(data.name)}<br/>
 <strong>E-Mail:</strong> ${escapeHtml(data.email)}<br/>
 <strong>Projektart:</strong> ${escapeHtml(data.projectType)}</p>
 <p><strong>Nachricht:</strong></p>
 <p>${escapeHtml(data.message).replace(/\n/g, "<br/>")}</p>`,
-      });
+        }
+      );
     } catch (err) {
-      console.error("EMAIL send failed:", err);
+      console.error("SMTP send failed:", err);
       throw new Error(
         "Der Versand ist momentan nicht möglich. Bitte schreib direkt an tiep@vuxuantiep.de."
       );

@@ -5,7 +5,7 @@ import { A as isNotFound, C as resolveManifestAssetLink, D as isResolvedRedirect
 import { n as createMemoryHistory } from "../_libs/tanstack__history.mjs";
 import { d as su, i as mergeHeaders, l as Pu, n as getNormalizedURL, o as createRawStreamRPCPlugin, r as getOrigin, s as createSerializationAdapter, t as attachRouterServerSsrUtils, u as iu } from "../_libs/@tanstack/router-core+[...].mjs";
 import { a as X_TSS_RAW_RESPONSE, c as createNullProtoObject, d as getDefaultSerovalPlugins, f as getStartContext, i as TSS_SERVER_FUNCTION, m as safeObjectMerge, n as TSS_CONTENT_TYPE_FRAMED_VERSIONED, o as X_TSS_SERIALIZED, p as runWithStartContext, r as TSS_FORMDATA_CONTEXT, s as createCsrfMiddleware, t as FrameType, u as flattenMiddlewares } from "./esm-Dova13aH.mjs";
-import { t as getServerFnById } from "../__23tanstack-start-server-fn-resolver-CR4zghY_.mjs";
+import { t as getServerFnById } from "../__23tanstack-start-server-fn-resolver-YL0X1U1C.mjs";
 import { n as toResponse, t as H3Event } from "../_libs/h3-v2.mjs";
 import processModule from "node:process";
 import { AsyncLocalStorage } from "node:async_hooks";
@@ -1024,7 +1024,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-ChlhScYM.mjs"),
+		import("./router-DTQapohb.mjs"),
 		import("./start-Ok9K6Nid.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);

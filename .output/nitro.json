@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-05T23:14:42.997Z",
+  "date": "2026-07-05T23:31:07.083Z",
   "preset": "cloudflare-module",
   "framework": {
     "name": "nitro",
@@ -17,12 +17,7 @@
   "config": {
     "cloudflare": {
       "wrangler": {
-        "compatibility_date": "2026-07-05",
-        "send_email": [
-          {
-            "name": "EMAIL"
-          }
-        ]
+        "compatibility_date": "2026-07-05"
       },
       "deployConfig": true,
       "nodeCompat": true
