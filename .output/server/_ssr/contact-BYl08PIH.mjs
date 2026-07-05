@@ -1,6 +1,6 @@
 import { i as TSS_SERVER_FUNCTION, l as createServerFn } from "./esm-Dova13aH.mjs";
 import { t as b } from "../_libs/worker-mailer.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/contact-BUaurFlT.js
+//#region node_modules/.nitro/vite/services/ssr/assets/contact-BYl08PIH.js
 var createServerRpc = (serverFnMeta, splitImportFn) => {
 	const url = "/_serverFn/" + serverFnMeta.id;
 	return Object.assign(splitImportFn, {
@@ -11,7 +11,8 @@ var createServerRpc = (serverFnMeta, splitImportFn) => {
 };
 var SMTP_HOST = "smtp.ionos.de";
 var SMTP_PORT = 465;
-var MAILBOX = "tiep@vuxuantiep.de";
+var SMTP_USER = "kontakt@vuxuantiep.de";
+var TO_ADDRESS = "tiep@vuxuantiep.de";
 var CC_ADDRESS = "vuxuantiep@gmail.com";
 function escapeHtml(value) {
 	return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -57,16 +58,16 @@ var sendContactMessage = createServerFn({ method: "POST" }).inputValidator((data
 			port: SMTP_PORT,
 			secure: true,
 			credentials: {
-				username: MAILBOX,
+				username: SMTP_USER,
 				password: env.SMTP_PASSWORD
 			},
 			authType: ["login", "plain"]
 		}, {
 			from: {
 				name: "vuxuantiep.de Kontaktformular",
-				email: MAILBOX
+				email: SMTP_USER
 			},
-			to: MAILBOX,
+			to: TO_ADDRESS,
 			cc: CC_ADDRESS,
 			reply: {
 				name: data.name,

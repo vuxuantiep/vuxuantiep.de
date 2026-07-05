@@ -10,7 +10,9 @@ interface ContactInput {
 
 const SMTP_HOST = "smtp.ionos.de";
 const SMTP_PORT = 465;
-const MAILBOX = "tiep@vuxuantiep.de";
+// Versand-Postfach (IONOS Mail Basic), Empfang geht an das Haupt-Postfach.
+const SMTP_USER = "kontakt@vuxuantiep.de";
+const TO_ADDRESS = "tiep@vuxuantiep.de";
 const CC_ADDRESS = "vuxuantiep@gmail.com";
 
 function escapeHtml(value: string) {
@@ -61,12 +63,12 @@ export const sendContactMessage = createServerFn({ method: "POST" })
           host: SMTP_HOST,
           port: SMTP_PORT,
           secure: true,
-          credentials: { username: MAILBOX, password: env.SMTP_PASSWORD },
+          credentials: { username: SMTP_USER, password: env.SMTP_PASSWORD },
           authType: ["login", "plain"],
         },
         {
-          from: { name: "vuxuantiep.de Kontaktformular", email: MAILBOX },
-          to: MAILBOX,
+          from: { name: "vuxuantiep.de Kontaktformular", email: SMTP_USER },
+          to: TO_ADDRESS,
           cc: CC_ADDRESS,
           reply: { name: data.name, email: data.email },
           subject: `Kontaktanfrage: ${data.projectType} — ${data.name}`,

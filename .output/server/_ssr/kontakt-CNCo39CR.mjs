@@ -5,8 +5,8 @@ import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { S as CircleCheck, _ as Github, f as MapPin, h as Linkedin, m as LoaderCircle, p as Mail, r as TriangleAlert, w as Calendar } from "../_libs/lucide-react.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
 import { i as TSS_SERVER_FUNCTION, l as createServerFn } from "./esm-Dova13aH.mjs";
-import { t as getServerFnById } from "../__23tanstack-start-server-fn-resolver-YL0X1U1C.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/kontakt-BzA3nn5X.js
+import { t as getServerFnById } from "../__23tanstack-start-server-fn-resolver-COQcMS_m.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/kontakt-CNCo39CR.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var createSsrRpc = (functionId) => {

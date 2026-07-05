@@ -6,7 +6,7 @@ import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter,
 import { s as ShieldCheck, t as X } from "../_libs/lucide-react.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DTQapohb.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-DrJJPR_w.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-BzlKYoqW.css";
@@ -214,7 +214,7 @@ var Route$5 = createFileRoute("/portfolio")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-var $$splitComponentImporter$4 = () => import("./kontakt-BzA3nn5X.mjs");
+var $$splitComponentImporter$4 = () => import("./kontakt-CNCo39CR.mjs");
 var Route$4 = createFileRoute("/kontakt")({
 	head: () => ({ meta: [{ title: "Kontakt — vuxuantiep.de" }, {
 		name: "description",
