@@ -255,8 +255,8 @@ export function ProductCodeSlideshow() {
               rel="noopener noreferrer"
               className="group flex items-center gap-1.5 whitespace-nowrap text-[11px] font-medium text-emerald-300 transition-colors hover:text-emerald-200"
             >
-              <img src="/animation/6.png" alt="LEGO AI" className="h-6 w-6 shrink-0 object-contain" />
-              <span className="underline decoration-emerald-500/40 underline-offset-4 group-hover:decoration-emerald-300">LEGO AI</span>
+              <img src="/animation/6.png" alt="LEGO AI-OS" className="h-6 w-6 shrink-0 object-contain" />
+              <span className="underline decoration-emerald-500/40 underline-offset-4 group-hover:decoration-emerald-300">LEGO AI-OS</span>
               <ArrowRight className="h-3 w-3 shrink-0 transition-transform group-hover:translate-x-0.5" />
             </a>
           </div>

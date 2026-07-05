@@ -7,7 +7,7 @@ import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { C as ArrowUp, S as Bot, T as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, y as Cloud } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-Bensz12I.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-Bpgbh9dK.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function ScrollDots({ sections }) {
@@ -386,12 +386,12 @@ function ProductCodeSlideshow() {
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 										src: "/animation/6.png",
-										alt: "LEGO AI",
+										alt: "LEGO AI-OS",
 										className: "h-6 w-6 shrink-0 object-contain"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: "underline decoration-emerald-500/40 underline-offset-4 group-hover:decoration-emerald-300",
-										children: "LEGO AI"
+										children: "LEGO AI-OS"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-3 w-3 shrink-0 transition-transform group-hover:translate-x-0.5" })
 								]
