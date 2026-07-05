@@ -1,11 +1,11 @@
 {
-  "compatibility_date": "2026-07-01",
+  "compatibility_date": "2026-07-05",
   "main": "index.mjs",
   "assets": {
     "binding": "ASSETS",
     "directory": "..\\public"
   },
-  "name": "tanstack-start-ts-documents-github-projekte-vuxuantiep-de",
+  "name": "vuxuantiep-vuxuantiep-de",
   "compatibility_flags": [
     "nodejs_compat"
   ],

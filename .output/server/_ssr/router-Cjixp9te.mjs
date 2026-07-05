@@ -1,12 +1,14 @@
 import { a as __toESM } from "../_runtime.mjs";
-import { n as require_jsx_runtime, r as require_react, t as QueryClientProvider } from "../_libs/react+tanstack__react-query.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { t as LangProvider } from "./LangContext-DlHRSoPA.mjs";
 import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-C0qFxZIL.js
+import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/router-Cjixp9te.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-BzNjP-bO.css";
+var styles_default = "/assets/styles-Bq802olK.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -164,7 +166,7 @@ function RootComponent() {
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LangProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {}) })
 	});
 }
-var $$splitComponentImporter$3 = () => import("./portfolio-63rrGdWL.mjs");
+var $$splitComponentImporter$3 = () => import("./portfolio-C-Qjnebb.mjs");
 var Route$3 = createFileRoute("/portfolio")({
 	head: () => ({ meta: [{ title: "Portfolio — vuxuantiep.de" }, {
 		name: "description",
@@ -172,7 +174,7 @@ var Route$3 = createFileRoute("/portfolio")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-var $$splitComponentImporter$2 = () => import("./kontakt-CT3tMgF4.mjs");
+var $$splitComponentImporter$2 = () => import("./kontakt-DrApwjU1.mjs");
 var Route$2 = createFileRoute("/kontakt")({
 	head: () => ({ meta: [{ title: "Kontakt — vuxuantiep.de" }, {
 		name: "description",
@@ -180,7 +182,7 @@ var Route$2 = createFileRoute("/kontakt")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-var $$splitComponentImporter$1 = () => import("./blog-tiE7-cl_.mjs");
+var $$splitComponentImporter$1 = () => import("./blog-j2zzQMo-.mjs");
 var Route$1 = createFileRoute("/blog")({
 	head: () => ({ meta: [{ title: "Blog — KI & neue Technologien · vuxuantiep.de" }, {
 		name: "description",
@@ -188,7 +190,7 @@ var Route$1 = createFileRoute("/blog")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./routes-CXarN5dh.mjs");
+var $$splitComponentImporter = () => import("./routes-hMuLCZUN.mjs");
 var Route = createFileRoute("/")({
 	head: () => ({ meta: [{ title: "vuxuantiep.de — IT Freelancer für Cloud, KI & Web" }, {
 		name: "description",

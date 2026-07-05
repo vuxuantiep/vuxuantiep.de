@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/Footer";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
+import { ProductCodeSlideshow } from "@/components/product-code-slideshow";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -211,34 +212,8 @@ function Home() {
             </div>
           </div>
 
-          {/* Code mockup card */}
-          <div className="relative">
-            <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 blur-2xl" />
-            <div className="rounded-xl border border-border bg-surface shadow-2xl overflow-hidden">
-              <div className="flex items-center gap-2 border-b border-border bg-background/40 px-4 py-3">
-                <span className="h-3 w-3 rounded-full bg-destructive/70" />
-                <span className="h-3 w-3 rounded-full bg-yellow-500/70" />
-                <span className="h-3 w-3 rounded-full bg-primary/70" />
-                <span className="ml-3 text-xs text-muted-foreground font-mono">~/projects/vuxuantiep/deploy.ts</span>
-              </div>
-              <pre className="p-5 text-xs leading-relaxed font-mono overflow-x-auto no-scrollbar">
-<span className="text-muted-foreground">// Agentic deployment of 4 projects</span>{"\n"}
-<span className="text-accent">import</span> {"{ Stack }"} <span className="text-accent">from</span> <span className="text-primary">"aws-cdk-lib"</span>;{"\n"}
-<span className="text-accent">import</span> {"{ AIAgent }"} <span className="text-accent">from</span> <span className="text-primary">"@tiep/ai"</span>;{"\n\n"}
-<span className="text-accent">export const</span> <span className="text-primary">app</span> = <span className="text-accent">new</span> Stack({"{"}{"\n"}
-{"  "}region: <span className="text-primary">"eu-central-1"</span>,{"\n"}
-{"  "}runtime: <span className="text-primary">"edge"</span>,{"\n"}
-{"  "}agents: [{"\n"}
-{"    "}<span className="text-accent">new</span> AIAgent(<span className="text-primary">"youtube-factory"</span>),{"\n"}
-{"    "}<span className="text-accent">new</span> AIAgent(<span className="text-primary">"aivo-geo"</span>),{"\n"}
-{"    "}<span className="text-accent">new</span> AIAgent(<span className="text-primary">"trade-research"</span>),{"\n"}
-{"    "}<span className="text-accent">new</span> AIAgent(<span className="text-primary">"core-platform"</span>){"\n"}
-{"  "}],{"\n"}
-{"}"});{"\n\n"}
-<span className="text-primary">✓</span> <span className="text-muted-foreground">4 projects deployed in 12s █</span>
-              </pre>
-            </div>
-          </div>
+          {/* Product code slideshow */}
+          <ProductCodeSlideshow />
         </div>
       </section>
 

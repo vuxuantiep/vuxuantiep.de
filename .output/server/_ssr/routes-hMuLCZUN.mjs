@@ -1,51 +1,377 @@
 import { a as __toESM } from "../_runtime.mjs";
 import { i as AnimatePresence } from "../_libs/framer-motion.mjs";
-import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { d as Cpu, f as CodeXml, g as ArrowUp, h as Bot, i as Shield, l as Github, n as Terminal, p as Cloud, r as Sparkles, t as X, v as ArrowRight } from "../_libs/lucide-react.mjs";
+import { S as ArrowRight, _ as ChevronRight, b as ArrowUp, d as Github, g as CircleCheck, h as Cloud, i as Shield, m as CodeXml, n as Terminal, p as Cpu, r as Sparkles, t as X, y as Bot } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
-import { n as Nav, t as Footer } from "./Footer-D4Ek-74e.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CXarN5dh.js
+import { n as Nav, t as Footer } from "./Footer-DyOFWCV2.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-hMuLCZUN.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var smallProjects = [
-	{
-		tag: "KI-Automatisierung",
-		tagColor: "text-green-500 bg-green-500/10",
-		tag2: "Immobilien",
-		title: "Immobilien-Verwaltung",
-		desc: "KI-gesteuertes Agenten-System: Agent für den Einkauf, spezialisierter Agent für Auswertung & Optimierung und ein Agent für den Verkauf.",
-		status: "Produktion",
-		goals: "Vollständige Automatisierung der Akquise, Bewertung und Vermarktung von Immobilien.",
-		challenges: "Datenbereinigung aus unstrukturierten Exposés und dynamische Wertermittlung durch LLMs.",
-		results: "Reduktion der manuellen Prüfzeit um 90% und höhere Deal-Abschlussquote durch Vorqualifizierung."
+var productTitles = {
+	"lego-factory": {
+		DE: "AI-Agenten Fabrik-LEGO",
+		EN: "AI-Agent Factory-LEGO",
+		VI: "AI-Agent Fabrik-LEGO"
 	},
-	{
-		tag: "Corporate LLM",
-		tagColor: "text-blue-400 bg-blue-500/10",
-		tag2: "Enterprise",
-		title: "Wissensdatenbank & DMS Anbindung",
-		desc: "Aufbau eines internen Corporate LLMs mit Anbindung an das Dokumentenmanagementsystem (DMS) für intelligente Wissenssuche und -management.",
-		status: "Produktion",
-		goals: "Zentraler Zugang zu verteiltem Unternehmenswissen durch ein internes, kontextaffines Sprachmodell.",
-		challenges: "DSGVO-konforme Verarbeitung sensibler Dokumente und Berechtigungsmanagement (RAG) auf File-Ebene.",
-		results: "Signifikante Zeitersparnis bei der Informationssuche und Reduzierung von Redundanzen in der internen Kommunikation."
-	},
-	{
-		tag: "KI-Agent",
-		tagColor: "text-purple-400 bg-purple-500/10",
-		tag2: "Finance",
-		title: "Buchhaltung-Agent",
-		desc: "Automatisierte Rechnungs- und Belegverarbeitung, Vorkontierung und Auswertungen speziell für Einzelhändler und Restaurant-Betreiber.",
-		status: "Produktion",
-		goals: "Automatisierung der Vorkontierung und Extraktion von Rechnungsdaten zur Entlastung der Buchhaltung.",
-		challenges: "Zuverlässige Erkennung von Handschriften, zerknitterten Belegen und diversen Rechnungsformaten (OCR + LLM).",
-		results: "Über 95% Extraktionsgenauigkeit und Reduktion der Steuerberaterkosten um ca. 40% pro Mandant."
+	"bds-navigator": {
+		DE: "BDS-Navigator",
+		EN: "BDS-Navigator",
+		VI: "BDS-Navigator"
 	}
-];
-function Home() {
+};
+var PRODUCTS = [{
+	id: "lego-factory",
+	language: "TypeScript",
+	filePath: "packages/factory/src/evolution.ts",
+	imageUrl: "/images/AI-OS/68a07710-9bd3-4285-af62-53efa9849800.png",
+	phases: [
+		{
+			title: "Idee",
+			description: "Wie bauen wir eine Fabrik aus wiederverwendbaren KI-Agenten?",
+			codeLines: [
+				"// Phase 1 — Idee",
+				"// Ziel: Agenten wie LEGO kombinieren",
+				"",
+				"interface AgentSpec {",
+				"  role: string;",
+				"  skills: string[];",
+				"  memory?: Memory;",
+				"}"
+			]
+		},
+		{
+			title: "Architektur",
+			description: "Modulare Registry mit Intent-Routing und Memory-Layer.",
+			codeLines: [
+				"// Phase 2 — Architektur",
+				"import { Registry } from \"@lego/core\";",
+				"import { Memory } from \"@lego/memory\";",
+				"",
+				"const registry = new Registry({",
+				"  routing: \"intent-aware\",",
+				"  memory: new Memory({ model: \"nomic-768\" })",
+				"});"
+			]
+		},
+		{
+			title: "Implementierung",
+			description: "Stack aus Planner, Retriever und Writer wird zusammengebaut.",
+			codeLines: [
+				"// Phase 3 — Implementierung",
+				"const stack = [\"planner\", \"retriever\", \"writer\"];",
+				"",
+				"export const agents = AgentRegistry.build({",
+				"  stack,",
+				"  routing: \"intent-aware\",",
+				"  autonomy: \"high\"",
+				"});"
+			]
+		},
+		{
+			title: "Betrieb",
+			description: "Die Fabrik läuft autonom und skaliert in Produktion.",
+			codeLines: [
+				"// Phase 4 — Produktiv",
+				"agents.deploy(\"prod-eu-central-1\");",
+				"",
+				"// 12 Agents deployed in 8s",
+				"// Autonomy loop: OK",
+				"// Observability: ENABLED"
+			]
+		}
+	]
+}, {
+	id: "bds-navigator",
+	language: "TypeScript",
+	filePath: "packages/navigator/src/evolution.ts",
+	imageUrl: "/images/BDS-Navigator/temp_image_1783206179972.png",
+	phases: [
+		{
+			title: "Idee",
+			description: "Wie wird eine Baustelle digital navigierbar?",
+			codeLines: [
+				"// Phase 1 — Idee",
+				"// Ziel: Baumodelle, Dokumente & QA verknüpfen",
+				"",
+				"interface SiteModel {",
+				"  docs: Document[];",
+				"  qa: QAEngine;",
+				"  geo: GeoIndex;",
+				"}"
+			]
+		},
+		{
+			title: "Architektur",
+			description: "Hierarchische Navigation mit Export in JSON, CSV und Mermaid.",
+			codeLines: [
+				"// Phase 2 — Architektur",
+				"import { NavigationSDK } from \"@bds/sdk\";",
+				"import { Dashboard } from \"@bds/ui\";",
+				"",
+				"const nav = new NavigationSDK({",
+				"  mode: \"hierarchical\",",
+				"  filters: { semantic: true, fuzzy: true }",
+				"});"
+			]
+		},
+		{
+			title: "Implementierung",
+			description: "Upload, Verschlagwortung und Live-Dashboard entstehen.",
+			codeLines: [
+				"// Phase 3 — Implementierung",
+				"nav.onUpload(async (doc) => {",
+				"  await qa.validate(doc);",
+				"  await index.add(doc);",
+				"  dashboard.refresh();",
+				"});"
+			]
+		},
+		{
+			title: "Betrieb",
+			description: "Die Baustelle wird live dokumentiert und steuerbar.",
+			codeLines: [
+				"// Phase 4 — Produktiv",
+				"await nav.initialize();",
+				"",
+				"// Dokumentation bereit",
+				"// Live-Status: OK",
+				"// Export: JSON | CSV | Mermaid"
+			]
+		}
+	]
+}];
+var CHAR_DELAY_MS = 38;
+var PHASE_HOLD_MS = 3200;
+function getDisplayedText(lines, typedChars) {
+	const totalChars = lines.reduce((sum, line) => sum + line.length, 0);
+	let remaining = Math.max(0, Math.min(typedChars, totalChars));
+	return lines.map((line) => {
+		if (remaining <= 0) return "";
+		const take = Math.min(line.length, remaining);
+		remaining -= take;
+		return line.slice(0, take);
+	}).join("\n");
+}
+function ProductCodeSlideshow() {
 	const { t } = useLang();
+	const [mounted, setMounted] = (0, import_react.useState)(false);
+	const [activeProductIndex, setActiveProductIndex] = (0, import_react.useState)(0);
+	const [currentPhaseIndex, setCurrentPhaseIndex] = (0, import_react.useState)(0);
+	const [typedChars, setTypedChars] = (0, import_react.useState)(0);
+	(0, import_react.useEffect)(() => {
+		setMounted(true);
+	}, []);
+	(0, import_react.useEffect)(() => {
+		if (!mounted) return;
+		const phases = PRODUCTS[activeProductIndex].phases;
+		const isLastPhase = currentPhaseIndex + 1 >= phases.length;
+		const totalCharsInPhase = phases[currentPhaseIndex].codeLines.reduce((sum, line) => sum + line.length, 0);
+		let chars = 0;
+		let timer;
+		setTypedChars(0);
+		const advance = () => {
+			if (isLastPhase) {
+				setActiveProductIndex((activeProductIndex + 1) % PRODUCTS.length);
+				setCurrentPhaseIndex(0);
+			} else setCurrentPhaseIndex(currentPhaseIndex + 1);
+		};
+		const typeNext = () => {
+			chars += 1;
+			setTypedChars(chars);
+			if (chars >= totalCharsInPhase) timer = setTimeout(advance, isLastPhase ? 4100 : PHASE_HOLD_MS);
+			else timer = setTimeout(typeNext, CHAR_DELAY_MS);
+		};
+		timer = setTimeout(typeNext, CHAR_DELAY_MS);
+		return () => clearTimeout(timer);
+	}, [
+		mounted,
+		activeProductIndex,
+		currentPhaseIndex
+	]);
+	const activeProduct = PRODUCTS[activeProductIndex % PRODUCTS.length];
+	const currentPhase = activeProduct.phases[currentPhaseIndex] ?? activeProduct.phases[0];
+	const displayed = getDisplayedText(currentPhase.codeLines, typedChars);
+	if (!mounted) return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "relative rounded-xl border border-zinc-800 bg-[#0d0d0f] overflow-hidden shadow-2xl h-[420px]" });
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+		className: "relative rounded-xl border border-zinc-800 bg-[#0d0d0f] overflow-hidden shadow-2xl h-[420px]",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 blur-2xl" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "flex items-center gap-2 border-b border-zinc-800/80 bg-[#111114] px-4 py-3",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "flex gap-1.5",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-red-500/80" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-yellow-500/80" }),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-2.5 w-2.5 rounded-full bg-emerald-500/80" })
+						]
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "ml-3 text-[11px] text-zinc-500 font-mono",
+						children: activeProduct.filePath
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+						className: "ml-auto text-[11px] rounded-full border border-zinc-800 bg-zinc-900/60 px-2 py-0.5 text-zinc-400",
+						children: activeProduct.language
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+				className: "grid grid-cols-1 lg:grid-cols-2 gap-0",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "relative p-5 border-r border-zinc-800/60",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
+						mode: "wait",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+							initial: {
+								opacity: 0,
+								y: 8
+							},
+							animate: {
+								opacity: 1,
+								y: 0
+							},
+							exit: {
+								opacity: 0,
+								y: -8
+							},
+							transition: {
+								duration: .5,
+								ease: "easeOut"
+							},
+							className: "space-y-2",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "text-[11px] font-medium text-emerald-400/90",
+									children: [
+										t("Phase", "Phase", "Giai đoạn"),
+										" ",
+										currentPhaseIndex + 1,
+										"/",
+										activeProduct.phases.length
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "text-xs text-zinc-300",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+											className: "text-zinc-100 font-medium",
+											children: [currentPhase.title, ":"]
+										}),
+										" ",
+										currentPhase.description
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "mt-2 rounded-lg border border-zinc-800 bg-[#0a0a0c] p-3 font-mono text-[12px] leading-relaxed text-zinc-300 min-h-[120px]",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("pre", {
+										className: "whitespace-pre-wrap break-words",
+										children: displayed
+									}), typedChars < currentPhase.codeLines.reduce((sum, line) => sum + line.length, 0) && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.span, {
+										animate: { opacity: [1, 0] },
+										transition: {
+											repeat: Infinity,
+											duration: .7,
+											ease: "linear"
+										},
+										className: "ml-[3px] inline-block h-3 w-[8px] bg-emerald-400/90 align-middle shadow-[0_0_6px_rgba(52,211,153,0.8)]"
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center gap-2 pt-1",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: "flex items-center gap-1",
+											children: activeProduct.phases.map((_, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: `h-1 rounded-full transition-all duration-300 ${idx <= currentPhaseIndex ? "w-4 bg-emerald-400" : "w-2 bg-zinc-700"}` }, idx))
+										}),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronRight, { className: "h-3 w-3 text-zinc-500" }),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+											className: "text-[11px] text-zinc-500",
+											children: t(productTitles[activeProduct.id]?.DE, productTitles[activeProduct.id]?.EN, productTitles[activeProduct.id]?.VI)
+										})
+									]
+								})
+							]
+						}, activeProductIndex + "-" + currentPhaseIndex)
+					})
+				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+					className: "relative flex items-center justify-center p-5",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
+						mode: "wait",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+							initial: {
+								opacity: 0,
+								scale: .96
+							},
+							animate: {
+								opacity: 1,
+								scale: 1
+							},
+							exit: {
+								opacity: 0,
+								scale: .96
+							},
+							transition: {
+								duration: .7,
+								ease: "easeInOut"
+							},
+							className: "relative w-full",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+								src: activeProduct.imageUrl,
+								alt: t(productTitles[activeProduct.id]?.DE, productTitles[activeProduct.id]?.EN, productTitles[activeProduct.id]?.VI),
+								className: "w-full h-auto max-h-[240px] object-contain rounded-lg shadow-lg"
+							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "mt-3 flex items-center gap-2 text-[11px] text-zinc-400",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "h-3.5 w-3.5 text-emerald-400" }), t("Live-Vorschau", "Live Preview", "Xem trước trực tiếp")]
+							})]
+						}, activeProductIndex + "-visual")
+					})
+				})]
+			})
+		]
+	});
+}
+function Home() {
+	const { t, lang } = useLang();
+	const smallProjects = [
+		{
+			tag: t("KI-Automatisierung", "AI Automation", "Tự động hóa AI"),
+			tagColor: "text-green-500 bg-green-500/10",
+			tag2: t("Immobilien", "Real Estate", "Bất động sản"),
+			title: t("Immobilien-Verwaltung", "Real Estate Management", "Quản lý bất động sản"),
+			desc: t("KI-gesteuertes Agenten-System: Agent für den Einkauf, spezialisierter Agent für Auswertung & Optimierung und ein Agent für den Verkauf.", "AI-driven agent system: an agent for acquisition, a specialized agent for evaluation & optimization, and an agent for sales.", "Hệ thống agent điều khiển bởi AI: agent cho thu mua, agent chuyên biệt cho đánh giá & tối ưu, và agent cho bán hàng."),
+			status: t("Produktion", "Production", "Đang vận hành"),
+			goals: t("Vollständige Automatisierung der Akquise, Bewertung und Vermarktung von Immobilien.", "Full automation of real estate acquisition, valuation, and marketing.", "Tự động hóa hoàn toàn việc thu mua, định giá và tiếp thị bất động sản."),
+			challenges: t("Datenbereinigung aus unstrukturierten Exposés und dynamische Wertermittlung durch LLMs.", "Data cleansing from unstructured listings and dynamic valuation through LLMs.", "Làm sạch dữ liệu từ các tin đăng phi cấu trúc và định giá động thông qua LLM."),
+			results: t("Reduktion der manuellen Prüfzeit um 90% und höhere Deal-Abschlussquote durch Vorqualifizierung.", "90% reduction in manual review time and a higher deal close rate through pre-qualification.", "Giảm 90% thời gian kiểm tra thủ công và tăng tỷ lệ chốt giao dịch nhờ sơ tuyển trước.")
+		},
+		{
+			tag: "Corporate LLM",
+			tagColor: "text-blue-400 bg-blue-500/10",
+			tag2: t("Enterprise", "Enterprise", "Doanh nghiệp"),
+			title: t("Wissensdatenbank & DMS Anbindung", "Knowledge Base & DMS Integration", "Cơ sở tri thức & tích hợp DMS"),
+			desc: t("Aufbau eines internen Corporate LLMs mit Anbindung an das Dokumentenmanagementsystem (DMS) für intelligente Wissenssuche und -management.", "Building an internal corporate LLM connected to the document management system (DMS) for intelligent knowledge search and management.", "Xây dựng LLM nội bộ doanh nghiệp kết nối với hệ thống quản lý tài liệu (DMS) để tìm kiếm và quản lý tri thức thông minh."),
+			status: t("Produktion", "Production", "Đang vận hành"),
+			goals: t("Zentraler Zugang zu verteiltem Unternehmenswissen durch ein internes, kontextaffines Sprachmodell.", "Central access to distributed company knowledge through an internal, context-aware language model.", "Truy cập tập trung vào tri thức doanh nghiệp phân tán thông qua mô hình ngôn ngữ nội bộ, nhận biết ngữ cảnh."),
+			challenges: t("DSGVO-konforme Verarbeitung sensibler Dokumente und Berechtigungsmanagement (RAG) auf File-Ebene.", "GDPR-compliant processing of sensitive documents and file-level permission management (RAG).", "Xử lý tài liệu nhạy cảm tuân thủ GDPR và quản lý phân quyền (RAG) ở cấp độ file."),
+			results: t("Signifikante Zeitersparnis bei der Informationssuche und Reduzierung von Redundanzen in der internen Kommunikation.", "Significant time savings in information retrieval and reduced redundancy in internal communication.", "Tiết kiệm đáng kể thời gian tìm kiếm thông tin và giảm trùng lặp trong giao tiếp nội bộ.")
+		},
+		{
+			tag: t("KI-Agent", "AI Agent", "AI Agent"),
+			tagColor: "text-purple-400 bg-purple-500/10",
+			tag2: "Finance",
+			title: t("Buchhaltung-Agent", "Accounting Agent", "Agent kế toán"),
+			desc: t("Automatisierte Rechnungs- und Belegverarbeitung, Vorkontierung und Auswertungen speziell für Einzelhändler und Restaurant-Betreiber.", "Automated invoice and receipt processing, pre-accounting, and reporting tailored for retailers and restaurant operators.", "Xử lý hóa đơn và chứng từ tự động, hạch toán sơ bộ và báo cáo dành riêng cho nhà bán lẻ và chủ nhà hàng."),
+			status: t("Produktion", "Production", "Đang vận hành"),
+			goals: t("Automatisierung der Vorkontierung und Extraktion von Rechnungsdaten zur Entlastung der Buchhaltung.", "Automating pre-accounting and invoice data extraction to relieve the accounting department.", "Tự động hóa hạch toán sơ bộ và trích xuất dữ liệu hóa đơn để giảm tải cho bộ phận kế toán."),
+			challenges: t("Zuverlässige Erkennung von Handschriften, zerknitterten Belegen und diversen Rechnungsformaten (OCR + LLM).", "Reliable recognition of handwriting, crumpled receipts, and diverse invoice formats (OCR + LLM).", "Nhận dạng đáng tin cậy chữ viết tay, biên lai nhàu nát và nhiều định dạng hóa đơn khác nhau (OCR + LLM)."),
+			results: t("Über 95% Extraktionsgenauigkeit und Reduktion der Steuerberaterkosten um ca. 40% pro Mandant.", "Over 95% extraction accuracy and roughly 40% reduction in tax advisor costs per client.", "Độ chính xác trích xuất hơn 95% và giảm khoảng 40% chi phí tư vấn thuế cho mỗi khách hàng.")
+		}
+	];
 	const [selectedProject, setSelectedProject] = (0, import_react.useState)(null);
 	const [news, setNews] = (0, import_react.useState)([]);
 	const [showScrollTop, setShowScrollTop] = (0, import_react.useState)(false);
@@ -71,19 +397,19 @@ function Home() {
 				})).filter((item) => item.title);
 				const customTopics = [
 					{
-						title: "KI in Unternehmen produktiv einsetzen",
+						title: t("KI in Unternehmen produktiv einsetzen", "Using AI productively in enterprises", "Ứng dụng AI hiệu quả trong doanh nghiệp"),
 						url: "#"
 					},
 					{
-						title: "Agentic AI: Autonome Agenten",
+						title: t("Agentic AI: Autonome Agenten", "Agentic AI: Autonomous agents", "Agentic AI: Các tác nhân tự động"),
 						url: "#"
 					},
 					{
-						title: "IT & KI Sicherheit",
+						title: t("IT & KI Sicherheit", "IT & AI Security", "Bảo mật IT & AI"),
 						url: "#"
 					},
 					{
-						title: "KI für E-Commerce",
+						title: t("KI für E-Commerce", "AI for E-Commerce", "AI cho Thương mại điện tử"),
 						url: "#"
 					}
 				];
@@ -91,37 +417,37 @@ function Home() {
 				else setNews([
 					...customTopics,
 					{
-						title: "OpenAI veröffentlicht neues LLM",
+						title: t("OpenAI veröffentlicht neues LLM", "OpenAI releases new LLM", "OpenAI phát hành LLM mới"),
 						url: "#"
 					},
 					{
-						title: "WebAssembly in Produktion",
+						title: t("WebAssembly in Produktion", "WebAssembly in production", "WebAssembly trong sản xuất"),
 						url: "#"
 					}
 				]);
 			} catch (e) {
 				setNews([
 					{
-						title: "KI in Unternehmen produktiv einsetzen",
+						title: t("KI in Unternehmen produktiv einsetzen", "Using AI productively in enterprises", "Ứng dụng AI hiệu quả trong doanh nghiệp"),
 						url: "#"
 					},
 					{
-						title: "Agentic AI: Autonome Agenten",
+						title: t("Agentic AI: Autonome Agenten", "Agentic AI: Autonomous agents", "Agentic AI: Các tác nhân tự động"),
 						url: "#"
 					},
 					{
-						title: "IT & KI Sicherheit",
+						title: t("IT & KI Sicherheit", "IT & AI Security", "Bảo mật IT & AI"),
 						url: "#"
 					},
 					{
-						title: "KI für E-Commerce",
+						title: t("KI für E-Commerce", "AI for E-Commerce", "AI cho Thương mại điện tử"),
 						url: "#"
 					}
 				]);
 			}
 		};
 		fetchNews();
-	}, []);
+	}, [lang]);
 	(0, import_react.useEffect)(() => {
 		if (selectedProject) document.body.style.overflow = "hidden";
 		else document.body.style.overflow = "";
@@ -188,10 +514,14 @@ function Home() {
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										className: "flex items-center gap-1",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-yellow-500",
-											children: "★"
-										}), " 4.9/5 · 32 Reviews"]
+										children: [
+											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+												className: "text-yellow-500",
+												children: "★"
+											}),
+											" 4.9/5 · 32 ",
+											t("Bewertungen", "Reviews", "Đánh giá")
+										]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										className: "flex items-center gap-1",
@@ -209,174 +539,13 @@ function Home() {
 										className: "flex items-center gap-1",
 										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CodeXml, { className: "h-3 w-3" }), " MCPD & MCTS .Net C#"]
 									}),
-									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 										className: "flex items-center gap-1",
-										children: "🌍 Remote / EU-weit"
+										children: ["🌍 ", t("Remote / EU-weit", "Remote / EU-wide", "Remote / Toàn EU")]
 									})
 								]
 							})
-						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-							className: "relative",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 blur-2xl" }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "rounded-xl border border-border bg-surface shadow-2xl overflow-hidden",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center gap-2 border-b border-border bg-background/40 px-4 py-3",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-3 w-3 rounded-full bg-destructive/70" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-3 w-3 rounded-full bg-yellow-500/70" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-3 w-3 rounded-full bg-primary/70" }),
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "ml-3 text-xs text-muted-foreground font-mono",
-											children: "~/projects/vuxuantiep/deploy.ts"
-										})
-									]
-								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("pre", {
-									className: "p-5 text-xs leading-relaxed font-mono overflow-x-auto no-scrollbar",
-									children: [
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-muted-foreground",
-											children: "// Agentic deployment of 4 projects"
-										}),
-										"\n",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "import"
-										}),
-										" ",
-										"{ Stack }",
-										" ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "from"
-										}),
-										" ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"aws-cdk-lib\""
-										}),
-										";",
-										"\n",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "import"
-										}),
-										" ",
-										"{ AIAgent }",
-										" ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "from"
-										}),
-										" ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"@tiep/ai\""
-										}),
-										";",
-										"\n\n",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "export const"
-										}),
-										" ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "app"
-										}),
-										" = ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "new"
-										}),
-										" Stack(",
-										"{",
-										"\n",
-										"  ",
-										"region: ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"eu-central-1\""
-										}),
-										",",
-										"\n",
-										"  ",
-										"runtime: ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"edge\""
-										}),
-										",",
-										"\n",
-										"  ",
-										"agents: [",
-										"\n",
-										"    ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "new"
-										}),
-										" AIAgent(",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"youtube-factory\""
-										}),
-										"),",
-										"\n",
-										"    ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "new"
-										}),
-										" AIAgent(",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"aivo-geo\""
-										}),
-										"),",
-										"\n",
-										"    ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "new"
-										}),
-										" AIAgent(",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"trade-research\""
-										}),
-										"),",
-										"\n",
-										"    ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-accent",
-											children: "new"
-										}),
-										" AIAgent(",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "\"core-platform\""
-										}),
-										")",
-										"\n",
-										"  ",
-										"],",
-										"\n",
-										"}",
-										");",
-										"\n\n",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-primary",
-											children: "✓"
-										}),
-										" ",
-										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-muted-foreground",
-											children: "4 projects deployed in 12s █"
-										})
-									]
-								})]
-							})]
-						})]
+						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCodeSlideshow, {})]
 					})
 				]
 			}),
@@ -601,30 +770,37 @@ function Home() {
 								className: "flex flex-wrap gap-2 mb-8 text-xs font-medium border-b border-border pb-4",
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
 										className: "rounded-full bg-primary/10 px-3 py-1.5 text-primary",
 										children: "Agentic Coding"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
 										className: "rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground",
-										children: "Alle"
+										children: t("Alle", "All", "Tất cả")
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
 										className: "rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground",
-										children: "KI & Data"
+										children: t("KI & Data", "AI & Data", "AI & Data")
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
 										className: "rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground",
 										children: "Cloud & DevOps"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
 										className: "rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground",
 										children: "Backend"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
 										className: "rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground",
 										children: "Frontend"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+										type: "button",
 										className: "rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground",
 										children: "Security"
 									})
@@ -634,43 +810,43 @@ function Home() {
 								children: [
 									{
 										name: "Open Claw",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "Codex",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "Claude Code",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "Cody",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "OpenHands",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "Hermes",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "LangGraph",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "Aider",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "Cline",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									},
 									{
 										name: "Azad-Code",
-										exp: "1 Jahre"
+										exp: t("1 Jahre", "1 year", "1 năm")
 									}
 								].map((tool) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "flex items-center justify-between py-2 border-b border-border/50",
@@ -743,26 +919,33 @@ function Home() {
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 									className: "text-muted-foreground leading-relaxed mb-6",
 									children: [
-										"Eine Agentic-Commerce-Plattform (ACOS). Ein intelligentes Betriebssystem für den digitalen Handel. Arbeitet als ",
+										t("Eine Agentic-Commerce-Plattform (ACOS). Ein intelligentes Betriebssystem für den digitalen Handel.", "An agentic commerce platform (ACOS). An intelligent operating system for digital commerce.", "Một nền tảng thương mại agentic (ACOS). Một hệ điều hành thông minh cho thương mại số."),
+										" ",
+										t("Arbeitet als", "Operates as a", "Hoạt động như một"),
+										" ",
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
 											className: "text-foreground",
-											children: "Multi-Agenten-Team"
+											children: t("Multi-Agenten-Team", "multi-agent team", "đội ngũ đa tác nhân")
 										}),
-										" mit getrennten Rollen, wo jeder Agent ein hochspezialisierter Experte in seinem Bereich ist (z.B. Planner, Architect, DevOps, Security, SEO, Support)."
+										" ",
+										t("mit getrennten Rollen, wo jeder Agent ein hochspezialisierter Experte in seinem Bereich ist (z.B. Planner, Architect, DevOps, Security, SEO, Support).", "with separate roles, where each agent is a highly specialized expert in its domain (e.g. Planner, Architect, DevOps, Security, SEO, Support).", "với các vai trò riêng biệt, mỗi agent là chuyên gia chuyên sâu trong lĩnh vực của mình (ví dụ: Planner, Architect, DevOps, Security, SEO, Support).")
 									]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
 									className: "text-sm text-muted-foreground leading-relaxed mb-8",
 									children: [
-										"Inklusive starker ",
+										t("Inklusive starker", "Including strong", "Bao gồm"),
+										" ",
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
 											className: "text-foreground",
 											children: "AI Governance"
 										}),
-										" (Auditor, Security, Privacy, Compliance AI) für DSGVO, AI Act und NIS 2 Compliance durch einem ",
+										" ",
+										t("(Auditor, Security, Privacy, Compliance AI) für DSGVO, AI Act und NIS 2 Compliance durch einem", "(Auditor, Security, Privacy, Compliance AI) for GDPR, AI Act and NIS 2 compliance through a", "AI mạnh mẽ (Auditor, Security, Privacy, Compliance AI) để tuân thủ GDPR, AI Act và NIS 2 thông qua một"),
+										" ",
 										/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", {
 											className: "text-foreground",
-											children: "Model Continuity Layer"
+											children: t("Model Continuity Layer", "Model Continuity Layer", "Model Continuity Layer")
 										}),
 										"."
 									]
@@ -947,10 +1130,20 @@ function Home() {
 												duration: .5,
 												delay: .5
 											},
-											children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-												className: "text-primary",
-												children: "KI-Agenten"
-											}), " → Marktforschung → Content → Handel → eigene Produkte"]
+											children: [
+												/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+													className: "text-primary",
+													children: t("KI-Agenten", "AI Agents", "AI Agents")
+												}),
+												" → ",
+												t("Marktforschung", "Market Research", "Nghiên cứu thị trường"),
+												" → ",
+												t("Content", "Content", "Nội dung"),
+												" → ",
+												t("Handel", "Commerce", "Thương mại"),
+												" → ",
+												t("eigene Produkte", "own products", "sản phẩm riêng")
+											]
 										})
 									]
 								})
@@ -1157,21 +1350,25 @@ function Home() {
 												className: "rounded bg-primary/10 px-2 py-0.5 text-primary font-medium",
 												children: "LLM"
 											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "📅 28. Juni 2026" }),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "⏱ 10 min" })
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["📅 ", t("28. Juni 2026", "June 28, 2026", "28 Tháng 6, 2026")] }),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["⏱ 10 ", t("min", "min", "phút")] })
 										]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 										className: "text-xl font-semibold mb-2 group-hover:text-primary transition-colors",
-										children: "Die nächste Generation von LLMs: Was kommt nach GPT-4?"
+										children: t("Die nächste Generation von LLMs: Was kommt nach GPT-4?", "The next generation of LLMs: what comes after GPT-4?", "Thế hệ LLM tiếp theo: điều gì sẽ đến sau GPT-4?")
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "text-sm text-muted-foreground",
-										children: "Eine Analyse der neuen Architekturen, Mixture of Experts (MoE) und wie lokale, spezialisierte Modelle die Cloud-Giganten herausfordern."
+										children: t("Eine Analyse der neuen Architekturen, Mixture of Experts (MoE) und wie lokale, spezialisierte Modelle die Cloud-Giganten herausfordern.", "An analysis of new architectures, Mixture of Experts (MoE), and how local, specialized models are challenging the cloud giants.", "Phân tích các kiến trúc mới, Mixture of Experts (MoE) và cách các mô hình chuyên biệt cục bộ đang thách thức các gã khổng lồ đám mây.")
 									})
 								] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "text-sm text-primary font-medium shrink-0 flex items-center gap-1",
-									children: ["Artikel lesen ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })]
+									children: [
+										t("Artikel lesen", "Read article", "Đọc bài viết"),
+										" ",
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })
+									]
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
@@ -1185,21 +1382,25 @@ function Home() {
 												className: "rounded bg-accent/10 px-2 py-0.5 text-accent font-medium",
 												children: "WebAssembly"
 											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "📅 15. Mai 2026" }),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "⏱ 8 min" })
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["📅 ", t("15. Mai 2026", "May 15, 2026", "15 Tháng 5, 2026")] }),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["⏱ 8 ", t("min", "min", "phút")] })
 										]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 										className: "text-xl font-semibold mb-2 group-hover:text-primary transition-colors",
-										children: "WebAssembly & KI: Modelle direkt im Browser ausführen"
+										children: t("WebAssembly & KI: Modelle direkt im Browser ausführen", "WebAssembly & AI: running models directly in the browser", "WebAssembly & AI: chạy mô hình trực tiếp trên trình duyệt")
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "text-sm text-muted-foreground",
-										children: "Wie WebAssembly (Wasm) und WebGPU es ermöglichen, leistungsstarke KI-Modelle ohne Serverkosten direkt auf dem Endgerät laufen zu lassen."
+										children: t("Wie WebAssembly (Wasm) und WebGPU es ermöglichen, leistungsstarke KI-Modelle ohne Serverkosten direkt auf dem Endgerät laufen zu lassen.", "How WebAssembly (Wasm) and WebGPU make it possible to run powerful AI models directly on the device, without server costs.", "Cách WebAssembly (Wasm) và WebGPU cho phép chạy các mô hình AI mạnh mẽ trực tiếp trên thiết bị mà không tốn chi phí máy chủ.")
 									})
 								] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "text-sm text-primary font-medium shrink-0 flex items-center gap-1",
-									children: ["Artikel lesen ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })]
+									children: [
+										t("Artikel lesen", "Read article", "Đọc bài viết"),
+										" ",
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })
+									]
 								})]
 							}),
 							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
@@ -1213,21 +1414,25 @@ function Home() {
 												className: "rounded bg-primary/10 px-2 py-0.5 text-primary font-medium",
 												children: "AI Tech"
 											}),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "📅 02. April 2026" }),
-											/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "⏱ 14 min" })
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["📅 ", t("02. April 2026", "April 2, 2026", "2 Tháng 4, 2026")] }),
+											/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["⏱ 14 ", t("min", "min", "phút")] })
 										]
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 										className: "text-xl font-semibold mb-2 group-hover:text-primary transition-colors",
-										children: "Agentic Workflows: Wenn KI selbstständig handelt"
+										children: t("Agentic Workflows: Wenn KI selbstständig handelt", "Agentic workflows: when AI acts on its own", "Agentic Workflows: Khi AI tự hành động")
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 										className: "text-sm text-muted-foreground",
-										children: "Über den Wandel von Chatbots zu autonomen Agenten-Systemen und wie sie komplette Unternehmensprozesse steuern."
+										children: t("Über den Wandel von Chatbots zu autonomen Agenten-Systemen und wie sie komplette Unternehmensprozesse steuern.", "On the shift from chatbots to autonomous agent systems and how they control entire business processes.", "Về sự chuyển đổi từ chatbot sang hệ thống agent tự động và cách chúng điều khiển toàn bộ quy trình doanh nghiệp.")
 									})
 								] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 									className: "text-sm text-primary font-medium shrink-0 flex items-center gap-1",
-									children: ["Artikel lesen ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })]
+									children: [
+										t("Artikel lesen", "Read article", "Đọc bài viết"),
+										" ",
+										/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })
+									]
 								})]
 							})
 						]
@@ -1237,7 +1442,11 @@ function Home() {
 						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link, {
 							to: "/blog",
 							className: "text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2",
-							children: ["Alle Artikel anzeigen ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })]
+							children: [
+								t("Alle Artikel anzeigen", "View all articles", "Xem tất cả bài viết"),
+								" ",
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })
+							]
 						})
 					})
 				]
