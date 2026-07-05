@@ -4,7 +4,7 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { g as ExternalLink, m as Globe, t as X, w as ArrowUpRight } from "../_libs/lucide-react.mjs";
+import { T as ArrowUpRight, g as ExternalLink, m as Globe, t as X } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/portfolio-BeFHAPW4.js

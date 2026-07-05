@@ -1,6 +1,6 @@
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
-import { T as ArrowRight, s as Search } from "../_libs/lucide-react.mjs";
+import { E as ArrowRight, s as Search } from "../_libs/lucide-react.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/blog-B7kOiNkz.js
 var import_jsx_runtime = require_jsx_runtime();

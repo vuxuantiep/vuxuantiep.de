@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-DuBToHpN.js
+//#region node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-C7mfs_XB.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/__root.tsx",
@@ -11,64 +11,64 @@ var tsrStartManifest = () => ({ routes: {
 			"/portfolio"
 		],
 		css: ["/assets/index-BgNfe_Df.css"],
-		preloads: ["/assets/index-BkVyKeL6.js"],
+		preloads: ["/assets/index-Dv6fuW1Y.js"],
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-BkVyKeL6.js"
+			src: "/assets/index-Dv6fuW1Y.js"
 		} }]
 	},
 	"/": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/routes-BMD2ciRJ.js",
-			"/assets/arrow-right-BMyK1hDi.js",
-			"/assets/github-BDeuU-Dj.js",
-			"/assets/Footer-BsDcwtpL.js",
-			"/assets/AnimatePresence-AEN8jbfJ.js"
+			"/assets/routes-yDS3fKNv.js",
+			"/assets/arrow-right-Bu5X0dpz.js",
+			"/assets/github-BUxBaB7u.js",
+			"/assets/Footer-CYiS6iFF.js",
+			"/assets/AnimatePresence-TTXqzhot.js"
 		]
 	},
 	"/blog": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/blog.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/blog-Copx5PSS.js",
-			"/assets/arrow-right-BMyK1hDi.js",
-			"/assets/Footer-BsDcwtpL.js"
+			"/assets/blog-EySqSJUW.js",
+			"/assets/arrow-right-Bu5X0dpz.js",
+			"/assets/Footer-CYiS6iFF.js"
 		]
 	},
 	"/datenschutz": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/datenschutz.tsx",
 		children: void 0,
-		preloads: ["/assets/datenschutz---UN5tI4.js", "/assets/Footer-BsDcwtpL.js"]
+		preloads: ["/assets/datenschutz-Tm7AbIZM.js", "/assets/Footer-CYiS6iFF.js"]
 	},
 	"/impressum": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/impressum.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/impressum-CH8mjmLQ.js",
-			"/assets/map-pin-Tm5jjZep.js",
-			"/assets/Footer-BsDcwtpL.js"
+			"/assets/impressum-DW9azSmw.js",
+			"/assets/map-pin-Bct-b2eO.js",
+			"/assets/Footer-CYiS6iFF.js"
 		]
 	},
 	"/kontakt": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/kontakt.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/kontakt-T6tEQ1dd.js",
-			"/assets/github-BDeuU-Dj.js",
-			"/assets/map-pin-Tm5jjZep.js",
-			"/assets/Footer-BsDcwtpL.js"
+			"/assets/kontakt-CaOUkaTp.js",
+			"/assets/github-BUxBaB7u.js",
+			"/assets/map-pin-Bct-b2eO.js",
+			"/assets/Footer-CYiS6iFF.js"
 		]
 	},
 	"/portfolio": {
 		filePath: "C:/Users/vuxua/Documents/Github_Projekte/vuxuantiep.de/src/routes/portfolio.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/portfolio-qMPzwtq6.js",
-			"/assets/Footer-BsDcwtpL.js",
-			"/assets/AnimatePresence-AEN8jbfJ.js"
+			"/assets/portfolio-BL5sun4F.js",
+			"/assets/Footer-CYiS6iFF.js",
+			"/assets/AnimatePresence-TTXqzhot.js"
 		]
 	}
 } });

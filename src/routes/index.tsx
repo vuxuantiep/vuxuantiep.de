@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUp, Cloud, Cpu, Code2, Sparkles, Github, CheckCircle2, Bot, Shield, Terminal, MessageSquare, X } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
+import { ScrollDots, useScrollDotSections } from "@/components/site/ScrollDots";
 import { Footer } from "@/components/site/Footer";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -24,6 +25,7 @@ interface NewsItem {
 
 function Home() {
   const { t, lang } = useLang();
+  const dotSections = useScrollDotSections();
 
   const smallProjects = [
     {
@@ -172,9 +174,10 @@ function Home() {
   return (
     <div className="min-h-screen">
       <Nav />
+      <ScrollDots sections={dotSections} />
 
       {/* Hero */}
-      <section className="relative mx-auto max-w-6xl px-6 pt-20 pb-24">
+      <section id="start" className="relative mx-auto max-w-6xl px-6 pt-20 pb-24">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/80 to-background" />
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center relative z-10">
@@ -217,39 +220,6 @@ function Home() {
         </div>
       </section>
 
-      {/* News Marquee */}
-      <section className="mx-auto max-w-5xl px-6 relative z-20 -mt-6 mb-16">
-        <motion.div 
-          className="overflow-hidden rounded-xl border border-border/50 bg-[#0a0a0a]/80 backdrop-blur-md shadow-2xl py-3 relative flex items-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className="absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none" />
-          <div className="flex whitespace-nowrap animate-marquee items-center" style={{ animationDuration: "50s" }}>
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="flex px-4 items-center text-sm font-mono tracking-tight text-muted-foreground">
-                {news.length > 0 ? news.map((item, j) => (
-                  <div key={j} className="flex items-center">
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer group flex items-center gap-2">
-                      <span className="text-green-500/80 text-xs">▲</span>
-                      <span className="text-foreground/90 font-medium group-hover:text-green-400 transition-colors">{item.title}</span>
-                    </a>
-                    <span className="mx-8 text-border/50">|</span>
-                  </div>
-                )) : (
-                  <div className="flex items-center">
-                    <span className="text-primary/70 animate-pulse">{t("Lade Live-Feed...", "Loading Live-Feed...", "Đang tải dữ liệu...")}</span>
-                    <span className="mx-8 text-border/50">|</span>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
       {/* Services */}
       <section id="leistungen" className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex items-end justify-between gap-6 mb-12">
@@ -289,7 +259,7 @@ function Home() {
       </section>
 
       {/* Tech Stack - Improved Version */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section id="tech" className="mx-auto max-w-6xl px-6 py-20">
         <div className="rounded-2xl border border-border bg-surface/30 p-8 md:p-12">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.5fr]">
             {/* Left side text */}
@@ -720,6 +690,40 @@ function Home() {
           <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-md bg-[#4ADE80] px-6 py-3 text-sm font-medium text-black hover:bg-[#4ADE80]/90 transition-colors">
             {t("Termin anfragen", "Request a meeting", "Đặt lịch hẹn")} <ArrowRight className="h-4 w-4" />
           </Link>
+        </motion.div>
+      </section>
+
+      {/* News Marquee */}
+      <section className="mx-auto max-w-5xl px-6 relative z-20 -mt-12 mb-16">
+        <motion.div
+          className="overflow-hidden rounded-xl border border-border/50 bg-[#0a0a0a]/80 backdrop-blur-md shadow-2xl py-3 relative flex items-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none" />
+          <div className="flex whitespace-nowrap animate-marquee items-center" style={{ animationDuration: "50s" }}>
+            {[...Array(2)].map((_, i) => (
+              <div key={i} className="flex px-4 items-center text-sm font-mono tracking-tight text-muted-foreground">
+                {news.length > 0 ? news.map((item, j) => (
+                  <div key={j} className="flex items-center">
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer group flex items-center gap-2">
+                      <span className="text-green-500/80 text-xs">▲</span>
+                      <span className="text-foreground/90 font-medium group-hover:text-green-400 transition-colors">{item.title}</span>
+                    </a>
+                    <span className="mx-8 text-border/50">|</span>
+                  </div>
+                )) : (
+                  <div className="flex items-center">
+                    <span className="text-primary/70 animate-pulse">{t("Lade Live-Feed...", "Loading Live-Feed...", "Đang tải dữ liệu...")}</span>
+                    <span className="mx-8 text-border/50">|</span>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </motion.div>
       </section>
 

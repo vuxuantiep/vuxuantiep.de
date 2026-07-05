@@ -4,12 +4,106 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { C as ArrowUp, S as Bot, T as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, y as Cloud } from "../_libs/lucide-react.mjs";
+import { C as Bot, E as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, w as ArrowUp, x as ChevronDown, y as Cloud } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-BZUs5QGP.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-DapK_VDX.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
+function ScrollDots({ sections }) {
+	const [active, setActive] = (0, import_react.useState)(0);
+	const [atTop, setAtTop] = (0, import_react.useState)(true);
+	(0, import_react.useEffect)(() => {
+		const onScroll = () => {
+			setAtTop(window.scrollY < 80);
+			const mid = window.innerHeight / 2;
+			let current = 0;
+			sections.forEach((s, i) => {
+				const el = document.getElementById(s.id);
+				if (el && el.getBoundingClientRect().top <= mid) current = i;
+			});
+			setActive(current);
+		};
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, [sections]);
+	const scrollTo = (id) => {
+		document.getElementById(id)?.scrollIntoView({
+			behavior: "smooth",
+			block: "start"
+		});
+	};
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("nav", {
+		"aria-label": "Seitenbereiche",
+		className: "fixed right-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-3 md:flex",
+		children: sections.map((s, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
+			type: "button",
+			onClick: () => scrollTo(s.id),
+			"aria-label": s.label,
+			title: s.label,
+			className: "group relative flex h-4 w-4 items-center justify-center",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: `rounded-full transition-all duration-300 ${i === active ? "h-3 w-3 bg-primary shadow-[0_0_10px_rgba(74,222,128,0.7)]" : "h-1.5 w-1.5 bg-muted-foreground/40 group-hover:h-2.5 group-hover:w-2.5 group-hover:bg-primary/70"}` }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+				className: "pointer-events-none absolute right-6 whitespace-nowrap rounded-md border border-border bg-surface px-2 py-1 text-[11px] text-foreground opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100",
+				children: s.label
+			})]
+		}, s.id))
+	}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.button, {
+		type: "button",
+		onClick: () => sections[1] && scrollTo(sections[1].id),
+		"aria-label": "Nach unten scrollen",
+		initial: { opacity: 0 },
+		animate: {
+			opacity: atTop ? 1 : 0,
+			pointerEvents: atTop ? "auto" : "none"
+		},
+		transition: { duration: .4 },
+		className: "fixed bottom-5 left-1/2 z-40 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.span, {
+			animate: { y: [
+				0,
+				6,
+				0
+			] },
+			transition: {
+				repeat: Infinity,
+				duration: 1.8,
+				ease: "easeInOut"
+			},
+			className: "flex flex-col items-center gap-0.5",
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-1 w-1 rounded-full bg-current opacity-40" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "h-1 w-1 rounded-full bg-current opacity-70" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChevronDown, { className: "h-4 w-4" })
+			]
+		})
+	})] });
+}
+function useScrollDotSections() {
+	const { t } = useLang();
+	return [
+		{
+			id: "start",
+			label: t("Start", "Home", "Trang chủ")
+		},
+		{
+			id: "leistungen",
+			label: t("Leistungen", "Services", "Dịch vụ")
+		},
+		{
+			id: "tech",
+			label: t("Tech-Stack", "Tech stack", "Công nghệ")
+		},
+		{
+			id: "projekte",
+			label: t("Projekte", "Projects", "Dự án")
+		},
+		{
+			id: "kontakt",
+			label: t("Kontakt", "Contact", "Liên hệ")
+		}
+	];
+}
 var FILE_PATH = "packages/factory/src/evolution.ts";
 var LANGUAGE = "TypeScript";
 var MEDIA = [
@@ -342,6 +436,7 @@ function ProductCodeSlideshow() {
 }
 function Home() {
 	const { t, lang } = useLang();
+	const dotSections = useScrollDotSections();
 	const smallProjects = [
 		{
 			tag: t("KI-Automatisierung", "AI Automation", "Tự động hóa AI"),
@@ -464,7 +559,9 @@ function Home() {
 		className: "min-h-screen",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Nav, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScrollDots, { sections: dotSections }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
+				id: "start",
 				className: "relative mx-auto max-w-6xl px-6 pt-20 pb-24",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-0 -z-10 bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" }),
@@ -553,63 +650,6 @@ function Home() {
 						] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCodeSlideshow, {})]
 					})
 				]
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
-				className: "mx-auto max-w-5xl px-6 relative z-20 -mt-6 mb-16",
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
-					className: "overflow-hidden rounded-xl border border-border/50 bg-[#0a0a0a]/80 backdrop-blur-md shadow-2xl py-3 relative flex items-center",
-					initial: {
-						opacity: 0,
-						y: 20
-					},
-					animate: {
-						opacity: 1,
-						y: 0
-					},
-					transition: {
-						duration: .6,
-						delay: .2
-					},
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-							className: "flex whitespace-nowrap animate-marquee items-center",
-							style: { animationDuration: "50s" },
-							children: [...Array(2)].map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "flex px-4 items-center text-sm font-mono tracking-tight text-muted-foreground",
-								children: news.length > 0 ? news.map((item, j) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-										href: item.url,
-										target: "_blank",
-										rel: "noopener noreferrer",
-										className: "hover:text-primary transition-colors cursor-pointer group flex items-center gap-2",
-										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-green-500/80 text-xs",
-											children: "▲"
-										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-											className: "text-foreground/90 font-medium group-hover:text-green-400 transition-colors",
-											children: item.title
-										})]
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "mx-8 text-border/50",
-										children: "|"
-									})]
-								}, j)) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-									className: "flex items-center",
-									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "text-primary/70 animate-pulse",
-										children: t("Lade Live-Feed...", "Loading Live-Feed...", "Đang tải dữ liệu...")
-									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-										className: "mx-8 text-border/50",
-										children: "|"
-									})]
-								})
-							}, i))
-						})
-					]
-				})
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
 				id: "leistungen",
@@ -709,6 +749,7 @@ function Home() {
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+				id: "tech",
 				className: "mx-auto max-w-6xl px-6 py-20",
 				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "rounded-2xl border border-border bg-surface/30 p-8 md:p-12",
@@ -1495,6 +1536,64 @@ function Home() {
 								" ",
 								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-4 w-4" })
 							]
+						})
+					]
+				})
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", {
+				className: "mx-auto max-w-5xl px-6 relative z-20 -mt-12 mb-16",
+				children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+					className: "overflow-hidden rounded-xl border border-border/50 bg-[#0a0a0a]/80 backdrop-blur-md shadow-2xl py-3 relative flex items-center",
+					initial: {
+						opacity: 0,
+						y: 20
+					},
+					whileInView: {
+						opacity: 1,
+						y: 0
+					},
+					viewport: {
+						once: true,
+						margin: "-50px"
+					},
+					transition: { duration: .6 },
+					children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent pointer-events-none" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent pointer-events-none" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+							className: "flex whitespace-nowrap animate-marquee items-center",
+							style: { animationDuration: "50s" },
+							children: [...Array(2)].map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "flex px-4 items-center text-sm font-mono tracking-tight text-muted-foreground",
+								children: news.length > 0 ? news.map((item, j) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+										href: item.url,
+										target: "_blank",
+										rel: "noopener noreferrer",
+										className: "hover:text-primary transition-colors cursor-pointer group flex items-center gap-2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-green-500/80 text-xs",
+											children: "▲"
+										}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+											className: "text-foreground/90 font-medium group-hover:text-green-400 transition-colors",
+											children: item.title
+										})]
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mx-8 text-border/50",
+										children: "|"
+									})]
+								}, j)) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+									className: "flex items-center",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "text-primary/70 animate-pulse",
+										children: t("Lade Live-Feed...", "Loading Live-Feed...", "Đang tải dữ liệu...")
+									}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+										className: "mx-8 text-border/50",
+										children: "|"
+									})]
+								})
+							}, i))
 						})
 					]
 				})

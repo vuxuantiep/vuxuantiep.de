@@ -6,10 +6,10 @@ import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter,
 import { o as ShieldCheck, t as X } from "../_libs/lucide-react.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DZmBrTOJ.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-DM3rX9yH.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-DQpiKicS.css";
+var styles_default = "/assets/styles-D4KmBY7H.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -260,7 +260,7 @@ var Route$1 = createFileRoute("/blog")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./routes-BZUs5QGP.mjs");
+var $$splitComponentImporter = () => import("./routes-DapK_VDX.mjs");
 var Route = createFileRoute("/")({
 	head: () => ({ meta: [{ title: "vuxuantiep.de — IT Freelancer für Cloud, KI & Web" }, {
 		name: "description",
