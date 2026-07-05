@@ -134,16 +134,12 @@ export function ProductCodeSlideshow() {
   const isTyping = typedChars < totalChars;
 
   if (!mounted) {
-    return (
-      <div className="relative rounded-xl border border-zinc-800 bg-[#0d0d0f] overflow-hidden shadow-2xl h-[420px]" />
-    );
+    return <div className="relative h-[420px]" />;
   }
 
   return (
-    <div className="relative rounded-xl border border-zinc-800 bg-[#0d0d0f] overflow-hidden shadow-2xl">
-      <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-cyan-500/10 blur-2xl" />
-
-      <div className="flex items-center gap-2 border-b border-zinc-800/80 bg-[#111114] px-4 py-3">
+    <div className="relative">
+      <div className="flex items-center gap-2 px-4 py-3">
         <div className="flex gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
@@ -180,7 +176,7 @@ export function ProductCodeSlideshow() {
                 <span className="text-zinc-100 font-medium">{currentPhase.title}:</span>{' '}
                 {currentPhase.description}
               </div>
-              <div className="rounded-lg border border-zinc-800 bg-[#0a0a0c] p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden">
+              <div className="p-3 font-mono text-[12px] leading-relaxed text-zinc-300 h-[190px] overflow-hidden">
                 <pre className="whitespace-pre-wrap break-words">
                   {displayed}
                   {isTyping && (

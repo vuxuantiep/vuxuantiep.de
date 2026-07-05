@@ -21,7 +21,10 @@ export function Footer() {
           <Link to="/impressum" className="hover:text-foreground transition-colors">
             {t("Impressum", "Imprint", "Thông tin pháp lý")}
           </Link>{" "}
-          · {t("Datenschutz", "Privacy", "Bảo mật")}
+          ·{" "}
+          <Link to="/datenschutz" className="hover:text-foreground transition-colors">
+            {t("Datenschutz", "Privacy", "Bảo mật")}
+          </Link>
         </div>
       </div>
     </footer>
