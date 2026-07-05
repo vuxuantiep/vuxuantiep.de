@@ -4,10 +4,10 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { d as Github, g as ChevronRight, h as Cloud, i as Shield, m as CodeXml, n as Terminal, p as Cpu, r as Sparkles, t as X, v as Bot, x as ArrowRight, y as ArrowUp } from "../_libs/lucide-react.mjs";
+import { S as ArrowRight, _ as ChevronRight, b as ArrowUp, f as Github, g as Cloud, h as CodeXml, i as Shield, m as Cpu, n as Terminal, o as RotateCcw, r as Sparkles, t as X, y as Bot } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CEP0_g4G.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-C2NoJhhY.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
@@ -117,14 +117,25 @@ function ProductCodeSlideshow() {
 	const [currentPhaseIndex, setCurrentPhaseIndex] = (0, import_react.useState)(0);
 	const [typedChars, setTypedChars] = (0, import_react.useState)(0);
 	const [mediaIndex, setMediaIndex] = (0, import_react.useState)(0);
+	const [runId, setRunId] = (0, import_react.useState)(0);
 	(0, import_react.useEffect)(() => {
 		setMounted(true);
 	}, []);
+	const replay = () => {
+		setCurrentPhaseIndex(0);
+		setTypedChars(0);
+		setMediaIndex(0);
+		setRunId((r) => r + 1);
+	};
 	(0, import_react.useEffect)(() => {
 		if (!mounted || mediaIndex + 1 >= MEDIA.length) return;
 		const timer = setTimeout(() => setMediaIndex(mediaIndex + 1), MEDIA_HOLD_MS);
 		return () => clearTimeout(timer);
-	}, [mounted, mediaIndex]);
+	}, [
+		mounted,
+		mediaIndex,
+		runId
+	]);
 	(0, import_react.useEffect)(() => {
 		if (!mounted) return;
 		const isLastPhase = currentPhaseIndex + 1 >= PHASES.length;
@@ -141,7 +152,11 @@ function ProductCodeSlideshow() {
 		};
 		timer = setTimeout(typeNext, CHAR_DELAY_MS);
 		return () => clearTimeout(timer);
-	}, [mounted, currentPhaseIndex]);
+	}, [
+		mounted,
+		currentPhaseIndex,
+		runId
+	]);
 	const currentPhase = PHASES[currentPhaseIndex] ?? PHASES[0];
 	const currentMedia = MEDIA[mediaIndex] ?? MEDIA[0];
 	const totalChars = currentPhase.codeLines.reduce((sum, line) => sum + line.length, 0);
@@ -170,6 +185,14 @@ function ProductCodeSlideshow() {
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 						className: "ml-auto shrink-0 text-[11px] rounded-full border border-zinc-800 bg-zinc-900/60 px-2 py-0.5 text-zinc-400",
 						children: LANGUAGE
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
+						type: "button",
+						onClick: replay,
+						"aria-label": t("Nochmal abspielen", "Replay", "Phát lại"),
+						title: t("Nochmal abspielen", "Replay", "Phát lại"),
+						className: "shrink-0 rounded-md p-1 text-zinc-500 transition-colors hover:bg-zinc-800/70 hover:text-emerald-300",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotateCcw, { className: "h-3.5 w-3.5" })
 					})
 				]
 			}),

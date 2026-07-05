@@ -462,6 +462,19 @@ var Menu = createLucideIcon("menu", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var RotateCcw = createLucideIcon("rotate-ccw", [["path", {
+	d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8",
+	key: "1357e3"
+}], ["path", {
+	d: "M3 3v5h5",
+	key: "1xhq8a"
+}]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var Search = createLucideIcon("search", [["path", {
 	d: "m21 21-4.34-4.34",
 	key: "14j7rj"
@@ -534,4 +547,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { Calendar as _, Search as a, ArrowUpRight as b, Mail as c, Github as d, ExternalLink as f, ChevronRight as g, Cloud as h, Shield as i, Linkedin as l, CodeXml as m, Terminal as n, Menu as o, Cpu as p, Sparkles as r, MapPin as s, X as t, Globe as u, Bot as v, ArrowRight as x, ArrowUp as y };
+export { ArrowRight as S, ChevronRight as _, Search as a, ArrowUp as b, MapPin as c, Globe as d, Github as f, Cloud as g, CodeXml as h, Shield as i, Mail as l, Cpu as m, Terminal as n, RotateCcw as o, ExternalLink as p, Sparkles as r, Menu as s, X as t, Linkedin as u, Calendar as v, ArrowUpRight as x, Bot as y };

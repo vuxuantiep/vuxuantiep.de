@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, RotateCcw } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 import { useState, useEffect } from 'react';
 
@@ -77,17 +77,25 @@ export function ProductCodeSlideshow() {
   const [currentPhaseIndex, setCurrentPhaseIndex] = useState(0);
   const [typedChars, setTypedChars] = useState(0);
   const [mediaIndex, setMediaIndex] = useState(0);
+  const [runId, setRunId] = useState(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Medien laufen die Nummerierung 0–5 genau einmal durch und bleiben beim letzten stehen.
+  const replay = () => {
+    setCurrentPhaseIndex(0);
+    setTypedChars(0);
+    setMediaIndex(0);
+    setRunId((r) => r + 1);
+  };
+
+  // Medien laufen die Nummerierung genau einmal durch und bleiben beim letzten stehen.
   useEffect(() => {
     if (!mounted || mediaIndex + 1 >= MEDIA.length) return;
     const timer = setTimeout(() => setMediaIndex(mediaIndex + 1), MEDIA_HOLD_MS);
     return () => clearTimeout(timer);
-  }, [mounted, mediaIndex]);
+  }, [mounted, mediaIndex, runId]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -117,7 +125,7 @@ export function ProductCodeSlideshow() {
 
     timer = setTimeout(typeNext, CHAR_DELAY_MS);
     return () => clearTimeout(timer);
-  }, [mounted, currentPhaseIndex]);
+  }, [mounted, currentPhaseIndex, runId]);
 
   const currentPhase = PHASES[currentPhaseIndex] ?? PHASES[0];
   const currentMedia = MEDIA[mediaIndex] ?? MEDIA[0];
@@ -143,6 +151,15 @@ export function ProductCodeSlideshow() {
         </div>
         <span className="ml-3 text-[11px] text-zinc-500 font-mono truncate">{FILE_PATH}</span>
         <span className="ml-auto shrink-0 text-[11px] rounded-full border border-zinc-800 bg-zinc-900/60 px-2 py-0.5 text-zinc-400">{LANGUAGE}</span>
+        <button
+          type="button"
+          onClick={replay}
+          aria-label={t('Nochmal abspielen', 'Replay', 'Phát lại')}
+          title={t('Nochmal abspielen', 'Replay', 'Phát lại')}
+          className="shrink-0 rounded-md p-1 text-zinc-500 transition-colors hover:bg-zinc-800/70 hover:text-emerald-300"
+        >
+          <RotateCcw className="h-3.5 w-3.5" />
+        </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
