@@ -30,6 +30,7 @@ function Kontakt() {
     t("KI-Integration / LLM", "AI Integration / LLM", "Tích hợp AI / LLM"),
     t("Web-App / Frontend", "Web App / Frontend", "Web App / Frontend"),
     t("Beratung / Audit", "Consulting / Audit", "Tư vấn / Kiểm định"),
+    t("Sonstige Anfrage / andere Fragen", "Other request / other questions", "Yêu cầu khác / câu hỏi khác"),
   ];
 
   return (

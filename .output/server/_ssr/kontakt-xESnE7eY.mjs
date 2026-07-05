@@ -2,7 +2,7 @@ import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { c as MapPin, f as Github, l as Mail, u as Linkedin, v as Calendar } from "../_libs/lucide-react.mjs";
 import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/kontakt-DaQS3R4L.js
+//#region node_modules/.nitro/vite/services/ssr/assets/kontakt-xESnE7eY.js
 var import_jsx_runtime = require_jsx_runtime();
 function Kontakt() {
 	const { t } = useLang();
@@ -41,7 +41,8 @@ function Kontakt() {
 		t("Cloud-Architektur", "Cloud Architecture", "Kiến trúc đám mây"),
 		t("KI-Integration / LLM", "AI Integration / LLM", "Tích hợp AI / LLM"),
 		t("Web-App / Frontend", "Web App / Frontend", "Web App / Frontend"),
-		t("Beratung / Audit", "Consulting / Audit", "Tư vấn / Kiểm định")
+		t("Beratung / Audit", "Consulting / Audit", "Tư vấn / Kiểm định"),
+		t("Sonstige Anfrage / andere Fragen", "Other request / other questions", "Yêu cầu khác / câu hỏi khác")
 	];
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "min-h-screen",
