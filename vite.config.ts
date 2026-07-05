@@ -12,4 +12,12 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    build: {
+      rollupOptions: {
+        // Cloudflare-Runtime-Module werden erst im Worker aufgelöst.
+        external: [/^cloudflare:/],
+      },
+    },
+  },
 });

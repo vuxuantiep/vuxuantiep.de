@@ -3,13 +3,13 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang, t as LangProvider } from "./LangContext-DlHRSoPA.mjs";
 import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
-import { o as ShieldCheck, t as X } from "../_libs/lucide-react.mjs";
+import { s as ShieldCheck, t as X } from "../_libs/lucide-react.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-CUKEGJjE.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-ChlhScYM.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-LOtpavGY.css";
+var styles_default = "/assets/styles-BzlKYoqW.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -214,7 +214,7 @@ var Route$5 = createFileRoute("/portfolio")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-var $$splitComponentImporter$4 = () => import("./kontakt-iDOUOiKG.mjs");
+var $$splitComponentImporter$4 = () => import("./kontakt-DIVmnxQz.mjs");
 var Route$4 = createFileRoute("/kontakt")({
 	head: () => ({ meta: [{ title: "Kontakt — vuxuantiep.de" }, {
 		name: "description",

@@ -1,6 +1,6 @@
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
-import { d as MapPin, f as Mail, l as Phone, n as User } from "../_libs/lucide-react.mjs";
+import { f as MapPin, n as User, p as Mail, u as Phone } from "../_libs/lucide-react.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/impressum-C3Ly_b60.js
 var import_jsx_runtime = require_jsx_runtime();

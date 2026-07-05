@@ -4,7 +4,7 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { C as ArrowUp, S as Bot, T as ArrowRight, _ as Cpu, a as Shield, b as ChevronRight, c as RotateCcw, h as Github, i as Sparkles, r as Terminal, t as X, v as CodeXml, y as Cloud } from "../_libs/lucide-react.mjs";
+import { C as ChevronRight, E as ArrowUp, O as ArrowRight, T as Bot, _ as Github, a as Sparkles, b as CodeXml, i as Terminal, l as RotateCcw, o as Shield, t as X, x as Cloud, y as Cpu } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/routes-Bpgbh9dK.js
