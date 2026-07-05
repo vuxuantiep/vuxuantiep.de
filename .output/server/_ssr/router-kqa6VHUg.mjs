@@ -5,7 +5,7 @@ import { t as LangProvider } from "./LangContext-DlHRSoPA.mjs";
 import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-MLoHdTM1.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-kqa6VHUg.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-BLokiefm.css";
@@ -82,7 +82,7 @@ function ErrorComponent({ error, reset }) {
 		})
 	});
 }
-var Route$4 = createRootRouteWithContext()({
+var Route$5 = createRootRouteWithContext()({
 	head: () => ({
 		meta: [
 			{ charSet: "utf-8" },
@@ -160,29 +160,44 @@ function RootShell({ children }) {
 	});
 }
 function RootComponent() {
-	const { queryClient } = Route$4.useRouteContext();
+	const { queryClient } = Route$5.useRouteContext();
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(QueryClientProvider, {
 		client: queryClient,
 		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LangProvider, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Outlet, {}) })
 	});
 }
-var $$splitComponentImporter$3 = () => import("./portfolio-BBrNYgKi.mjs");
-var Route$3 = createFileRoute("/portfolio")({
+var $$splitComponentImporter$4 = () => import("./portfolio-DEodEx8O.mjs");
+var Route$4 = createFileRoute("/portfolio")({
 	head: () => ({ meta: [{ title: "Portfolio — vuxuantiep.de" }, {
 		name: "description",
 		content: "Ausgewählte Freelance-Projekte: Cloud-Plattformen, KI-Produkte und Web-Apps."
 	}] }),
-	component: lazyRouteComponent($$splitComponentImporter$3, "component")
+	component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-var $$splitComponentImporter$2 = () => import("./kontakt-xESnE7eY.mjs");
-var Route$2 = createFileRoute("/kontakt")({
+var $$splitComponentImporter$3 = () => import("./kontakt-DjPAKCO9.mjs");
+var Route$3 = createFileRoute("/kontakt")({
 	head: () => ({ meta: [{ title: "Kontakt — vuxuantiep.de" }, {
 		name: "description",
 		content: "Projekt anfragen, Erstgespräch buchen oder einfach Hallo sagen."
 	}] }),
+	component: lazyRouteComponent($$splitComponentImporter$3, "component")
+});
+var $$splitComponentImporter$2 = () => import("./impressum-B3W6F6XC.mjs");
+var Route$2 = createFileRoute("/impressum")({
+	head: () => ({ meta: [
+		{ title: "Impressum — vuxuantiep.de" },
+		{
+			name: "description",
+			content: "Impressum und Anbieterkennzeichnung von vuxuantiep.de."
+		},
+		{
+			name: "robots",
+			content: "noindex"
+		}
+	] }),
 	component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-var $$splitComponentImporter$1 = () => import("./blog-x9o1G6Nt.mjs");
+var $$splitComponentImporter$1 = () => import("./blog-B2U1fH8h.mjs");
 var Route$1 = createFileRoute("/blog")({
 	head: () => ({ meta: [{ title: "Blog — KI & neue Technologien · vuxuantiep.de" }, {
 		name: "description",
@@ -190,7 +205,7 @@ var Route$1 = createFileRoute("/blog")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./routes-DY1cHVjr.mjs");
+var $$splitComponentImporter = () => import("./routes-UiUrrhlY.mjs");
 var Route = createFileRoute("/")({
 	head: () => ({ meta: [{ title: "vuxuantiep.de — IT Freelancer für Cloud, KI & Web" }, {
 		name: "description",
@@ -198,32 +213,38 @@ var Route = createFileRoute("/")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter, "component")
 });
-var PortfolioRoute = Route$3.update({
+var PortfolioRoute = Route$4.update({
 	id: "/portfolio",
 	path: "/portfolio",
-	getParentRoute: () => Route$4
+	getParentRoute: () => Route$5
 });
-var KontaktRoute = Route$2.update({
+var KontaktRoute = Route$3.update({
 	id: "/kontakt",
 	path: "/kontakt",
-	getParentRoute: () => Route$4
+	getParentRoute: () => Route$5
+});
+var ImpressumRoute = Route$2.update({
+	id: "/impressum",
+	path: "/impressum",
+	getParentRoute: () => Route$5
 });
 var BlogRoute = Route$1.update({
 	id: "/blog",
 	path: "/blog",
-	getParentRoute: () => Route$4
+	getParentRoute: () => Route$5
 });
 var rootRouteChildren = {
 	IndexRoute: Route.update({
 		id: "/",
 		path: "/",
-		getParentRoute: () => Route$4
+		getParentRoute: () => Route$5
 	}),
 	BlogRoute,
+	ImpressumRoute,
 	KontaktRoute,
 	PortfolioRoute
 };
-var routeTree = Route$4._addFileChildren(rootRouteChildren)._addFileTypes();
+var routeTree = Route$5._addFileChildren(rootRouteChildren)._addFileTypes();
 var getRouter = () => {
 	return createRouter({
 		routeTree,

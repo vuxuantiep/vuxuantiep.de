@@ -462,6 +462,16 @@ var Menu = createLucideIcon("menu", [
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var Phone = createLucideIcon("phone", [["path", {
+	d: "M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384",
+	key: "9njp5v"
+}]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var RotateCcw = createLucideIcon("rotate-ccw", [["path", {
 	d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8",
 	key: "1357e3"
@@ -539,6 +549,21 @@ var Terminal = createLucideIcon("terminal", [["path", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
+var User = createLucideIcon("user", [["path", {
+	d: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2",
+	key: "975kel"
+}], ["circle", {
+	cx: "12",
+	cy: "7",
+	r: "4",
+	key: "17ys0d"
+}]]);
+/**
+* @license lucide-react v0.575.0 - ISC
+*
+* This source code is licensed under the ISC license.
+* See the LICENSE file in the root directory of this source tree.
+*/
 var X = createLucideIcon("x", [["path", {
 	d: "M18 6 6 18",
 	key: "1bl5f8"
@@ -547,4 +572,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { ArrowRight as S, ChevronRight as _, Search as a, ArrowUp as b, MapPin as c, Globe as d, Github as f, Cloud as g, CodeXml as h, Shield as i, Mail as l, Cpu as m, Terminal as n, RotateCcw as o, ExternalLink as p, Sparkles as r, Menu as s, X as t, Linkedin as u, Calendar as v, ArrowUpRight as x, Bot as y };
+export { ArrowUpRight as C, ArrowUp as S, CodeXml as _, Shield as a, Calendar as b, Phone as c, Mail as d, Linkedin as f, Cpu as g, ExternalLink as h, Sparkles as i, Menu as l, Github as m, User as n, Search as o, Globe as p, Terminal as r, RotateCcw as s, X as t, MapPin as u, Cloud as v, ArrowRight as w, Bot as x, ChevronRight as y };

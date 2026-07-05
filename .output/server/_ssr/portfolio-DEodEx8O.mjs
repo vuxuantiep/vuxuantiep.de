@@ -4,10 +4,10 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { d as Globe, p as ExternalLink, t as X, x as ArrowUpRight } from "../_libs/lucide-react.mjs";
+import { C as ArrowUpRight, h as ExternalLink, p as Globe, t as X } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
-import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/portfolio-BBrNYgKi.js
+import { n as Nav, t as Footer } from "./Footer-DDL_TWmR.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/portfolio-DEodEx8O.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function Portfolio() {

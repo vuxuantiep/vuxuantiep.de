@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useLang } from "../../contexts/LangContext";
 
 export function Footer() {
@@ -15,7 +16,13 @@ export function Footer() {
           <a href="https://linkedin.com/in/vuxuantiep" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">LinkedIn</a>
           <a href="mailto:tiep@vuxuantiep.de" className="hover:text-foreground">E-Mail</a>
         </div>
-        <div>© {new Date().getFullYear()} · {t("Impressum", "Imprint", "Dấu ấn")} · {t("Datenschutz", "Privacy", "Bảo mật")}</div>
+        <div>
+          © 2026 Vu Xuan Tiep ·{" "}
+          <Link to="/impressum" className="hover:text-foreground transition-colors">
+            {t("Impressum", "Imprint", "Thông tin pháp lý")}
+          </Link>{" "}
+          · {t("Datenschutz", "Privacy", "Bảo mật")}
+        </div>
       </div>
     </footer>
   );
