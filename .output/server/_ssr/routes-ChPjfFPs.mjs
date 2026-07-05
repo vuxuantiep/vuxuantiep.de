@@ -7,7 +7,7 @@ import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
 import { S as ArrowRight, _ as ChevronRight, b as ArrowUp, d as Github, g as CircleCheck, h as Cloud, i as Shield, m as CodeXml, n as Terminal, p as Cpu, r as Sparkles, t as X, y as Bot } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-Biu2FV7c.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-ChPjfFPs.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
@@ -26,8 +26,8 @@ var MEDIA = [
 		src: "/animation/2.mp4"
 	},
 	{
-		type: "image",
-		src: "/animation/3.png"
+		type: "video",
+		src: "/animation/3.mp4"
 	},
 	{
 		type: "video",
@@ -36,6 +36,10 @@ var MEDIA = [
 	{
 		type: "image",
 		src: "/animation/5.png"
+	},
+	{
+		type: "image",
+		src: "/animation/6.png"
 	}
 ];
 var PHASES = [
@@ -263,7 +267,7 @@ function ProductCodeSlideshow() {
 							},
 							className: "flex h-full flex-col",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg border border-zinc-800/60 bg-[#0a0a0c]",
+								className: "flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg",
 								children: currentMedia.type === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
 									src: currentMedia.src,
 									autoPlay: true,

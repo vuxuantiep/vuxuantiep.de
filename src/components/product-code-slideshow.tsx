@@ -19,14 +19,15 @@ interface StoryPhase {
 const FILE_PATH = 'packages/factory/src/evolution.ts';
 const LANGUAGE = 'TypeScript';
 
-// Reihenfolge entspricht der Nummerierung der Dateien in src/animation (0–5).
+// Reihenfolge entspricht der Nummerierung der Dateien in src/animation (0–6).
 const MEDIA: MediaItem[] = [
   { type: 'image', src: '/animation/0.png' },
   { type: 'image', src: '/animation/1.png' },
   { type: 'video', src: '/animation/2.mp4' },
-  { type: 'image', src: '/animation/3.png' },
+  { type: 'video', src: '/animation/3.mp4' },
   { type: 'video', src: '/animation/4.mp4' },
   { type: 'image', src: '/animation/5.png' },
+  { type: 'image', src: '/animation/6.png' },
 ];
 
 const PHASES: StoryPhase[] = [
@@ -200,7 +201,7 @@ export function ProductCodeSlideshow() {
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               className="flex h-full flex-col"
             >
-              <div className="flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg border border-zinc-800/60 bg-[#0a0a0c]">
+              <div className="flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg">
                 {currentMedia.type === 'video' ? (
                   <video
                     src={currentMedia.src}
