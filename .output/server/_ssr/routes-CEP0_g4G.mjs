@@ -4,10 +4,10 @@ import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].
 import { n as require_jsx_runtime } from "../_libs/radix-ui__react-context+react.mjs";
 import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
-import { S as ArrowRight, _ as ChevronRight, b as ArrowUp, d as Github, g as CircleCheck, h as Cloud, i as Shield, m as CodeXml, n as Terminal, p as Cpu, r as Sparkles, t as X, y as Bot } from "../_libs/lucide-react.mjs";
+import { d as Github, g as ChevronRight, h as Cloud, i as Shield, m as CodeXml, n as Terminal, p as Cpu, r as Sparkles, t as X, v as Bot, x as ArrowRight, y as ArrowUp } from "../_libs/lucide-react.mjs";
 import { t as motion } from "../_libs/motion.mjs";
 import { n as Nav, t as Footer } from "./Footer-nJJ7xBAV.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-BLHmyhYQ.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-CEP0_g4G.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var FILE_PATH = "packages/factory/src/evolution.ts";
@@ -176,7 +176,7 @@ function ProductCodeSlideshow() {
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "grid grid-cols-1 lg:grid-cols-2",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-					className: "p-5 overflow-hidden",
+					className: "min-w-0 p-5 overflow-hidden",
 					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
 						mode: "wait",
 						initial: false,
@@ -244,11 +244,11 @@ function ProductCodeSlideshow() {
 						}, currentPhaseIndex)
 					})
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "p-5 overflow-hidden",
+					className: "min-w-0 p-5 overflow-hidden",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(AnimatePresence, {
 						mode: "wait",
 						initial: false,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(motion.div, {
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(motion.div, {
 							initial: {
 								opacity: 0,
 								scale: .98
@@ -266,8 +266,8 @@ function ProductCodeSlideshow() {
 								ease: "easeInOut"
 							},
 							className: "flex flex-col",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-								className: "flex h-[240px] lg:h-[208px] items-center justify-center overflow-hidden rounded-lg",
+							children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+								className: "flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg",
 								children: currentMedia.type === "video" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
 									src: currentMedia.src,
 									autoPlay: true,
@@ -280,25 +280,28 @@ function ProductCodeSlideshow() {
 									alt: "AI-Agenten Fabrik-LEGO",
 									className: "h-full w-full object-contain"
 								})
-							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-								className: "mt-3 flex items-center gap-2 text-[11px] text-zinc-400",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CircleCheck, { className: "h-3.5 w-3.5 text-emerald-400 shrink-0" }), t("Live-Vorschau", "Live Preview", "Xem trước trực tiếp")]
-							})]
+							})
 						}, mediaIndex)
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-						href: "https://ai-os.vuxuantiep.de/",
-						target: "_blank",
-						rel: "noopener noreferrer",
-						className: "mt-3 flex items-center gap-2.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs font-medium text-emerald-300 transition-colors hover:border-emerald-400/60 hover:bg-emerald-500/20",
-						children: [
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-								src: "/animation/6.png",
-								alt: "LEGO Ai-Agent",
-								className: "h-8 w-8 shrink-0 object-contain"
-							}),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "LEGO Ai-Agent" }),
-							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "ml-auto h-3.5 w-3.5 shrink-0" })
-						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mt-3 flex items-center justify-end",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: "https://ai-os.vuxuantiep.de/",
+							target: "_blank",
+							rel: "noopener noreferrer",
+							className: "group flex items-center gap-1.5 whitespace-nowrap text-[11px] font-medium text-emerald-300 transition-colors hover:text-emerald-200",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+									src: "/animation/6.png",
+									alt: "LEGO Ai-Agent",
+									className: "h-6 w-6 shrink-0 object-contain"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "underline decoration-emerald-500/40 underline-offset-4 group-hover:decoration-emerald-300",
+									children: "LEGO Ai-Agent"
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ArrowRight, { className: "h-3 w-3 shrink-0 transition-transform group-hover:translate-x-0.5" })
+							]
+						})
 					})]
 				})]
 			})

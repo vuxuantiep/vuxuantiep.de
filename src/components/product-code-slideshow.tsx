@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
 import { useState, useEffect } from 'react';
 
@@ -146,7 +146,7 @@ export function ProductCodeSlideshow() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="p-5 overflow-hidden">
+        <div className="min-w-0 p-5 overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={currentPhaseIndex}
@@ -191,7 +191,7 @@ export function ProductCodeSlideshow() {
           </AnimatePresence>
         </div>
 
-        <div className="p-5 overflow-hidden">
+        <div className="min-w-0 p-5 overflow-hidden">
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={mediaIndex}
@@ -201,7 +201,7 @@ export function ProductCodeSlideshow() {
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               className="flex flex-col"
             >
-              <div className="flex h-[240px] lg:h-[208px] items-center justify-center overflow-hidden rounded-lg">
+              <div className="flex h-[240px] lg:h-[262px] items-center justify-center overflow-hidden rounded-lg">
                 {currentMedia.type === 'video' ? (
                   <video
                     src={currentMedia.src}
@@ -219,22 +219,20 @@ export function ProductCodeSlideshow() {
                   />
                 )}
               </div>
-              <div className="mt-3 flex items-center gap-2 text-[11px] text-zinc-400">
-                <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
-                {t('Live-Vorschau', 'Live Preview', 'Xem trước trực tiếp')}
-              </div>
             </motion.div>
           </AnimatePresence>
-          <a
-            href="https://ai-os.vuxuantiep.de/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 flex items-center gap-2.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-xs font-medium text-emerald-300 transition-colors hover:border-emerald-400/60 hover:bg-emerald-500/20"
-          >
-            <img src="/animation/6.png" alt="LEGO Ai-Agent" className="h-8 w-8 shrink-0 object-contain" />
-            <span>LEGO Ai-Agent</span>
-            <ArrowRight className="ml-auto h-3.5 w-3.5 shrink-0" />
-          </a>
+          <div className="mt-3 flex items-center justify-end">
+            <a
+              href="https://ai-os.vuxuantiep.de/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-1.5 whitespace-nowrap text-[11px] font-medium text-emerald-300 transition-colors hover:text-emerald-200"
+            >
+              <img src="/animation/6.png" alt="LEGO Ai-Agent" className="h-6 w-6 shrink-0 object-contain" />
+              <span className="underline decoration-emerald-500/40 underline-offset-4 group-hover:decoration-emerald-300">LEGO Ai-Agent</span>
+              <ArrowRight className="h-3 w-3 shrink-0 transition-transform group-hover:translate-x-0.5" />
+            </a>
+          </div>
         </div>
       </div>
     </div>

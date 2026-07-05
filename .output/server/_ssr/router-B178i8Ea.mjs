@@ -5,10 +5,10 @@ import { t as LangProvider } from "./LangContext-DlHRSoPA.mjs";
 import { c as HeadContent, d as Outlet, f as lazyRouteComponent, g as useRouter, h as Link, m as createRootRouteWithContext, p as createFileRoute, s as Scripts, u as createRouter } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { t as QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-CPnRv7Hg.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-B178i8Ea.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-DftWMbTu.css";
+var styles_default = "/assets/styles-CWFYIDPF.css";
 function reportLovableError(error, context = {}) {
 	if (typeof window === "undefined") return;
 	window.__lovableEvents?.captureException?.(error, {
@@ -190,7 +190,7 @@ var Route$1 = createFileRoute("/blog")({
 	}] }),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./routes-BLHmyhYQ.mjs");
+var $$splitComponentImporter = () => import("./routes-CEP0_g4G.mjs");
 var Route = createFileRoute("/")({
 	head: () => ({ meta: [{ title: "vuxuantiep.de — IT Freelancer für Cloud, KI & Web" }, {
 		name: "description",

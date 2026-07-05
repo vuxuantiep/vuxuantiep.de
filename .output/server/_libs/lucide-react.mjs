@@ -228,21 +228,6 @@ var ChevronRight = createLucideIcon("chevron-right", [["path", {
 * This source code is licensed under the ISC license.
 * See the LICENSE file in the root directory of this source tree.
 */
-var CircleCheck = createLucideIcon("circle-check", [["circle", {
-	cx: "12",
-	cy: "12",
-	r: "10",
-	key: "1mglay"
-}], ["path", {
-	d: "m9 12 2 2 4-4",
-	key: "dzmm74"
-}]]);
-/**
-* @license lucide-react v0.575.0 - ISC
-*
-* This source code is licensed under the ISC license.
-* See the LICENSE file in the root directory of this source tree.
-*/
 var Cloud = createLucideIcon("cloud", [["path", {
 	d: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z",
 	key: "p7xjir"
@@ -549,4 +534,4 @@ var X = createLucideIcon("x", [["path", {
 	key: "d8bk6v"
 }]]);
 //#endregion
-export { ArrowRight as S, ChevronRight as _, Search as a, ArrowUp as b, Mail as c, Github as d, ExternalLink as f, CircleCheck as g, Cloud as h, Shield as i, Linkedin as l, CodeXml as m, Terminal as n, Menu as o, Cpu as p, Sparkles as r, MapPin as s, X as t, Globe as u, Calendar as v, ArrowUpRight as x, Bot as y };
+export { Calendar as _, Search as a, ArrowUpRight as b, Mail as c, Github as d, ExternalLink as f, ChevronRight as g, Cloud as h, Shield as i, Linkedin as l, CodeXml as m, Terminal as n, Menu as o, Cpu as p, Sparkles as r, MapPin as s, X as t, Globe as u, Bot as v, ArrowRight as x, ArrowUp as y };
