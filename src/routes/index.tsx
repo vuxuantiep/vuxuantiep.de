@@ -23,6 +23,151 @@ interface NewsItem {
   url: string;
 }
 
+function TechStackTabs() {
+  const { t } = useLang();
+  const [activeTab, setActiveTab] = useState("agentic");
+
+  const yrs = (n: number) =>
+    n === 1 ? t("1 Jahr", "1 year", "1 năm") : t(`${n} Jahre`, `${n} years`, `${n} năm`);
+
+  const categories: { id: string; label: string; tools: { name: string; years: number }[] }[] = [
+    {
+      id: "agentic",
+      label: "Agentic Coding",
+      tools: [
+        { name: "Open Claw", years: 1 },
+        { name: "Codex", years: 1 },
+        { name: "Claude Code", years: 1 },
+        { name: "Cody", years: 1 },
+        { name: "OpenHands", years: 1 },
+        { name: "Hermes", years: 1 },
+        { name: "LangGraph", years: 1 },
+        { name: "Aider", years: 1 },
+        { name: "Cline", years: 1 },
+        { name: "Azad-Code", years: 1 },
+      ],
+    },
+    {
+      id: "ki",
+      label: t("KI & Data", "AI & Data", "AI & Data"),
+      tools: [
+        { name: "Ollama", years: 2 },
+        { name: "n8n", years: 2 },
+        { name: "Node-RED", years: 2 },
+        { name: "Qdrant", years: 1 },
+        { name: "PostgreSQL", years: 3 },
+        { name: "MSSQL", years: 8 },
+        { name: "Oracle DB", years: 3 },
+        { name: "Hindsight", years: 1 },
+        { name: "Obsidian", years: 2 },
+        { name: "Albert AI (Agorum)", years: 1 },
+      ],
+    },
+    {
+      id: "cloud",
+      label: "Cloud & DevOps",
+      tools: [
+        { name: "Azure / Entra ID", years: 2 },
+        { name: "AWS", years: 1 },
+        { name: "Docker", years: 3 },
+        { name: "Docker Swarm / Dokploy", years: 1 },
+        { name: "K3s (Kubernetes)", years: 2 },
+        { name: "Ansible / Semaphore", years: 2 },
+        { name: "Bicep / ARM", years: 1 },
+        { name: "PowerShell", years: 6 },
+        { name: "Windows Server (AD, GPO)", years: 6 },
+        { name: "Hyper-V", years: 6 },
+        { name: "GitHub / Gitea", years: 5 },
+        { name: "Endpoint Manager / SCCM", years: 4 },
+      ],
+    },
+    {
+      id: "backend",
+      label: "Backend",
+      tools: [
+        { name: "C# / .NET", years: 10 },
+        { name: "ASP.NET MVC", years: 8 },
+        { name: "Python", years: 3 },
+        { name: "FastAPI", years: 2 },
+        { name: "VBA", years: 10 },
+        { name: "MCP-Server", years: 1 },
+        { name: "REST API / CLI", years: 5 },
+        { name: "Dolibarr DMS", years: 2 },
+      ],
+    },
+    {
+      id: "frontend",
+      label: "Frontend",
+      tools: [
+        { name: "JavaScript", years: 8 },
+        { name: "jQuery", years: 8 },
+        { name: "HTML & CSS", years: 8 },
+        { name: "React / TanStack", years: 1 },
+      ],
+    },
+    {
+      id: "security",
+      label: "Security",
+      tools: [
+        { name: "Authentik (IAM)", years: 1 },
+        { name: "Azure Entra ID / IAM", years: 2 },
+        { name: "Cloudflare Zero-Trust", years: 2 },
+        { name: "Tailscale", years: 2 },
+        { name: "Traefik", years: 2 },
+        { name: t("GPO & Berechtigungskonzepte", "GPO & permission concepts", "GPO & phân quyền"), years: 6 },
+        { name: "Acronis Backup", years: 3 },
+      ],
+    },
+  ];
+
+  const allTab = {
+    id: "all",
+    label: t("Alle", "All", "Tất cả"),
+    tools: categories.flatMap((c) => c.tools),
+  };
+  const tabs = [categories[0], allTab, ...categories.slice(1)];
+  const activeTools = tabs.find((tab) => tab.id === activeTab)?.tools ?? [];
+
+  return (
+    <div className="bg-background/40 rounded-xl border border-border p-6 overflow-hidden">
+      <div className="flex flex-wrap mb-8 text-xs font-medium border-b border-border">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            onClick={() => setActiveTab(tab.id)}
+            className={
+              tab.id === activeTab
+                ? "-mb-px rounded-t-lg border border-border border-b-background bg-primary/10 px-3 py-2 text-primary"
+                : "rounded-t-lg border border-transparent px-3 py-2 text-muted-foreground hover:bg-surface/50 hover:text-foreground"
+            }
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <motion.div
+        key={activeTab}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm"
+      >
+        {activeTools.map((tool) => (
+          <div key={tool.name} className="flex items-center justify-between py-2 border-b border-border/50">
+            <div className="flex items-center gap-2">
+              <Terminal className="h-3.5 w-3.5 text-primary" />
+              <span>{tool.name}</span>
+            </div>
+            <span className="text-xs text-muted-foreground">{yrs(tool.years)}</span>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 function Home() {
   const { t, lang } = useLang();
   const dotSections = useScrollDotSections();
@@ -296,40 +441,7 @@ function Home() {
             </motion.div>
 
             {/* Right side tools */}
-            <div className="bg-background/40 rounded-xl border border-border p-6 overflow-hidden">
-              <div className="flex flex-wrap gap-2 mb-8 text-xs font-medium border-b border-border pb-4">
-                <button type="button" className="rounded-full bg-primary/10 px-3 py-1.5 text-primary">Agentic Coding</button>
-                <button type="button" className="rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground">{t("Alle", "All", "Tất cả")}</button>
-                <button type="button" className="rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground">{t("KI & Data", "AI & Data", "AI & Data")}</button>
-                <button type="button" className="rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground">Cloud & DevOps</button>
-                <button type="button" className="rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground">Backend</button>
-                <button type="button" className="rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground">Frontend</button>
-                <button type="button" className="rounded-full px-3 py-1.5 text-muted-foreground hover:text-foreground">Security</button>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
-                {[
-                  { name: "Open Claw", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "Codex", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "Claude Code", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "Cody", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "OpenHands", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "Hermes", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "LangGraph", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "Aider", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "Cline", exp: t("1 Jahre", "1 year", "1 năm") },
-                  { name: "Azad-Code", exp: t("1 Jahre", "1 year", "1 năm") }
-                ].map((tool) => (
-                  <div key={tool.name} className="flex items-center justify-between py-2 border-b border-border/50">
-                    <div className="flex items-center gap-2">
-                      <Terminal className="h-3.5 w-3.5 text-primary" />
-                      <span>{tool.name}</span>
-                    </div>
-                    <span className="text-xs text-muted-foreground">{tool.exp}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <TechStackTabs />
           </div>
         </div>
       </section>
@@ -517,7 +629,9 @@ function Home() {
                 onClick={(e) => e.stopPropagation()}
                 className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-border bg-surface p-6 md:p-10 shadow-2xl text-left"
               >
-                <button 
+                <button
+                  type="button"
+                  aria-label={t("Schließen", "Close", "Đóng")}
                   onClick={() => setSelectedProject(null)}
                   className="absolute right-6 top-6 rounded-full p-2 bg-background border border-border text-muted-foreground hover:text-foreground transition-colors"
                 >
