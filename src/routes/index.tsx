@@ -492,6 +492,19 @@ function Home() {
                   <span key={tag} className="rounded text-xs px-2.5 py-1 font-mono bg-primary/10 text-primary">{tag}</span>
                 ))}
               </div>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://trace-ai.vuxuantiep.de/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+                >
+                  {t("Produkt ansehen", "View product", "Xem sản phẩm")} <ArrowRight className="h-4 w-4" />
+                </a>
+                <span className="text-xs text-muted-foreground">
+                  {t("Demo-Version in Vorschau", "Demo version in preview", "Bản demo xem trước")}
+                </span>
+              </div>
             </div>
 
             {/* Diagram Representation */}
