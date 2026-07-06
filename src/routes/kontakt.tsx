@@ -17,7 +17,7 @@ export const Route = createFileRoute("/kontakt")({
 });
 
 function Kontakt() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [projectType, setProjectType] = useState("");
@@ -32,7 +32,7 @@ function Kontakt() {
     setErrorMsg("");
     try {
       await sendContactMessage({
-        data: { name, email, projectType: projectType || "—", message },
+        data: { name, email, projectType: projectType || "—", message, lang },
       });
       setStatus("success");
       setName("");

@@ -5,8 +5,8 @@ import { n as useLang } from "./LangContext-DlHRSoPA.mjs";
 import { S as CircleCheck, _ as Github, f as MapPin, h as Linkedin, m as LoaderCircle, p as Mail, r as TriangleAlert, w as Calendar } from "../_libs/lucide-react.mjs";
 import { n as Nav, t as Footer } from "./Footer-BNr43njz.mjs";
 import { i as TSS_SERVER_FUNCTION, l as createServerFn } from "./esm-Dova13aH.mjs";
-import { t as getServerFnById } from "../__23tanstack-start-server-fn-resolver-COQcMS_m.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/kontakt-CNCo39CR.js
+import { t as getServerFnById } from "../__23tanstack-start-server-fn-resolver-CNUofncy.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/kontakt-CERAQoi1.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var createSsrRpc = (functionId) => {
@@ -26,6 +26,11 @@ var sendContactMessage = createServerFn({ method: "POST" }).inputValidator((data
 	const email = String(data.email ?? "").trim().slice(0, 200);
 	const projectType = String(data.projectType ?? "").trim().slice(0, 200);
 	const message = String(data.message ?? "").trim().slice(0, 5e3);
+	const lang = [
+		"DE",
+		"EN",
+		"VI"
+	].includes(String(data.lang)) ? String(data.lang) : "DE";
 	if (!name) throw new Error("Bitte Namen angeben.");
 	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error("Bitte gültige E-Mail angeben.");
 	if (!message) throw new Error("Bitte eine Nachricht schreiben.");
@@ -33,11 +38,12 @@ var sendContactMessage = createServerFn({ method: "POST" }).inputValidator((data
 		name,
 		email,
 		projectType,
-		message
+		message,
+		lang
 	};
 }).handler(createSsrRpc("c674b0b7792d4633bcc5ea3647131a08a33d340c202834e6fdf7c9a0e6122f78"));
 function Kontakt() {
-	const { t } = useLang();
+	const { t, lang } = useLang();
 	const [name, setName] = (0, import_react.useState)("");
 	const [email, setEmail] = (0, import_react.useState)("");
 	const [projectType, setProjectType] = (0, import_react.useState)("");
@@ -54,7 +60,8 @@ function Kontakt() {
 				name,
 				email,
 				projectType: projectType || "—",
-				message
+				message,
+				lang
 			} });
 			setStatus("success");
 			setName("");
