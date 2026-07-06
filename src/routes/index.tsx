@@ -120,18 +120,12 @@ function TechStackTabs() {
     },
   ];
 
-  const allTab = {
-    id: "all",
-    label: t("Alle", "All", "Tất cả"),
-    tools: categories.flatMap((c) => c.tools),
-  };
-  const tabs = [categories[0], allTab, ...categories.slice(1)];
-  const activeTools = tabs.find((tab) => tab.id === activeTab)?.tools ?? [];
+  const activeTools = categories.find((tab) => tab.id === activeTab)?.tools ?? [];
 
   return (
     <div className="bg-background/40 rounded-xl border border-border p-6 overflow-hidden">
       <div className="flex flex-wrap mb-8 text-xs font-medium border-b border-border">
-        {tabs.map((tab) => (
+        {categories.map((tab) => (
           <button
             key={tab.id}
             type="button"
