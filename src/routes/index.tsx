@@ -65,7 +65,7 @@ function TechStackTabs() {
     },
     {
       id: "cloud",
-      label: "Cloud & DevOps",
+      label: "Cloudcomputing",
       tools: [
         { name: "Azure / Entra ID", years: 2 },
         { name: "AWS", years: 1 },
@@ -124,7 +124,7 @@ function TechStackTabs() {
 
   return (
     <div className="bg-background/40 rounded-xl border border-border p-6 overflow-hidden">
-      <div className="flex flex-wrap mb-8 text-xs font-medium border-b border-border">
+      <div className="flex flex-nowrap overflow-x-auto whitespace-nowrap mb-8 text-xs font-medium border-b border-border">
         {categories.map((tab) => (
           <button
             key={tab.id}
