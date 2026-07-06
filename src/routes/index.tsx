@@ -124,7 +124,7 @@ function TechStackTabs() {
 
   return (
     <div className="bg-background/40 rounded-xl border border-border p-6 overflow-hidden">
-      <div className="flex flex-nowrap overflow-x-auto whitespace-nowrap mb-8 text-xs font-medium border-b border-border">
+      <div className="scrollbar-hidden flex flex-nowrap overflow-x-auto whitespace-nowrap mb-8 text-xs font-medium border-b border-border">
         {categories.map((tab) => (
           <button
             key={tab.id}
