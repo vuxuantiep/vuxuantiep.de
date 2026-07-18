@@ -13,6 +13,7 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
+import { Route as BrokiRouteImport } from './routes/broki'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const DatenschutzRoute = DatenschutzRouteImport.update({
   path: '/datenschutz',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrokiRoute = BrokiRouteImport.update({
+  id: '/broki',
+  path: '/broki',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/broki': typeof BrokiRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/broki': typeof BrokiRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/blog': typeof BlogRoute
+  '/broki': typeof BrokiRoute
   '/datenschutz': typeof DatenschutzRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
@@ -75,13 +84,27 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/blog' | '/datenschutz' | '/impressum' | '/kontakt' | '/portfolio'
+    | '/'
+    | '/blog'
+    | '/broki'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/portfolio'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/blog' | '/datenschutz' | '/impressum' | '/kontakt' | '/portfolio'
+  to:
+    | '/'
+    | '/blog'
+    | '/broki'
+    | '/datenschutz'
+    | '/impressum'
+    | '/kontakt'
+    | '/portfolio'
   id:
     | '__root__'
     | '/'
     | '/blog'
+    | '/broki'
     | '/datenschutz'
     | '/impressum'
     | '/kontakt'
@@ -91,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BlogRoute: typeof BlogRoute
+  BrokiRoute: typeof BrokiRoute
   DatenschutzRoute: typeof DatenschutzRoute
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
@@ -127,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DatenschutzRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/broki': {
+      id: '/broki'
+      path: '/broki'
+      fullPath: '/broki'
+      preLoaderRoute: typeof BrokiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -147,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BlogRoute: BlogRoute,
+  BrokiRoute: BrokiRoute,
   DatenschutzRoute: DatenschutzRoute,
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,

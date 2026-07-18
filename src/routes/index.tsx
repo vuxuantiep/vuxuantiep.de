@@ -6,14 +6,24 @@ import { Footer } from "@/components/site/Footer";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
-import { ProductCodeSlideshow } from "@/components/product-code-slideshow";
+import { BrokiHeroCard } from "@/components/broki-hero-card";
+import { ParticleBackground } from "@/components/site/ParticleBackground";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "vuxuantiep.de — IT Freelancer für Cloud, KI & Web" },
-      { name: "description", content: "Freiberuflicher IT-Engineer. Ich baue performante Cloud-Plattformen, KI-Integrationen und moderne Web-Anwendungen." },
-    ],
+  head: ({ match }) => seoHead({
+    path: "/",
+    search: match.search,
+    title: {
+      de: "vuxuantiep.de — IT Freelancer für Cloud, KI & Web",
+      en: "vuxuantiep.de — IT Freelancer for Cloud, AI & Web",
+      vi: "vuxuantiep.de — Freelancer IT về Cloud, AI & Web",
+    },
+    description: {
+      de: "Freiberuflicher IT-Engineer. Ich baue performante Cloud-Plattformen, KI-Integrationen und moderne Web-Anwendungen.",
+      en: "Freelance IT engineer. I build performant cloud platforms, AI integrations, and modern web applications.",
+      vi: "Kỹ sư IT tự do. Tôi xây dựng nền tảng đám mây hiệu năng cao, tích hợp AI và ứng dụng web hiện đại.",
+    },
   }),
   component: Home,
 });
@@ -23,99 +33,224 @@ interface NewsItem {
   url: string;
 }
 
+interface AiNewsItem extends NewsItem {
+  source: string;
+  publishedAt: string;
+  category: string;
+}
+
+interface AiNewsPayload {
+  updatedAt: string | null;
+  items: AiNewsItem[];
+}
+
+// ── Vertrauens-Daten: hier echte Werte eintragen ─────────────────────────────
+// Quelle der Bewertung (z. B. Google-Unternehmensprofil, ProvenExpert, Kununu).
+// Solange sourceUrl leer ist, wird die Bewertung ohne Link angezeigt.
+const RATING = {
+  value: "4.9/5",
+  count: 32,
+  sourceLabel: "", // z. B. "Google Bewertungen"
+  sourceUrl: "",   // z. B. "https://g.page/r/…"
+};
+
+interface Testimonial {
+  quote: { de: string; en: string; vi: string };
+  name: string;
+  role: string;
+  company: string;
+}
+
+// Testimonials: Einträge befüllen → die Sektion erscheint automatisch auf der
+// Startseite. Leere Liste = Sektion bleibt ausgeblendet. Beispiel-Eintrag:
+// {
+//   quote: {
+//     de: "Zitat auf Deutsch …",
+//     en: "Quote in English …",
+//     vi: "Trích dẫn tiếng Việt …",
+//   },
+//   name: "Vorname Nachname",
+//   role: "CTO",
+//   company: "Firma GmbH",
+// },
+const TESTIMONIALS: Testimonial[] = [];
+
+function AiNewsTabs({ payload }: { payload: AiNewsPayload | null }) {
+  const { t, lang } = useLang();
+  const [activeTab, setActiveTab] = useState("agentic");
+
+  const categories: { id: string; label: string }[] = [
+    { id: "agentic", label: "Agentic AI" },
+    { id: "llm", label: t("LLM & Modelle", "LLMs & Models", "LLM & Mô hình") },
+    { id: "business", label: t("KI in Unternehmen", "AI in Business", "AI trong doanh nghiệp") },
+    { id: "security", label: "Security" },
+    { id: "ecommerce", label: "E-Commerce" },
+  ];
+
+  const locale = lang === "DE" ? "de-DE" : lang === "VI" ? "vi-VN" : "en-US";
+  const formatDate = (iso: string) => {
+    const date = new Date(iso);
+    return Number.isNaN(date.getTime())
+      ? ""
+      : date.toLocaleDateString(locale, { day: "2-digit", month: "2-digit", year: "numeric" });
+  };
+
+  const activeItems = (payload?.items ?? []).filter((item) => item.category === activeTab);
+
+  return (
+    <div className="bg-background/40 rounded-xl border border-border p-6 overflow-hidden">
+      <div className="scrollbar-hidden flex flex-nowrap overflow-x-auto whitespace-nowrap mb-6 text-xs font-medium border-b border-border">
+        {categories.map((tab) => (
+          <button
+            key={tab.id}
+            type="button"
+            onClick={() => setActiveTab(tab.id)}
+            className={
+              tab.id === activeTab
+                ? "-mb-px rounded-t-lg border border-border border-b-background bg-primary/10 px-3 py-2 text-primary"
+                : "rounded-t-lg border border-transparent px-3 py-2 text-muted-foreground hover:bg-surface/50 hover:text-foreground"
+            }
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      <motion.div
+        key={activeTab}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="text-sm"
+      >
+        {payload === null ? (
+          <p className="py-4 text-muted-foreground animate-pulse">{t("Lade Live-Feed...", "Loading Live-Feed...", "Đang tải dữ liệu...")}</p>
+        ) : activeItems.length === 0 ? (
+          <p className="py-4 text-muted-foreground">
+            {t("Aktuell keine Meldungen in dieser Kategorie.", "No current news in this category.", "Hiện chưa có tin trong chuyên mục này.")}
+          </p>
+        ) : (
+          activeItems.map((item) => (
+            <a
+              key={item.url}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-4 py-2.5 border-b border-border/50"
+            >
+              <div className="flex min-w-0 items-center gap-2">
+                <span className="shrink-0 text-xs text-green-500/80">▲</span>
+                <span className="truncate transition-colors group-hover:text-primary">{item.title}</span>
+              </div>
+              <span className="shrink-0 text-xs text-muted-foreground">
+                {item.source} · {formatDate(item.publishedAt)}
+              </span>
+            </a>
+          ))
+        )}
+      </motion.div>
+    </div>
+  );
+}
+
 function TechStackTabs() {
   const { t } = useLang();
   const [activeTab, setActiveTab] = useState("agentic");
 
-  const yrs = (n: number) =>
-    n === 1 ? t("1 Jahr", "1 year", "1 năm") : t(`${n} Jahre`, `${n} years`, `${n} năm`);
+  // Kompetenzlevel: 1 = Vertraut, 2 = Fortgeschritten, 3 = Experte
+  const levelLabel = (level: number) =>
+    level === 3
+      ? t("Experte", "Expert", "Chuyên gia")
+      : level === 2
+        ? t("Fortgeschritten", "Advanced", "Thành thạo")
+        : t("Vertraut", "Familiar", "Quen thuộc");
 
-  const categories: { id: string; label: string; tools: { name: string; years: number }[] }[] = [
+  const categories: { id: string; label: string; tools: { name: string; level: number }[] }[] = [
     {
       id: "agentic",
       label: "Agentic Coding",
       tools: [
-        { name: "Open Claw", years: 1 },
-        { name: "Codex", years: 1 },
-        { name: "Claude Code", years: 1 },
-        { name: "Cody", years: 1 },
-        { name: "OpenHands", years: 1 },
-        { name: "Hermes", years: 1 },
-        { name: "LangGraph", years: 1 },
-        { name: "Aider", years: 1 },
-        { name: "Cline", years: 1 },
-        { name: "Azad-Code", years: 1 },
+        { name: "Open Claw", level: 2 },
+        { name: "Codex", level: 3 },
+        { name: "Claude Code", level: 3 },
+        { name: "Cody", level: 2 },
+        { name: "OpenHands", level: 2 },
+        { name: "Hermes", level: 2 },
+        { name: "LangGraph", level: 2 },
+        { name: "Aider", level: 3 },
+        { name: "Cline", level: 2 },
+        { name: "Azad-Code", level: 2 },
       ],
     },
     {
       id: "ki",
       label: t("KI & Data", "AI & Data", "AI & Data"),
       tools: [
-        { name: "Ollama", years: 2 },
-        { name: "n8n", years: 2 },
-        { name: "Node-RED", years: 2 },
-        { name: "Qdrant", years: 1 },
-        { name: "PostgreSQL", years: 3 },
-        { name: "MSSQL", years: 8 },
-        { name: "Oracle DB", years: 3 },
-        { name: "Hindsight", years: 1 },
-        { name: "Obsidian", years: 2 },
-        { name: "Albert AI (Agorum)", years: 1 },
+        { name: "Ollama", level: 3 },
+        { name: "n8n", level: 3 },
+        { name: "Node-RED", level: 2 },
+        { name: "Qdrant", level: 1 },
+        { name: "PostgreSQL", level: 2 },
+        { name: "MSSQL", level: 3 },
+        { name: "Oracle DB", level: 2 },
+        { name: "Hindsight", level: 1 },
+        { name: "Obsidian", level: 2 },
+        { name: "Albert AI (Agorum)", level: 1 },
       ],
     },
     {
       id: "cloud",
       label: "Cloudcomputing",
       tools: [
-        { name: "Azure / Entra ID", years: 2 },
-        { name: "AWS", years: 1 },
-        { name: "Docker", years: 3 },
-        { name: "Docker Swarm / Dokploy", years: 1 },
-        { name: "K3s (Kubernetes)", years: 2 },
-        { name: "Ansible / Semaphore", years: 2 },
-        { name: "Bicep / ARM", years: 1 },
-        { name: "PowerShell", years: 6 },
-        { name: "Windows Server (AD, GPO)", years: 6 },
-        { name: "Hyper-V", years: 6 },
-        { name: "GitHub / Gitea", years: 5 },
-        { name: "Endpoint Manager / SCCM", years: 4 },
+        { name: "Azure / Entra ID", level: 2 },
+        { name: "AWS", level: 2 },
+        { name: "Docker", level: 2 },
+        { name: "Docker Swarm / Dokploy", level: 2 },
+        { name: "K3s (Kubernetes)", level: 2 },
+        { name: "Ansible / Semaphore", level: 2 },
+        { name: "Bicep / ARM", level: 2 },
+        { name: "PowerShell", level: 3 },
+        { name: "Windows Server (AD, GPO)", level: 3 },
+        { name: "Hyper-V", level: 3 },
+        { name: "GitHub / Gitea", level: 3 },
+        { name: "Endpoint Manager / SCCM", level: 2 },
       ],
     },
     {
       id: "backend",
       label: "Backend",
       tools: [
-        { name: "C# / .NET", years: 10 },
-        { name: "ASP.NET MVC", years: 8 },
-        { name: "Python", years: 3 },
-        { name: "FastAPI", years: 2 },
-        { name: "VBA", years: 10 },
-        { name: "MCP-Server", years: 1 },
-        { name: "REST API / CLI", years: 5 },
-        { name: "Dolibarr DMS", years: 2 },
+        { name: "C# / .NET", level: 3 },
+        { name: "ASP.NET MVC", level: 3 },
+        { name: "Python", level: 2 },
+        { name: "FastAPI", level: 2 },
+        { name: "VBA", level: 3 },
+        { name: "MCP-Server", level: 2 },
+        { name: "REST API / CLI", level: 3 },
+        { name: "Dolibarr DMS", level: 2 },
       ],
     },
     {
       id: "frontend",
       label: "Frontend",
       tools: [
-        { name: "JavaScript", years: 8 },
-        { name: "jQuery", years: 8 },
-        { name: "HTML & CSS", years: 8 },
-        { name: "React / TanStack", years: 1 },
+        { name: "JavaScript", level: 3 },
+        { name: "jQuery", level: 3 },
+        { name: "HTML & CSS", level: 3 },
+        { name: "React / TanStack", level: 2 },
       ],
     },
     {
       id: "security",
       label: "Security",
       tools: [
-        { name: "Authentik (IAM)", years: 1 },
-        { name: "Azure Entra ID / IAM", years: 2 },
-        { name: "Cloudflare Zero-Trust", years: 2 },
-        { name: "Tailscale", years: 2 },
-        { name: "Traefik", years: 2 },
-        { name: t("GPO & Berechtigungskonzepte", "GPO & permission concepts", "GPO & phân quyền"), years: 6 },
-        { name: "Acronis Backup", years: 3 },
+        { name: "Authentik (IAM)", level: 1 },
+        { name: "Azure Entra ID / IAM", level: 2 },
+        { name: "Cloudflare Zero-Trust", level: 2 },
+        { name: "Tailscale", level: 2 },
+        { name: "Traefik", level: 2 },
+        { name: t("GPO & Berechtigungskonzepte", "GPO & permission concepts", "GPO & phân quyền"), level: 3 },
+        { name: "Acronis Backup", level: 2 },
       ],
     },
   ];
@@ -154,7 +289,17 @@ function TechStackTabs() {
               <Terminal className="h-3.5 w-3.5 text-primary" />
               <span>{tool.name}</span>
             </div>
-            <span className="text-xs text-muted-foreground">{yrs(tool.years)}</span>
+            <span className="flex shrink-0 items-center gap-1.5 text-xs text-muted-foreground">
+              <span className="flex gap-1">
+                {[1, 2, 3].map((step) => (
+                  <span
+                    key={step}
+                    className={`h-1.5 w-1.5 rounded-full ${step <= tool.level ? "bg-primary" : "bg-border"}`}
+                  />
+                ))}
+              </span>
+              {levelLabel(tool.level)}
+            </span>
           </div>
         ))}
       </motion.div>
@@ -163,7 +308,7 @@ function TechStackTabs() {
 }
 
 function Home() {
-  const { t, lang } = useLang();
+  const { t } = useLang();
   const dotSections = useScrollDotSections();
 
   const smallProjects = [
@@ -245,7 +390,7 @@ function Home() {
   ];
 
   const [selectedProject, setSelectedProject] = useState<typeof smallProjects[0] | null>(null);
-  const [news, setNews] = useState<NewsItem[]>([]);
+  const [aiNews, setAiNews] = useState<AiNewsPayload | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -261,43 +406,25 @@ function Home() {
   };
 
   useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const query = encodeURIComponent('"AI" OR "LLM" OR "Agentic AI" OR "Security" OR "E-Commerce"');
-        const response = await fetch(`https://hn.algolia.com/api/v1/search_by_date?query=${query}&tags=story&hitsPerPage=15`);
-        const data = await response.json();
-        const items = data.hits.map((hit: any) => ({
-          title: hit.title,
-          url: hit.url || `https://news.ycombinator.com/item?id=${hit.objectID}`
-        })).filter((item: any) => item.title);
-        
-        const customTopics = [
-          { title: t("KI in Unternehmen produktiv einsetzen", "Using AI productively in enterprises", "Ứng dụng AI hiệu quả trong doanh nghiệp"), url: "#" },
-          { title: t("Agentic AI: Autonome Agenten", "Agentic AI: Autonomous agents", "Agentic AI: Các tác nhân tự động"), url: "#" },
-          { title: t("IT & KI Sicherheit", "IT & AI Security", "Bảo mật IT & AI"), url: "#" },
-          { title: t("KI für E-Commerce", "AI for E-Commerce", "AI cho Thương mại điện tử"), url: "#" }
-        ];
-
-        if (items.length > 0) {
-          setNews([...customTopics, ...items.slice(0, 10)]);
-        } else {
-          setNews([
-            ...customTopics,
-            { title: t("OpenAI veröffentlicht neues LLM", "OpenAI releases new LLM", "OpenAI phát hành LLM mới"), url: "#" },
-            { title: t("WebAssembly in Produktion", "WebAssembly in production", "WebAssembly trong sản xuất"), url: "#" }
-          ]);
-        }
-      } catch (e) {
-        setNews([
-          { title: t("KI in Unternehmen produktiv einsetzen", "Using AI productively in enterprises", "Ứng dụng AI hiệu quả trong doanh nghiệp"), url: "#" },
-          { title: t("Agentic AI: Autonome Agenten", "Agentic AI: Autonomous agents", "Agentic AI: Các tác nhân tự động"), url: "#" },
-          { title: t("IT & KI Sicherheit", "IT & AI Security", "Bảo mật IT & AI"), url: "#" },
-          { title: t("KI für E-Commerce", "AI for E-Commerce", "AI cho Thương mại điện tử"), url: "#" }
-        ]);
-      }
+    let cancelled = false;
+    fetch("/api/ai-news")
+      .then((response) => response.json())
+      .then((data: AiNewsPayload) => {
+        if (!cancelled && data.items?.length) setAiNews(data);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
     };
-    fetchNews();
-  }, [lang]);
+  }, []);
+
+  const fallbackTopics: NewsItem[] = [
+    { title: t("KI in Unternehmen produktiv einsetzen", "Using AI productively in enterprises", "Ứng dụng AI hiệu quả trong doanh nghiệp"), url: "#" },
+    { title: t("Agentic AI: Autonome Agenten", "Agentic AI: Autonomous agents", "Agentic AI: Các tác nhân tự động"), url: "#" },
+    { title: t("IT & KI Sicherheit", "IT & AI Security", "Bảo mật IT & AI"), url: "#" },
+    { title: t("KI für E-Commerce", "AI for E-Commerce", "AI cho Thương mại điện tử"), url: "#" },
+  ];
+  const news: NewsItem[] = aiNews?.items?.length ? aiNews.items.slice(0, 14) : fallbackTopics;
 
   useEffect(() => {
     if (selectedProject) {
@@ -327,7 +454,7 @@ function Home() {
             </div>
             <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] md:text-6xl lg:text-7xl">
               {t("Software, die ", "Software that ", "Phần mềm mở rộng ")}<span className="text-primary">{t("skaliert", "scales", "hiệu quả")}</span>.<br />
-              {t("KI, die ", "AI that ", "AI mang lại ")}<span className="text-accent">{t("liefert", "delivers", "kết quả")}</span>.
+              {t("KI, die ", "AI that ", "AI mang lại ")}<span className="text-primary">{t("liefert", "delivers", "kết quả")}</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               {t(
@@ -345,7 +472,22 @@ function Home() {
               </Link>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-muted-foreground">
-              <div className="flex items-center gap-1"><span className="text-yellow-500">★</span> 4.9/5 · 32 {t("Bewertungen", "Reviews", "Đánh giá")}</div>
+              {/* Bewertung: verlinkt auf die Quelle, sobald RATING.sourceUrl gesetzt ist */}
+              {RATING.sourceUrl ? (
+                <a
+                  href={RATING.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  <span className="text-yellow-500">★</span> {RATING.value} · {RATING.count} {t("Bewertungen", "Reviews", "Đánh giá")}
+                  {RATING.sourceLabel ? <span className="text-muted-foreground/70">({RATING.sourceLabel})</span> : null}
+                </a>
+              ) : (
+                <div className="flex items-center gap-1">
+                  <span className="text-yellow-500">★</span> {RATING.value} · {RATING.count} {t("Bewertungen", "Reviews", "Đánh giá")}
+                </div>
+              )}
               <div className="flex items-center gap-1"><Cloud className="h-3 w-3" /> Azure Certified Solution Architect</div>
               <div className="flex items-center gap-1"><Cloud className="h-3 w-3" /> AWS Practitioner</div>
               <div className="flex items-center gap-1"><Terminal className="h-3 w-3" /> MCSA 2016</div>
@@ -354,8 +496,8 @@ function Home() {
             </div>
           </div>
 
-          {/* Product code slideshow */}
-          <ProductCodeSlideshow />
+          {/* Broki-Produktkarte (ersetzt frühere KI-Fabrik-Slideshow) */}
+          <BrokiHeroCard />
         </div>
       </section>
 
@@ -453,9 +595,10 @@ function Home() {
           <h2 className="mt-2 text-3xl md:text-4xl font-semibold">{t("Ausgewählte Arbeiten", "Selected Works", "Dự án tiêu biểu")}</h2>
         </motion.div>
 
-        {/* Featured Project */}
-        <div className="rounded-2xl border border-border bg-surface/30 overflow-hidden mb-6">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 p-8 md:p-12">
+        {/* Featured Project — mit Partikel-Netzwerk im Kartenhintergrund (Mitte per Maske ausgespart) */}
+        <div className="relative rounded-2xl border border-border bg-surface/30 overflow-hidden mb-6">
+          <ParticleBackground />
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 p-8 md:p-12">
             <div>
               <div className="flex flex-wrap gap-2 mb-6">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
@@ -790,6 +933,29 @@ function Home() {
         </div>
       </section>
 
+      {/* Testimonials — erscheint automatisch, sobald TESTIMONIALS befüllt ist */}
+      {TESTIMONIALS.length > 0 && (
+        <section id="stimmen" className="mx-auto max-w-6xl px-6 py-20">
+          <div className="mb-12">
+            <div className="text-xs uppercase tracking-widest text-primary">{t("Kundenstimmen", "Testimonials", "Đánh giá khách hàng")}</div>
+            <h2 className="mt-2 text-3xl md:text-4xl font-semibold">{t("Was Kunden sagen", "What clients say", "Khách hàng nói gì")}</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {TESTIMONIALS.map((item) => (
+              <figure key={item.name} className="rounded-xl border border-border bg-surface/50 p-6">
+                <blockquote className="text-sm text-muted-foreground leading-relaxed">
+                  „{t(item.quote.de, item.quote.en, item.quote.vi)}"
+                </blockquote>
+                <figcaption className="mt-4 text-sm">
+                  <span className="font-medium text-foreground">{item.name}</span>
+                  <span className="block text-xs text-muted-foreground">{item.role} · {item.company}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Contact CTA */}
       <section id="kontakt" className="mx-auto max-w-4xl px-6 py-20 pb-32">
         <motion.div 
@@ -845,6 +1011,33 @@ function Home() {
               </div>
             ))}
           </div>
+        </motion.div>
+      </section>
+
+      {/* AI News mit Kategorien-Reitern, befüllt vom täglichen Cron-Scraper */}
+      <section id="ai-news" className="mx-auto max-w-5xl px-6 pb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="flex flex-wrap items-end justify-between gap-2 mb-6">
+            <div>
+              <div className="text-xs uppercase tracking-widest text-primary">AI-News</div>
+              <h2 className="mt-2 text-2xl md:text-3xl font-semibold">
+                {t("Aktuelles aus der KI-Welt", "Latest from the AI world", "Tin mới từ thế giới AI")}
+              </h2>
+            </div>
+            {aiNews?.updatedAt && (
+              <span className="text-xs text-muted-foreground">
+                {t("Stand", "Updated", "Cập nhật")}: {new Date(aiNews.updatedAt).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" })}
+                {" · "}
+                {t("täglich 7 Uhr aktualisiert", "refreshed daily at 7 AM", "cập nhật hằng ngày lúc 7 giờ")}
+              </span>
+            )}
+          </div>
+          <AiNewsTabs payload={aiNews} />
         </motion.div>
       </section>
 
