@@ -7,7 +7,7 @@ import type { ISourceOptions } from "@tsparticles/engine";
 // damit die tsparticles-Engine nicht im Initial-Bundle landet.
 
 // Akzent-Grün der Seite (entspricht --primary: oklch(0.82 0.18 150))
-const PARTICLE_COLOR = "#318267";
+const PARTICLE_COLOR = "#4ade80";
 
 interface ParticlesCanvasProps {
   /** Reduzierte Partikelanzahl, z. B. auf Mobilgeräten */

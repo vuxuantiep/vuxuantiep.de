@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border mt-24">
       {/* Grünes Punktraster — gleiches Muster wie im Menü (Nav) */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(#318267_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(#4ADE80_1px,transparent_1px)] [background-size:16px_16px] opacity-10" />
       <div className="mx-auto max-w-6xl px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-sm text-muted-foreground">
         <div>
           <div className="font-display text-foreground font-semibold">vuxuantiep.de — {t("IT & KI Spezialist", "IT & AI Specialist", "Chuyên viên IT & AI")}</div>

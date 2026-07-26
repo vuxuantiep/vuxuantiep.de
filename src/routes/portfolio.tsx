@@ -451,7 +451,7 @@ function Portfolio() {
 
                 <div>
                   <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary" /> {t("Ergebnisse & Impact", "Results & Impact", "Kết quả & Tác động")}
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" /> {t("Ergebnisse & Impact", "Results & Impact", "Kết quả & Tác động")}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {selectedProject.results}

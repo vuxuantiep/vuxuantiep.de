@@ -119,7 +119,7 @@ export const sendContactMessage = createServerFn({ method: "POST" })
   });
 
 function buildConfirmation(lang: string, name: string, message: string) {
-  const quotedHtml = `<blockquote style="border-left:3px solid #044F3B;margin:16px 0;padding:8px 16px;color:#555;">${escapeHtml(message).replace(/\n/g, "<br/>")}</blockquote>`;
+  const quotedHtml = `<blockquote style="border-left:3px solid #4ADE80;margin:16px 0;padding:8px 16px;color:#555;">${escapeHtml(message).replace(/\n/g, "<br/>")}</blockquote>`;
 
   if (lang === "EN") {
     return {

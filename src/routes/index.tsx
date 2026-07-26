@@ -858,7 +858,7 @@ function Home() {
 
                   <div>
                     <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-primary" /> {t("Ergebnisse & Impact", "Results & Impact", "Kết quả & Tác động")}
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" /> {t("Ergebnisse & Impact", "Results & Impact", "Kết quả & Tác động")}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">
                       {selectedProject.results}
@@ -1011,7 +1011,7 @@ function Home() {
               "Tư vấn 30 phút miễn phí. Chúng ta sẽ xem xét phạm vi, công nghệ, lịch trình — và sự phù hợp."
             )}
           </p>
-          <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
+          <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-md bg-[#4ADE80] px-6 py-3 text-sm font-medium text-black hover:bg-[#4ADE80]/90 transition-colors">
             {t("Termin anfragen", "Request a meeting", "Đặt lịch hẹn")} <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
