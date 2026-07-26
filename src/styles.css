@@ -29,7 +29,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-surface: var(--surface);
-  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", "Space Grotesk", system-ui, serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   
@@ -42,31 +42,59 @@
 }
 
 :root {
-  /* Dunkles Theme wie zuvor, aber mit tiefem, gedecktem Flaschengrün als
-     Hauptakzent (statt hellem Neongrün) und Terrakotta als zweitem Akzent
-     (statt kaltem Cyan) — Anlehnung an die Ölgemälde-Referenz, ohne den
-     dunklen Hintergrund aufzugeben. */
+  /* Maritim/Kontor-Palette, verfeinert: tiefes, leuchtendes Emerald-Grün
+     als Hauptakzent (statt Gold), Gold wird zur zweiten Akzent-/Linienfarbe
+     (Icons, Nav-Unterstreichung, Kartenrahmen). Dunkler Hintergrund bleibt
+     ein sattes Waldgrün. Ergänzt um eine helle Pergament-Variante
+     (.section-parchment) für abwechselnde Abschnitte. */
   --radius: 0.75rem;
-  --background: oklch(0.13 0.01 260);
-  --foreground: oklch(0.97 0.01 250);
-  --surface: oklch(0.17 0.015 260);
-  --card: oklch(0.17 0.015 260);
-  --card-foreground: oklch(0.97 0.01 250);
-  --popover: oklch(0.17 0.015 260);
-  --popover-foreground: oklch(0.97 0.01 250);
-  --primary: oklch(0.38 0.075 168);
-  --primary-foreground: oklch(0.97 0.015 85);
-  --secondary: oklch(0.23 0.02 260);
-  --secondary-foreground: oklch(0.97 0.01 250);
-  --muted: oklch(0.23 0.02 260);
-  --muted-foreground: oklch(0.7 0.02 260);
-  --accent: oklch(0.62 0.12 45);
-  --accent-foreground: oklch(0.13 0.01 260);
+  --background: oklch(0.269 0.023 168);
+  --foreground: oklch(0.968 0.011 85);
+  --surface: oklch(0.32 0.025 168);
+  --card: oklch(0.32 0.025 168);
+  --card-foreground: oklch(0.968 0.011 85);
+  --popover: oklch(0.32 0.025 168);
+  --popover-foreground: oklch(0.968 0.011 85);
+  --primary: oklch(0.426 0.077 172);
+  --primary-hover: oklch(0.581 0.109 169);
+  --primary-foreground: oklch(0.968 0.011 85);
+  --secondary: oklch(0.38 0.03 168);
+  --secondary-foreground: oklch(0.968 0.011 85);
+  --muted: oklch(0.38 0.03 168);
+  --muted-foreground: oklch(0.75 0.02 100);
+  --accent: oklch(0.746 0.089 83);
+  --accent-foreground: oklch(0.232 0.006 78);
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.97 0.01 250);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.38 0.075 168);
+  --border: oklch(0.746 0.089 83 / 22%);
+  --input: oklch(0.968 0.011 85 / 14%);
+  --ring: oklch(0.426 0.077 172);
+}
+
+/* Helle Abschnitts-Variante (Pergament/Vintage-Beige/Warmes Schwarz). Da alle
+   Komponenten ausschließlich semantische Tokens (bg-background, text-foreground,
+   border-border, bg-surface, text-muted-foreground) nutzen, färben sie sich
+   innerhalb dieses Wrappers automatisch um — ohne Komponenten-Änderungen. */
+.section-parchment {
+  --background: oklch(0.905 0.031 88);
+  --foreground: oklch(0.232 0.006 78);
+  --surface: oklch(0.968 0.011 85);
+  --card: oklch(0.968 0.011 85);
+  --card-foreground: oklch(0.232 0.006 78);
+  --popover: oklch(0.968 0.011 85);
+  --popover-foreground: oklch(0.232 0.006 78);
+  --secondary: oklch(0.87 0.025 85);
+  --secondary-foreground: oklch(0.232 0.006 78);
+  --muted: oklch(0.87 0.025 85);
+  --muted-foreground: oklch(0.45 0.03 78);
+  --primary: oklch(0.426 0.077 172);
+  --primary-hover: oklch(0.581 0.109 169);
+  --primary-foreground: oklch(0.968 0.011 85);
+  --accent: oklch(0.659 0.09 78);
+  --accent-foreground: oklch(0.232 0.006 78);
+  --border: oklch(0.318 0.031 62 / 12%);
+  --input: oklch(0.318 0.031 62 / 16%);
+  --ring: oklch(0.276 0.019 225);
 }
 
 @layer base {
@@ -76,15 +104,15 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     background-image:
-      radial-gradient(ellipse 1400px 900px at 0% -5%, oklch(0.38 0.075 168 / 0.16), transparent 65%),
-      radial-gradient(ellipse 1200px 800px at 100% 8%, oklch(0.62 0.12 45 / 0.12), transparent 65%),
-      radial-gradient(ellipse 1100px 700px at 50% 100%, oklch(0.38 0.075 168 / 0.09), transparent 70%),
-      linear-gradient(180deg, transparent 0%, oklch(0.38 0.075 168 / 0.05) 50%, transparent 100%);
+      radial-gradient(ellipse 1400px 900px at 0% -5%, oklch(0.74 0.086 82 / 0.08), transparent 65%),
+      radial-gradient(ellipse 1200px 800px at 100% 8%, oklch(0.568 0.036 137 / 0.1), transparent 65%),
+      radial-gradient(ellipse 1100px 700px at 50% 100%, oklch(0.74 0.086 82 / 0.05), transparent 70%),
+      linear-gradient(180deg, transparent 0%, oklch(0.74 0.086 82 / 0.03) 50%, transparent 100%);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-attachment: fixed;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0; }
   code, pre { font-family: var(--font-mono); }
 }
 

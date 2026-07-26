@@ -6,9 +6,9 @@ import { Footer } from "@/components/site/Footer";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
-import { BrokiHeroCard } from "@/components/broki-hero-card";
 import { ParticleBackground } from "@/components/site/ParticleBackground";
 import { CodingAgentBenchmarks } from "@/components/site/CodingAgentBenchmarks";
+import { Hero } from "@/components/site/Hero";
 import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -459,64 +459,7 @@ function Home() {
       <Nav />
       <ScrollDots sections={dotSections} />
 
-      {/* Hero */}
-      <section id="start" className="relative mx-auto max-w-6xl px-6 pt-20 pb-24">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(var(--border)_1px,transparent_1px)] [background-size:24px_24px] opacity-30" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/80 to-background" />
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center relative z-10">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 px-3 py-1 text-xs text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              {t("Verfügbar ab Q3 2026", "Available starting Q3 2026", "Có sẵn từ Quý 3 năm 2026")}
-            </div>
-            <h1 className="mt-6 font-display text-5xl font-semibold leading-[1.05] md:text-6xl lg:text-7xl">
-              {t("Software, die ", "Software that ", "Phần mềm mở rộng ")}<span className="text-primary">{t("skaliert", "scales", "hiệu quả")}</span>.<br />
-              {t("KI, die ", "AI that ", "AI mang lại ")}<span className="text-primary">{t("liefert", "delivers", "kết quả")}</span>.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-              {t(
-                "Hi, ich bin Tiep — IT & KI Spezialist. Ich konzipiere und baue Cloud-Plattformen, integriere KI sicher (DSGVO-konform, AI Act, NIS2 auditierbar) in bestehende Produkte und liefere produktionsreifen Code.",
-                "Hi, I'm Tiep — IT & AI Specialist. I design and build Cloud platforms, integrate AI securely (GDPR-compliant, AI Act, NIS2 auditable) into existing products, and deliver production-ready code.",
-                "Xin chào, tôi là Tiệp — Chuyên viên IT & AI. Tôi thiết kế và xây dựng nền tảng đám mây, tích hợp AI bảo mật và cung cấp mã nguồn sẵn sàng cho sản xuất."
-              )}
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/portfolio" className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-                {t("Projekte ansehen", "View Projects", "Xem dự án")} <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-md border border-border bg-surface/50 px-5 py-3 text-sm font-medium hover:bg-surface">
-                {t("Erstgespräch buchen", "Book initial call", "Đặt lịch tư vấn")}
-              </Link>
-            </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs text-muted-foreground">
-              {/* Bewertung: verlinkt auf die Quelle, sobald RATING.sourceUrl gesetzt ist */}
-              {RATING.sourceUrl ? (
-                <a
-                  href={RATING.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1 underline-offset-4 hover:text-foreground hover:underline"
-                >
-                  <span className="text-yellow-500">★</span> {RATING.value} · {RATING.count} {t("Bewertungen", "Reviews", "Đánh giá")}
-                  {RATING.sourceLabel ? <span className="text-muted-foreground/70">({RATING.sourceLabel})</span> : null}
-                </a>
-              ) : (
-                <div className="flex items-center gap-1">
-                  <span className="text-yellow-500">★</span> {RATING.value} · {RATING.count} {t("Bewertungen", "Reviews", "Đánh giá")}
-                </div>
-              )}
-              <div className="flex items-center gap-1"><Cloud className="h-3 w-3" /> Azure Certified Solution Architect</div>
-              <div className="flex items-center gap-1"><Cloud className="h-3 w-3" /> AWS Practitioner</div>
-              <div className="flex items-center gap-1"><Terminal className="h-3 w-3" /> MCSA 2016</div>
-              <div className="flex items-center gap-1"><Code2 className="h-3 w-3" /> MCPD & MCTS .Net C#</div>
-              <div className="flex items-center gap-1">🌍 {t("Remote / EU-weit", "Remote / EU-wide", "Remote / Toàn EU")}</div>
-            </div>
-          </div>
-
-          {/* Broki-Produktkarte (ersetzt frühere KI-Fabrik-Slideshow) */}
-          <BrokiHeroCard />
-        </div>
-      </section>
+      <Hero />
 
       {/* Services */}
       <section id="leistungen" className="mx-auto max-w-6xl px-6 py-20">
