@@ -2,8 +2,10 @@
 
 import { motion } from 'motion/react';
 import { Link } from '@tanstack/react-router';
-import { ArrowRight, ShieldCheck, Bot, AlertTriangle } from 'lucide-react';
+import { ArrowRight, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { useLang } from '@/contexts/LangContext';
+
+const BROKI_PORTRAIT = '/images/broki/broki-assistentin.png';
 
 /**
  * Broki-Produktkarte für den Hero (ersetzt die frühere KI-Fabrik-Slideshow).
@@ -22,6 +24,24 @@ export function BrokiHeroCard() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="relative"
     >
+      {/* Broki-Portrait: schwebt am Kartenrand, sanfte Idle-Animation (Atmen + Glow-Puls) */}
+      <motion.div
+        className="pointer-events-none absolute -top-10 -right-6 z-20 h-28 w-28 sm:h-36 sm:w-36"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <motion.div
+          className="absolute inset-0 rounded-full bg-primary/25 blur-2xl"
+          animate={{ opacity: [0.4, 0.7, 0.4], scale: [0.9, 1.05, 0.9] }}
+          transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <img
+          src={BROKI_PORTRAIT}
+          alt="Broki AI"
+          className="relative h-full w-full object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+        />
+      </motion.div>
+
       {/* Browser-Fenster-Mockup */}
       <div className="overflow-hidden rounded-xl border border-border bg-surface/60 shadow-2xl backdrop-blur">
         {/* Titelleiste */}
@@ -51,7 +71,11 @@ export function BrokiHeroCard() {
           <div className="w-full space-y-3 border-l border-border bg-background/50 p-4 sm:w-64">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Bot className="h-4 w-4 text-primary" />
+                <img
+                  src={BROKI_PORTRAIT}
+                  alt=""
+                  className="h-5 w-5 rounded-full object-cover object-top ring-1 ring-primary/40"
+                />
                 <span className="font-display text-sm font-semibold">Broki AI</span>
               </div>
               <span className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 font-mono text-[10px] text-primary">

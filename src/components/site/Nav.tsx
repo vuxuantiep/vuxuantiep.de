@@ -28,12 +28,12 @@ export function Nav() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#4ADE80] origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[60]"
         style={{ scaleX }}
       />
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl relative overflow-hidden">
-        <div className="absolute inset-0 z-[-1] bg-[radial-gradient(#4ADE80_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
-      <div className="absolute inset-0 z-[-1] bg-gradient-to-r from-green-500/10 via-transparent to-green-500/10 opacity-30"></div>
+        <div className="absolute inset-0 z-[-1] bg-[radial-gradient(#318267_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
+      <div className="absolute inset-0 z-[-1] bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-30"></div>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 relative z-10">
         <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold">
           <span className="grid h-8 w-8 place-items-center rounded-md bg-transparent border border-primary text-primary">
