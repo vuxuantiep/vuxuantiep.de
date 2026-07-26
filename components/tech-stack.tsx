@@ -8,49 +8,49 @@ import { Skeleton } from '@/components/ui/skeleton';
 const categories = ['Agentic Coding', 'Alle', 'KI & Data', 'Cloud & DevOps', 'Backend', 'Frontend', 'Security', 'Versionierung', 'Virtualisierung'];
 
 const skills = [
-  { name: 'TypeScript', category: ['Frontend', 'Backend'], proficiency: 95, years: 6, icon: Code2 },
-  { name: 'React / Next.js', category: ['Frontend'], proficiency: 90, years: 5, icon: TerminalSquare },
-  { name: 'Node.js', category: ['Backend'], proficiency: 85, years: 6, icon: Server },
-  { name: 'Python', category: ['Backend', 'KI & Data'], proficiency: 85, years: 4, icon: Code2 },
-  { name: 'WebAssembly', category: ['Frontend', 'Backend'], proficiency: 70, years: 2, icon: Code2 },
-  { name: 'PostgreSQL', category: ['Backend', 'KI & Data'], proficiency: 80, years: 5, icon: Database },
-  { name: 'Supabase', category: ['Backend', 'Cloud & DevOps'], proficiency: 85, years: 3, icon: Database },
-  { name: 'MS SQL Server', category: ['Backend'], proficiency: 85, years: 5, icon: Database },
-  { name: 'MinIO', category: ['Cloud & DevOps'], proficiency: 80, years: 3, icon: Database },
-  { name: 'AWS / CDK', category: ['Cloud & DevOps'], proficiency: 85, years: 4, icon: Cloud },
-  { name: 'Azure', category: ['Cloud & DevOps'], proficiency: 85, years: 4, icon: Cloud },
-  { name: 'Azure Arc', category: ['Cloud & DevOps'], proficiency: 80, years: 2, icon: Cloud },
-  { name: 'Cloudflare', category: ['Cloud & DevOps'], proficiency: 85, years: 4, icon: Cloud },
-  { name: 'Grafana / CheckMK', category: ['Cloud & DevOps'], proficiency: 85, years: 4, icon: Activity },
-  { name: 'Hyper-V', category: ['Cloud & DevOps', 'Virtualisierung'], proficiency: 85, years: 6, icon: Layers },
-  { name: 'Docker / K8s', category: ['Cloud & DevOps', 'Virtualisierung'], proficiency: 75, years: 4, icon: Layers },
-  { name: 'GitHub / Gitea', category: ['Versionierung', 'Cloud & DevOps'], proficiency: 90, years: 6, icon: Code2 },
-  { name: 'Dokploy', category: ['Cloud & DevOps'], proficiency: 80, years: 1, icon: Layers },
-  { name: 'IaC (Bicep, ARM, Ansible)', category: ['Cloud & DevOps'], proficiency: 85, years: 4, icon: FileCode },
-  { name: 'n8n / Node-RED', category: ['Cloud & DevOps', 'Backend'], proficiency: 90, years: 4, icon: Activity },
-  { name: 'Activepieces', category: ['Cloud & DevOps', 'Backend'], proficiency: 85, years: 2, icon: Activity },
-  { name: 'Tailscale', category: ['Cloud & DevOps', 'Network'], proficiency: 80, years: 3, icon: Network },
-  { name: 'Raspberry Pi', category: ['Cloud & DevOps'], proficiency: 80, years: 4, icon: Cpu },
-  { name: 'PowerShell', category: ['Cloud & DevOps'], proficiency: 90, years: 5, icon: TerminalSquare },
-  { name: 'Windows Server (AD, GPO)', category: ['Cloud & DevOps', 'Security'], proficiency: 90, years: 6, icon: Server },
-  { name: 'Entra-ID', category: ['Cloud & DevOps', 'Security'], proficiency: 85, years: 4, icon: ShieldCheck },
-  { name: 'Azure Backup & ASR', category: ['Cloud & DevOps', 'Security'], proficiency: 85, years: 4, icon: ShieldCheck },
-  { name: 'Keycloak', category: ['Backend', 'Security'], proficiency: 80, years: 2, icon: Key },
-  { name: 'OSINT', category: ['Security', 'KI & Data'], proficiency: 75, years: 3, icon: Search },
-  { name: 'OpenAI / LLMs', category: ['KI & Data'], proficiency: 85, years: 2, icon: Bot },
-  { name: 'LangChain', category: ['KI & Data'], proficiency: 80, years: 2, icon: Bot },
-  { name: 'Ollama', category: ['KI & Data'], proficiency: 90, years: 2, icon: Bot },
-  { name: 'Open Claw', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, years: 1, icon: Brain },
-  { name: 'Codex', category: ['KI & Data', 'Agentic Coding'], proficiency: 90, years: 1, icon: Bot },
-  { name: 'AI Gateway / OpenRouter', category: ['KI & Data', 'Cloud & DevOps'], proficiency: 90, years: 2, icon: Network },
-  { name: 'Claude Code', category: ['KI & Data', 'Agentic Coding'], proficiency: 90, years: 1, icon: TerminalSquare },
-  { name: 'Cody-AI Code Assistant', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, years: 1, icon: Bot },
-  { name: 'OpenHands', category: ['KI & Data', 'Agentic Coding'], proficiency: 80, years: 1, icon: Bot },
-  { name: 'Hermes', category: ['KI & Data', 'Agentic Coding'], proficiency: 80, years: 1, icon: Bot },
-  { name: 'LangGraph', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, years: 1, icon: TerminalSquare },
-  { name: 'Aider', category: ['KI & Data', 'Agentic Coding'], proficiency: 90, years: 1, icon: Bot },
-  { name: 'Cline', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, years: 1, icon: TerminalSquare },
-  { name: 'Azad-Code', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, years: 1, icon: Bot },
+  { name: 'TypeScript', category: ['Frontend', 'Backend'], proficiency: 95, icon: Code2 },
+  { name: 'React / Next.js', category: ['Frontend'], proficiency: 90, icon: TerminalSquare },
+  { name: 'Node.js', category: ['Backend'], proficiency: 85, icon: Server },
+  { name: 'Python', category: ['Backend', 'KI & Data'], proficiency: 85, icon: Code2 },
+  { name: 'WebAssembly', category: ['Frontend', 'Backend'], proficiency: 70, icon: Code2 },
+  { name: 'PostgreSQL', category: ['Backend', 'KI & Data'], proficiency: 80, icon: Database },
+  { name: 'Supabase', category: ['Backend', 'Cloud & DevOps'], proficiency: 85, icon: Database },
+  { name: 'MS SQL Server', category: ['Backend'], proficiency: 85, icon: Database },
+  { name: 'MinIO', category: ['Cloud & DevOps'], proficiency: 80, icon: Database },
+  { name: 'AWS / CDK', category: ['Cloud & DevOps'], proficiency: 85, icon: Cloud },
+  { name: 'Azure', category: ['Cloud & DevOps'], proficiency: 85, icon: Cloud },
+  { name: 'Azure Arc', category: ['Cloud & DevOps'], proficiency: 80, icon: Cloud },
+  { name: 'Cloudflare', category: ['Cloud & DevOps'], proficiency: 85, icon: Cloud },
+  { name: 'Grafana / CheckMK', category: ['Cloud & DevOps'], proficiency: 85, icon: Activity },
+  { name: 'Hyper-V', category: ['Cloud & DevOps', 'Virtualisierung'], proficiency: 85, icon: Layers },
+  { name: 'Docker / K8s', category: ['Cloud & DevOps', 'Virtualisierung'], proficiency: 75, icon: Layers },
+  { name: 'GitHub / Gitea', category: ['Versionierung', 'Cloud & DevOps'], proficiency: 90, icon: Code2 },
+  { name: 'Dokploy', category: ['Cloud & DevOps'], proficiency: 80, icon: Layers },
+  { name: 'IaC (Bicep, ARM, Ansible)', category: ['Cloud & DevOps'], proficiency: 85, icon: FileCode },
+  { name: 'n8n / Node-RED', category: ['Cloud & DevOps', 'Backend'], proficiency: 90, icon: Activity },
+  { name: 'Activepieces', category: ['Cloud & DevOps', 'Backend'], proficiency: 85, icon: Activity },
+  { name: 'Tailscale', category: ['Cloud & DevOps', 'Network'], proficiency: 80, icon: Network },
+  { name: 'Raspberry Pi', category: ['Cloud & DevOps'], proficiency: 80, icon: Cpu },
+  { name: 'PowerShell', category: ['Cloud & DevOps'], proficiency: 90, icon: TerminalSquare },
+  { name: 'Windows Server (AD, GPO)', category: ['Cloud & DevOps', 'Security'], proficiency: 90, icon: Server },
+  { name: 'Entra-ID', category: ['Cloud & DevOps', 'Security'], proficiency: 85, icon: ShieldCheck },
+  { name: 'Azure Backup & ASR', category: ['Cloud & DevOps', 'Security'], proficiency: 85, icon: ShieldCheck },
+  { name: 'Keycloak', category: ['Backend', 'Security'], proficiency: 80, icon: Key },
+  { name: 'OSINT', category: ['Security', 'KI & Data'], proficiency: 75, icon: Search },
+  { name: 'OpenAI / LLMs', category: ['KI & Data'], proficiency: 85, icon: Bot },
+  { name: 'LangChain', category: ['KI & Data'], proficiency: 80, icon: Bot },
+  { name: 'Ollama', category: ['KI & Data'], proficiency: 90, icon: Bot },
+  { name: 'Open Claw', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, icon: Brain },
+  { name: 'Codex', category: ['KI & Data', 'Agentic Coding'], proficiency: 90, icon: Bot },
+  { name: 'AI Gateway / OpenRouter', category: ['KI & Data', 'Cloud & DevOps'], proficiency: 90, icon: Network },
+  { name: 'Claude Code', category: ['KI & Data', 'Agentic Coding'], proficiency: 90, icon: TerminalSquare },
+  { name: 'Cody-AI Code Assistant', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, icon: Bot },
+  { name: 'OpenHands', category: ['KI & Data', 'Agentic Coding'], proficiency: 80, icon: Bot },
+  { name: 'Hermes', category: ['KI & Data', 'Agentic Coding'], proficiency: 80, icon: Bot },
+  { name: 'LangGraph', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, icon: TerminalSquare },
+  { name: 'Aider', category: ['KI & Data', 'Agentic Coding'], proficiency: 90, icon: Bot },
+  { name: 'Cline', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, icon: TerminalSquare },
+  { name: 'Azad-Code', category: ['KI & Data', 'Agentic Coding'], proficiency: 85, icon: Bot },
 ];
 
 export function TechStack() {
@@ -93,12 +93,9 @@ export function TechStack() {
         {isLoading ? (
           Array.from({ length: 6 }).map((_, i) => (
             <div key={i} className="bg-[#0d0d12]/60 rounded-xl p-4 flex flex-col justify-between h-[84px]">
-              <div className="flex justify-between items-center mb-3">
-                <div className="flex items-center gap-2.5">
-                  <Skeleton className="w-6 h-6 rounded-md bg-zinc-800/80" />
-                  <Skeleton className="w-24 h-4 bg-zinc-800/80" />
-                </div>
-                <Skeleton className="w-16 h-3 bg-zinc-800/80" />
+              <div className="flex items-center gap-2.5 mb-3">
+                <Skeleton className="w-6 h-6 rounded-md bg-zinc-800/80" />
+                <Skeleton className="w-24 h-4 bg-zinc-800/80" />
               </div>
               <Skeleton className="h-1 w-full bg-zinc-800/80 rounded-full" />
             </div>
@@ -121,14 +118,11 @@ export function TechStack() {
                   {/* Subtle Hover Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/0 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                  <div className="flex justify-between items-center mb-3 text-sm relative z-10">
-                    <div className="flex items-center gap-2.5 text-zinc-200 font-medium">
-                      <div className="p-1.5 rounded-md bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20 group-hover:text-emerald-300 transition-colors">
-                        <Icon className="w-3.5 h-3.5" />
-                      </div>
-                      {skill.name}
+                  <div className="flex items-center gap-2.5 text-zinc-200 font-medium mb-3 text-sm relative z-10">
+                    <div className="p-1.5 rounded-md bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20 group-hover:text-emerald-300 transition-colors">
+                      <Icon className="w-3.5 h-3.5" />
                     </div>
-                    <div className="text-zinc-500 text-xs font-mono group-hover:text-zinc-400 transition-colors">{skill.years} Jahre</div>
+                    {skill.name}
                   </div>
                   
                   <div className="h-1 w-full bg-zinc-900/80 rounded-full overflow-hidden relative z-10">

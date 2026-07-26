@@ -5,13 +5,22 @@ import { Footer } from "@/components/site/Footer";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/portfolio")({
-  head: () => ({
-    meta: [
-      { title: "Portfolio — vuxuantiep.de" },
-      { name: "description", content: "Ausgewählte Freelance-Projekte: Cloud-Plattformen, KI-Produkte und Web-Apps." },
-    ],
+  head: ({ match }) => seoHead({
+    path: "/portfolio",
+    search: match.search,
+    title: {
+      de: "Portfolio — vuxuantiep.de",
+      en: "Portfolio — vuxuantiep.de",
+      vi: "Portfolio — vuxuantiep.de",
+    },
+    description: {
+      de: "Ausgewählte Freelance-Projekte: Cloud-Plattformen, KI-Produkte und Web-Apps.",
+      en: "Selected freelance projects: cloud platforms, AI products, and web apps.",
+      vi: "Các dự án freelance tiêu biểu: nền tảng đám mây, sản phẩm AI và ứng dụng web.",
+    },
   }),
   component: Portfolio,
 });

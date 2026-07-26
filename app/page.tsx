@@ -3,6 +3,7 @@
 import { FadeIn } from '@/components/fade-in';
 import { ContactForm } from '@/components/contact-form';
 import { TechStack } from '@/components/tech-stack';
+import { TestimonialsSection } from '@/components/testimonials-section';
 import { AnimatedCode } from '@/components/animated-code';
 import { TraceArchitecture } from '@/components/trace-architecture';
 import { MultiAgentAnimation } from '@/components/multi-agent-animation';
@@ -214,6 +215,13 @@ export default function Home() {
           </FadeIn>
         </section>
 
+        {/* Testimonials Section */}
+        <section id="testimonials" className="max-w-6xl mx-auto px-6">
+          <FadeIn>
+            <TestimonialsSection />
+          </FadeIn>
+        </section>
+
         {/* Projects Section */}
         <section id="projekte" className="max-w-6xl mx-auto px-6">
           <FadeIn>
@@ -271,10 +279,14 @@ export default function Home() {
                   <span className="text-xs text-zinc-500 font-mono">{t.projects.p1Tag}</span>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{t.projects.p1Title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed mb-6 flex-grow">
+                <p className="text-sm text-zinc-400 leading-relaxed mb-4 flex-grow">
                   {t.projects.p1Desc}
                 </p>
-                <div className="pt-6 border-t border-zinc-800/80 flex items-center gap-2 text-sm text-zinc-300 font-medium cursor-pointer">
+                <div className="text-xs text-zinc-500 mb-4 flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
+                  {t.projects.p1Customer}
+                </div>
+                <div className="pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-sm text-zinc-300 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                   {t.projects.production}
                 </div>
@@ -287,10 +299,14 @@ export default function Home() {
                   <span className="text-xs text-zinc-500 font-mono">{t.projects.p2Tag}</span>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{t.projects.p2Title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed mb-6 flex-grow">
+                <p className="text-sm text-zinc-400 leading-relaxed mb-4 flex-grow">
                   {t.projects.p2Desc}
                 </p>
-                <div className="pt-6 border-t border-zinc-800/80 flex items-center gap-2 text-sm text-zinc-300 font-medium cursor-pointer">
+                <div className="text-xs text-zinc-500 mb-4 flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
+                  {t.projects.p2Customer}
+                </div>
+                <div className="pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-sm text-zinc-300 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                   {t.projects.production}
                 </div>
@@ -303,10 +319,14 @@ export default function Home() {
                   <span className="text-xs text-zinc-500 font-mono">{t.projects.p3Tag}</span>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{t.projects.p3Title}</h3>
-                <p className="text-sm text-zinc-400 leading-relaxed mb-6 flex-grow">
+                <p className="text-sm text-zinc-400 leading-relaxed mb-4 flex-grow">
                   {t.projects.p3Desc}
                 </p>
-                <div className="pt-6 border-t border-zinc-800/80 flex items-center gap-2 text-sm text-zinc-300 font-medium cursor-pointer">
+                <div className="text-xs text-zinc-500 mb-4 flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-zinc-600"></span>
+                  {t.projects.p3Customer}
+                </div>
+                <div className="pt-4 border-t border-zinc-800/80 flex items-center gap-2 text-sm text-zinc-300 font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
                   {t.projects.production}
                 </div>

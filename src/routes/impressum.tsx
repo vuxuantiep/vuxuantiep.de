@@ -3,14 +3,23 @@ import { Mail, MapPin, Phone, User } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { useLang } from "@/contexts/LangContext";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/impressum")({
-  head: () => ({
-    meta: [
-      { title: "Impressum — vuxuantiep.de" },
-      { name: "description", content: "Impressum und Anbieterkennzeichnung von vuxuantiep.de." },
-      { name: "robots", content: "noindex" },
-    ],
+  head: ({ match }) => seoHead({
+    path: "/impressum",
+    search: match.search,
+    noindex: true,
+    title: {
+      de: "Impressum — vuxuantiep.de",
+      en: "Legal Notice — vuxuantiep.de",
+      vi: "Thông tin pháp lý — vuxuantiep.de",
+    },
+    description: {
+      de: "Impressum und Anbieterkennzeichnung von vuxuantiep.de.",
+      en: "Legal notice and provider identification of vuxuantiep.de.",
+      vi: "Thông tin pháp lý và nhà cung cấp của vuxuantiep.de.",
+    },
   }),
   component: Impressum,
 });

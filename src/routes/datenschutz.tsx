@@ -2,14 +2,23 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { useLang } from "@/contexts/LangContext";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/datenschutz")({
-  head: () => ({
-    meta: [
-      { title: "Datenschutzerklärung — vuxuantiep.de" },
-      { name: "description", content: "Datenschutzerklärung von vuxuantiep.de gemäß DSGVO." },
-      { name: "robots", content: "noindex" },
-    ],
+  head: ({ match }) => seoHead({
+    path: "/datenschutz",
+    search: match.search,
+    noindex: true,
+    title: {
+      de: "Datenschutzerklärung — vuxuantiep.de",
+      en: "Privacy Policy — vuxuantiep.de",
+      vi: "Chính sách bảo mật — vuxuantiep.de",
+    },
+    description: {
+      de: "Datenschutzerklärung von vuxuantiep.de gemäß DSGVO.",
+      en: "Privacy policy of vuxuantiep.de in accordance with the GDPR.",
+      vi: "Chính sách bảo mật của vuxuantiep.de theo GDPR.",
+    },
   }),
   component: Datenschutz,
 });

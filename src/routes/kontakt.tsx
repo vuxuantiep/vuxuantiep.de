@@ -5,13 +5,22 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { useLang } from "@/contexts/LangContext";
 import { sendContactMessage } from "@/lib/contact";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/kontakt")({
-  head: () => ({
-    meta: [
-      { title: "Kontakt — vuxuantiep.de" },
-      { name: "description", content: "Projekt anfragen, Erstgespräch buchen oder einfach Hallo sagen." },
-    ],
+  head: ({ match }) => seoHead({
+    path: "/kontakt",
+    search: match.search,
+    title: {
+      de: "Kontakt — vuxuantiep.de",
+      en: "Contact — vuxuantiep.de",
+      vi: "Liên hệ — vuxuantiep.de",
+    },
+    description: {
+      de: "Projekt anfragen, Erstgespräch buchen oder einfach Hallo sagen.",
+      en: "Request a project, book an initial call, or just say hello.",
+      vi: "Gửi yêu cầu dự án, đặt lịch tư vấn hoặc chỉ để chào hỏi.",
+    },
   }),
   component: Kontakt,
 });

@@ -1,5 +1,16 @@
 {
   "compatibility_date": "2026-07-05",
+  "kv_namespaces": [
+    {
+      "binding": "AI_NEWS",
+      "id": "54655a8d9d4a40e3b4808aa262573a1c"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "0 5 * * *"
+    ]
+  },
   "main": "index.mjs",
   "assets": {
     "binding": "ASSETS",

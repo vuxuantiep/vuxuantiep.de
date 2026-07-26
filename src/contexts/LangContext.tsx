@@ -1,4 +1,6 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, ReactNode } from "react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
+import { langFromSearch } from "../lib/seo";
 
 export type Language = "DE" | "EN" | "VI";
 
@@ -11,7 +13,30 @@ interface LangContextType {
 const LangContext = createContext<LangContextType | undefined>(undefined);
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Language>("DE");
+  // Die URL (?lang=en|vi) ist die Quelle der Wahrheit — dadurch rendert schon
+  // der Server die richtige Sprache und hreflang-URLs sind echte Sprachversionen.
+  const search = useRouterState({ select: (s) => s.location.search });
+  const navigate = useNavigate();
+
+  const param = langFromSearch(search);
+  const lang: Language = param === "en" ? "EN" : param === "vi" ? "VI" : "DE";
+
+  const setLang = (next: Language) => {
+    navigate({
+      to: ".",
+      search: (prev: Record<string, unknown>) => ({
+        ...prev,
+        lang: next === "DE" ? undefined : next.toLowerCase(),
+      }),
+      replace: true,
+      resetScroll: false,
+    });
+  };
+
+  // html[lang] an die aktive Sprache angleichen (Server-Default ist "de")
+  useEffect(() => {
+    document.documentElement.lang = lang.toLowerCase();
+  }, [lang]);
 
   const t = (de: string, en: string, vi: string) => {
     switch (lang) {

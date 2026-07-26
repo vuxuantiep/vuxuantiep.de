@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-05T23:57:53.326Z",
+  "date": "2026-07-26T09:30:21.226Z",
   "preset": "cloudflare-module",
   "framework": {
     "name": "nitro",
@@ -17,7 +17,18 @@
   "config": {
     "cloudflare": {
       "wrangler": {
-        "compatibility_date": "2026-07-05"
+        "compatibility_date": "2026-07-05",
+        "kv_namespaces": [
+          {
+            "binding": "AI_NEWS",
+            "id": "54655a8d9d4a40e3b4808aa262573a1c"
+          }
+        ],
+        "triggers": {
+          "crons": [
+            "0 5 * * *"
+          ]
+        }
       },
       "deployConfig": true,
       "nodeCompat": true

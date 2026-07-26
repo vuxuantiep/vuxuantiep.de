@@ -1,15 +1,24 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Search } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { useLang } from "@/contexts/LangContext";
+import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/blog")({
-  head: () => ({
-    meta: [
-      { title: "Blog — KI & neue Technologien · vuxuantiep.de" },
-      { name: "description", content: "Artikel zu KI, LLMs, Cloud-Architektur und modernen Web-Technologien. Aus der Praxis, ohne Hype." },
-    ],
+  head: ({ match }) => seoHead({
+    path: "/blog",
+    search: match.search,
+    title: {
+      de: "Blog — KI & neue Technologien · vuxuantiep.de",
+      en: "Blog — AI & New Technologies · vuxuantiep.de",
+      vi: "Blog — AI & Công nghệ mới · vuxuantiep.de",
+    },
+    description: {
+      de: "Artikel zu KI, LLMs, Cloud-Architektur und modernen Web-Technologien. Aus der Praxis, ohne Hype.",
+      en: "Articles on AI, LLMs, cloud architecture, and modern web technologies. Hands-on, no hype.",
+      vi: "Bài viết về AI, LLM, kiến trúc đám mây và công nghệ web hiện đại. Từ thực tiễn, không thổi phồng.",
+    },
   }),
   component: Blog,
 });
@@ -18,21 +27,27 @@ function Blog() {
   const { t } = useLang();
 
   const featured = {
-    tag: t("LLM · Praxis", "LLM · Practice", "LLM · Thực tế"),
-    date: t("12. Juni 2026 · 8 min", "June 12, 2026 · 8 min", "12 Tháng 6, 2026 · 8 phút"),
+    tag: "GPU · Self-Hosting",
+    date: t("26. Juli 2026 · 9 min", "July 26, 2026 · 9 min", "26 Tháng 7, 2026 · 9 phút"),
     title: t(
-      "RAG in Produktion: 7 Lektionen aus echten Projekten",
-      "RAG in production: 7 lessons from real projects",
-      "RAG trong thực tế: 7 bài học từ các dự án thật"
+      "Lokale LLMs trainieren mit eigenem GPU-Server",
+      "Training local LLMs on your own GPU server",
+      "Huấn luyện LLM cục bộ với máy chủ GPU riêng"
     ),
     excerpt: t(
-      "Retrieval-Augmented Generation klingt einfach — bis man es betreibt. Hier sind sieben Erkenntnisse, die ich in den letzten zwei Jahren bei Produktiv-Deployments gesammelt habe: von Chunk-Sizing über Hybrid-Search bis zu Eval-Pipelines.",
-      "Retrieval-Augmented Generation sounds simple — until you run it in production. Here are seven lessons I've gathered over the last two years of production deployments: from chunk sizing to hybrid search to eval pipelines.",
-      "Retrieval-Augmented Generation nghe có vẻ đơn giản — cho đến khi bạn vận hành nó trong thực tế. Đây là bảy bài học tôi đúc kết được trong hai năm triển khai sản xuất: từ chunk-sizing, hybrid-search cho đến eval-pipeline."
+      "Welche GPU 2026 für lokales Training taugt, wie das Projekt technisch aufgesetzt wird — und wie du die Hardware zwischen Fine-Tuning und Vermietung optimal auslastest, statt sie ungenutzt herumstehen zu lassen.",
+      "Which GPU makes sense for local training in 2026, how to set the project up technically — and how to keep the hardware utilized between fine-tuning and rental income instead of letting it sit idle.",
+      "GPU nào phù hợp để huấn luyện cục bộ năm 2026, cách thiết lập dự án về kỹ thuật — và cách tận dụng tối đa phần cứng giữa fine-tuning và cho thuê thay vì để không."
     ),
+    href: "/blog/lokale-llm-gpu-server",
   };
 
   const posts = [
+    {
+      tag: t("LLM · Praxis", "LLM · Practice", "LLM · Thực tế"), date: "12.06.2026",
+      title: t("RAG in Produktion: 7 Lektionen aus echten Projekten", "RAG in production: 7 lessons from real projects", "RAG trong thực tế: 7 bài học từ các dự án thật"),
+      excerpt: t("Von Chunk-Sizing über Hybrid-Search bis zu Eval-Pipelines.", "From chunk sizing to hybrid search to eval pipelines.", "Từ chunk-sizing, hybrid-search cho đến eval-pipeline."),
+    },
     {
       tag: "Edge", date: "28.05.2026",
       title: t("Cloudflare Workers vs. Lambda — der ehrliche Vergleich", "Cloudflare Workers vs. Lambda — the honest comparison", "Cloudflare Workers vs. Lambda — so sánh thẳng thắn"),
@@ -107,7 +122,7 @@ function Blog() {
 
       {/* Featured */}
       <section className="mx-auto max-w-6xl px-6 pb-12">
-        <a href="#" className="group block rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-surface/50 to-accent/10 p-10 hover:border-primary/40 transition-all">
+        <Link to={featured.href} className="group block rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-surface/50 to-accent/10 p-10 hover:border-primary/40 transition-all">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <div className="flex items-center gap-2 text-xs">
@@ -123,7 +138,7 @@ function Blog() {
               {t("Artikel lesen", "Read article", "Đọc bài viết")} <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
-        </a>
+        </Link>
       </section>
 
       {/* Grid */}

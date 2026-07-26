@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
 import { BrokiHeroCard } from "@/components/broki-hero-card";
 import { ParticleBackground } from "@/components/site/ParticleBackground";
+import { CodingAgentBenchmarks } from "@/components/site/CodingAgentBenchmarks";
 import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -84,8 +85,24 @@ function AiNewsTabs({ payload }: { payload: AiNewsPayload | null }) {
     { id: "llm", label: t("LLM & Modelle", "LLMs & Models", "LLM & Mô hình") },
     { id: "business", label: t("KI in Unternehmen", "AI in Business", "AI trong doanh nghiệp") },
     { id: "security", label: "Security" },
-    { id: "ecommerce", label: "E-Commerce" },
+    { id: "gpu", label: t("GPU-Markt", "GPU Market", "Thị trường GPU") },
+    { id: "webllm", label: "WebLLM & WebAssembly" },
   ];
+
+  // Solange der Feed lädt (payload === null), alle Reiter zeigen; danach nur
+  // die, die tatsächlich Meldungen haben — ein Reiter, der immer leer bleibt
+  // (z.B. an ruhigen Tagen), wirkt sonst wie ein Fehler.
+  const visibleCategories =
+    payload === null
+      ? categories
+      : categories.filter((c) => payload.items.some((item) => item.category === c.id));
+
+  useEffect(() => {
+    if (payload !== null && visibleCategories.length > 0 && !visibleCategories.some((c) => c.id === activeTab)) {
+      setActiveTab(visibleCategories[0].id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [payload]);
 
   const locale = lang === "DE" ? "de-DE" : lang === "VI" ? "vi-VN" : "en-US";
   const formatDate = (iso: string) => {
@@ -100,7 +117,7 @@ function AiNewsTabs({ payload }: { payload: AiNewsPayload | null }) {
   return (
     <div className="bg-background/40 rounded-xl border border-border p-6 overflow-hidden">
       <div className="scrollbar-hidden flex flex-nowrap overflow-x-auto whitespace-nowrap mb-6 text-xs font-medium border-b border-border">
-        {categories.map((tab) => (
+        {visibleCategories.map((tab) => (
           <button
             key={tab.id}
             type="button"
@@ -179,7 +196,7 @@ function TechStackTabs() {
         { name: "LangGraph", level: 2 },
         { name: "Aider", level: 3 },
         { name: "Cline", level: 2 },
-        { name: "Azad-Code", level: 2 },
+        { name: "Eigent", level: 2 },
       ],
     },
     {
@@ -458,9 +475,9 @@ function Home() {
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground">
               {t(
-                "Hi, ich bin Tiep — IT & KI Experte. Ich konzipiere und baue Cloud-Plattformen, integriere KI sicher (DSGVO-konform, AI Act, NIS2 auditierbar) in bestehende Produkte und liefere produktionsreifen Code.",
-                "Hi, I'm Tiep — IT & AI Expert. I design and build Cloud platforms, integrate AI securely (GDPR-compliant, AI Act, NIS2 auditable) into existing products, and deliver production-ready code.",
-                "Xin chào, tôi là Tiệp — Chuyên gia IT & AI. Tôi thiết kế và xây dựng nền tảng đám mây, tích hợp AI bảo mật và cung cấp mã nguồn sẵn sàng cho sản xuất."
+                "Hi, ich bin Tiep — IT & KI Spezialist. Ich konzipiere und baue Cloud-Plattformen, integriere KI sicher (DSGVO-konform, AI Act, NIS2 auditierbar) in bestehende Produkte und liefere produktionsreifen Code.",
+                "Hi, I'm Tiep — IT & AI Specialist. I design and build Cloud platforms, integrate AI securely (GDPR-compliant, AI Act, NIS2 auditable) into existing products, and deliver production-ready code.",
+                "Xin chào, tôi là Tiệp — Chuyên viên IT & AI. Tôi thiết kế và xây dựng nền tảng đám mây, tích hợp AI bảo mật và cung cấp mã nguồn sẵn sàng cho sản xuất."
               )}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -581,7 +598,27 @@ function Home() {
           </div>
         </div>
       </section>
-      
+
+      {/* Coding-Agent-Benchmarks: kleines, manuell gepflegtes Vergleichs-Dashboard */}
+      <section id="coding-benchmarks" className="mx-auto max-w-6xl px-6 pb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <div className="mb-6">
+            <div className="text-xs uppercase tracking-widest text-primary">
+              {t("Coding-Agenten im Vergleich", "Coding Agents Compared", "So sánh Agent lập trình")}
+            </div>
+            <h2 className="mt-2 text-2xl md:text-3xl font-semibold">
+              {t("Wie gut sind aktuelle KI-Coding-Agenten?", "How good are today's AI coding agents?", "Các Agent lập trình AI hiện tại tốt đến đâu?")}
+            </h2>
+          </div>
+          <CodingAgentBenchmarks />
+        </motion.div>
+      </section>
+
       {/* Projects / Ausgewählte Arbeiten */}
       <section id="projekte" className="mx-auto max-w-6xl px-6 py-20">
         <motion.div 

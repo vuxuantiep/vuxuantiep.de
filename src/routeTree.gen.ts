@@ -16,6 +16,7 @@ import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as BrokiRouteImport } from './routes/broki'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogLokaleLlmGpuServerRouteImport } from './routes/blog_.lokale-llm-gpu-server'
 
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
@@ -52,6 +53,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogLokaleLlmGpuServerRoute = BlogLokaleLlmGpuServerRouteImport.update({
+  id: '/blog_/lokale-llm-gpu-server',
+  path: '/blog/lokale-llm-gpu-server',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
+  '/blog/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
+  '/blog/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
+  '/blog_/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/portfolio'
+    | '/blog/lokale-llm-gpu-server'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/portfolio'
+    | '/blog/lokale-llm-gpu-server'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/portfolio'
+    | '/blog_/lokale-llm-gpu-server'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +131,7 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
   PortfolioRoute: typeof PortfolioRoute
+  BlogLokaleLlmGpuServerRoute: typeof BlogLokaleLlmGpuServerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog_/lokale-llm-gpu-server': {
+      id: '/blog_/lokale-llm-gpu-server'
+      path: '/blog/lokale-llm-gpu-server'
+      fullPath: '/blog/lokale-llm-gpu-server'
+      preLoaderRoute: typeof BlogLokaleLlmGpuServerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
   PortfolioRoute: PortfolioRoute,
+  BlogLokaleLlmGpuServerRoute: BlogLokaleLlmGpuServerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -10,6 +10,23 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 export const metadata: Metadata = {
   title: 'Tiep | IT-Engineer & KI-Automatisierung',
   description: 'Portfolio von Vu Xuan Tiep - KI-Automatisierung, IAM und Enterprise-Modernisierung.',
+  openGraph: {
+    title: 'Tiep | IT-Engineer & KI-Automatisierung',
+    description: 'Portfolio von Vu Xuan Tiep - KI-Automatisierung, IAM und Enterprise-Modernisierung.',
+    images: '/og-image.png',
+    type: 'website',
+    locale: 'de_DE',
+    url: 'https://vuxuantiep.de',
+    siteName: 'vuxuantiep.de',
+  },
+  alternates: {
+    canonical: 'https://vuxuantiep.de',
+    languages: {
+      'de': 'https://vuxuantiep.de',
+      'en': 'https://vuxuantiep.de/en',
+      'vi': 'https://vuxuantiep.de/vi',
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
