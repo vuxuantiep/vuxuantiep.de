@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UeberMichRouteImport } from './routes/ueber-mich'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
@@ -18,6 +19,11 @@ import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogLokaleLlmGpuServerRouteImport } from './routes/blog_.lokale-llm-gpu-server'
 
+const UeberMichRoute = UeberMichRouteImport.update({
+  id: '/ueber-mich',
+  path: '/ueber-mich',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PortfolioRoute = PortfolioRouteImport.update({
   id: '/portfolio',
   path: '/portfolio',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
+  '/ueber-mich': typeof UeberMichRoute
   '/blog/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
+  '/ueber-mich': typeof UeberMichRoute
   '/blog/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
+  '/ueber-mich': typeof UeberMichRoute
   '/blog_/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/portfolio'
+    | '/ueber-mich'
     | '/blog/lokale-llm-gpu-server'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/portfolio'
+    | '/ueber-mich'
     | '/blog/lokale-llm-gpu-server'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/portfolio'
+    | '/ueber-mich'
     | '/blog_/lokale-llm-gpu-server'
   fileRoutesById: FileRoutesById
 }
@@ -131,11 +143,19 @@ export interface RootRouteChildren {
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
   PortfolioRoute: typeof PortfolioRoute
+  UeberMichRoute: typeof UeberMichRoute
   BlogLokaleLlmGpuServerRoute: typeof BlogLokaleLlmGpuServerRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/ueber-mich': {
+      id: '/ueber-mich'
+      path: '/ueber-mich'
+      fullPath: '/ueber-mich'
+      preLoaderRoute: typeof UeberMichRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/portfolio': {
       id: '/portfolio'
       path: '/portfolio'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
   PortfolioRoute: PortfolioRoute,
+  UeberMichRoute: UeberMichRoute,
   BlogLokaleLlmGpuServerRoute: BlogLokaleLlmGpuServerRoute,
 }
 export const routeTree = rootRouteImport

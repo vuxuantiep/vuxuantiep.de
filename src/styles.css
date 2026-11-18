@@ -29,7 +29,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-surface: var(--surface);
-  --font-display: "Cormorant Garamond", "Space Grotesk", system-ui, serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  --font-script: "Pinyon Script", "Cormorant Garamond", cursive;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
   
@@ -42,59 +43,42 @@
 }
 
 :root {
-  /* Maritim/Kontor-Palette, verfeinert: tiefes, leuchtendes Emerald-Grün
-     als Hauptakzent (statt Gold), Gold wird zur zweiten Akzent-/Linienfarbe
-     (Icons, Nav-Unterstreichung, Kartenrahmen). Dunkler Hintergrund bleibt
-     ein sattes Waldgrün. Ergänzt um eine helle Pergament-Variante
-     (.section-parchment) für abwechselnde Abschnitte. */
-  --radius: 0.75rem;
-  --background: oklch(0.269 0.023 168);
-  --foreground: oklch(0.968 0.011 85);
-  --surface: oklch(0.32 0.025 168);
-  --card: oklch(0.32 0.025 168);
-  --card-foreground: oklch(0.968 0.011 85);
-  --popover: oklch(0.32 0.025 168);
-  --popover-foreground: oklch(0.968 0.011 85);
-  --primary: oklch(0.426 0.077 172);
-  --primary-hover: oklch(0.581 0.109 169);
-  --primary-foreground: oklch(0.968 0.011 85);
-  --secondary: oklch(0.38 0.03 168);
-  --secondary-foreground: oklch(0.968 0.011 85);
-  --muted: oklch(0.38 0.03 168);
-  --muted-foreground: oklch(0.75 0.02 100);
-  --accent: oklch(0.746 0.089 83);
-  --accent-foreground: oklch(0.232 0.006 78);
-  --destructive: oklch(0.65 0.22 27);
-  --destructive-foreground: oklch(0.97 0.01 250);
-  --border: oklch(0.746 0.089 83 / 22%);
-  --input: oklch(0.968 0.011 85 / 14%);
-  --ring: oklch(0.426 0.077 172);
+  /* Apple-Clean-Palette (Redesign 18.11.2026): 80 % Weiß, 15 % warmes Beige,
+     5 % dunkles Grün als Akzent. Rubinrot nur als winziger Akzent (--ruby).
+     Alle Komponenten nutzen semantische Tokens → färben sich automatisch um. */
+  --radius: 1rem;
+  --background: oklch(0.986 0.008 80);
+  --foreground: oklch(0.24 0.012 60);
+  --surface: oklch(0.962 0.017 76);
+  --card: oklch(0.995 0.004 85);
+  --card-foreground: oklch(0.22 0.006 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.006 260);
+  --primary: oklch(0.4 0.065 165);
+  --primary-hover: oklch(0.34 0.06 165);
+  --primary-foreground: oklch(0.99 0.003 85);
+  --secondary: oklch(0.955 0.018 76);
+  --secondary-foreground: oklch(0.22 0.006 260);
+  --muted: oklch(0.955 0.018 76);
+  --muted-foreground: oklch(0.48 0.02 60);
+  --accent: oklch(0.4 0.065 165);
+  --accent-foreground: oklch(0.99 0.003 85);
+  --ruby: oklch(0.45 0.15 18);
+  --beige: oklch(0.935 0.03 72);
+  --destructive: oklch(0.58 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.3 0.03 60 / 10%);
+  --input: oklch(0.22 0.006 260 / 14%);
+  --ring: oklch(0.4 0.065 165);
 }
 
-/* Helle Abschnitts-Variante (Pergament/Vintage-Beige/Warmes Schwarz). Da alle
-   Komponenten ausschließlich semantische Tokens (bg-background, text-foreground,
-   border-border, bg-surface, text-muted-foreground) nutzen, färben sie sich
-   innerhalb dieses Wrappers automatisch um — ohne Komponenten-Änderungen. */
+/* Warme Beige-Sektion (Hanoi / Warm Editorial) für abwechselnde Abschnitte. */
 .section-parchment {
-  --background: oklch(0.905 0.031 88);
-  --foreground: oklch(0.232 0.006 78);
-  --surface: oklch(0.968 0.011 85);
-  --card: oklch(0.968 0.011 85);
-  --card-foreground: oklch(0.232 0.006 78);
-  --popover: oklch(0.968 0.011 85);
-  --popover-foreground: oklch(0.232 0.006 78);
-  --secondary: oklch(0.87 0.025 85);
-  --secondary-foreground: oklch(0.232 0.006 78);
-  --muted: oklch(0.87 0.025 85);
-  --muted-foreground: oklch(0.45 0.03 78);
-  --primary: oklch(0.426 0.077 172);
-  --primary-hover: oklch(0.581 0.109 169);
-  --primary-foreground: oklch(0.968 0.011 85);
-  --accent: oklch(0.659 0.09 78);
-  --accent-foreground: oklch(0.232 0.006 78);
-  --border: oklch(0.318 0.031 62 / 12%);
-  --input: oklch(0.318 0.031 62 / 16%);
-  --ring: oklch(0.276 0.019 225);
+  color: var(--foreground);
+  --background: oklch(0.955 0.022 76);
+  --surface: oklch(0.99 0.004 85);
+  --card: oklch(0.99 0.004 85);
+  --border: oklch(0.3 0.03 60 / 10%);
 }
 
 @layer base {
@@ -103,17 +87,51 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    background-image:
-      radial-gradient(ellipse 1400px 900px at 0% -5%, oklch(0.74 0.086 82 / 0.08), transparent 65%),
-      radial-gradient(ellipse 1200px 800px at 100% 8%, oklch(0.568 0.036 137 / 0.1), transparent 65%),
-      radial-gradient(ellipse 1100px 700px at 50% 100%, oklch(0.74 0.086 82 / 0.05), transparent 70%),
-      linear-gradient(180deg, transparent 0%, oklch(0.74 0.086 82 / 0.03) 50%, transparent 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.025em; }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 6px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
   code, pre { font-family: var(--font-mono); }
+}
+
+@layer utilities {
+  /* Papier-Körnung: SVG-Fraktalrauschen als Overlay, per ::after auf
+     Sektionen gelegt statt als externes Asset — funktioniert auf jedem
+     Hintergrund (dunkelgrün wie Pergament). */
+  .paper-grain {
+    position: relative;
+  }
+  .paper-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.14;
+    mix-blend-mode: overlay;
+  }
+
+  /* Gerissene Papierkante — weich/unregelmäßig statt scharfem Zickzack:
+     wenige, breit gestreute Punkte mit kleiner Höhenvarianz (~1%), keine
+     starre Auf-Ab-Wiederholung. Per clip-path, kein Bild nötig. */
+  .torn-edge-bottom {
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 100%,
+      92% 99.3%, 84% 99.8%, 77% 99.1%, 69% 99.6%, 61% 99.9%,
+      53% 99.2%, 46% 99.7%, 38% 99.4%, 30% 100%, 23% 99.5%,
+      15% 99.8%, 8% 99.3%, 0% 99.7%
+    );
+  }
+  .torn-edge-top {
+    clip-path: polygon(
+      0% 0.7%, 8% 0.2%, 15% 0.8%, 23% 0.3%, 30% 0.9%,
+      38% 0.4%, 46% 0.7%, 53% 0.1%, 61% 0.6%, 69% 0.2%,
+      77% 0.8%, 84% 0.3%, 92% 0.6%, 100% 0%,
+      100% 100%, 0% 100%
+    );
+  }
 }
 
 @layer utilities {
