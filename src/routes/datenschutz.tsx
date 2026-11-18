@@ -43,7 +43,7 @@ function Datenschutz() {
         <h1 className="mt-3 font-display text-5xl font-semibold leading-tight">
           {t("Datenschutzerklärung", "Privacy Policy", "Chính sách quyền riêng tư")}
         </h1>
-        <p className="mt-4 text-sm text-muted-foreground">{t("Stand: Juli 2026", "Last updated: July 2026", "Cập nhật: tháng 7/2026")}</p>
+        <p className="mt-4 text-sm text-muted-foreground">{t("Stand: November 2026", "Last updated: November 2026", "Cập nhật: tháng 11/2026")}</p>
 
         <div className="mt-10 space-y-10 text-sm leading-relaxed text-muted-foreground">
           <Section title={t("1. Verantwortlicher", "1. Controller", "1. Bên chịu trách nhiệm")}>
@@ -120,12 +120,12 @@ function Datenschutz() {
             </p>
           </Section>
 
-          <Section title={t("6. Externe Inhalte (Hacker-News-Schlagzeilen)", "6. External content (Hacker News headlines)", "6. Nội dung bên ngoài (tin Hacker News)")}>
+          <Section title={t("6. Tech-Schlagzeilen auf der Startseite", "6. Tech headlines on the homepage", "6. Tin công nghệ trên trang chủ")}>
             <p>
               {t(
-                "Auf der Startseite werden aktuelle Tech-Schlagzeilen über die öffentliche API von Algolia (hn.algolia.com, Hacker News Search) geladen. Dabei überträgt dein Browser technisch bedingt deine IP-Adresse an Algolia. Es werden keine weiteren personenbezogenen Daten übermittelt und keine Cookies gesetzt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Darstellung aktueller Fachinformationen).",
-                "The homepage loads current tech headlines via the public Algolia API (hn.algolia.com, Hacker News Search). For technical reasons, your browser transmits your IP address to Algolia in the process. No further personal data is transmitted and no cookies are set. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in displaying current industry news).",
-                "Trang chủ tải các tin công nghệ mới qua API công khai của Algolia (hn.algolia.com, Hacker News Search). Vì lý do kỹ thuật, trình duyệt của bạn truyền địa chỉ IP tới Algolia trong quá trình này. Không có dữ liệu cá nhân nào khác được truyền và không có cookie nào được đặt. Cơ sở pháp lý là Điều 6(1)(f) GDPR."
+                "Auf der Startseite werden aktuelle Tech-Schlagzeilen angezeigt (Quellen: Hacker News über die Algolia-API, TechCrunch, The Verge). Diese Schlagzeilen ruft der Server dieser Website selbst ab; dein Browser stellt dabei keine Verbindung zu diesen Anbietern her, und es werden weder deine IP-Adresse noch andere personenbezogene Daten an sie übermittelt. Erst wenn du auf eine Schlagzeile klickst, öffnest du die Website des jeweiligen Anbieters; dort gilt dessen Datenschutzerklärung.",
+                "The homepage shows current tech headlines (sources: Hacker News via the Algolia API, TechCrunch, The Verge). These headlines are fetched by this website's own server; your browser does not connect to these providers, and neither your IP address nor any other personal data is transmitted to them. Only when you click a headline do you open the provider's website, where its own privacy policy applies.",
+                "Trang chủ hiển thị các tin công nghệ mới (nguồn: Hacker News qua API Algolia, TechCrunch, The Verge). Các tin này do máy chủ của website tự tải về; trình duyệt của bạn không kết nối tới các nhà cung cấp đó, và địa chỉ IP cũng như dữ liệu cá nhân khác của bạn không được truyền cho họ. Chỉ khi bạn nhấp vào một tin, bạn mới mở trang của nhà cung cấp đó; khi ấy áp dụng chính sách quyền riêng tư của họ."
               )}
             </p>
           </Section>
@@ -133,9 +133,9 @@ function Datenschutz() {
           <Section title={t("7. Kontaktaufnahme", "7. Contact", "7. Liên hệ")}>
             <p>
               {t(
-                "Wenn du mich per E-Mail, Telefon oder über das Kontaktformular kontaktierst, werden die von dir mitgeteilten Daten (Name, Kontaktdaten, Inhalt der Anfrage) ausschließlich zur Bearbeitung deiner Anfrage verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung oder Durchführung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Die Daten werden gelöscht, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.",
-                "If you contact me by email, phone or via the contact form, the data you provide (name, contact details, content of your enquiry) is processed solely to handle your enquiry. The legal basis is Art. 6(1)(b) GDPR (initiation or performance of a contract) or Art. 6(1)(f) GDPR (legitimate interest in answering enquiries). The data is deleted once it is no longer needed to handle your enquiry and no statutory retention obligations apply.",
-                "Nếu bạn liên hệ với tôi qua email, điện thoại hoặc biểu mẫu liên hệ, dữ liệu bạn cung cấp (tên, thông tin liên hệ, nội dung yêu cầu) chỉ được xử lý để giải quyết yêu cầu của bạn. Cơ sở pháp lý là Điều 6(1)(b) GDPR hoặc Điều 6(1)(f) GDPR. Dữ liệu sẽ bị xóa khi không còn cần thiết và không có nghĩa vụ lưu trữ theo luật."
+                "Wenn du mich per E-Mail, Telefon oder über das Kontaktformular kontaktierst, werden die von dir mitgeteilten Daten (Name, Kontaktdaten, Inhalt der Anfrage) ausschließlich zur Bearbeitung deiner Anfrage verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung oder Durchführung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen). Die Daten werden gelöscht, sobald sie für die Bearbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Nachrichten über das Kontaktformular werden über den E-Mail-Server der IONOS SE, Elgendorfer Str. 57, 56410 Montabaur (Deutschland) zugestellt; mit IONOS besteht ein Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO). Du erhältst automatisch eine Eingangsbestätigung an die angegebene E-Mail-Adresse.",
+                "If you contact me by email, phone or via the contact form, the data you provide (name, contact details, content of your enquiry) is processed solely to handle your enquiry. The legal basis is Art. 6(1)(b) GDPR (initiation or performance of a contract) or Art. 6(1)(f) GDPR (legitimate interest in answering enquiries). The data is deleted once it is no longer needed to handle your enquiry and no statutory retention obligations apply. Messages sent via the contact form are delivered through the mail server of IONOS SE, Elgendorfer Str. 57, 56410 Montabaur (Germany); a data processing agreement pursuant to Art. 28 GDPR is in place with IONOS. You automatically receive a confirmation of receipt at the email address you provided.",
+                "Nếu bạn liên hệ với tôi qua email, điện thoại hoặc biểu mẫu liên hệ, dữ liệu bạn cung cấp (tên, thông tin liên hệ, nội dung yêu cầu) chỉ được xử lý để giải quyết yêu cầu của bạn. Cơ sở pháp lý là Điều 6(1)(b) GDPR hoặc Điều 6(1)(f) GDPR. Dữ liệu sẽ bị xóa khi không còn cần thiết và không có nghĩa vụ lưu trữ theo luật. Tin nhắn qua biểu mẫu liên hệ được gửi qua máy chủ email của IONOS SE, Elgendorfer Str. 57, 56410 Montabaur (Đức); đã có hợp đồng xử lý dữ liệu theo Điều 28 GDPR với IONOS. Bạn sẽ tự động nhận được email xác nhận tới địa chỉ đã cung cấp."
               )}
             </p>
           </Section>

@@ -140,6 +140,18 @@ function Kontakt() {
                 )}
               />
             </div>
+            {/* Datenschutzhinweis direkt am Formular (Art. 13 DSGVO, 18.11.2026) */}
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              {t(
+                "Mit dem Absenden werden deine Angaben zur Bearbeitung deiner Anfrage verarbeitet. Mehr dazu in der ",
+                "By submitting, your details are processed to handle your enquiry. More in the ",
+                "Khi gửi, thông tin của bạn được xử lý để giải quyết yêu cầu. Xem thêm trong "
+              )}
+              <a href="/datenschutz" className="underline underline-offset-2 hover:text-foreground">
+                {t("Datenschutzerklärung", "privacy policy", "chính sách quyền riêng tư")}
+              </a>
+              .
+            </p>
             <div className="flex flex-wrap items-center gap-4">
               <button
                 type="submit"
