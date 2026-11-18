@@ -25,7 +25,7 @@ export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) 
     <span className="flex items-center gap-2.5">
       <LogoMark className="h-10 w-10 shrink-0" />
       <span
-        className={`whitespace-nowrap text-[22px] font-semibold italic leading-none tracking-[0.005em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
+        className={`whitespace-nowrap text-[22px] font-semibold italic leading-none tracking-[0.005em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-[oklch(0.36_0.06_165)]"}`}
         style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
       >
         Vu Xuan Tiep
