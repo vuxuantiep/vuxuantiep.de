@@ -148,3 +148,41 @@ export function AiOsVisual({ className }: VisualProps) {
     </svg>
   );
 }
+
+/** BDS Navigator – Immobilien-Verwaltung: Objektliste + Haus-Siegel */
+export function BdsVisual({ className }: VisualProps) {
+  return (
+    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="BDS Navigator – Immobilien-Verwaltung">
+      <defs>
+        <linearGradient id="bd-shadow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={INK} stopOpacity="0.10" />
+          <stop offset="100%" stopColor={INK} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      {/* Verwaltungs-Fenster */}
+      <rect x="132" y="44" width="216" height="186" rx="14" fill="url(#bd-shadow)" transform="translate(4 8)" />
+      <rect x="132" y="44" width="216" height="186" rx="14" fill={PAPER} stroke={LINE} />
+      <path d="M132 58a14 14 0 0 1 14-14h188a14 14 0 0 1 14 14v12H132z" fill={SAND} />
+      <circle cx="150" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="162" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="174" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      {/* Objekte */}
+      {[86, 126, 166].map((y, i) => (
+        <g key={y}>
+          <rect x="148" y={y} width="184" height="30" rx="8" fill={i === 0 ? GREEN_SOFT : PAPER} stroke={LINE} />
+          <path d={`M160 ${y + 20}v-7l7-6 7 6v7z`} fill={i === 0 ? GREEN : INK} opacity={i === 0 ? 1 : 0.3} />
+          <rect x="184" y={y + 8} width={i === 1 ? 70 : 90} height="6" rx="3" fill={INK} opacity="0.18" />
+          <rect x="184" y={y + 18} width="52" height="5" rx="2.5" fill={INK} opacity="0.1" />
+          <rect x="294" y={y + 10} width="28" height="10" rx="5" fill={i === 2 ? GOLD : GREEN} opacity={i === 2 ? 0.6 : 0.55} />
+        </g>
+      ))}
+      {/* Haus-Siegel */}
+      <g transform="translate(92 140)">
+        <circle r="34" fill={PAPER} stroke={GOLD} strokeWidth="1.5" />
+        <circle r="27" fill="none" stroke={GOLD} strokeOpacity="0.5" strokeDasharray="2 3" />
+        <path d="M-15 2l15-14 15 14v14h-30z" fill={GREEN} />
+        <rect x="-4" y="6" width="8" height="10" rx="1.5" fill={PAPER} />
+      </g>
+    </svg>
+  );
+}

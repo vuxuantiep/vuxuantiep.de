@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
-import { TraceVisual, BrokiVisual, AiOsVisual } from "@/components/site/ProjectVisuals";
+import { TraceVisual, BrokiVisual, AiOsVisual, BdsVisual } from "@/components/site/ProjectVisuals";
 
 export type Project = {
   key: "trace" | "broki" | "bds" | "aios";
@@ -43,7 +43,7 @@ export function useProjects(): Project[] {
     {
       key: "bds",
       title: "BDS Navigator",
-      tagline: t("Immobilien-Intelligenz für Vietnam", "Real estate intelligence for Vietnam", "Thông tin bất động sản Việt Nam"),
+      tagline: t("Immobilien-Verwaltung", "Property management", "Quản lý bất động sản"),
       desc: t(
         "Digitale Plattform mit Karten, Marktdaten und KI-Assistent für Investoren.",
         "Digital platform with maps, market data and an AI assistant for investors.",
@@ -69,85 +69,38 @@ export function useProjects(): Project[] {
  * Randloses Projektbild: warmer Verlauf als Grund, Visual bzw. Screenshot
  * läuft unten weich in die Kartenfarbe über (kein Bildrahmen).
  */
-// Deckende Bilder für die Kopf-Galerie (CEO 18.11.2026: im Header alle
-// 4 Projekte gleich – kein transparenter Hintergrund).
-const SOLID_IMAGES: Partial<Record<string, string>> = {
+// Einheitlicher Look für alle 4 Projekte (CEO 18.11.2026): transparentes,
+// langsam bewegtes Hintergrundbild + klare Grafik im Vordergrund.
+// TRACE blendet Plattform ↔ Infrastruktur über; Broki hat (noch) kein
+// echtes Bild – dort liegt die eigene Grafik vergrößert dahinter.
+const BG_IMAGES: Record<string, string> = {
   trace: "/images/projects/trace-plattform.webp",
   bds: "/images/BDS-Navigator/temp_image_1783206179972.png",
   aios: "/images/projects/aios-architektur.webp",
 };
 
-export function ProjectMedia({
-  project,
-  className = "",
-  solid = false,
-}: {
-  project: Project;
-  className?: string;
-  solid?: boolean;
-}) {
-  if (solid) {
-    const src = SOLID_IMAGES[project.key];
-    return (
-      <div className={`relative overflow-hidden bg-[var(--surface)] ${className}`}>
-        {src ? (
-          <img
-            src={src}
-            alt={`${project.title} — ${project.tagline}`}
-            loading="lazy"
-            decoding="async"
-            className={`absolute inset-0 h-full w-full object-cover ${project.key === "bds" ? "object-[30%_0%]" : "object-top"} [mask-image:linear-gradient(to_bottom,black_55%,transparent)]`}
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-start justify-center bg-[radial-gradient(ellipse_at_30%_20%,oklch(0.5_0.07_165),oklch(0.3_0.05_170))] px-5 pt-5 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]">
-            {project.key === "broki" && <BrokiVisual className="h-full w-full" />}
-          </div>
-        )}
-      </div>
-    );
-  }
+export function ProjectMedia({ project, className = "" }: { project: Project; className?: string }) {
+  const bg = BG_IMAGES[project.key];
   return (
     <div className={`relative overflow-hidden bg-gradient-to-b from-[var(--beige)] to-[var(--surface)] ${className}`}>
-      {project.key === "bds" ? (
-        <img
-          src="/images/BDS-Navigator/temp_image_1783206179972.png"
-          alt={`${project.title} — ${project.tagline}`}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-[30%_0%] opacity-95 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
-        />
-      ) : (
-        <>
-          {/* Architektur-Bilder des CEO als transparenter, langsam bewegter
-              Hintergrund (18.11.2026). TRACE: Plattform ↔ Infrastruktur im
-              Wechsel; AI-OS: Architektur mit sanftem Kamerazoom. */}
-          {(project.key === "trace" || project.key === "aios") && (
-            <div aria-hidden="true" className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)]">
-              <img
-                src={project.key === "trace" ? "/images/projects/trace-plattform.webp" : "/images/projects/aios-architektur.webp"}
-                alt=""
-                loading="lazy"
-                decoding="async"
-                className="pm-pan absolute inset-0 h-full w-full object-cover opacity-[0.32]"
-              />
-              {project.key === "trace" && (
-                <img
-                  src="/images/projects/trace-infrastruktur.webp"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="pm-pan pm-fade absolute inset-0 h-full w-full object-cover opacity-0"
-                />
-              )}
-            </div>
-          )}
-        <div className="absolute inset-0 flex items-center justify-center p-4">
-          {project.key === "trace" && <TraceVisual className="h-full w-full" />}
-          {project.key === "broki" && <BrokiVisual className="h-full w-full" />}
-          {project.key === "aios" && <AiOsVisual className="h-full w-full" />}
-        </div>
-        </>
-      )}
+      <div aria-hidden="true" className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)]">
+        {bg ? (
+          <img src={bg} alt="" loading="lazy" decoding="async" className="pm-pan absolute inset-0 h-full w-full object-cover object-top opacity-[0.32]" />
+        ) : (
+          <div className="pm-pan absolute inset-0 scale-150 opacity-[0.32]">
+            <BrokiVisual className="h-full w-full" />
+          </div>
+        )}
+        {project.key === "trace" && (
+          <img src="/images/projects/trace-infrastruktur.webp" alt="" loading="lazy" decoding="async" className="pm-pan pm-fade absolute inset-0 h-full w-full object-cover opacity-0" />
+        )}
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center p-4">
+        {project.key === "trace" && <TraceVisual className="h-full w-full" />}
+        {project.key === "broki" && <BrokiVisual className="h-full w-full" />}
+        {project.key === "bds" && <BdsVisual className="h-full w-full" />}
+        {project.key === "aios" && <AiOsVisual className="h-full w-full" />}
+      </div>
       {/* weicher Übergang in die Kartenfläche */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[var(--surface)]" />
     </div>

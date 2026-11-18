@@ -94,7 +94,7 @@ export function Hero() {
                 hash={p.hash}
                 className="group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-3xl bg-surface sm:w-auto"
               >
-                <ProjectMedia project={p} solid className="aspect-[4/3]" />
+                <ProjectMedia project={p} className="aspect-[4/3]" />
                 <div className="absolute inset-x-0 bottom-0 px-4 pb-3.5">
                   <div className="text-[15px] font-semibold text-foreground">{p.title}</div>
                   <div className="truncate text-xs text-muted-foreground">{p.tagline}</div>
