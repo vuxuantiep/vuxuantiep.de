@@ -91,6 +91,7 @@ export function Hero() {
               <Link
                 key={p.key}
                 to={p.to}
+                hash={p.hash}
                 className="group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-3xl bg-surface sm:w-auto"
               >
                 <ProjectMedia project={p} className="aspect-[4/3]" />
