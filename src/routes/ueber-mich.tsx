@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin, Languages } from "lucide-react";
+import { ArrowRight, MapPin, Languages, Briefcase } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { AboutSection } from "@/components/site/AboutSection";
@@ -58,12 +58,13 @@ function AboutPage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
               {t(
-                "Ich verbinde IT und KI zu Lösungen, die im Alltag spürbar entlasten: Antworten aus dem eigenen Firmenwissen in Sekunden, weniger wiederkehrende Supportanfragen, sichere Zugänge – und Daten, die im Unternehmen bleiben. Das ist für mich nicht nur Arbeit, sondern Leidenschaft.",
-                "I combine IT and AI into solutions that make a noticeable difference every day: answers from your own company knowledge in seconds, fewer recurring support requests, secure access – and data that stays in your company. For me this isn't just work, it's a passion.",
-                "Tôi kết hợp IT và AI thành những giải pháp giảm tải rõ rệt mỗi ngày: câu trả lời từ tri thức nội bộ chỉ trong vài giây, ít yêu cầu hỗ trợ lặp lại, truy cập an toàn – và dữ liệu luôn ở lại doanh nghiệp. Với tôi, đây không chỉ là công việc mà là đam mê."
+                "Mit über 10 Jahren Berufspraxis in der IT verbinde ich IT und KI zu Lösungen, die im Alltag spürbar entlasten: Antworten aus dem eigenen Firmenwissen in Sekunden, weniger wiederkehrende Supportanfragen, sichere Zugänge – und Daten, die im Unternehmen bleiben. Das ist für mich nicht nur Arbeit, sondern Leidenschaft.",
+                "With more than 10 years of hands-on IT experience, I combine IT and AI into solutions that make a noticeable difference every day: answers from your own company knowledge in seconds, fewer recurring support requests, secure access – and data that stays in your company. For me this isn't just work, it's a passion.",
+                "Với hơn 10 năm kinh nghiệm thực tế trong ngành IT, tôi kết hợp IT và AI thành những giải pháp giảm tải rõ rệt mỗi ngày: câu trả lời từ tri thức nội bộ chỉ trong vài giây, ít yêu cầu hỗ trợ lặp lại, truy cập an toàn – và dữ liệu luôn ở lại doanh nghiệp. Với tôi, đây không chỉ là công việc mà là đam mê."
               )}
             </p>
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+              <span className="inline-flex items-center gap-2"><Briefcase className="h-4 w-4 text-primary" /> {t("10+ Jahre IT-Praxis", "10+ years in IT", "10+ năm kinh nghiệm IT")}</span>
               <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Hamburg, Deutschland</span>
               <span className="inline-flex items-center gap-2"><Languages className="h-4 w-4 text-primary" /> Deutsch · English · Tiếng Việt</span>
             </div>

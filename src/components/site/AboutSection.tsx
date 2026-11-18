@@ -50,9 +50,9 @@ export function AboutSection({ variant = "home" }: { variant?: "home" | "page" }
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             {t(
-              "Mich begeistert, was entsteht, wenn solide IT und KI zusammenkommen: Systeme, die mitdenken, Fragen aus dem eigenen Wissen beantworten und Routinearbeit abnehmen – ohne dass sensible Daten das Haus verlassen. Genau daran arbeite ich mit Leidenschaft.",
-              "What excites me is what happens when solid IT and AI come together: systems that think along, answer questions from your own knowledge and take over routine work – without sensitive data leaving the building. That's what I work on with passion.",
-              "Điều khiến tôi say mê là khi IT vững chắc kết hợp với AI: hệ thống biết suy nghĩ cùng, trả lời từ tri thức của chính bạn và đảm nhận công việc lặp lại – mà dữ liệu nhạy cảm không rời khỏi doanh nghiệp. Đó là điều tôi theo đuổi với đam mê."
+              "Nach über 10 Jahren Berufspraxis in der IT begeistert mich, was entsteht, wenn solide IT und KI zusammenkommen: Systeme, die mitdenken, Fragen aus dem eigenen Wissen beantworten und Routinearbeit abnehmen – ohne dass sensible Daten das Haus verlassen. Genau daran arbeite ich mit Leidenschaft.",
+              "After more than 10 years of hands-on IT experience, what excites me is what happens when solid IT and AI come together: systems that think along, answer questions from your own knowledge and take over routine work – without sensitive data leaving the building. That's what I work on with passion.",
+              "Sau hơn 10 năm kinh nghiệm thực tế trong ngành IT, điều khiến tôi say mê là khi IT vững chắc kết hợp với AI: hệ thống biết suy nghĩ cùng, trả lời từ tri thức của chính bạn và đảm nhận công việc lặp lại – mà dữ liệu nhạy cảm không rời khỏi doanh nghiệp. Đó là điều tôi theo đuổi với đam mê."
             )}
           </p>
           <Link
