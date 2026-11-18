@@ -4,6 +4,7 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { AboutSection } from "@/components/site/AboutSection";
 import { SkillsServices } from "@/components/site/SkillsServices";
+import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { useLang } from "@/contexts/LangContext";
 import { seoHead } from "@/lib/seo";
 
@@ -90,6 +91,7 @@ function AboutPage() {
       </header>
 
       <AboutSection variant="page" />
+      <ExperienceSection />
       <SkillsServices />
       <Footer />
     </div>

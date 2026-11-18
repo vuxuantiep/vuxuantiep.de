@@ -10,6 +10,7 @@ import { AboutSection } from "@/components/site/AboutSection";
 import { SkillsServices } from "@/components/site/SkillsServices";
 import { ProjectsShowcase } from "@/components/site/ProjectsShowcase";
 import { TracePlatform } from "@/components/site/TracePlatform";
+import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { seoHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
@@ -213,6 +214,8 @@ function Home() {
       <SkillsServices />
 
       <ProjectsShowcase />
+
+      <ExperienceSection />
 
       <AboutSection />
 
