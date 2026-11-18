@@ -58,9 +58,9 @@ function AboutPage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
               {t(
-                "Ich arbeite in der IT-Administration – nah an Menschen, Geräten und Identitäten. Mein Ziel: KI so einsetzen, dass sie im Alltag entlastet, Daten geschützt bleiben und Menschen die Kontrolle behalten.",
-                "I work in IT administration – close to people, devices and identities. My goal: use AI so that it helps in everyday work, keeps data protected and leaves people in control.",
-                "Tôi làm quản trị IT – gần gũi với con người, thiết bị và danh tính. Mục tiêu của tôi: dùng AI để giảm tải công việc hằng ngày, bảo vệ dữ liệu và để con người luôn nắm quyền kiểm soát."
+                "Ich verbinde IT und KI zu Lösungen, die im Alltag spürbar entlasten: Antworten aus dem eigenen Firmenwissen in Sekunden, weniger wiederkehrende Supportanfragen, sichere Zugänge – und Daten, die im Unternehmen bleiben. Das ist für mich nicht nur Arbeit, sondern Leidenschaft.",
+                "I combine IT and AI into solutions that make a noticeable difference every day: answers from your own company knowledge in seconds, fewer recurring support requests, secure access – and data that stays in your company. For me this isn't just work, it's a passion.",
+                "Tôi kết hợp IT và AI thành những giải pháp giảm tải rõ rệt mỗi ngày: câu trả lời từ tri thức nội bộ chỉ trong vài giây, ít yêu cầu hỗ trợ lặp lại, truy cập an toàn – và dữ liệu luôn ở lại doanh nghiệp. Với tôi, đây không chỉ là công việc mà là đam mê."
               )}
             </p>
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">

@@ -50,9 +50,9 @@ export function AboutSection({ variant = "home" }: { variant?: "home" | "page" }
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             {t(
-              "Im Alltag betreue ich als IT-Administrator Anwender, Geräte und Zugänge. Dabei sehe ich täglich, wo KI entlasten könnte – und wo Daten nicht in fremde Hände gehören. Genau dort setze ich an.",
-              "In my day-to-day work as an IT administrator I look after users, devices and access. I see every day where AI could help – and where data shouldn't end up in someone else's hands. That's where I start.",
-              "Hằng ngày, với vai trò quản trị viên IT, tôi hỗ trợ người dùng, thiết bị và quyền truy cập. Tôi thấy rõ AI có thể giúp ở đâu – và dữ liệu nào không nên rơi vào tay người khác. Đó là nơi tôi bắt đầu."
+              "Mich begeistert, was entsteht, wenn solide IT und KI zusammenkommen: Systeme, die mitdenken, Fragen aus dem eigenen Wissen beantworten und Routinearbeit abnehmen – ohne dass sensible Daten das Haus verlassen. Genau daran arbeite ich mit Leidenschaft.",
+              "What excites me is what happens when solid IT and AI come together: systems that think along, answer questions from your own knowledge and take over routine work – without sensitive data leaving the building. That's what I work on with passion.",
+              "Điều khiến tôi say mê là khi IT vững chắc kết hợp với AI: hệ thống biết suy nghĩ cùng, trả lời từ tri thức của chính bạn và đảm nhận công việc lặp lại – mà dữ liệu nhạy cảm không rời khỏi doanh nghiệp. Đó là điều tôi theo đuổi với đam mê."
             )}
           </p>
           <Link
