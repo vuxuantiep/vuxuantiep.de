@@ -12,7 +12,8 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
       <path d="M20 4 L33 8.5 V19 C33 27.5 27.5 33.5 20 36.5 C12.5 33.5 7 27.5 7 19 V8.5 Z" fill="oklch(0.36 0.06 165)" />
       <path d="M20 28 C14.5 26.5 11 21 11 15 C16 16.5 19 21 20 28 Z" fill="oklch(0.97 0.012 85)" />
       <path d="M20 28 C21.5 20.5 25 15 30 12.5 C30.5 19.5 26.5 25.5 20 28 Z" fill="oklch(0.97 0.012 85)" />
-      <circle cx="20" cy="12.5" r="2.6" fill="oklch(0.78 0.11 78)" />
+      {/* Sonne leuchtet sanft im Wechsel Gold ↔ Grün (CEO-Wunsch 18.11.2026) */}
+      <circle className="logo-sun" cx="20" cy="12.5" r="2.6" fill="oklch(0.78 0.11 78)" />
     </svg>
   );
 }
