@@ -28,8 +28,16 @@ export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) 
       <span
         className={`whitespace-nowrap text-[21px] font-medium leading-none tracking-[-0.005em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-[oklch(0.36_0.06_165)]"}`}
         style={{ fontFamily: '"Be Vietnam Pro", Inter, system-ui, sans-serif' }}
+        aria-label="Vu Xuan Tiep"
       >
-        Vu Xuan Tiep
+        {/* i-Punkt in „Tiep" = kleine Sonne, leuchtet synchron mit der Logo-Sonne (18.11.2026) */}
+        <span aria-hidden="true">
+          Vu Xuan T
+          <span className="relative inline-block">
+            ı<span className="logo-sun-dot" />
+          </span>
+          ep
+        </span>
       </span>
     </span>
   );
