@@ -17,15 +17,16 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-// Wortmarke ohne Unterzeile (18.11.2026): Name in Cormorant Garamond
-// (Übergang, bis die finale Handschrift gewählt ist).
+// Wortmarke ohne Unterzeile (18.11.2026): Name in der Handschrift
+// Dancing Script 600 (vom CEO gewählt) – persönlich, elegant, mit
+// vietnamesischem Zeichensatz; Kontrast zur sachlichen Inter.
 export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark className="h-10 w-10 shrink-0" />
       <span
-        className={`text-[24px] font-semibold leading-none tracking-[0.01em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
-        style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
+        className={`text-[28px] font-semibold leading-none ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
+        style={{ fontFamily: '"Dancing Script", "Cormorant Garamond", Georgia, cursive' }}
       >
         Vu Xuan Tiep
       </span>
