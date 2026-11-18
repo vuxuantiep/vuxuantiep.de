@@ -229,22 +229,16 @@
   .logo-sun { animation: none; }
 }
 
-/* Wortmarke: i-Punkt als kleine Sonne, synchron mit der Logo-Sonne */
-@keyframes logo-sun-dot-glow {
-  0%, 100% { background: oklch(0.8 0.13 80); box-shadow: 0 0 0.12em oklch(0.85 0.15 85 / 0.9); }
-  50%      { background: oklch(0.82 0.17 145); box-shadow: 0 0 0.3em oklch(0.85 0.18 145 / 0.95); }
-}
+/* Wortmarke: i-Punkt als kleine goldene Sonne – ruhig, ohne Animation
+   (CEO 18.11.2026: animiert wirkte unruhig). Mittig über dem ı, Abstand
+   zum T über leichten Versatz nach rechts. */
 .logo-sun-dot {
   position: absolute;
   left: 50%;
-  top: -0.09em;
-  width: 0.26em;
-  height: 0.26em;
-  margin-left: -0.155em;
+  top: 0em;
+  width: 0.22em;
+  height: 0.22em;
+  margin-left: -0.09em;
   border-radius: 9999px;
   background: oklch(0.8 0.13 80);
-  animation: logo-sun-dot-glow 3.2s ease-in-out infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .logo-sun-dot { animation: none; }
 }
