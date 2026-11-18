@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
     path: "/",
     search: match.search,
     title: {
-      de: "Souveräne KI & Identity Security | Vu Xuan Tiep, Hamburg",
+      de: "IT-Infrastruktur & souveräne KI-Agenten | Vu Xuan Tiep, Hamburg",
       en: "Sovereign AI & Identity Security | Vu Xuan Tiep, Hamburg",
       vi: "AI tự chủ & Bảo mật danh tính | Vu Xuan Tiep, Hamburg",
     },

@@ -32,18 +32,18 @@ export function Hero() {
           </div>
           {/* Positionierung (18.11.2026): nicht „IT allgemein", sondern souveräne KI
               für Unternehmen mit sensiblen Daten — lokal, identitätsgesichert, mit Freigabe. */}
-          <h1 className="mt-5 text-[2.4rem] font-semibold leading-[1.05] sm:text-5xl md:text-6xl">
+          <h1 className="mt-5 text-[1.75rem] font-semibold leading-[1.15] sm:text-4xl md:text-[2.9rem]">
             {t(
-              "Souveräne KI für Unternehmen mit sensiblen Daten.",
-              "Sovereign AI for companies with sensitive data.",
-              "AI tự chủ cho doanh nghiệp có dữ liệu nhạy cảm."
+              "Sichere IT‑Infrastruktur mit souveränen KI‑Agenten.",
+              "Secure IT infrastructure with sovereign AI agents.",
+              "Hạ tầng IT an toàn với các AI agent tự chủ."
             )}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
             {t(
-              "Ich verbinde lokale KI, sichere Identitäten und Ihren Arbeitsplatz – Microsoft 365 oder openDesk – zu einer Infrastruktur, die in Ihrer Hand bleibt.",
-              "I combine local AI, secure identities and your workplace – Microsoft 365 or openDesk – into infrastructure that stays in your hands.",
-              "Tôi kết hợp AI cục bộ, danh tính an toàn và môi trường làm việc của bạn – Microsoft 365 hoặc openDesk – thành hạ tầng nằm trong tay bạn."
+              "Für Unternehmen mit sensiblen Daten: Ich betreue Ihre IT und verbinde lokale KI, sichere Identitäten und Ihren Arbeitsplatz – Microsoft 365 oder openDesk – zu einer Infrastruktur, die in Ihrer Hand bleibt.",
+              "For companies with sensitive data: I run your IT and combine local AI, secure identities and your workplace – Microsoft 365 or openDesk – into infrastructure that stays in your hands.",
+              "Cho doanh nghiệp có dữ liệu nhạy cảm: tôi vận hành IT và kết hợp AI cục bộ, danh tính an toàn và môi trường làm việc của bạn – Microsoft 365 hoặc openDesk – thành hạ tầng nằm trong tay bạn."
             )}
           </p>
           {/* drei überprüfbare Versprechen statt Schlagworte */}
