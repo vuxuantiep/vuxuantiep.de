@@ -17,16 +17,15 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-// Wortmarke ohne Unterzeile (18.11.2026): Name in der Pinselschrift
-// Ma Shan Zheng – handschriftlich, asiatische Kalligrafie, persönlicher
-// Kontrast zur sachlichen Inter. Nur das Latein-Subset wird geladen.
+// Wortmarke ohne Unterzeile (18.11.2026): Name in Cormorant Garamond
+// (Übergang, bis die finale Handschrift gewählt ist).
 export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark className="h-10 w-10 shrink-0" />
       <span
-        className={`text-[27px] leading-none ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
-        style={{ fontFamily: '"Ma Shan Zheng", "Cormorant Garamond", Georgia, serif' }}
+        className={`text-[24px] font-semibold leading-none tracking-[0.01em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
+        style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
       >
         Vu Xuan Tiep
       </span>
