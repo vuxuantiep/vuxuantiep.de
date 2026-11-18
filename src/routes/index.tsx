@@ -313,7 +313,7 @@ function Home() {
               <span className="text-xs text-muted-foreground">
                 {t("Stand", "Updated", "Cập nhật")}: {new Date(aiNews.updatedAt).toLocaleDateString("de-DE", { day: "2-digit", month: "2-digit", year: "numeric" })}
                 {" · "}
-                {t("täglich 7 Uhr aktualisiert", "refreshed daily at 7 AM", "cập nhật hằng ngày lúc 7 giờ")}
+                {t("jeden Morgen automatisch aktualisiert", "refreshed automatically every morning", "tự động cập nhật mỗi sáng")}
               </span>
             )}
           </div>
