@@ -17,19 +17,17 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-export function Logo({ tagline = true, light = false }: { tagline?: boolean; light?: boolean }) {
+// Wortmarke ohne Unterzeile (18.11.2026): Name in Cormorant Garamond als
+// warmer, persönlicher Kontrast zur sachlichen Inter im Rest der Seite.
+export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark className="h-10 w-10 shrink-0" />
-      <span className="flex flex-col leading-none">
-        <span className={`text-[17px] font-semibold tracking-tight ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}>
-          Vu Xuan Tiep
-        </span>
-        {tagline && (
-          <span className={`mt-1 text-[10px] font-medium uppercase tracking-[0.18em] ${light ? "text-[oklch(0.97_0.012_85/0.7)]" : "text-primary"}`}>
-            IT · KI · Souverän
-          </span>
-        )}
+      <span
+        className={`text-[24px] font-semibold leading-none tracking-[0.01em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
+        style={{ fontFamily: '"Cormorant Garamond", Georgia, serif' }}
+      >
+        Vu Xuan Tiep
       </span>
     </span>
   );
