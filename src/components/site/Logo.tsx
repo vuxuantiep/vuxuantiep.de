@@ -17,16 +17,16 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-// Wortmarke ohne Unterzeile (18.11.2026): Name in der Schreibschrift
-// Allura (vom CEO gewählt) – elegant, ruhig, persönlich; mit vietnamesischem
-// Zeichensatz. Eine Zeile (nowrap), Kontrast zur sachlichen Inter.
+// Wortmarke ohne Unterzeile (18.11.2026): Name in Playfair Display 600
+// kursiv (vom CEO gewählt) – edel, seriös, persönlich, klein gut lesbar;
+// mit vietnamesischem Zeichensatz. Eine Zeile (nowrap).
 export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark className="h-10 w-10 shrink-0" />
       <span
-        className={`whitespace-nowrap text-[34px] leading-none ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
-        style={{ fontFamily: '"Allura", "Cormorant Garamond", Georgia, cursive', wordSpacing: "0.14em" }}
+        className={`whitespace-nowrap text-[22px] font-semibold italic leading-none tracking-[0.005em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-foreground"}`}
+        style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
       >
         Vu Xuan Tiep
       </span>
