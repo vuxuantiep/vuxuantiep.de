@@ -35,9 +35,9 @@ export function ExperienceSection() {
       period: "2023 – 2026",
       title: t("E-Akte für 13 Fachgerichte", "E-file system for 13 courts", "Hồ sơ điện tử cho 13 tòa án"),
       text: t(
-        "5 Fachanwendungen in hybrider M365-, Citrix- und Windows-Server-Umgebung betreut: ≥ 99,8 % Verfügbarkeit, > 100 Tickets im Monat, 98,7 % SLA-Treue.",
-        "Ran 5 specialist applications in a hybrid M365, Citrix and Windows Server environment: ≥ 99.8 % availability, > 100 tickets a month, 98.7 % SLA compliance.",
-        "Vận hành 5 ứng dụng chuyên ngành trong môi trường lai M365, Citrix và Windows Server: độ sẵn sàng ≥ 99,8 %, > 100 ticket mỗi tháng, tuân thủ SLA 98,7 %."
+        "5 Fachanwendungen in hybrider Citrix- und Windows-Server-Umgebung betreut: ≥ 99,8 % Verfügbarkeit, > 100 Tickets im Monat, 98,7 % SLA-Treue.",
+        "Ran 5 specialist applications in a hybrid Citrix and Windows Server environment: ≥ 99.8 % availability, > 100 tickets a month, 98.7 % SLA compliance.",
+        "Vận hành 5 ứng dụng chuyên ngành trong môi trường lai Citrix và Windows Server: độ sẵn sàng ≥ 99,8 %, > 100 ticket mỗi tháng, tuân thủ SLA 98,7 %."
       ),
     },
     {
