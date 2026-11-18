@@ -55,7 +55,9 @@ function Kontakt() {
 
   const contacts = [
     { icon: Mail, label: t("E-Mail", "Email", "Email"), value: "tiep@vuxuantiep.de", href: "mailto:tiep@vuxuantiep.de" },
-    { icon: Calendar, label: "Cal.com", value: "cal.com/tiep/30min", href: "https://cal.com/tiep/30min" },
+    // Cal.com-Link (cal.com/tiep/30min) lieferte 404 – bis ein gültiger Buchungslink
+    // vorliegt, Terminanfrage per E-Mail (18.11.2026).
+    { icon: Calendar, label: t("Erstgespräch (30 Min.)", "Intro call (30 min)", "Tư vấn ban đầu (30 phút)"), value: t("Termin per E-Mail anfragen", "Request a slot by email", "Đặt lịch qua email"), href: "mailto:tiep@vuxuantiep.de?subject=Terminanfrage%20Erstgespr%C3%A4ch%2030%20Minuten" },
     { icon: MapPin, label: t("Standort", "Location", "Địa điểm"), value: t("Hamburg · Remote EU", "Hamburg · Remote EU", "Hamburg · Remote toàn EU") },
     { icon: Github, label: "GitHub", value: "@vuxuantiep", href: "https://github.com/vuxuantiep" },
     { icon: Linkedin, label: "LinkedIn", value: "/in/vuxuantiep", href: "https://linkedin.com/in/vuxuantiep" },
