@@ -17,16 +17,16 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-// Wortmarke ohne Unterzeile (18.11.2026): Name in Playfair Display 600
-// kursiv (vom CEO gewählt) – edel, seriös, persönlich, klein gut lesbar;
-// mit vietnamesischem Zeichensatz. Eine Zeile (nowrap).
+// Wortmarke ohne Unterzeile (18.11.2026): Name in Marcellus (vom CEO
+// gewählt) – klar, ruhig, hochwertig; Dunkelgrün wie das Schild.
+// Eine Zeile (nowrap).
 export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark className="h-10 w-10 shrink-0" />
       <span
-        className={`whitespace-nowrap text-[22px] font-semibold italic leading-none tracking-[0.005em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-[oklch(0.36_0.06_165)]"}`}
-        style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+        className={`whitespace-nowrap text-[23px] leading-none tracking-[0.02em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-[oklch(0.36_0.06_165)]"}`}
+        style={{ fontFamily: '"Marcellus", Georgia, serif' }}
       >
         Vu Xuan Tiep
       </span>
