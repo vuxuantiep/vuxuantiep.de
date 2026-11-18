@@ -4,18 +4,20 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { useLang } from "@/contexts/LangContext";
 import { seoHead } from "@/lib/seo";
+import { useState } from "react";
+import { ARTICLES, formatDate } from "@/lib/articles";
 
 export const Route = createFileRoute("/blog")({
   head: ({ match }) => seoHead({
     path: "/blog",
     search: match.search,
     title: {
-      de: "Blog — KI & neue Technologien · vuxuantiep.de",
-      en: "Blog — AI & New Technologies · vuxuantiep.de",
-      vi: "Blog — AI & Công nghệ mới · vuxuantiep.de",
+      de: "Blog — IT, KI & Sicherheit aktuell · vuxuantiep.de",
+      en: "Blog — IT, AI & Security · vuxuantiep.de",
+      vi: "Blog — IT, AI & Bảo mật · vuxuantiep.de",
     },
     description: {
-      de: "Artikel zu KI, LLMs, Cloud-Architektur und modernen Web-Technologien. Aus der Praxis, ohne Hype.",
+      de: "Aktuelle Artikel zu KI und Sicherheit, Microsoft 365, openDesk & Nubus, lokaler KI, WebAssembly, Kali Linux und dem IT-Freelancer-Markt. Aus der Praxis, ohne Hype.",
       en: "Articles on AI, LLMs, cloud architecture, and modern web technologies. Hands-on, no hype.",
       vi: "Bài viết về AI, LLM, kiến trúc đám mây và công nghệ web hiện đại. Từ thực tiễn, không thổi phồng.",
     },
@@ -24,146 +26,122 @@ export const Route = createFileRoute("/blog")({
 });
 
 function Blog() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const pick = (l: { de: string; en: string; vi: string }) => (lang === "EN" ? l.en : lang === "VI" ? l.vi : l.de);
+  const all = t("Alle", "All", "Tất cả");
+  const [tag, setTag] = useState<string | null>(null);
+  const [q, setQ] = useState("");
 
-  const featured = {
+  const [featured, ...rest] = ARTICLES;
+  // Älterer Langform-Artikel mit eigener Seite
+  const gpu = {
     tag: "GPU · Self-Hosting",
-    date: t("26. Juli 2026 · 9 min", "July 26, 2026 · 9 min", "26 Tháng 7, 2026 · 9 phút"),
-    title: t(
-      "Lokale LLMs trainieren mit eigenem GPU-Server",
-      "Training local LLMs on your own GPU server",
-      "Huấn luyện LLM cục bộ với máy chủ GPU riêng"
-    ),
+    date: "2026-07-26",
+    title: t("Lokale LLMs trainieren mit eigenem GPU-Server", "Training local LLMs on your own GPU server", "Huấn luyện LLM cục bộ với máy chủ GPU riêng"),
     excerpt: t(
-      "Welche GPU 2026 für lokales Training taugt, wie das Projekt technisch aufgesetzt wird — und wie du die Hardware zwischen Fine-Tuning und Vermietung optimal auslastest, statt sie ungenutzt herumstehen zu lassen.",
-      "Which GPU makes sense for local training in 2026, how to set the project up technically — and how to keep the hardware utilized between fine-tuning and rental income instead of letting it sit idle.",
-      "GPU nào phù hợp để huấn luyện cục bộ năm 2026, cách thiết lập dự án về kỹ thuật — và cách tận dụng tối đa phần cứng giữa fine-tuning và cho thuê thay vì để không."
+      "Welche GPU für lokales Training taugt, wie das Projekt technisch aufgesetzt wird und wie die Hardware optimal ausgelastet wird.",
+      "Which GPU makes sense for local training, how to set it up and how to keep the hardware utilized.",
+      "GPU nào phù hợp để huấn luyện cục bộ, cách thiết lập và cách tận dụng tối đa phần cứng."
     ),
-    href: "/blog/lokale-llm-gpu-server",
   };
 
-  const posts = [
-    {
-      tag: t("LLM · Praxis", "LLM · Practice", "LLM · Thực tế"), date: "12.06.2026",
-      title: t("RAG in Produktion: 7 Lektionen aus echten Projekten", "RAG in production: 7 lessons from real projects", "RAG trong thực tế: 7 bài học từ các dự án thật"),
-      excerpt: t("Von Chunk-Sizing über Hybrid-Search bis zu Eval-Pipelines.", "From chunk sizing to hybrid search to eval pipelines.", "Từ chunk-sizing, hybrid-search cho đến eval-pipeline."),
-    },
-    {
-      tag: "Edge", date: "28.05.2026",
-      title: t("Cloudflare Workers vs. Lambda — der ehrliche Vergleich", "Cloudflare Workers vs. Lambda — the honest comparison", "Cloudflare Workers vs. Lambda — so sánh thẳng thắn"),
-      excerpt: t("Cold Starts, Pricing, DX. Was wann wirklich besser ist.", "Cold starts, pricing, DX. What's actually better, and when.", "Cold start, giá cả, trải nghiệm dev. Cái nào thực sự tốt hơn và khi nào."),
-    },
-    {
-      tag: "Agents", date: "14.05.2026",
-      title: t("Multi-Agent Systeme mit Tool-Calling: ein Bauplan", "Multi-agent systems with tool calling: a blueprint", "Hệ thống đa tác nhân với tool-calling: một bản thiết kế"),
-      excerpt: t("Wie man Agent-Orchestrierung baut, die nicht im Loop landet.", "How to build agent orchestration that doesn't get stuck in a loop.", "Cách xây dựng hệ thống điều phối agent không bị kẹt trong vòng lặp."),
-    },
-    {
-      tag: "DevEx", date: "02.05.2026",
-      title: t("TanStack Start in der Praxis: nach 3 Monaten", "TanStack Start in practice: after 3 months", "TanStack Start trong thực tế: sau 3 tháng"),
-      excerpt: t("Was funktioniert, was nervt, was ich an Next.js vermisse.", "What works, what's annoying, what I miss from Next.js.", "Điều gì hiệu quả, điều gì phiền, và tôi nhớ gì ở Next.js."),
-    },
-    {
-      tag: "KI · Ethik", date: "18.04.2026",
-      title: t("EU AI Act für Entwickler: was du wirklich tun musst", "EU AI Act for developers: what you actually need to do", "EU AI Act cho lập trình viên: những gì bạn thực sự cần làm"),
-      excerpt: t("Praktischer Leitfaden ohne juristischen Ballast.", "A practical guide without the legal jargon.", "Hướng dẫn thực tế, không rườm rà pháp lý."),
-    },
-    {
-      tag: "Vector DB", date: "05.04.2026",
-      title: t("pgvector vs. Pinecone vs. Qdrant — Benchmarks 2026", "pgvector vs. Pinecone vs. Qdrant — 2026 benchmarks", "pgvector vs. Pinecone vs. Qdrant — Benchmark 2026"),
-      excerpt: t("Latenz, Recall, Kosten. Mit reproduzierbarem Setup.", "Latency, recall, cost. With a reproducible setup.", "Độ trễ, recall, chi phí. Với thiết lập có thể tái tạo."),
-    },
-    {
-      tag: "Tooling", date: "22.03.2026",
-      title: t("Claude Code, Cursor, Continue — Workflows im Vergleich", "Claude Code, Cursor, Continue — comparing workflows", "Claude Code, Cursor, Continue — so sánh quy trình làm việc"),
-      excerpt: t("Drei Wochen, drei Tools, ein ehrliches Fazit.", "Three weeks, three tools, one honest verdict.", "Ba tuần, ba công cụ, một kết luận thẳng thắn."),
-    },
-  ];
-
-  const tags = [
-    t("Alle", "All", "Tất cả"), "LLM", "Edge", "Agents", "Vector DB", "DevEx",
-    t("KI · Ethik", "AI · Ethics", "AI · Đạo đức"), "Tooling",
-  ];
+  const tags = Array.from(new Set(ARTICLES.map((a) => a.tag)));
+  const needle = q.trim().toLowerCase();
+  const matches = (text: string) => !needle || text.toLowerCase().includes(needle);
+  const posts = rest.filter((a) => (!tag || a.tag === tag) && matches(`${pick(a.title)} ${pick(a.excerpt)} ${a.tag}`));
+  const showFeatured = (!tag || featured.tag === tag) && matches(`${pick(featured.title)} ${pick(featured.excerpt)} ${featured.tag}`);
+  const showGpu = !tag && matches(`${gpu.title} ${gpu.excerpt} ${gpu.tag}`);
 
   return (
     <div className="min-h-screen">
       <Nav />
 
-      <section className="mx-auto max-w-6xl px-6 pt-20 pb-12">
-        <div className="text-xs uppercase tracking-widest text-primary">Blog</div>
-        <h1 className="mt-3 font-display text-5xl md:text-6xl font-semibold leading-tight">
-          {t("KI & neue", "AI & emerging", "AI & công nghệ")}<br />{t("Technologien.", "technologies.", "mới.")}
+      <section className="mx-auto max-w-6xl px-4 pt-16 pb-10 sm:px-6 md:pt-20">
+        <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Blog · Journal</div>
+        <h1 className="mt-3 text-4xl md:text-6xl font-semibold leading-tight">
+          {t("IT, KI & Sicherheit –", "IT, AI & security –", "IT, AI & bảo mật –")}<br />{t("aktuell eingeordnet.", "put into context.", "góc nhìn cập nhật.")}
         </h1>
-        <p className="mt-6 max-w-2xl text-muted-foreground">
+        <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
           {t(
-            "Notizen aus der Praxis: LLMs, Edge-Computing, Cloud-Architektur und Tooling für moderne Software-Teams.",
-            "Notes from practice: LLMs, edge computing, cloud architecture, and tooling for modern software teams.",
-            "Ghi chú từ thực tế: LLM, edge computing, kiến trúc đám mây và công cụ cho các đội ngũ phần mềm hiện đại."
+            "Aktuelle Themen aus der Praxis: KI-Sicherheit, Microsoft 365, souveräne Arbeitsplätze mit openDesk & Nubus, lokale KI, WebAssembly, Kali Linux und der IT-Freelancer-Markt.",
+            "Current topics from practice: AI security, Microsoft 365, sovereign workplaces with openDesk & Nubus, local AI, WebAssembly, Kali Linux and the IT freelance market.",
+            "Chủ đề thời sự từ thực tế: bảo mật AI, Microsoft 365, môi trường làm việc tự chủ với openDesk & Nubus, AI cục bộ, WebAssembly, Kali Linux và thị trường IT freelancer."
           )}
         </p>
 
-        <div className="mt-10 flex flex-col md:flex-row gap-4 md:items-center justify-between">
+        <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-2">
-            {tags.map((tag, i) => (
-              <button key={tag} type="button" className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${i === 0 ? "border-primary bg-primary/15 text-primary" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>
-                {tag}
+            {[null, ...tags].map((tg) => (
+              <button
+                key={tg ?? "all"}
+                type="button"
+                onClick={() => setTag(tg)}
+                className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors ${tag === tg ? "bg-primary text-primary-foreground" : "bg-surface text-muted-foreground hover:text-foreground"}`}
+              >
+                {tg ?? all}
               </button>
             ))}
           </div>
-          <div className="relative max-w-xs">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <div className="relative w-full md:max-w-xs">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
               placeholder={t("Artikel suchen…", "Search articles…", "Tìm bài viết…")}
-              className="w-full rounded-md border border-border bg-surface/50 pl-9 pr-3 py-2 text-sm outline-none focus:border-primary/50"
+              className="w-full rounded-full bg-surface py-2.5 pl-9 pr-3 text-sm outline-none focus:ring-2 focus:ring-primary/30"
             />
           </div>
         </div>
       </section>
 
-      {/* Featured */}
-      <section className="mx-auto max-w-6xl px-6 pb-12">
-        <Link to={featured.href} className="group block rounded-2xl border border-border bg-gradient-to-br from-primary/10 via-surface/50 to-accent/10 p-10 hover:border-primary/40 transition-all">
-          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-            <div>
-              <div className="flex items-center gap-2 text-xs">
-                <span className="rounded bg-primary/20 px-2 py-0.5 text-primary font-medium">{t("Featured", "Featured", "Nổi bật")}</span>
-                <span className="text-muted-foreground">{featured.tag} · {featured.date}</span>
-              </div>
-              <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold group-hover:text-primary transition-colors">
-                {featured.title}
-              </h2>
-              <p className="mt-4 text-muted-foreground max-w-2xl">{featured.excerpt}</p>
+      {showFeatured && (
+        <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+          <Link to="/blog/$slug" params={{ slug: featured.slug }} className="group block rounded-3xl bg-gradient-to-br from-[var(--beige)] to-[var(--surface)] p-7 md:p-10">
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="rounded-full bg-primary px-2.5 py-0.5 font-medium text-primary-foreground">{t("Neu", "New", "Mới")}</span>
+              <span className="text-muted-foreground">{featured.tag} · {formatDate(featured.date, lang)} · {featured.readMin} min</span>
             </div>
-            <div className="inline-flex items-center gap-2 text-sm text-primary">
-              {t("Artikel lesen", "Read article", "Đọc bài viết")} <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <h2 className="mt-4 text-2xl font-semibold group-hover:text-primary md:text-4xl">{pick(featured.title)}</h2>
+            <p className="mt-4 max-w-3xl text-muted-foreground">{pick(featured.excerpt)}</p>
+            <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary">
+              {t("Artikel lesen", "Read article", "Đọc bài viết")} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </div>
-          </div>
-        </Link>
-      </section>
+          </Link>
+        </section>
+      )}
 
-      {/* Grid */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((p) => (
-            <a key={p.title} href="#" className="group flex flex-col rounded-xl border border-border bg-surface/40 p-6 hover:border-primary/40 transition-all">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span className="rounded bg-primary/15 px-2 py-0.5 text-primary font-medium">{p.tag}</span>
-                <span>{p.date}</span>
+            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group flex flex-col rounded-3xl bg-surface p-6 transition-colors hover:bg-[var(--beige)]">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                <span className="rounded-full bg-primary/10 px-2.5 py-0.5 font-medium text-primary">{p.tag}</span>
+                <span>{formatDate(p.date, lang)}</span>
               </div>
-              <h3 className="mt-4 text-lg font-semibold group-hover:text-primary transition-colors">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground flex-1">{p.excerpt}</p>
+              <h3 className="mt-4 text-lg font-semibold group-hover:text-primary">{pick(p.title)}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{pick(p.excerpt)}</p>
               <div className="mt-5 inline-flex items-center gap-1 text-sm text-muted-foreground group-hover:text-foreground">
                 {t("Weiterlesen", "Continue reading", "Đọc tiếp")} <ArrowRight className="h-4 w-4" />
               </div>
-            </a>
+            </Link>
           ))}
+          {showGpu && (
+            <Link to="/blog/lokale-llm-gpu-server" className="group flex flex-col rounded-3xl bg-surface p-6 transition-colors hover:bg-[var(--beige)]">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                <span className="rounded-full bg-primary/10 px-2.5 py-0.5 font-medium text-primary">{gpu.tag}</span>
+                <span>{formatDate(gpu.date, lang)}</span>
+              </div>
+              <h3 className="mt-4 text-lg font-semibold group-hover:text-primary">{gpu.title}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{gpu.excerpt}</p>
+              <div className="mt-5 inline-flex items-center gap-1 text-sm text-muted-foreground group-hover:text-foreground">
+                {t("Weiterlesen", "Continue reading", "Đọc tiếp")} <ArrowRight className="h-4 w-4" />
+              </div>
+            </Link>
+          )}
         </div>
-
-        <div className="mt-12 text-center">
-          <button type="button" className="rounded-md border border-border bg-surface/50 px-5 py-2.5 text-sm font-medium hover:bg-surface">
-            {t("Ältere Artikel laden", "Load older articles", "Tải bài viết cũ hơn")}
-          </button>
-        </div>
+        {!showFeatured && posts.length === 0 && !showGpu && (
+          <p className="mt-6 text-muted-foreground">{t("Keine Artikel gefunden.", "No articles found.", "Không tìm thấy bài viết.")}</p>
+        )}
       </section>
 
       <Footer />

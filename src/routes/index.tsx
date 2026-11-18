@@ -12,6 +12,7 @@ import { ProjectsShowcase } from "@/components/site/ProjectsShowcase";
 import { TracePlatform } from "@/components/site/TracePlatform";
 import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { seoHead } from "@/lib/seo";
+import { ARTICLES, formatDate } from "@/lib/articles";
 
 export const Route = createFileRoute("/")({
   head: ({ match }) => seoHead({
@@ -173,7 +174,7 @@ function AiNewsTabs({ payload }: { payload: AiNewsPayload | null }) {
 }
 
 function Home() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [aiNews, setAiNews] = useState<AiNewsPayload | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -233,82 +234,34 @@ function Home() {
           <h2 className="text-3xl md:text-5xl font-semibold mb-4">{t("Gedanken & Architektur", "Thoughts & Architecture", "Suy nghĩ & Kiến trúc")}</h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-xl">
             {t(
-              "Technische Deep-Dives, Lektionen aus der Produktion und Perspektiven auf die Entwicklung von KI-Agenten und Cloud-Systemen.",
-              "Technical deep-dives, lessons from production, and perspectives on the evolution of AI agents and cloud systems.",
-              "Các bài viết chuyên sâu về kỹ thuật, bài học từ thực tế sản xuất và góc nhìn về sự phát triển của hệ thống đám mây và tác nhân AI."
+              "Aktuelle Themen rund um IT, KI und Sicherheit – eingeordnet aus der Praxis, mit Quellen.",
+              "Current topics in IT, AI and security – put into context from practice, with sources.",
+              "Chủ đề thời sự về IT, AI và bảo mật – phân tích từ thực tế, kèm nguồn."
             )}
           </p>
         </motion.div>
         
         <div className="flex flex-col gap-4 text-left">
-          <Link to="/blog" className="group flex flex-col md:flex-row md:items-center justify-between gap-6 rounded-3xl bg-surface p-6 md:p-7 transition-colors hover:bg-[var(--beige)]">
-            <div>
-              <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-primary font-medium">LLM</span>
-                <span>📅 {t("28. Juni 2026", "June 28, 2026", "28 Tháng 6, 2026")}</span>
-                <span>⏱ 10 {t("min", "min", "phút")}</span>
+          {ARTICLES.slice(0, 3).map((a) => (
+            <Link key={a.slug} to="/blog/$slug" params={{ slug: a.slug }} className="group flex flex-col md:flex-row md:items-center justify-between gap-6 rounded-3xl bg-surface p-6 md:p-7 transition-colors hover:bg-[var(--beige)]">
+              <div>
+                <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground mb-3">
+                  <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-primary font-medium">{a.tag}</span>
+                  <span>{formatDate(a.date, lang)}</span>
+                  <span>· {a.readMin} {t("min", "min", "phút")}</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                  {t(a.title.de, a.title.en, a.title.vi)}
+                </h3>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  {t(a.excerpt.de, a.excerpt.en, a.excerpt.vi)}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                {t("Die nächste Generation von LLMs: Was kommt nach GPT-4?", "The next generation of LLMs: what comes after GPT-4?", "Thế hệ LLM tiếp theo: điều gì sẽ đến sau GPT-4?")}
-              </h3>
-              <p className="text-base leading-relaxed text-muted-foreground">
-                {t(
-                  "Eine Analyse der neuen Architekturen, Mixture of Experts (MoE) und wie lokale, spezialisierte Modelle die Cloud-Giganten herausfordern.",
-                  "An analysis of new architectures, Mixture of Experts (MoE), and how local, specialized models are challenging the cloud giants.",
-                  "Phân tích các kiến trúc mới, Mixture of Experts (MoE) và cách các mô hình chuyên biệt cục bộ đang thách thức các gã khổng lồ đám mây."
-                )}
-              </p>
-            </div>
-            <div className="text-sm text-primary font-medium shrink-0 flex items-center gap-1">
-              {t("Artikel lesen", "Read article", "Đọc bài viết")} <ArrowRight className="h-4 w-4" />
-            </div>
-          </Link>
-
-          <Link to="/blog" className="group flex flex-col md:flex-row md:items-center justify-between gap-6 rounded-3xl bg-surface p-6 md:p-7 transition-colors hover:bg-[var(--beige)]">
-            <div>
-              <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-primary font-medium">WebAssembly</span>
-                <span>📅 {t("15. Mai 2026", "May 15, 2026", "15 Tháng 5, 2026")}</span>
-                <span>⏱ 8 {t("min", "min", "phút")}</span>
+              <div className="text-sm text-primary font-medium shrink-0 flex items-center gap-1">
+                {t("Artikel lesen", "Read article", "Đọc bài viết")} <ArrowRight className="h-4 w-4" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                {t("WebAssembly & KI: Modelle direkt im Browser ausführen", "WebAssembly & AI: running models directly in the browser", "WebAssembly & AI: chạy mô hình trực tiếp trên trình duyệt")}
-              </h3>
-              <p className="text-base leading-relaxed text-muted-foreground">
-                {t(
-                  "Wie WebAssembly (Wasm) und WebGPU es ermöglichen, leistungsstarke KI-Modelle ohne Serverkosten direkt auf dem Endgerät laufen zu lassen.",
-                  "How WebAssembly (Wasm) and WebGPU make it possible to run powerful AI models directly on the device, without server costs.",
-                  "Cách WebAssembly (Wasm) và WebGPU cho phép chạy các mô hình AI mạnh mẽ trực tiếp trên thiết bị mà không tốn chi phí máy chủ."
-                )}
-              </p>
-            </div>
-            <div className="text-sm text-primary font-medium shrink-0 flex items-center gap-1">
-              {t("Artikel lesen", "Read article", "Đọc bài viết")} <ArrowRight className="h-4 w-4" />
-            </div>
-          </Link>
-
-          <Link to="/blog" className="group flex flex-col md:flex-row md:items-center justify-between gap-6 rounded-3xl bg-surface p-6 md:p-7 transition-colors hover:bg-[var(--beige)]">
-            <div>
-              <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-primary font-medium">AI Tech</span>
-                <span>📅 {t("02. April 2026", "April 2, 2026", "2 Tháng 4, 2026")}</span>
-                <span>⏱ 14 {t("min", "min", "phút")}</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                {t("Agentic Workflows: Wenn KI selbstständig handelt", "Agentic workflows: when AI acts on its own", "Agentic Workflows: Khi AI tự hành động")}
-              </h3>
-              <p className="text-base leading-relaxed text-muted-foreground">
-                {t(
-                  "Über den Wandel von Chatbots zu autonomen Agenten-Systemen und wie sie komplette Unternehmensprozesse steuern.",
-                  "On the shift from chatbots to autonomous agent systems and how they control entire business processes.",
-                  "Về sự chuyển đổi từ chatbot sang hệ thống agent tự động và cách chúng điều khiển toàn bộ quy trình doanh nghiệp."
-                )}
-              </p>
-            </div>
-            <div className="text-sm text-primary font-medium shrink-0 flex items-center gap-1">
-              {t("Artikel lesen", "Read article", "Đọc bài viết")} <ArrowRight className="h-4 w-4" />
-            </div>
-          </Link>
+            </Link>
+          ))}
         </div>
 
         <div className="mt-8">

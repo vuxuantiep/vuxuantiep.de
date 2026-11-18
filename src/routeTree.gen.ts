@@ -18,6 +18,7 @@ import { Route as BrokiRouteImport } from './routes/broki'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogLokaleLlmGpuServerRouteImport } from './routes/blog_.lokale-llm-gpu-server'
+import { Route as BlogSlugRouteImport } from './routes/blog_.$slug'
 
 const UeberMichRoute = UeberMichRouteImport.update({
   id: '/ueber-mich',
@@ -64,6 +65,11 @@ const BlogLokaleLlmGpuServerRoute = BlogLokaleLlmGpuServerRouteImport.update({
   path: '/blog/lokale-llm-gpu-server',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog_/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
   '/ueber-mich': typeof UeberMichRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
   '/ueber-mich': typeof UeberMichRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/kontakt': typeof KontaktRoute
   '/portfolio': typeof PortfolioRoute
   '/ueber-mich': typeof UeberMichRoute
+  '/blog_/$slug': typeof BlogSlugRoute
   '/blog_/lokale-llm-gpu-server': typeof BlogLokaleLlmGpuServerRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/portfolio'
     | '/ueber-mich'
+    | '/blog/$slug'
     | '/blog/lokale-llm-gpu-server'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/portfolio'
     | '/ueber-mich'
+    | '/blog/$slug'
     | '/blog/lokale-llm-gpu-server'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/portfolio'
     | '/ueber-mich'
+    | '/blog_/$slug'
     | '/blog_/lokale-llm-gpu-server'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   KontaktRoute: typeof KontaktRoute
   PortfolioRoute: typeof PortfolioRoute
   UeberMichRoute: typeof UeberMichRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   BlogLokaleLlmGpuServerRoute: typeof BlogLokaleLlmGpuServerRoute
 }
 
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogLokaleLlmGpuServerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog_/$slug': {
+      id: '/blog_/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   KontaktRoute: KontaktRoute,
   PortfolioRoute: PortfolioRoute,
   UeberMichRoute: UeberMichRoute,
+  BlogSlugRoute: BlogSlugRoute,
   BlogLokaleLlmGpuServerRoute: BlogLokaleLlmGpuServerRoute,
 }
 export const routeTree = rootRouteImport
