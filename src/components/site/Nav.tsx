@@ -19,7 +19,8 @@ export function Nav() {
 
   const items: { label: string; to?: string; href?: string }[] = [
     { label: t("Über mich", "About", "Về tôi"), to: "/ueber-mich" },
-    { label: t("Schwerpunkte", "Focus", "Lĩnh vực"), href: "/#leistungen" },
+    { label: "TRACE AI", href: "/#trace-ai" },
+    { label: t("Leistungen", "Services", "Dịch vụ"), href: "/#leistungen" },
     { label: t("Projekte", "Projects", "Dự án"), to: "/portfolio" },
     { label: "Blog", to: "/blog" },
   ];

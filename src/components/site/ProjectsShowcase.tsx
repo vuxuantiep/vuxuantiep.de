@@ -9,7 +9,8 @@ export type Project = {
   title: string;
   tagline: string;
   desc: string;
-  to: "/portfolio" | "/broki";
+  to: "/" | "/portfolio" | "/broki";
+  hash?: string;
 };
 
 /** Gemeinsame Projektliste für Hero-Galerie und Projektsektion. */
@@ -19,13 +20,14 @@ export function useProjects(): Project[] {
     {
       key: "trace",
       title: "TRACE AI",
-      tagline: "Private AI · Local-first",
+      tagline: "One Platform. Many Lives.",
       desc: t(
-        "Private KI-Plattform, die lokal läuft und Geschäftsprozesse automatisiert — ohne Daten aus der Hand zu geben.",
-        "Private AI platform that runs locally and automates business processes — without giving your data away.",
-        "Nền tảng AI riêng tư chạy cục bộ, tự động hóa quy trình kinh doanh — không chia sẻ dữ liệu ra ngoài."
+        "Hybride KI-Plattform mit lokalem Kern – Basis für TRACE IT, Care, Commerce und Vision.",
+        "Hybrid AI platform with a local core – the base for TRACE IT, Care, Commerce and Vision.",
+        "Nền tảng AI lai với lõi cục bộ – nền móng cho TRACE IT, Care, Commerce và Vision."
       ),
-      to: "/portfolio",
+      to: "/",
+      hash: "trace-ai",
     },
     {
       key: "broki",
@@ -126,6 +128,7 @@ export function ProjectsShowcase() {
           >
             <Link
               to={p.to}
+              hash={p.hash}
               className="group flex h-full flex-col overflow-hidden rounded-[2rem] bg-surface transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_50px_-30px_oklch(0.4_0.05_60/0.45)]"
             >
               <ProjectMedia project={p} className="aspect-[16/10]" />
