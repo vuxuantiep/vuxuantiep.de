@@ -1,134 +1,118 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, Terminal } from "lucide-react";
-import { motion, useScroll, useSpring } from "motion/react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
 import { useLang, type Language } from "../../contexts/LangContext";
 import { Sheet, SheetClose, SheetContent, SheetTitle } from "@/components/ui/sheet";
+
+/**
+ * Helle, schlanke Navigation (Apple-Clean): weiß-transluzent mit Blur, wenige
+ * Punkte. Unter lg: kompaktes Hamburger-Menü mit großen Touch-Flächen.
+ */
+const linkClass =
+  "text-[15px] text-muted-foreground transition-colors hover:text-foreground [&.active]:text-foreground";
+const mobileLinkClass =
+  "flex min-h-12 items-center rounded-xl px-3 text-lg text-foreground transition-colors hover:bg-surface";
 
 export function Nav() {
   const { lang, setLang, t } = useLang();
   const [open, setOpen] = useState(false);
 
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const items: { label: string; to?: string; href?: string }[] = [
+    { label: t("Über mich", "About", "Về tôi"), to: "/ueber-mich" },
+    { label: t("Schwerpunkte", "Focus", "Lĩnh vực"), href: "/#leistungen" },
+    { label: t("Projekte", "Projects", "Dự án"), to: "/portfolio" },
+    { label: "Blog", to: "/blog" },
+  ];
 
-  const LangButton = ({ code }: { code: Language }) => (
-    <button
-      onClick={() => setLang(code)}
-      className={`px-2 py-1 rounded transition-colors ${lang === code ? 'bg-background text-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
-    >
-      {code}
-    </button>
+  const LangSwitch = () => (
+    <div className="flex items-center rounded-full bg-surface p-1 text-xs font-medium" role="group" aria-label={t("Sprache", "Language", "Ngôn ngữ")}>
+      {(["DE", "EN", "VI"] as Language[]).map((code) => (
+        <button
+          key={code}
+          type="button"
+          onClick={() => setLang(code)}
+          aria-pressed={lang === code}
+          className={`min-h-8 min-w-9 rounded-full px-2 transition-colors ${
+            lang === code ? "bg-card text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+          }`}
+        >
+          {code}
+        </button>
+      ))}
+    </div>
   );
 
   return (
     <>
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#4ADE80] origin-left z-[60]"
-        style={{ scaleX }}
-      />
-      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl relative overflow-hidden">
-        <div className="absolute inset-0 z-[-1] bg-[radial-gradient(#4ADE80_1px,transparent_1px)] [background-size:16px_16px] opacity-10"></div>
-      <div className="absolute inset-0 z-[-1] bg-gradient-to-r from-green-500/10 via-transparent to-green-500/10 opacity-30"></div>
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 relative z-10">
-        <Link to="/" className="flex items-center gap-2 font-display text-lg font-semibold">
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-transparent border border-primary text-primary">
-            <Terminal className="h-4 w-4" />
-          </span>
-          <span>Vũ xuân Tiệp</span>
-        </Link>
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">
-            {lang === "DE" ? "Start" : lang === "EN" ? "Home" : "Trang chủ"}
+      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70">
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+          <Link to="/" className="text-[15px] font-semibold tracking-[0.18em] text-foreground">
+            VUXUANTIEP
           </Link>
-          <a href="/#leistungen" className="hover:text-foreground transition-colors">
-            {lang === "DE" ? "Leistungen" : lang === "EN" ? "Services" : "Dịch vụ"}
-          </a>
-          <Link to="/portfolio" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">
-            {lang === "DE" ? "Projekte" : lang === "EN" ? "Projects" : "Dự án"}
-          </Link>
-          <Link to="/blog" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">AI-News</Link>
-          <Link to="/kontakt" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition-colors">
-            {lang === "DE" ? "Kontakt" : lang === "EN" ? "Contact" : "Liên hệ"}
-          </Link>
-        </nav>
-        
-        <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center gap-1.5 text-xs font-medium bg-surface/50 rounded-md p-1 border border-border">
-            <LangButton code="DE" />
-            <LangButton code="EN" />
-            <LangButton code="VI" />
-          </div>
-          <Link to="/kontakt" className="rounded-md bg-primary/10 border border-primary/20 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/20">
-            {lang === "DE" ? "Projekt starten" : lang === "EN" ? "Start Project" : "Bắt đầu dự án"}
-          </Link>
-        </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="grid h-9 w-9 place-items-center rounded-md border border-border text-muted-foreground hover:text-foreground md:hidden"
-          aria-label={t("Menü öffnen", "Open menu", "Mở menu")}
-        >
-          <Menu className="h-5 w-5" />
-        </button>
-      </div>
-    </header>
+          <nav className="hidden items-center gap-8 lg:flex" aria-label={t("Hauptnavigation", "Main navigation", "Điều hướng chính")}>
+            {items.map((item) =>
+              item.to ? (
+                <Link key={item.label} to={item.to} activeProps={{ className: "active" }} className={linkClass}>
+                  {item.label}
+                </Link>
+              ) : (
+                <a key={item.label} href={item.href} className={linkClass}>
+                  {item.label}
+                </a>
+              )
+            )}
+          </nav>
 
-    <Sheet open={open} onOpenChange={setOpen}>
-      <SheetContent side="right" className="flex flex-col gap-8">
-        <SheetTitle className="flex items-center gap-2 font-display text-lg">
-          <span className="grid h-8 w-8 place-items-center rounded-md bg-transparent border border-primary text-primary">
-            <Terminal className="h-4 w-4" />
-          </span>
-          Vũ xuân Tiệp
-        </SheetTitle>
-
-        <nav className="flex flex-col gap-1 text-base">
-          <SheetClose asChild>
-            <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }} className="rounded-md px-2 py-2.5 text-muted-foreground hover:bg-surface hover:text-foreground transition-colors">
-              {t("Start", "Home", "Trang chủ")}
-            </Link>
-          </SheetClose>
-          <SheetClose asChild>
-            <a href="/#leistungen" className="rounded-md px-2 py-2.5 text-muted-foreground hover:bg-surface hover:text-foreground transition-colors">
-              {t("Leistungen", "Services", "Dịch vụ")}
-            </a>
-          </SheetClose>
-          <SheetClose asChild>
-            <Link to="/portfolio" activeProps={{ className: "text-foreground" }} className="rounded-md px-2 py-2.5 text-muted-foreground hover:bg-surface hover:text-foreground transition-colors">
-              {t("Projekte", "Projects", "Dự án")}
-            </Link>
-          </SheetClose>
-          <SheetClose asChild>
-            <Link to="/blog" activeProps={{ className: "text-foreground" }} className="rounded-md px-2 py-2.5 text-muted-foreground hover:bg-surface hover:text-foreground transition-colors">
-              AI-News
-            </Link>
-          </SheetClose>
-          <SheetClose asChild>
-            <Link to="/kontakt" activeProps={{ className: "text-foreground" }} className="rounded-md px-2 py-2.5 text-muted-foreground hover:bg-surface hover:text-foreground transition-colors">
+          <div className="hidden items-center gap-3 lg:flex">
+            <LangSwitch />
+            <Link
+              to="/kontakt"
+              className="inline-flex min-h-10 items-center rounded-full bg-foreground px-5 text-sm font-medium text-background transition-opacity hover:opacity-85"
+            >
               {t("Kontakt", "Contact", "Liên hệ")}
             </Link>
-          </SheetClose>
-        </nav>
+          </div>
 
-        <div className="flex items-center gap-1.5 text-xs font-medium bg-surface/50 rounded-md p-1 border border-border w-fit">
-          <LangButton code="DE" />
-          <LangButton code="EN" />
-          <LangButton code="VI" />
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="grid h-11 w-11 place-items-center rounded-full text-foreground hover:bg-surface lg:hidden"
+            aria-label={t("Menü öffnen", "Open menu", "Mở menu")}
+          >
+            <Menu className="h-6 w-6" />
+          </button>
         </div>
+      </header>
 
-        <SheetClose asChild>
-          <Link to="/kontakt" className="rounded-md bg-primary/10 border border-primary/20 px-4 py-2.5 text-center text-sm font-medium text-primary transition-colors hover:bg-primary/20">
-            {t("Projekt starten", "Start Project", "Bắt đầu dự án")}
-          </Link>
-        </SheetClose>
-      </SheetContent>
-    </Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetContent side="right" className="flex w-[86vw] max-w-sm flex-col gap-6 bg-background">
+          <SheetTitle className="text-[15px] font-semibold tracking-[0.18em]">VUXUANTIEP</SheetTitle>
+          <nav className="flex flex-col gap-1">
+            <SheetClose asChild>
+              <Link to="/" className={mobileLinkClass}>{t("Start", "Home", "Trang chủ")}</Link>
+            </SheetClose>
+            {items.map((item) => (
+              <SheetClose asChild key={item.label}>
+                {item.to ? (
+                  <Link to={item.to} className={mobileLinkClass}>{item.label}</Link>
+                ) : (
+                  <a href={item.href} className={mobileLinkClass}>{item.label}</a>
+                )}
+              </SheetClose>
+            ))}
+          </nav>
+          <LangSwitch />
+          <SheetClose asChild>
+            <Link
+              to="/kontakt"
+              className="mt-auto inline-flex min-h-12 items-center justify-center rounded-full bg-primary text-base font-medium text-primary-foreground"
+            >
+              {t("Kontakt aufnehmen", "Get in touch", "Liên hệ ngay")}
+            </Link>
+          </SheetClose>
+        </SheetContent>
+      </Sheet>
     </>
   );
 }

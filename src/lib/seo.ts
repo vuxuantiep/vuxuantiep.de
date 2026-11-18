@@ -52,10 +52,10 @@ export function seoHead(options: {
     meta,
     links: [
       { rel: "canonical", href: urlFor(options.path, lang) },
-      { rel: "alternate", hreflang: "de", href: urlFor(options.path, undefined) },
-      { rel: "alternate", hreflang: "en", href: urlFor(options.path, "en") },
-      { rel: "alternate", hreflang: "vi", href: urlFor(options.path, "vi") },
-      { rel: "alternate", hreflang: "x-default", href: urlFor(options.path, undefined) },
+      { rel: "alternate", hrefLang: "de", href: urlFor(options.path, undefined) },
+      { rel: "alternate", hrefLang: "en", href: urlFor(options.path, "en") },
+      { rel: "alternate", hrefLang: "vi", href: urlFor(options.path, "vi") },
+      { rel: "alternate", hrefLang: "x-default", href: urlFor(options.path, undefined) },
     ],
   };
 }
