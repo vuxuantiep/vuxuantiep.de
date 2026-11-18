@@ -46,6 +46,7 @@ interface AiNewsItem extends NewsItem {
 interface AiNewsPayload {
   updatedAt: string | null;
   items: AiNewsItem[];
+  itemsDe?: AiNewsItem[];
 }
 
 // ── Vertrauens-Daten: hier echte Werte eintragen ─────────────────────────────
@@ -95,17 +96,22 @@ function AiNewsTabs({ payload }: { payload: AiNewsPayload | null }) {
   // Solange der Feed lädt (payload === null), alle Reiter zeigen; danach nur
   // die, die tatsächlich Meldungen haben — ein Reiter, der immer leer bleibt
   // (z.B. an ruhigen Tagen), wirkt sonst wie ein Fehler.
+  // Deutsche Besucher sehen deutsche Quellen (heise, golem, t3n, The Decoder),
+  // EN/VI die englischen; fehlen deutsche Meldungen, greift Englisch.
+  const newsItems =
+    lang === "DE" && payload?.itemsDe?.length ? payload.itemsDe : (payload?.items ?? []);
+
   const visibleCategories =
     payload === null
       ? categories
-      : categories.filter((c) => payload.items.some((item) => item.category === c.id));
+      : categories.filter((c) => newsItems.some((item) => item.category === c.id));
 
   useEffect(() => {
     if (payload !== null && visibleCategories.length > 0 && !visibleCategories.some((c) => c.id === activeTab)) {
       setActiveTab(visibleCategories[0].id);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [payload]);
+  }, [payload, lang]);
 
   const locale = lang === "DE" ? "de-DE" : lang === "VI" ? "vi-VN" : "en-US";
   const formatDate = (iso: string) => {
@@ -115,7 +121,7 @@ function AiNewsTabs({ payload }: { payload: AiNewsPayload | null }) {
       : date.toLocaleDateString(locale, { day: "2-digit", month: "2-digit", year: "numeric" });
   };
 
-  const activeItems = (payload?.items ?? []).filter((item) => item.category === activeTab);
+  const activeItems = newsItems.filter((item) => item.category === activeTab);
 
   return (
     <div className="rounded-3xl bg-surface p-4 md:p-6 overflow-hidden">
