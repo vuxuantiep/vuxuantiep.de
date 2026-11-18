@@ -1,24 +1,21 @@
 /**
- * Logo (18.11.2026): Bildmarke + Wortmarke statt reinem Text "VUXUANTIEP".
- *
- * Bildmarke = Netzwerk-Monogramm: drei Knoten bilden ein „V", ein senkrechter
- * Strang zur Mitte deutet das „T" an (Vu … Tiep). Der goldene Mittelknoten
- * steht für die KI, die mit der IT verbunden ist. Waldgrün auf Creme.
+ * Logo „Freiheitsvogel" (18.11.2026, Variante B):
+ * - Schild = Sicherheit
+ * - zwei Blätter = Nachhaltigkeit; zusammen bilden sie Flügel (Freiheit/
+ *   Unabhängigkeit) und ein „V" (Vu)
+ * - goldene Sonne darüber = Aufbruch, Zuversicht
  */
 
 export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <rect width="40" height="40" rx="11" fill="oklch(0.36 0.06 165)" />
-      <g stroke="oklch(0.97 0.012 85)" strokeWidth="2.4" strokeLinecap="round">
-        <line x1="11" y1="12.5" x2="20" y2="28.5" />
-        <line x1="29" y1="12.5" x2="20" y2="28.5" />
-        <line x1="20" y1="13.5" x2="20" y2="28.5" strokeOpacity="0.55" />
-      </g>
-      <circle cx="11" cy="12.5" r="3" fill="oklch(0.97 0.012 85)" />
-      <circle cx="29" cy="12.5" r="3" fill="oklch(0.97 0.012 85)" />
-      <circle cx="20" cy="28.5" r="3.2" fill="oklch(0.97 0.012 85)" />
-      <circle cx="20" cy="13.5" r="3.4" fill="oklch(0.78 0.11 78)" />
+    <svg viewBox="5 3 30 35" className={className} aria-hidden="true">
+      <path
+        d="M20 4 L33 8.5 V19 C33 27.5 27.5 33.5 20 36.5 C12.5 33.5 7 27.5 7 19 V8.5 Z"
+        fill="oklch(0.36 0.06 165)"
+      />
+      <path d="M20 28 C14.5 26.5 11 21 11 15 C16 16.5 19 21 20 28 Z" fill="oklch(0.97 0.012 85)" />
+      <path d="M20 28 C21.5 20.5 25 15 30 12.5 C30.5 19.5 26.5 25.5 20 28 Z" fill="oklch(0.97 0.012 85)" />
+      <circle cx="20" cy="12.5" r="2.6" fill="oklch(0.78 0.11 78)" />
     </svg>
   );
 }
