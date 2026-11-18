@@ -215,20 +215,6 @@
   .pm-pan, .pm-fade { animation: none; }
 }
 
-/* Logo: Sonne leuchtet sanft im Wechsel Gold ↔ Grün */
-@keyframes logo-sun-glow {
-  0%, 100% { fill: oklch(0.8 0.13 80); filter: drop-shadow(0 0 0.6px oklch(0.85 0.15 85 / 0.9)); }
-  50%      { fill: oklch(0.82 0.17 145); filter: drop-shadow(0 0 1.6px oklch(0.85 0.18 145 / 0.95)); }
-}
-.logo-sun {
-  animation: logo-sun-glow 3.2s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-@media (prefers-reduced-motion: reduce) {
-  .logo-sun { animation: none; }
-}
-
 /* Wortmarke: i-Punkt als kleine goldene Sonne – ruhig, ohne Animation
    (CEO 18.11.2026: animiert wirkte unruhig). Mittig über dem ı, Abstand
    zum T über leichten Versatz nach rechts. */
