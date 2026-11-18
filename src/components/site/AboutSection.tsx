@@ -50,9 +50,9 @@ export function AboutSection({ variant = "home" }: { variant?: "home" | "page" }
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             {t(
-              "Ich bin IT-Experte, KI-Enthusiast und Unternehmer aus Hamburg. Meine Mission ist es, Menschen und Unternehmen mit intelligenten, sicheren Lösungen in eine bessere digitale Zukunft zu begleiten.",
-              "I'm an IT expert, AI enthusiast and entrepreneur based in Hamburg. My mission is to guide people and companies into a better digital future with intelligent, secure solutions.",
-              "Tôi là chuyên gia IT, người đam mê AI và doanh nhân tại Hamburg. Sứ mệnh của tôi là đồng hành cùng con người và doanh nghiệp đến một tương lai số tốt đẹp hơn với các giải pháp thông minh, an toàn."
+              "Im Alltag betreue ich als IT-Administrator Anwender, Geräte und Zugänge. Dabei sehe ich täglich, wo KI entlasten könnte – und wo Daten nicht in fremde Hände gehören. Genau dort setze ich an.",
+              "In my day-to-day work as an IT administrator I look after users, devices and access. I see every day where AI could help – and where data shouldn't end up in someone else's hands. That's where I start.",
+              "Hằng ngày, với vai trò quản trị viên IT, tôi hỗ trợ người dùng, thiết bị và quyền truy cập. Tôi thấy rõ AI có thể giúp ở đâu – và dữ liệu nào không nên rơi vào tay người khác. Đó là nơi tôi bắt đầu."
             )}
           </p>
           <Link

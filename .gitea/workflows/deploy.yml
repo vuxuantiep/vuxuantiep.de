@@ -12,7 +12,9 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # 24 = gleiche npm-Major-Version (11) wie lokal. Mit Node 22/npm 10
+          # scheitert `npm ci` an der mit npm 11 erzeugten Lock-Datei (18.11.2026).
+          node-version: 24
 
       - name: Install dependencies
         run: npm ci

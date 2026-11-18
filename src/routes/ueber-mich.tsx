@@ -58,9 +58,9 @@ function AboutPage() {
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
               {t(
-                "IT-Experte, KI-Enthusiast und Unternehmer aus Hamburg. Ich verbinde stabile IT-Infrastruktur, sichere Identitäten und künstliche Intelligenz zu Lösungen, denen Menschen vertrauen können.",
-                "IT expert, AI enthusiast and entrepreneur from Hamburg. I combine stable IT infrastructure, secure identities and artificial intelligence into solutions people can trust.",
-                "Chuyên gia IT, người đam mê AI và doanh nhân tại Hamburg. Tôi kết hợp hạ tầng IT ổn định, danh tính an toàn và trí tuệ nhân tạo thành những giải pháp đáng tin cậy."
+                "Ich arbeite in der IT-Administration – nah an Menschen, Geräten und Identitäten. Mein Ziel: KI so einsetzen, dass sie im Alltag entlastet, Daten geschützt bleiben und Menschen die Kontrolle behalten.",
+                "I work in IT administration – close to people, devices and identities. My goal: use AI so that it helps in everyday work, keeps data protected and leaves people in control.",
+                "Tôi làm quản trị IT – gần gũi với con người, thiết bị và danh tính. Mục tiêu của tôi: dùng AI để giảm tải công việc hằng ngày, bảo vệ dữ liệu và để con người luôn nắm quyền kiểm soát."
               )}
             </p>
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
