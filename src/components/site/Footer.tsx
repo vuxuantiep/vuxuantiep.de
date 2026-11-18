@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, ArrowRight } from "lucide-react";
 import { useLang } from "../../contexts/LangContext";
+import { Logo } from "./Logo";
 
 /**
  * Footer im Apple-Clean-Stil: dunkelgrüne CTA-Karte ("Lass uns Ideen
@@ -32,6 +33,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-6 pt-10 pb-4 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
+          <Logo tagline={false} />
           <div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
             <a href="mailto:info@vuxuantiep.de" className="inline-flex min-h-10 items-center gap-2 hover:text-foreground">
               <Mail className="h-4 w-4" /> info@vuxuantiep.de

@@ -3,6 +3,7 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 import { useLang, type Language } from "../../contexts/LangContext";
 import { Sheet, SheetClose, SheetContent, SheetTitle } from "@/components/ui/sheet";
+import { Logo } from "@/components/site/Logo";
 
 /**
  * Helle, schlanke Navigation (Apple-Clean): weiß-transluzent mit Blur, wenige
@@ -47,8 +48,8 @@ export function Nav() {
     <>
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/70">
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-          <Link to="/" className="text-[15px] font-semibold tracking-[0.18em] text-foreground">
-            VUXUANTIEP
+          <Link to="/" className="shrink-0">
+            <Logo />
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label={t("Hauptnavigation", "Main navigation", "Điều hướng chính")}>
@@ -88,7 +89,7 @@ export function Nav() {
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent side="right" className="flex w-[86vw] max-w-sm flex-col gap-6 bg-background">
-          <SheetTitle className="text-[15px] font-semibold tracking-[0.18em]">VUXUANTIEP</SheetTitle>
+          <SheetTitle className="font-normal"><Logo /></SheetTitle>
           <nav className="flex flex-col gap-1">
             <SheetClose asChild>
               <Link to="/" className={mobileLinkClass}>{t("Start", "Home", "Trang chủ")}</Link>
