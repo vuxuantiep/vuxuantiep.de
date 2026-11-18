@@ -124,20 +124,20 @@ function buildConfirmation(lang: string, name: string, message: string) {
   if (lang === "EN") {
     return {
       subject: "Thank you for your message — vuxuantiep.de",
-      text: `Hello ${name},\n\nthank you very much for your enquiry via vuxuantiep.de — it has arrived safely.\n\nI will get back to you personally as soon as possible, usually within 24 hours. Thank you for your patience!\n\nYour message:\n${message}\n\nBest regards\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
-      html: `<p>Hello ${escapeHtml(name)},</p><p>thank you very much for your enquiry via <a href="https://vuxuantiep.de">vuxuantiep.de</a> — it has arrived safely.</p><p>I will get back to you personally as soon as possible, usually within 24 hours. Thank you for your patience!</p><p><strong>Your message:</strong></p>${quotedHtml}<p>Best regards<br/>Vu Xuan Tiep</p>`,
+      text: `Hello ${name},\n\nthank you very much for your enquiry via vuxuantiep.de — it has arrived safely.\n\nI will get back to you personally as soon as possible. Thank you for your patience!\n\nYour message:\n${message}\n\nBest regards\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
+      html: `<p>Hello ${escapeHtml(name)},</p><p>thank you very much for your enquiry via <a href="https://vuxuantiep.de">vuxuantiep.de</a> — it has arrived safely.</p><p>I will get back to you personally as soon as possible. Thank you for your patience!</p><p><strong>Your message:</strong></p>${quotedHtml}<p>Best regards<br/>Vu Xuan Tiep</p>`,
     };
   }
   if (lang === "VI") {
     return {
       subject: "Cảm ơn bạn đã liên hệ — vuxuantiep.de",
-      text: `Xin chào ${name},\n\ncảm ơn bạn rất nhiều vì đã liên hệ qua vuxuantiep.de — tin nhắn của bạn đã được nhận.\n\nTôi sẽ phản hồi bạn sớm nhất có thể, thường trong vòng 24 giờ. Cảm ơn bạn đã kiên nhẫn chờ đợi!\n\nTin nhắn của bạn:\n${message}\n\nTrân trọng\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
-      html: `<p>Xin chào ${escapeHtml(name)},</p><p>cảm ơn bạn rất nhiều vì đã liên hệ qua <a href="https://vuxuantiep.de">vuxuantiep.de</a> — tin nhắn của bạn đã được nhận.</p><p>Tôi sẽ phản hồi bạn sớm nhất có thể, thường trong vòng 24 giờ. Cảm ơn bạn đã kiên nhẫn chờ đợi!</p><p><strong>Tin nhắn của bạn:</strong></p>${quotedHtml}<p>Trân trọng<br/>Vu Xuan Tiep</p>`,
+      text: `Xin chào ${name},\n\ncảm ơn bạn rất nhiều vì đã liên hệ qua vuxuantiep.de — tin nhắn của bạn đã được nhận.\n\nTôi sẽ phản hồi bạn sớm nhất có thể. Cảm ơn bạn đã kiên nhẫn chờ đợi!\n\nTin nhắn của bạn:\n${message}\n\nTrân trọng\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
+      html: `<p>Xin chào ${escapeHtml(name)},</p><p>cảm ơn bạn rất nhiều vì đã liên hệ qua <a href="https://vuxuantiep.de">vuxuantiep.de</a> — tin nhắn của bạn đã được nhận.</p><p>Tôi sẽ phản hồi bạn sớm nhất có thể. Cảm ơn bạn đã kiên nhẫn chờ đợi!</p><p><strong>Tin nhắn của bạn:</strong></p>${quotedHtml}<p>Trân trọng<br/>Vu Xuan Tiep</p>`,
     };
   }
   return {
     subject: "Danke für deine Nachricht — vuxuantiep.de",
-    text: `Hallo ${name},\n\nherzlichen Dank für deine Anfrage über vuxuantiep.de — sie ist gut angekommen.\n\nIch melde mich so schnell wie möglich persönlich bei dir, in der Regel innerhalb von 24 Stunden. Bitte habe bis dahin etwas Geduld!\n\nDeine Nachricht:\n${message}\n\nHerzliche Grüße\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
-    html: `<p>Hallo ${escapeHtml(name)},</p><p>herzlichen Dank für deine Anfrage über <a href="https://vuxuantiep.de">vuxuantiep.de</a> — sie ist gut angekommen.</p><p>Ich melde mich so schnell wie möglich persönlich bei dir, in der Regel innerhalb von 24 Stunden. Bitte habe bis dahin etwas Geduld!</p><p><strong>Deine Nachricht:</strong></p>${quotedHtml}<p>Herzliche Grüße<br/>Vu Xuan Tiep</p>`,
+    text: `Hallo ${name},\n\nherzlichen Dank für deine Anfrage über vuxuantiep.de — sie ist gut angekommen.\n\nIch melde mich so schnell wie möglich persönlich bei dir. Bitte habe bis dahin etwas Geduld!\n\nDeine Nachricht:\n${message}\n\nHerzliche Grüße\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
+    html: `<p>Hallo ${escapeHtml(name)},</p><p>herzlichen Dank für deine Anfrage über <a href="https://vuxuantiep.de">vuxuantiep.de</a> — sie ist gut angekommen.</p><p>Ich melde mich so schnell wie möglich persönlich bei dir. Bitte habe bis dahin etwas Geduld!</p><p><strong>Deine Nachricht:</strong></p>${quotedHtml}<p>Herzliche Grüße<br/>Vu Xuan Tiep</p>`,
   };
 }

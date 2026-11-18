@@ -79,9 +79,9 @@ function Kontakt() {
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground">
           {t(
-            "Schreib mir ein paar Sätze zu deinem Vorhaben — ich melde mich innerhalb von 24 Stunden.",
-            "Send me a few lines about your project — I'll get back to you within 24 hours.",
-            "Hãy gửi cho tôi vài dòng về dự án của bạn — tôi sẽ phản hồi trong vòng 24 giờ."
+            "Schreib mir ein paar Sätze zu deinem Vorhaben.",
+            "Send me a few lines about your project.",
+            "Hãy gửi cho tôi vài dòng về dự án của bạn."
           )}
         </p>
 
