@@ -198,3 +198,19 @@
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;
 }
+
+/* Projektkarten: langsamer Kamerazoom + Überblendung der Hintergrundbilder */
+@keyframes pm-pan {
+  from { transform: scale(1.05) translate(-1.5%, -1%); }
+  to   { transform: scale(1.16) translate(1.5%, 1%); }
+}
+@keyframes pm-fade {
+  0%, 38%   { opacity: 0; }
+  50%, 88%  { opacity: 0.32; }
+  100%      { opacity: 0; }
+}
+.pm-pan  { animation: pm-pan 18s ease-in-out infinite alternate; will-change: transform; }
+.pm-fade { animation: pm-pan 18s ease-in-out infinite alternate, pm-fade 16s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .pm-pan, .pm-fade { animation: none; }
+}

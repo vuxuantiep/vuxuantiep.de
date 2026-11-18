@@ -81,11 +81,36 @@ export function ProjectMedia({ project, className = "" }: { project: Project; cl
           className="absolute inset-0 h-full w-full object-cover object-[30%_0%] opacity-95 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
         />
       ) : (
+        <>
+          {/* Architektur-Bilder des CEO als transparenter, langsam bewegter
+              Hintergrund (18.11.2026). TRACE: Plattform ↔ Infrastruktur im
+              Wechsel; AI-OS: Architektur mit sanftem Kamerazoom. */}
+          {(project.key === "trace" || project.key === "aios") && (
+            <div aria-hidden="true" className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)]">
+              <img
+                src={project.key === "trace" ? "/images/projects/trace-plattform.webp" : "/images/projects/aios-architektur.webp"}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="pm-pan absolute inset-0 h-full w-full object-cover opacity-[0.32]"
+              />
+              {project.key === "trace" && (
+                <img
+                  src="/images/projects/trace-infrastruktur.webp"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="pm-pan pm-fade absolute inset-0 h-full w-full object-cover opacity-0"
+                />
+              )}
+            </div>
+          )}
         <div className="absolute inset-0 flex items-center justify-center p-4">
           {project.key === "trace" && <TraceVisual className="h-full w-full" />}
           {project.key === "broki" && <BrokiVisual className="h-full w-full" />}
           {project.key === "aios" && <AiOsVisual className="h-full w-full" />}
         </div>
+        </>
       )}
       {/* weicher Übergang in die Kartenfläche */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[var(--surface)]" />
