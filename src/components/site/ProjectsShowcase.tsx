@@ -69,7 +69,43 @@ export function useProjects(): Project[] {
  * Randloses Projektbild: warmer Verlauf als Grund, Visual bzw. Screenshot
  * läuft unten weich in die Kartenfarbe über (kein Bildrahmen).
  */
-export function ProjectMedia({ project, className = "" }: { project: Project; className?: string }) {
+// Deckende Bilder für die Kopf-Galerie (CEO 18.11.2026: im Header alle
+// 4 Projekte gleich – kein transparenter Hintergrund).
+const SOLID_IMAGES: Partial<Record<string, string>> = {
+  trace: "/images/projects/trace-plattform.webp",
+  bds: "/images/BDS-Navigator/temp_image_1783206179972.png",
+  aios: "/images/projects/aios-architektur.webp",
+};
+
+export function ProjectMedia({
+  project,
+  className = "",
+  solid = false,
+}: {
+  project: Project;
+  className?: string;
+  solid?: boolean;
+}) {
+  if (solid) {
+    const src = SOLID_IMAGES[project.key];
+    return (
+      <div className={`relative overflow-hidden bg-[var(--surface)] ${className}`}>
+        {src ? (
+          <img
+            src={src}
+            alt={`${project.title} — ${project.tagline}`}
+            loading="lazy"
+            decoding="async"
+            className={`absolute inset-0 h-full w-full object-cover ${project.key === "bds" ? "object-[30%_0%]" : "object-top"} [mask-image:linear-gradient(to_bottom,black_55%,transparent)]`}
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-start justify-center bg-[radial-gradient(ellipse_at_30%_20%,oklch(0.5_0.07_165),oklch(0.3_0.05_170))] px-5 pt-5 [mask-image:linear-gradient(to_bottom,black_55%,transparent)]">
+            {project.key === "broki" && <BrokiVisual className="h-full w-full" />}
+          </div>
+        )}
+      </div>
+    );
+  }
   return (
     <div className={`relative overflow-hidden bg-gradient-to-b from-[var(--beige)] to-[var(--surface)] ${className}`}>
       {project.key === "bds" ? (
