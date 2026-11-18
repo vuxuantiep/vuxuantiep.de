@@ -219,12 +219,13 @@
    (CEO 18.11.2026: animiert wirkte unruhig). Mittig über dem ı, Abstand
    zum T über leichten Versatz nach rechts. */
 .logo-sun-dot {
+  /* Stamm-Mitte des „ı" in Be Vietnam Pro 500 liegt bei 0.14em (gemessen) */
   position: absolute;
-  left: 50%;
+  left: 0.14em;
   top: 0em;
-  width: 0.22em;
-  height: 0.22em;
-  margin-left: -0.09em;
+  width: 0.2em;
+  height: 0.2em;
+  margin-left: -0.1em;
   border-radius: 9999px;
   background: oklch(0.8 0.13 80);
 }
