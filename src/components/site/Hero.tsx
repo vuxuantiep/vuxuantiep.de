@@ -49,7 +49,7 @@ export function Hero() {
           {/* drei überprüfbare Versprechen statt Schlagworte */}
           <ul className="mt-7 grid gap-2.5 text-[15px] sm:grid-cols-2">
             {[
-              t("Daten bleiben im Haus – Modelle laufen lokal", "Data stays in-house – models run locally", "Dữ liệu ở lại nội bộ – mô hình chạy cục bộ"),
+              t("Auf Wunsch rein lokal – Daten bleiben im Haus", "Fully local on request – data stays in-house", "Chạy hoàn toàn cục bộ nếu muốn – dữ liệu ở lại nội bộ"),
               t("Jeder Zugriff mit Rolle & MFA", "Every access with role & MFA", "Mọi truy cập đều có vai trò & MFA"),
               t("Kritische Aktionen gibt ein Mensch frei", "A human approves critical actions", "Con người phê duyệt thao tác quan trọng"),
               t("Beratung auf Deutsch, English, Tiếng Việt", "Advice in German, English, Vietnamese", "Tư vấn bằng tiếng Đức, Anh, Việt"),
@@ -62,16 +62,17 @@ export function Hero() {
           </ul>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#projekte"
+              href="/kontakt"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-base font-medium text-primary-foreground transition-colors hover:bg-[var(--primary-hover)]"
             >
-              {t("Projekte entdecken", "Explore projects", "Khám phá dự án")} <ArrowRight className="h-4 w-4" />
+              {t("Kostenloses Erstgespräch", "Free first call", "Tư vấn miễn phí")} <ArrowRight className="h-4 w-4" />
             </a>
             <Link
-              to="/ueber-mich"
+              to="/"
+              hash="angebote"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-card/70 px-7 text-base font-medium text-foreground backdrop-blur transition-colors hover:bg-card"
             >
-              {t("Über mich", "About me", "Về tôi")}
+              {t("Angebote ansehen", "View offers", "Xem gói dịch vụ")}
             </Link>
           </div>
         </div>

@@ -63,12 +63,13 @@ function Kontakt() {
     { icon: Linkedin, label: "LinkedIn", value: "/in/vuxuantiep", href: "https://linkedin.com/in/vuxuantiep" },
   ];
 
+  // passend zu den drei Angeboten auf der Startseite (Entwurf 19.11.2026)
   const projectTypes = [
-    t("Cloud-Architektur", "Cloud Architecture", "Kiến trúc đám mây"),
-    t("KI-Integration / LLM", "AI Integration / LLM", "Tích hợp AI / LLM"),
-    t("Web-App / Frontend", "Web App / Frontend", "Web App / Frontend"),
-    t("Beratung / Audit", "Consulting / Audit", "Tư vấn / Kiểm định"),
-    t("Sonstige Anfrage / andere Fragen", "Other request / other questions", "Yêu cầu khác / câu hỏi khác"),
+    t("KI-Potenzialanalyse", "AI potential analysis", "Phân tích tiềm năng AI"),
+    "Local AI & Private RAG",
+    "Identity & AI Automation",
+    t("IT-Betreuung / Support", "IT support", "Hỗ trợ IT"),
+    t("Sonstige Anfrage", "Other request", "Yêu cầu khác"),
   ];
 
   return (
@@ -76,16 +77,25 @@ function Kontakt() {
       <Nav />
       <section className="mx-auto max-w-5xl px-6 pt-20 pb-20">
         <div className="text-xs uppercase tracking-widest text-primary">{t("Kontakt", "Contact", "Liên hệ")}</div>
-        <h1 className="mt-3 font-display text-5xl md:text-6xl font-semibold leading-tight">
-          {t("Lass uns reden.", "Let's talk.", "Hãy trò chuyện nhé.")}
+        <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
+          {t(
+            "Sie möchten KI einsetzen, ohne sensible Daten aus der Hand zu geben?",
+            "Want to use AI without giving away sensitive data?",
+            "Bạn muốn dùng AI mà không để lộ dữ liệu nhạy cảm?"
+          )}
         </h1>
         <p className="mt-6 max-w-xl text-muted-foreground">
           {t(
-            "Schreib mir ein paar Sätze zu deinem Vorhaben.",
-            "Send me a few lines about your project.",
-            "Hãy gửi cho tôi vài dòng về dự án của bạn."
+            "Im kostenlosen 30-Minuten-Erstgespräch besprechen wir:",
+            "In a free 30-minute first call we discuss:",
+            "Trong buổi tư vấn miễn phí 30 phút, chúng ta sẽ trao đổi:"
           )}
         </p>
+        <ul className="mt-3 max-w-xl space-y-1.5 text-foreground/85">
+          <li>· {t("Ihre aktuelle IT-Umgebung", "Your current IT environment", "Môi trường IT hiện tại của bạn")}</li>
+          <li>· {t("einen konkreten KI-Anwendungsfall", "one concrete AI use case", "một tình huống ứng dụng AI cụ thể")}</li>
+          <li>· {t("eine mögliche sichere Architektur", "a possible secure architecture", "một kiến trúc an toàn khả thi")}</li>
+        </ul>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
           <form className="rounded-2xl border border-border bg-surface/40 p-8 space-y-5" onSubmit={handleSubmit}>
@@ -143,7 +153,7 @@ function Kontakt() {
             {/* Datenschutzhinweis direkt am Formular (Art. 13 DSGVO, 18.11.2026) */}
             <p className="text-xs leading-relaxed text-muted-foreground">
               {t(
-                "Mit dem Absenden werden deine Angaben zur Bearbeitung deiner Anfrage verarbeitet. Mehr dazu in der ",
+                "Mit dem Absenden werden Ihre Angaben zur Bearbeitung Ihrer Anfrage verarbeitet. Mehr dazu in der ",
                 "By submitting, your details are processed to handle your enquiry. More in the ",
                 "Khi gửi, thông tin của bạn được xử lý để giải quyết yêu cầu. Xem thêm trong "
               )}

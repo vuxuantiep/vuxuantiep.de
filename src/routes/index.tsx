@@ -8,6 +8,7 @@ import { useLang } from "@/contexts/LangContext";
 import { Hero } from "@/components/site/Hero";
 import { AboutSection } from "@/components/site/AboutSection";
 import { SkillsServices } from "@/components/site/SkillsServices";
+import { Offers } from "@/components/site/Offers";
 import { ProjectsShowcase } from "@/components/site/ProjectsShowcase";
 import { TracePlatform } from "@/components/site/TracePlatform";
 import { ExperienceSection } from "@/components/site/ExperienceSection";
@@ -216,9 +217,12 @@ function Home() {
 
       <Hero />
 
-      <TracePlatform />
+      {/* Entwurf 19.11.2026: konkrete Angebote direkt nach dem Hero */}
+      <Offers />
 
       <SkillsServices />
+
+      <TracePlatform />
 
       <ProjectsShowcase />
 
