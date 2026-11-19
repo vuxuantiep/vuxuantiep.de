@@ -18,10 +18,19 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-// Wortmarke (19.11.2026, vom CEO gewählt: Variante A): Outfit ExtraBold,
-// kleingeschrieben und eng gesetzt wie eine Marke; das „t" stammt aus Lexend
-// (schräg angeschnittener Kopf). Dunkelgrün wie das Schild, i-Punkt = goldene
-// Sonne passend zur Logo-Sonne.
+// Wortmarke (19.11.2026, vom CEO gewählt: Variante D): Be Vietnam Pro ExtraBold,
+// kleingeschrieben und eng gesetzt wie eine Marke. Das „t" ist eine eigene
+// Form nach CEO-Vorlage (Kopf und Querstrich in einer durchgehenden Schräge,
+// Fuß als waagerechter Schwung nach rechts), auf Höhe und Grundlinie der
+// Schrift abgestimmt. Dunkelgrün wie das Schild, i-Punkt = goldene Sonne.
+function LogoT() {
+  return (
+    <svg className="logo-t" viewBox="1 15 74 119" aria-hidden="true" focusable="false">
+      <path d="M1 59 L42 15 H50 V38 H73 V59 H50 V98 C50 104 53 108 60 108 H75 V134 H48 C27 134 18 124 18 104 V59 Z" />
+    </svg>
+  );
+}
+
 export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
@@ -31,7 +40,7 @@ export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) 
         aria-label="Vu Xuan Tiep"
       >
         <span aria-hidden="true">
-          vu xuan <span className="logo-t">t</span>
+          vu xuan <LogoT />
           <span className="relative inline-block">
             ı<span className="logo-sun-dot" />
           </span>

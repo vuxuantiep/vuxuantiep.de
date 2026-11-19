@@ -219,14 +219,20 @@
    (CEO 18.11.2026: animiert wirkte unruhig). Mittig über dem ı, Abstand
    zum T über leichten Versatz nach rechts. */
 .logo-wordmark {
-  font-family: "Outfit", "Be Vietnam Pro", system-ui, sans-serif;
+  font-family: "Be Vietnam Pro", system-ui, sans-serif;
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
-.logo-t { font-family: "Lexend", "Outfit", sans-serif; font-weight: 800; }
+/* Eigenes „t": Höhe/Grundlinie wie das t von Be Vietnam Pro 800
+   (Oberkante 0.661em, Unterlänge 0.01em), Querstrich-Oberkante = x-Höhe */
+.logo-t {
+  display: inline-block; width: 0.417em; height: 0.671em;
+  vertical-align: -0.01em; margin: 0 0.005em 0 0.02em; fill: currentColor;
+}
 .logo-sun-dot {
-  /* Lage wie der echte i-Punkt in Outfit 800 (aus der Schriftdatei gemessen):
-     Mitte x = 0.138em, Mitte y = 0.645em über der Grundlinie */
-  position: absolute; left: 0.138em; top: 0.125em; width: 0.2em; height: 0.2em;
-  margin-left: -0.1em; border-radius: 9999px; background: oklch(0.8 0.13 80);
+  /* Lage wie der echte i-Punkt in Be Vietnam Pro 800 (aus der Schriftdatei
+     gemessen): Mitte x = 0.1555em, Mitte y = 0.688em über der Grundlinie,
+     Durchmesser 0.19em */
+  position: absolute; left: 0.1555em; top: 0.0845em; width: 0.19em; height: 0.19em;
+  margin-left: -0.095em; border-radius: 9999px; background: oklch(0.8 0.13 80);
 }

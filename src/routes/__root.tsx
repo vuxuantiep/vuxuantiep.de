@@ -10,9 +10,8 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import "@fontsource/be-vietnam-pro/500.css";
-// Wortmarke im Logo (19.11.2026): Outfit ExtraBold, das „t" aus Lexend
-import "@fontsource/outfit/800.css";
-import "@fontsource/lexend/800.css";
+// Wortmarke im Logo (19.11.2026, Variante D): Be Vietnam Pro ExtraBold
+import "@fontsource/be-vietnam-pro/800.css";
 import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/600.css";
 import "@fontsource/cormorant-garamond/700.css";
