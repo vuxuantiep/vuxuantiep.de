@@ -222,6 +222,10 @@
   font-family: "Be Vietnam Pro", system-ui, sans-serif;
   font-weight: 800;
   letter-spacing: -0.03em;
+  /* enger Wortabstand, damit der Name als eine Marke wirkt */
+  word-spacing: -0.07em;
+  /* optisch mittig zum Schild: x-Höhe-Mitte auf Schild-Mitte */
+  position: relative; top: -0.055em;
 }
 /* Eigenes „t": Höhe/Grundlinie wie das t von Be Vietnam Pro 800
    (Oberkante 0.661em, Unterlänge 0.01em), Querstrich-Oberkante = x-Höhe */
