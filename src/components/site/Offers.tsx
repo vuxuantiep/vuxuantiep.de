@@ -84,13 +84,13 @@ export function Offers() {
           {t("Angebote", "Offers", "Gói dịch vụ")}
         </div>
         <h2 className="mt-3 text-3xl font-semibold md:text-5xl">
-          {t("Verlässlicher IT-Betrieb und sichere KI", "Reliable IT operations and secure AI", "Vận hành IT tin cậy và AI an toàn")}
+          {t("Wie ich Sie unterstütze", "How I can help you", "Tôi có thể hỗ trợ bạn thế nào")}
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
           {t(
-            "Erst die stabile Basis, dann der Schritt zur KI. Jedes Angebot ist klar umrissen und hat ein festes Ergebnis.",
-            "A stable foundation first, then the step to AI. Every offer is clearly scoped with a defined result.",
-            "Nền tảng vững chắc trước, rồi đến bước tiến tới AI. Mỗi gói đều có phạm vi rõ ràng và kết quả cụ thể."
+            "Vom laufenden Betrieb bis zur eigenen KI: vier klar umrissene Angebote, jedes mit festem Ergebnis.",
+            "From day-to-day operations to your own AI: four clearly scoped offers, each with a defined result.",
+            "Từ vận hành hằng ngày đến AI riêng: bốn gói dịch vụ rõ ràng, mỗi gói có kết quả cụ thể."
           )}
         </p>
       </div>
