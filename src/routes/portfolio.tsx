@@ -344,8 +344,8 @@ function Portfolio() {
       <section className="mx-auto max-w-6xl px-6 py-12">
         <div className="rounded-2xl border border-border bg-surface/40 p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <h2 className="text-2xl font-semibold">{t("Dein Projekt als nächstes?", "Your project next?", "Dự án tiếp theo của bạn?")}</h2>
-            <p className="text-muted-foreground mt-2">{t("Lass uns 30 Minuten unverbindlich sprechen.", "Let's talk for 30 minutes, no obligation.", "Hãy trò chuyện 30 phút, không ràng buộc.")}</p>
+            <h2 className="text-2xl font-semibold">{t("Ihr Projekt als nächstes?", "Your project next?", "Dự án tiếp theo của bạn?")}</h2>
+            <p className="text-muted-foreground mt-2">{t("Sprechen wir 30 Minuten unverbindlich darüber.", "Let's talk for 30 minutes, no obligation.", "Hãy trò chuyện 30 phút, không ràng buộc.")}</p>
           </div>
           <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90">
             {t("Anfrage senden", "Send request", "Gửi yêu cầu")} <ExternalLink className="h-4 w-4" />

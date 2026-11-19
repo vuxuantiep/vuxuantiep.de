@@ -15,7 +15,7 @@ export const Route = createFileRoute("/blog_/lokale-llm-gpu-server")({
       vi: "Huấn luyện LLM cục bộ với máy chủ GPU riêng — vuxuantiep.de",
     },
     description: {
-      de: "Welche GPU 2026 für lokales LLM-Training geeignet ist, wie du das Projekt technisch aufsetzt und wie du die Hardware zwischen Training und Vermietung optimal auslastest.",
+      de: "Welche GPU 2026 für lokales LLM-Training geeignet ist, wie Sie das Projekt technisch aufsetzen und wie Sie die Hardware zwischen Training und Vermietung optimal auslasten.",
       en: "Which GPUs are suitable for local LLM training in 2026, how to set up the project technically, and how to keep the hardware utilized between training runs and rental income.",
       vi: "GPU nào phù hợp để huấn luyện LLM cục bộ năm 2026, cách thiết lập dự án về mặt kỹ thuật, và cách tận dụng tối đa phần cứng giữa huấn luyện và cho thuê.",
     },
@@ -49,7 +49,7 @@ function LokaleLlmGpuServer() {
       name: "RTX 5090",
       vram: "32 GB GDDR7",
       note: t(
-        "Mehr VRAM erlaubt größere Batch-Sizes oder Modelle bis ~30B in 4-bit-Quantisierung. Lohnt sich, wenn du regelmäßig trainierst statt nur experimentierst.",
+        "Mehr VRAM erlaubt größere Batch-Sizes oder Modelle bis ~30B in 4-bit-Quantisierung. Lohnt sich, wenn Sie regelmäßig trainieren statt nur zu experimentieren.",
         "More VRAM allows larger batch sizes or ~30B models at 4-bit quantization. Worth it if you train regularly rather than just experimenting.",
         "Nhiều VRAM hơn cho phép batch size lớn hơn hoặc mô hình ~30B ở lượng tử hóa 4-bit. Đáng đầu tư nếu bạn huấn luyện thường xuyên."
       ),
@@ -86,7 +86,7 @@ function LokaleLlmGpuServer() {
     {
       title: t("Framework: PyTorch + PEFT/LoRA", "Framework: PyTorch + PEFT/LoRA", "Framework: PyTorch + PEFT/LoRA"),
       text: t(
-        "Volles Pretraining ist auf Consumer-GPUs unrealistisch. Praxisrelevant ist Fine-Tuning per LoRA/QLoRA über Hugging Face PEFT — damit passen auch größere Modelle in 24 GB VRAM. Tools wie Axolotl oder Unsloth nehmen dir die Konfigurationsarbeit ab.",
+        "Volles Pretraining ist auf Consumer-GPUs unrealistisch. Praxisrelevant ist Fine-Tuning per LoRA/QLoRA über Hugging Face PEFT — damit passen auch größere Modelle in 24 GB VRAM. Tools wie Axolotl oder Unsloth nehmen Ihnen die Konfigurationsarbeit ab.",
         "Full pretraining is unrealistic on consumer GPUs. What matters in practice is LoRA/QLoRA fine-tuning via Hugging Face PEFT — it fits larger models into 24 GB of VRAM. Tools like Axolotl or Unsloth handle most of the configuration for you.",
         "Pretraining đầy đủ không thực tế trên GPU tiêu dùng. Điều quan trọng là fine-tuning LoRA/QLoRA qua Hugging Face PEFT — giúp mô hình lớn hơn vừa với 24 GB VRAM. Công cụ như Axolotl hay Unsloth lo phần cấu hình cho bạn."
       ),
@@ -102,7 +102,7 @@ function LokaleLlmGpuServer() {
     {
       title: t("Fernzugriff & Betrieb", "Remote access & operations", "Truy cập từ xa & vận hành"),
       text: t(
-        "Der Server muss nicht im selben Raum stehen: Mit Tailscale erreichst du ihn sicher aus jedem Netz, ohne Ports am Router zu öffnen — dieselbe Lösung, die sich auch für andere Self-Hosting-Projekte bewährt hat.",
+        "Der Server muss nicht im selben Raum stehen: Mit Tailscale erreichen Sie ihn sicher aus jedem Netz, ohne Ports am Router zu öffnen — dieselbe Lösung, die sich auch für andere Self-Hosting-Projekte bewährt hat.",
         "The server doesn't need to sit in the same room: Tailscale gives you secure access from any network without opening router ports — the same approach that works well for other self-hosting projects.",
         "Server không cần đặt cùng phòng: Tailscale cho phép truy cập an toàn từ bất kỳ mạng nào mà không cần mở cổng router — giải pháp tương tự cũng hiệu quả cho các dự án self-hosting khác."
       ),
@@ -134,7 +134,7 @@ function LokaleLlmGpuServer() {
         </h1>
         <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
           {t(
-            "Ein eigener GPU-Server lohnt sich, sobald du regelmäßig fine-tunst, sensible Daten nicht in fremde Clouds geben willst oder einfach verstehen möchtest, wie Training wirklich funktioniert. Dieser Artikel deckt drei Fragen ab: welche GPU aktuell sinnvoll ist, wie das Projekt technisch aufgesetzt wird, und wie du die Hardware zwischen Training und Leerlauf optimal auslastest.",
+            "Ein eigener GPU-Server lohnt sich, sobald Sie regelmäßig fine-tunen, sensible Daten nicht in fremde Clouds geben wollen oder einfach verstehen möchten, wie Training wirklich funktioniert. Dieser Artikel deckt drei Fragen ab: welche GPU aktuell sinnvoll ist, wie das Projekt technisch aufgesetzt wird, und wie Sie die Hardware zwischen Training und Leerlauf optimal auslasten.",
             "A dedicated GPU server pays off once you fine-tune regularly, don't want sensitive data leaving your control, or simply want to understand how training actually works. This article covers three questions: which GPU makes sense right now, how to set the project up technically, and how to keep the hardware utilized between training and idle time.",
             "Một máy chủ GPU riêng đáng đầu tư khi bạn fine-tune thường xuyên, không muốn dữ liệu nhạy cảm rời khỏi tầm kiểm soát, hoặc đơn giản muốn hiểu cách huấn luyện thực sự hoạt động. Bài viết này trả lời ba câu hỏi: GPU nào hợp lý hiện tại, cách thiết lập dự án về kỹ thuật, và cách tận dụng phần cứng giữa lúc huấn luyện và lúc rảnh rỗi."
           )}

@@ -61,7 +61,7 @@ export function AboutSection({ variant = "home" }: { variant?: "home" | "page" }
           >
             {variant === "home"
               ? t("Mehr über mich", "More about me", "Thêm về tôi")
-              : t("Lass uns sprechen", "Let's talk", "Hãy trò chuyện")}{" "}
+              : t("Gespräch vereinbaren", "Let's talk", "Hãy trò chuyện")}{" "}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

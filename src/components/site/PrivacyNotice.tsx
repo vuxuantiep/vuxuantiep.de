@@ -40,7 +40,7 @@ export function PrivacyNotice() {
         <div className="text-xs leading-relaxed text-muted-foreground">
           <p>
             {t(
-              "Diese Website verwendet keine Tracking-Cookies und keine Analyse- oder Werbedienste. Es werden nur technisch notwendige Daten verarbeitet (z. B. Server-Logs beim Hosting und diese Hinweis-Bestätigung in deinem Browser).",
+              "Diese Website verwendet keine Tracking-Cookies und keine Analyse- oder Werbedienste. Es werden nur technisch notwendige Daten verarbeitet (z. B. Server-Logs beim Hosting und diese Hinweis-Bestätigung in Ihrem Browser).",
               "This website uses no tracking cookies and no analytics or advertising services. Only technically necessary data is processed (e.g. hosting server logs and this notice confirmation in your browser).",
               "Trang web này không dùng cookie theo dõi, không dùng dịch vụ phân tích hay quảng cáo. Chỉ dữ liệu cần thiết về kỹ thuật được xử lý (ví dụ: nhật ký máy chủ và xác nhận thông báo này trong trình duyệt của bạn)."
             )}{" "}

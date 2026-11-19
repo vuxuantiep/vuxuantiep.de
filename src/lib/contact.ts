@@ -44,7 +44,7 @@ export const sendContactMessage = createServerFn({ method: "POST" })
     if (!env?.SMTP_PASSWORD) {
       console.error("SMTP_PASSWORD secret is not configured.");
       throw new Error(
-        "Der Versand ist momentan nicht möglich. Bitte schreib direkt an tiep@vuxuantiep.de."
+        "Der Versand ist momentan nicht möglich. Bitte schreiben Sie direkt an tiep@vuxuantiep.de."
       );
     }
 
@@ -86,7 +86,7 @@ export const sendContactMessage = createServerFn({ method: "POST" })
     } catch (err) {
       console.error("SMTP send failed:", err);
       throw new Error(
-        "Der Versand ist momentan nicht möglich. Bitte schreib direkt an tiep@vuxuantiep.de."
+        "Der Versand ist momentan nicht möglich. Bitte schreiben Sie direkt an tiep@vuxuantiep.de."
       );
     }
 
@@ -136,8 +136,8 @@ function buildConfirmation(lang: string, name: string, message: string) {
     };
   }
   return {
-    subject: "Danke für deine Nachricht — vuxuantiep.de",
-    text: `Hallo ${name},\n\nherzlichen Dank für deine Anfrage über vuxuantiep.de — sie ist gut angekommen.\n\nIch melde mich so schnell wie möglich persönlich bei dir. Bitte habe bis dahin etwas Geduld!\n\nDeine Nachricht:\n${message}\n\nHerzliche Grüße\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
-    html: `<p>Hallo ${escapeHtml(name)},</p><p>herzlichen Dank für deine Anfrage über <a href="https://vuxuantiep.de">vuxuantiep.de</a> — sie ist gut angekommen.</p><p>Ich melde mich so schnell wie möglich persönlich bei dir. Bitte habe bis dahin etwas Geduld!</p><p><strong>Deine Nachricht:</strong></p>${quotedHtml}<p>Herzliche Grüße<br/>Vu Xuan Tiep</p>`,
+    subject: "Vielen Dank für Ihre Nachricht — vuxuantiep.de",
+    text: `Guten Tag ${name},\n\nherzlichen Dank für Ihre Anfrage über vuxuantiep.de — sie ist gut angekommen.\n\nIch melde mich so schnell wie möglich persönlich bei Ihnen.\n\nIhre Nachricht:\n${message}\n\nHerzliche Grüße\nVu Xuan Tiep\nhttps://vuxuantiep.de`,
+    html: `<p>Guten Tag ${escapeHtml(name)},</p><p>herzlichen Dank für Ihre Anfrage über <a href="https://vuxuantiep.de">vuxuantiep.de</a> — sie ist gut angekommen.</p><p>Ich melde mich so schnell wie möglich persönlich bei Ihnen.</p><p><strong>Ihre Nachricht:</strong></p>${quotedHtml}<p>Herzliche Grüße<br/>Vu Xuan Tiep</p>`,
   };
 }
