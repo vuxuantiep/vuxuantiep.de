@@ -76,7 +76,7 @@ export function TracePlatform() {
             <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
               {t("Eigene Plattform", "Own platform", "Nền tảng riêng")}
             </div>
-            <h2 className="mt-3 text-3xl font-semibold md:text-5xl">
+            <h2 className="mt-3 text-[1.6rem] font-semibold leading-tight md:text-4xl">
               TRACE AI — {t("Eine Plattform. Viele Lebensbereiche.", "One platform. Many lives.", "Một nền tảng. Nhiều cuộc sống.")}
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-muted-foreground">

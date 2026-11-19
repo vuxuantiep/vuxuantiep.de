@@ -94,7 +94,7 @@ export function ExperienceSection() {
         <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
           {t("Referenzen", "References", "Tham chiếu")}
         </div>
-        <h2 className="mt-3 text-3xl font-semibold md:text-5xl">
+        <h2 className="mt-3 text-[1.6rem] font-semibold leading-tight md:text-4xl">
           {t("Erfahrung aus der Praxis", "Hands-on experience", "Kinh nghiệm thực tế")}
         </h2>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">

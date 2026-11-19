@@ -241,7 +241,7 @@ function Home() {
           <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary mb-3">
             {t("Journal", "Journal", "Nhật ký")}
           </div>
-          <h2 className="text-3xl md:text-5xl font-semibold mb-4">{t("Gedanken & Architektur", "Thoughts & Architecture", "Suy nghĩ & Kiến trúc")}</h2>
+          <h2 className="text-[1.6rem] leading-tight md:text-4xl font-semibold mb-4">{t("Gedanken & Architektur", "Thoughts & Architecture", "Suy nghĩ & Kiến trúc")}</h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-xl">
             {t(
               "Aktuelle Themen rund um IT, KI und Sicherheit – eingeordnet aus der Praxis, mit Quellen.",

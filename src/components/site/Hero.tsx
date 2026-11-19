@@ -32,7 +32,7 @@ export function Hero() {
           </div>
           {/* Positionierung (18.11.2026): nicht „IT allgemein", sondern souveräne KI
               für Unternehmen mit sensiblen Daten — lokal, identitätsgesichert, mit Freigabe. */}
-          <h1 className="mt-5 text-[1.75rem] font-semibold leading-[1.15] sm:text-4xl md:text-[2.9rem]">
+          <h1 className="mt-5 text-[1.75rem] font-semibold leading-[1.15] sm:text-4xl md:text-[2.6rem]">
             {t(
               "Sichere IT‑Infrastruktur mit souveränen KI‑Agenten.",
               "Secure IT infrastructure with sovereign AI agents.",
