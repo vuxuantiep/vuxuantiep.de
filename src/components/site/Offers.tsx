@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Compass, Database, KeyRound } from "lucide-react";
+import { ArrowRight, Check, Compass, Database, Headset, KeyRound } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 
 /**
@@ -84,18 +84,92 @@ export function Offers() {
           {t("Angebote", "Offers", "Gói dịch vụ")}
         </div>
         <h2 className="mt-3 text-3xl font-semibold md:text-5xl">
-          {t("Drei Wege zu sicherer KI", "Three paths to secure AI", "Ba con đường đến AI an toàn")}
+          {t("Verlässlicher IT-Betrieb und sichere KI", "Reliable IT operations and secure AI", "Vận hành IT tin cậy và AI an toàn")}
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
           {t(
-            "Klar umrissen, mit festem Ergebnis. Sie können klein einsteigen und später ausbauen.",
-            "Clearly scoped, with a defined result. Start small and expand later.",
-            "Phạm vi rõ ràng, kết quả cụ thể. Bạn có thể bắt đầu nhỏ và mở rộng sau."
+            "Erst die stabile Basis, dann der Schritt zur KI. Jedes Angebot ist klar umrissen und hat ein festes Ergebnis.",
+            "A stable foundation first, then the step to AI. Every offer is clearly scoped with a defined result.",
+            "Nền tảng vững chắc trước, rồi đến bước tiến tới AI. Mỗi gói đều có phạm vi rõ ràng và kết quả cụ thể."
           )}
         </p>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-3">
+      {/* IT-Administration & Support (Entwurf 19.11.2026): eigene Zielgruppe
+          (Justiz, Gesundheitswesen), baut auf der echten Berufspraxis auf.
+          Produktnamen nur als Erfahrung, keine Partnerschaft behaupten. */}
+      <div className="mt-10 grid gap-8 rounded-3xl bg-surface p-7 md:p-9 lg:grid-cols-[1.1fr_1fr_1fr]">
+        <div>
+          <div className="flex items-center gap-4">
+            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-card text-primary shadow-sm">
+              <Headset className="h-6 w-6" strokeWidth={1.75} />
+            </div>
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              {t("Betrieb & Support", "Operations & support", "Vận hành & hỗ trợ")}
+            </span>
+          </div>
+          <h3 className="mt-6 text-2xl font-semibold">
+            {t("IT-Administration für Justiz & Gesundheitswesen", "IT administration for justice & healthcare", "Quản trị IT cho ngành tư pháp & y tế")}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+            {t(
+              "Fachanwendungen dürfen nicht ausfallen. Ich kenne die Umgebungen aus der Praxis: E-Akte für 13 Fachgerichte und Software-Rollouts im laufenden Klinikbetrieb.",
+              "Specialist applications must not fail. I know these environments first-hand: e-files for 13 courts and software rollouts during live hospital operations.",
+              "Phần mềm chuyên ngành không được phép gián đoạn. Tôi hiểu các môi trường này từ thực tế: hồ sơ điện tử cho 13 tòa án và triển khai phần mềm trong lúc bệnh viện vẫn hoạt động."
+            )}
+          </p>
+          <Link
+            to="/kontakt"
+            className="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-[var(--primary-hover)]"
+          >
+            {t("Support anfragen", "Request support", "Yêu cầu hỗ trợ")} <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            {t("Basis-IT", "Core IT", "IT nền tảng")}
+          </div>
+          <ul className="mt-3 space-y-2.5 text-[15px]">
+            {[
+              t("Microsoft 365, Azure und Entra ID", "Microsoft 365, Azure and Entra ID", "Microsoft 365, Azure và Entra ID"),
+              t("Active Directory, Rechte und Gruppen", "Active Directory, permissions and groups", "Active Directory, phân quyền và nhóm"),
+              t("Windows-Server, Citrix und Arbeitsplätze", "Windows Server, Citrix and workstations", "Windows Server, Citrix và máy trạm"),
+              t("Anwender-Support vor Ort und remote", "User support on site and remote", "Hỗ trợ người dùng tại chỗ và từ xa"),
+            ].map((it) => (
+              <li key={it} className="flex items-start gap-2.5">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.5} />
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            {t("Fachanwendungen", "Specialist applications", "Phần mềm chuyên ngành")}
+          </div>
+          <ul className="mt-3 space-y-2.5 text-[15px]">
+            {[
+              t("Justiz: EUREKA-Fach, eIP und E-Akte", "Justice: EUREKA-Fach, eIP and e-files", "Tư pháp: EUREKA-Fach, eIP và hồ sơ điện tử"),
+              t("Klinik: CGM NAVIS", "Hospital: CGM NAVIS", "Bệnh viện: CGM NAVIS"),
+              t("Arztpraxis: CGM Turbomed", "Medical practice: CGM Turbomed", "Phòng khám: CGM Turbomed"),
+              t("Go-Live-Begleitung und Schulung", "Go-live support and training", "Hỗ trợ go-live và đào tạo"),
+            ].map((it) => (
+              <li key={it} className="flex items-start gap-2.5">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.5} />
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-sm text-muted-foreground">
+            {t(
+              "Als Projektunterstützung, Vertretung oder laufende Betreuung.",
+              "As project support, cover or ongoing care.",
+              "Dưới dạng hỗ trợ dự án, thay thế tạm thời hoặc chăm sóc thường xuyên."
+            )}
+          </p>
+        </div>
+      </div>
+      <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
         {offers.map((o) => (
           <div
             key={o.title}
@@ -145,6 +219,7 @@ export function Offers() {
           </div>
         ))}
       </div>
+
     </section>
   );
 }
