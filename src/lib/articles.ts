@@ -1,5 +1,5 @@
 /**
- * Blog-/Journal-Artikel (Stand 18.11.2026).
+ * Blog-/Journal-Artikel (Stand 19.11.2026).
  * Inhalte recherchiert am 18.11.2026, Quellen stehen am Ende jedes Artikels.
  * Artikeltext auf Deutsch; Titel und Teaser zusätzlich EN/VI.
  * Neueste Artikel zuerst – Journal auf der Startseite zeigt die ersten 3.
@@ -25,6 +25,98 @@ export interface Article {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "lokale-ki-meloki-vergleich-mini-server-gpu-miete",
+    tag: "Lokale KI · Marktüberblick",
+    date: "2026-11-19",
+    readMin: 12,
+    title: {
+      de: "Lokale KI im Unternehmen: meloki im Vergleich – plus Mini-Server und GPU-Miete im Überblick",
+      en: "Local AI for businesses: meloki compared – plus mini servers and GPU rental at a glance",
+      vi: "AI cục bộ cho doanh nghiệp: so sánh meloki – cùng tổng quan máy chủ mini và thuê GPU",
+    },
+    excerpt: {
+      de: "Kaufen, mieten oder selbst bauen? Wir sehen uns die Plattform meloki von SECUDOS genauer an, vergleichen sie mit KI-Boxen anderer Anbieter und ordnen ein, was Mini-Server wie DGX Spark oder Ryzen AI Max und gemietete GPUs im November 2026 kosten.",
+      en: "Buy, rent or build? A closer look at SECUDOS' meloki platform, how it compares with other AI boxes, and what mini servers like DGX Spark or Ryzen AI Max and rented GPUs cost in November 2026.",
+      vi: "Mua, thuê hay tự xây? Phân tích nền tảng meloki của SECUDOS, so sánh với các hộp AI khác, và chi phí máy chủ mini như DGX Spark, Ryzen AI Max cùng GPU thuê vào tháng 11/2026.",
+    },
+    body: [
+      { type: "p", text: "Immer mehr Unternehmen wollen KI nutzen, ohne Verträge, Patientendaten oder Kundenakten an einen Cloud-Dienst zu geben. Dafür gibt es heute drei Wege: eine fertige Appliance kaufen, eine betreute KI-Box mieten oder die Lösung selbst aus Open-Source-Bausteinen bauen – auf eigener oder gemieteter Hardware. Dieser Artikel ordnet die drei Wege ein, mit konkreten Zahlen vom November 2026." },
+
+      { type: "h", text: "meloki: lokale KI-Plattform von SECUDOS" },
+      { type: "p", text: "meloki ist die KI-Plattform der SECUDOS GmbH. Sie läuft auf einer eigenen Appliance im Serverschrank des Kunden und wird über das „AdminPACK“ verwaltet: Installation, Updates, Monitoring von CPU, RAM, GPU und Speicher, Backups und Zugangsschutz. Als Betriebssystem dient DOMOS, das gehärtete System von SECUDOS. Die Hardware der Reihe scope7 kommt über den Partner Landitec." },
+      { type: "p", text: "Spannend ist der Software-Kern, denn er besteht aus bekannten Open-Source-Werkzeugen:" },
+      { type: "ul", items: [
+        "Open WebUI als Chat-Oberfläche mit Zugriff auf Unternehmenswissen",
+        "Ollama für die lokalen Sprachmodelle, beispielhaft genannt werden Gemma 4, Devstral und GPT-OSS",
+        "n8n für Workflows und Automatisierung",
+        "Whisper für Sprache-zu-Text, Kokoro für Sprachausgabe",
+        "Docling für die Dokumentaufbereitung und Qdrant als Vektordatenbank für die Wissenssuche (RAG)",
+      ] },
+      { type: "p", text: "Die Hardware gibt es in vier Stufen: vom 1-HE-Gerät mit einer NVIDIA L4 (24 GB) über eine Variante mit zwei L4 bis zu 2-HE-Servern mit einer oder vier NVIDIA RTX PRO 6000 Blackwell (je 96 GB). Preise nennt der Hersteller nicht öffentlich, Branchenseiten gibt es unter anderem für Kanzleien, Kommunen, Krankenhäuser und Produktion." },
+      { type: "ul", items: [
+        "Stärke: alles aus einer Hand, mit Verwaltung, Updates und Monitoring – das nimmt kleinen IT-Abteilungen viel Arbeit ab.",
+        "Stärke: offener Software-Stack. Modelle lassen sich wechseln, Wissen und Workflows bleiben in Standardformaten.",
+        "Zu beachten: Mehrere GPUs bilden laut Hersteller keinen gemeinsamen Speicher. Zwei L4 mit je 24 GB sind also nicht dasselbe wie eine Karte mit 48 GB.",
+        "Zu beachten: Die Dokumentation nennt Standard-Zugangsdaten für die Verwaltung. Diese müssen bei der Einrichtung sofort geändert werden.",
+        "Zu beachten: Lokal heißt nicht automatisch DSGVO-konform. Externe Schnittstellen oder Backups nach S3/SFTP können Daten nach außen geben – das muss pro Einsatz geprüft werden.",
+      ] },
+
+      { type: "h", text: "Andere Anbieter im Vergleich" },
+      { type: "p", text: "Neben meloki gibt es inzwischen mehrere deutsche Anbieter, die lokale KI als Komplettpaket anbieten. Die meisten setzen auf Miete statt Kauf: Hardware, Betrieb und Updates stecken in einer Monatsgebühr. Alle Preise netto, laut Anbieter-Websites (Stand 19.11.2026):" },
+      { type: "ul", items: [
+        "KI in der Box: 749 € pro Monat für Teams bis etwa 10 Personen, 1.299 € für bis etwa 30 Personen. Wahlweise on-premise oder in einer Private Cloud in Deutschland, ohne Einrichtungsgebühr, Token-Flatrate inklusive. On-premise mit drei Monaten Kündigungsfrist.",
+        "PK KI-Box: gemietete Box in drei Größen, 359 bis 779 € pro Monat bei 36 Monaten Laufzeit (bei 12 Monaten 479 bis 999 €). Die Box bleibt Eigentum des Anbieters, nur für Geschäftskunden.",
+        "Vertraulich KI Box (boutiq ai GmbH, München): ab 600 € pro Monat für bis zu 5 Personen, plus 499 € Einrichtung je Box. Modelle sind vor allem Gemma 4 und GPT-OSS; die Box ist von außen nicht erreichbar, Updates nur nach Freigabe.",
+        "meloki (SECUDOS): Kauf-Appliance mit Rack-Hardware vom kleinen Gerät bis zum Vier-GPU-Server; Preise auf Anfrage.",
+        "Selbst gebaut: Die Bausteine von meloki – Open WebUI, Ollama, Qdrant, n8n – sind frei verfügbar. Wer IT-Know-how hat, kann eine ähnliche Lösung auf eigener Hardware aufsetzen. Dann fallen keine Lizenzkosten an, dafür aber Arbeitszeit für Einrichtung, Updates und Absicherung.",
+      ] },
+      { type: "tip", text: "Beim Vergleich zählt nicht nur der Monatspreis. Fragen Sie nach: Wie viele Personen dürfen gleichzeitig arbeiten? Welche Modellgröße schafft die Hardware? Wer spielt Sicherheitsupdates ein? Und was passiert mit Ihren Daten, wenn der Vertrag endet?" },
+
+      { type: "h", text: "Mini-Server: viel Speicher auf kleinem Raum" },
+      { type: "p", text: "Für kleine Teams muss es nicht gleich ein Rack-Server sein. Zwei Geräteklassen haben 2026 den Markt geprägt – beide mit 128 GB gemeinsamem Speicher, den Prozessor und Grafikteil teilen. Damit passen auch große Sprachmodelle auf ein Gerät von der Größe eines Buches." },
+      { type: "ul", items: [
+        "NVIDIA DGX Spark und Partnergeräte mit dem GB10-Chip: Die ASUS Ascent GX10 liegt im Preisvergleich ab rund 6.000 €, die Dell Pro Max with GB10 je nach Ausstattung zwischen etwa 6.000 und 8.200 €, die DGX Spark Founders Edition bei rund 8.150 € inklusive Mehrwertsteuer.",
+        "Mini-PCs mit AMD Ryzen AI Max+ 395 (128 GB): meist 3.300 bis 3.800 US-Dollar. Im Frühjahr lagen viele Geräte noch um 2.000 Dollar; der Engpass bei Arbeitsspeicher hat die Preise deutlich steigen lassen. Der Framework Desktop etwa stieg von 1.999 auf 3.449 Dollar.",
+        "Klassischer Server mit eigener Grafikkarte, zum Beispiel einer RTX PRO 6000 Blackwell mit 96 GB: deutlich teurer, aber schneller in der Antwort und besser für viele gleichzeitige Nutzer.",
+      ] },
+      { type: "p", text: "Wichtig für die Erwartung: Gemeinsamer Speicher macht große Modelle möglich, ist aber langsamer als der Grafikspeicher einer echten Server-GPU. Ein Mini-Server eignet sich gut für eine Abteilung oder einen Pilotbetrieb – für 50 Personen, die gleichzeitig chatten, eher nicht." },
+
+      { type: "h", text: "GPU mieten statt kaufen" },
+      { type: "p", text: "Wer keine Hardware ins Büro stellen will oder nur zeitweise Rechenleistung braucht, kann GPUs mieten. Zwei Modelle sind verbreitet:" },
+      { type: "ul", items: [
+        "Monatsmiete eines dedizierten Servers, zum Beispiel bei Hetzner (Rechenzentren in Deutschland und Finnland): GEX45 mit RTX PRO 4000 Blackwell (24 GB) für 214 € im Monat, GEX63 mit RTX PRO 6000 (96 GB) für 999 €, GEX131 ab 1.499 € und GEX430 mit vier RTX PRO 6000 für 3.599 € – jeweils zuzüglich einer einmaligen Einrichtungsgebühr.",
+        "Stundenmiete auf GPU-Marktplätzen und Neoclouds: eine H100 kostet je nach Anbieter etwa 2,50 bis 4,60 US-Dollar pro Stunde, eine B200 rund 7,70 bis 8 Dollar. Eine RTX 5090 gibt es ab etwa 0,25 bis 1,20 Dollar pro Stunde.",
+      ] },
+      { type: "p", text: "Für Training oder einmalige Auswertungen ist Stundenmiete unschlagbar günstig. Für den Dauerbetrieb einer Unternehmens-KI rechnet sich dagegen meist eigene Hardware oder eine Monatsmiete. Beim Datenschutz gilt: Viele Marktplätze vermitteln Rechner privater oder außereuropäischer Anbieter. Für personenbezogene Daten kommen deshalb nur Anbieter mit Rechenzentrum in der EU und einem Vertrag zur Auftragsverarbeitung in Frage." },
+
+      { type: "h", text: "Welcher Weg passt zu wem?" },
+      { type: "ul", items: [
+        "Kleine Kanzlei oder Praxis ohne eigene IT: eine betreute KI-Box zur Miete. Feste Monatskosten, jemand anderes kümmert sich um Updates.",
+        "Mittelständler mit IT-Abteilung und Rack: eine Kauf-Appliance wie meloki oder ein selbst gebauter Server. Mehr Kontrolle, auf mehrere Jahre gerechnet oft günstiger.",
+        "Pilotprojekt oder einzelne Abteilung: ein Mini-Server mit 128 GB für 3.500 bis 8.000 €. Schnell aufgebaut, gut zum Testen.",
+        "Training, Experimente, Lastspitzen: GPU stundenweise mieten, aber nur mit Testdaten oder bei einem EU-Anbieter.",
+      ] },
+      { type: "tip", text: "Ich unterstütze herstellerneutral bei der Auswahl und beim Aufbau: von der Potenzialanalyse über den lokalen KI-Assistenten mit eigener Wissenssuche bis zum Betrieb. Sprechen Sie mich gern an." },
+      { type: "p", text: "Hinweis: Alle Preise sind Anbieter- bzw. Händlerangaben vom November 2026 und ändern sich gerade bei Hardware schnell. Vor einer Entscheidung lohnt sich ein aktuelles Angebot." },
+    ],
+    sources: [
+      { label: "meloki – Plattform (SECUDOS)", url: "https://meloki.ai/plattform/" },
+      { label: "meloki – Hardware scope7", url: "https://meloki.ai/hardware/" },
+      { label: "SECUDOS Dokumentation – meloki AdminPACK", url: "https://docs.secudos.de/en/docs/meloki/meloki-adminpack" },
+      { label: "KI in der Box – Preise", url: "https://ki-in-der-box.de/preise" },
+      { label: "PK KI-Box – Preise", url: "https://pk-automotive-solutions.com/de/ki-box/preise" },
+      { label: "Vertraulich KI Box (boutiq ai)", url: "https://vertraulich.ai/box/" },
+      { label: "Geizhals – ASUS Ascent GX10 (DGX Spark)", url: "https://geizhals.de/asus-ascent-gx10-gg0003bn-90ms0371-m00030-a3551306.html" },
+      { label: "Geizhals – Dell Pro Max with GB10", url: "https://geizhals.de/dell-pro-max-with-gb10-dgx-spark-fcm1253-cd2j8-a3713632.html" },
+      { label: "Nelpx – GB10-Systeme im Vergleich", url: "https://www.nelpx.de/dgx-spark-und-gb10-systeme-vergleich-kaufen" },
+      { label: "Ryzen AI Max+ 395 Mini-PCs im Vergleich (November 2026)", url: "https://www.starryhope.com/minipcs/processor/amd-ryzen-ai-max-plus-395/" },
+      { label: "Ryzen AI Max+ 395 Preise (computingforgeeks)", url: "https://computingforgeeks.com/ryzen-ai-max-395-mini-pc-comparison/" },
+      { label: "Hetzner – GPU-Server", url: "https://www.hetzner.com/dedicated-rootserver/matrix-gpu/" },
+      { label: "gpuperhour – Cloud-GPU-Preisindex", url: "https://gpuperhour.com/gpu-price-index" },
+      { label: "TechRadar – RTX 5090 ab 0,25 $/Stunde (SaladCloud)", url: "https://www.techradar.com/pro/security/you-can-now-rent-a-usd3000-nvidia-rtx-5090-gpu-from-just-usd0-25-hour-when-you-need-it-for-as-long-as-you-need-it" },
+    ],
+  },
   {
     slug: "opendesk-nubus-keycloak-euro-office-hybrid-m365",
     tag: "openDesk · Hybrid M365",
