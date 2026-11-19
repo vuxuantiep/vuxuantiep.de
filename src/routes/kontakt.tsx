@@ -209,7 +209,7 @@ function Kontakt() {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer cta={false} />
     </div>
   );
 }

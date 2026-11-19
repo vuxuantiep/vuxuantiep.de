@@ -183,18 +183,6 @@ function BrokiPage() {
         </p>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-4xl px-6 pb-24 text-center">
-        <h2 className="font-display text-2xl font-semibold md:text-3xl">
-          {t("Bereit für KI ohne Cloud-Risiko?", "Ready for AI without cloud risk?", "Sẵn sàng cho AI không rủi ro đám mây?")}
-        </h2>
-        <div className="mt-6 flex justify-center">
-          <Link to="/kontakt" className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90">
-            {t("Erstgespräch buchen", "Book an initial call", "Đặt lịch tư vấn")} <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );

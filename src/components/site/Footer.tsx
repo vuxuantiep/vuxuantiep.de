@@ -7,12 +7,14 @@ import { Logo } from "./Logo";
  * Footer im Apple-Clean-Stil: dunkelgrüne CTA-Karte ("Lass uns Ideen
  * verwirklichen.") + schlichte Fußzeile auf Weiß.
  */
-export function Footer() {
+// cta=false z. B. auf der Kontaktseite, wo der Kontakt-Aufruf doppelt wäre (19.11.2026)
+export function Footer({ cta = true }: { cta?: boolean } = {}) {
   const { t } = useLang();
 
   return (
     <footer>
       <div className="mx-auto w-full max-w-6xl px-4 pb-8 sm:px-6">
+        {cta && (
         <div className="rounded-[2rem] bg-[oklch(0.3_0.05_165)] px-6 py-14 text-center text-[oklch(0.97_0.01_85)] md:px-12 md:py-20">
           <h2 className="text-[1.5rem] md:text-[1.875rem] font-semibold leading-tight">
             {t("Ihre Daten. Ihre KI. Ihre Kontrolle.", "Your data. Your AI. Your control.", "Dữ liệu của bạn. AI của bạn. Quyền kiểm soát của bạn.")}
@@ -31,6 +33,7 @@ export function Footer() {
             {t("Kontakt aufnehmen", "Get in touch", "Liên hệ")} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
+        )}
 
         <div className="flex flex-col gap-6 pt-10 pb-4 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <Logo tagline={false} />
