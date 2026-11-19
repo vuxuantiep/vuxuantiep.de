@@ -125,7 +125,7 @@ function LokaleLlmGpuServer() {
           </span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl md:text-4xl font-semibold leading-tight">
+        <h1 className="mt-4 font-display text-[1.75rem] md:text-[2.25rem] font-semibold leading-tight">
           {t(
             "Lokale LLMs trainieren mit eigenem GPU-Server",
             "Training local LLMs on your own GPU server",

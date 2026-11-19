@@ -66,7 +66,7 @@ function BrokiPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
             {t("Online · 100 % lokal im Browser", "Online · 100% local in the browser", "Trực tuyến · 100% cục bộ")}
           </div>
-          <h1 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-semibold leading-[1.05] md:text-6xl">
+          <h1 className="mx-auto mt-6 max-w-3xl font-display text-[1.75rem] md:text-[2.25rem] font-semibold leading-[1.1]">
             {t("Die KI, die im Browser ", "The AI that stays in your ", "AI ở lại trong ")}
             <span className="text-primary">{t("bleibt", "browser", "trình duyệt")}</span>.<br />
             {t("Zu 100 % ", "100% ", "100% ")}<span className="text-primary">{t("privat", "private", "riêng tư")}</span>.
@@ -99,7 +99,7 @@ function BrokiPage() {
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center">
           <div className="font-mono text-xs uppercase tracking-widest text-primary">{t("Warum Broki", "Why Broki", "Vì sao Broki")}</div>
-          <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-2 font-display text-[1.5rem] md:text-[1.875rem] font-semibold">
             {t("Eine Kern-Technologie. Für regulierte Branchen gebaut.", "One core technology. Built for regulated industries.", "Một công nghệ lõi. Cho ngành được quản lý.")}
           </h2>
         </div>
@@ -137,7 +137,7 @@ function BrokiPage() {
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center">
           <div className="font-mono text-xs uppercase tracking-widest text-primary">{t("Für die IT-Sicherheit gebaut", "Built for IT security", "Xây dựng cho an ninh CNTT")}</div>
-          <h2 className="mt-2 font-display text-3xl font-semibold md:text-4xl">
+          <h2 className="mt-2 font-display text-[1.5rem] md:text-[1.875rem] font-semibold">
             {t("Sicherheit, Kontrolle & Auditierbarkeit", "Security, control & auditability", "Bảo mật, kiểm soát & khả năng kiểm toán")}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">

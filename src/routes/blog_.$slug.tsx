@@ -51,7 +51,7 @@ function ArticlePage() {
           <span>· {a.readMin} {t("min Lesezeit", "min read", "phút đọc")}</span>
         </div>
 
-        <h1 className="mt-4 text-3xl font-semibold leading-tight md:text-5xl">{pick(a.title)}</h1>
+        <h1 className="mt-4 text-[1.75rem] md:text-[2.25rem] font-semibold leading-tight">{pick(a.title)}</h1>
         <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{pick(a.excerpt)}</p>
 
         {lang !== "DE" && (

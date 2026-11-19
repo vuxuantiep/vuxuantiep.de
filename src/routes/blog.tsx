@@ -58,7 +58,7 @@ function Blog() {
 
       <section className="mx-auto max-w-6xl px-4 pt-16 pb-10 sm:px-6 md:pt-20">
         <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Blog · Journal</div>
-        <h1 className="mt-3 text-4xl md:text-6xl font-semibold leading-tight">
+        <h1 className="mt-3 text-[1.75rem] md:text-[2.25rem] font-semibold leading-tight">
           {t("IT, KI & Sicherheit –", "IT, AI & security –", "IT, AI & bảo mật –")}<br />{t("aktuell eingeordnet.", "put into context.", "góc nhìn cập nhật.")}
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted-foreground">

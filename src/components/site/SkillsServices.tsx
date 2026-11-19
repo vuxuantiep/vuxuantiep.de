@@ -55,7 +55,7 @@ export function SkillsServices() {
         <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
           {t("Leistungen", "Services", "Dịch vụ")}
         </div>
-        <h2 className="mt-3 text-[1.6rem] font-semibold leading-tight md:text-4xl">
+        <h2 className="mt-3 text-[1.5rem] md:text-[1.875rem] font-semibold leading-tight">
           {t("Was ich anders mache", "What I do differently", "Điều tôi làm khác biệt")}
         </h2>
       </div>

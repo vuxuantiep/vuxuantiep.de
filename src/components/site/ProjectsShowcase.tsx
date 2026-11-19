@@ -122,7 +122,7 @@ export function ProjectsShowcase() {
           <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             {t("Projekte", "Projects", "Dự án")}
           </div>
-          <h2 className="mt-3 text-[1.6rem] font-semibold leading-tight md:text-4xl">
+          <h2 className="mt-3 text-[1.5rem] md:text-[1.875rem] font-semibold leading-tight">
             {t("Ausgewählte Projekte", "Selected projects", "Dự án tiêu biểu")}
           </h2>
         </div>

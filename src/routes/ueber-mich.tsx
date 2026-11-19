@@ -54,7 +54,7 @@ function AboutPage() {
             <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
               {t("Über mich", "About me", "Về tôi")}
             </div>
-            <h1 className="mt-5 text-[2.5rem] font-semibold leading-[1.05] sm:text-5xl md:text-6xl">
+            <h1 className="mt-5 text-[1.75rem] md:text-[2.25rem] font-semibold leading-[1.1]">
               {t("Hallo, ich bin Tiep.", "Hi, I'm Tiep.", "Xin chào, tôi là Tiệp.")}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">

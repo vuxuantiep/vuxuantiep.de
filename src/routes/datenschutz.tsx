@@ -40,7 +40,7 @@ function Datenschutz() {
       <Nav />
       <section className="mx-auto max-w-3xl px-6 pt-20 pb-20">
         <div className="text-xs uppercase tracking-widest text-primary">{t("Rechtliches", "Legal", "Pháp lý")}</div>
-        <h1 className="mt-3 font-display text-5xl font-semibold leading-tight">
+        <h1 className="mt-3 font-display text-[1.75rem] md:text-[2.25rem] font-semibold leading-tight">
           {t("Datenschutzerklärung", "Privacy Policy", "Chính sách quyền riêng tư")}
         </h1>
         <p className="mt-4 text-sm text-muted-foreground">{t("Stand: November 2026", "Last updated: November 2026", "Cập nhật: tháng 11/2026")}</p>

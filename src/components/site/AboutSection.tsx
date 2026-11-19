@@ -43,7 +43,7 @@ export function AboutSection({ variant = "home" }: { variant?: "home" | "page" }
           <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
             {t("Über mich", "About me", "Về tôi")}
           </div>
-          <h2 className="mt-3 text-[1.6rem] font-semibold leading-tight md:text-4xl">
+          <h2 className="mt-3 text-[1.5rem] md:text-[1.875rem] font-semibold leading-tight">
             {variant === "home"
               ? t("Hallo, ich bin Tiep.", "Hi, I'm Tiep.", "Xin chào, tôi là Tiệp.")
               : t("Wofür ich stehe", "What I stand for", "Điều tôi theo đuổi")}

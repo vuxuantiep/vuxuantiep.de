@@ -77,7 +77,7 @@ function Kontakt() {
       <Nav />
       <section className="mx-auto max-w-5xl px-6 pt-20 pb-20">
         <div className="text-xs uppercase tracking-widest text-primary">{t("Kontakt", "Contact", "Liên hệ")}</div>
-        <h1 className="mt-3 font-display text-4xl md:text-5xl font-semibold leading-tight max-w-3xl">
+        <h1 className="mt-3 font-display text-[1.75rem] md:text-[2.25rem] font-semibold leading-tight max-w-3xl">
           {t(
             "Sie möchten KI einsetzen, ohne sensible Daten aus der Hand zu geben?",
             "Want to use AI without giving away sensitive data?",

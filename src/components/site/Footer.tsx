@@ -14,7 +14,7 @@ export function Footer() {
     <footer>
       <div className="mx-auto w-full max-w-6xl px-4 pb-8 sm:px-6">
         <div className="rounded-[2rem] bg-[oklch(0.3_0.05_165)] px-6 py-14 text-center text-[oklch(0.97_0.01_85)] md:px-12 md:py-20">
-          <h2 className="text-[1.6rem] font-semibold leading-tight md:text-4xl">
+          <h2 className="text-[1.5rem] md:text-[1.875rem] font-semibold leading-tight">
             {t("Ihre Daten. Ihre KI. Ihre Kontrolle.", "Your data. Your AI. Your control.", "Dữ liệu của bạn. AI của bạn. Quyền kiểm soát của bạn.")}
           </h2>
           <p className="mx-auto mt-4 max-w-md text-lg opacity-80">

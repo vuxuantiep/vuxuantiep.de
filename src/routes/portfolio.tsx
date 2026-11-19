@@ -188,7 +188,7 @@ function Portfolio() {
 
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-12">
         <div className="text-xs uppercase tracking-widest text-primary">Portfolio</div>
-        <h1 className="mt-3 font-display text-5xl md:text-6xl font-semibold leading-tight max-w-3xl">
+        <h1 className="mt-3 font-display text-[1.75rem] md:text-[2.25rem] font-semibold leading-tight max-w-3xl">
           {t("Eigene Projekte", "Own projects", "Dự án riêng")}<br />
           {t("und ", "and ", "và ")}<span className="text-primary">{t("Berufspraxis", "professional practice", "kinh nghiệm thực tế")}</span>.
         </h1>
@@ -264,7 +264,7 @@ function Portfolio() {
                   <span className="text-muted-foreground">·</span>
                   <span className="text-sm text-muted-foreground">{selectedProject.client} · {selectedProject.status}</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-display font-semibold mb-6">{selectedProject.title}</h2>
+                <h2 className="text-[1.5rem] md:text-[1.875rem] font-display font-semibold mb-6">{selectedProject.title}</h2>
                 <div className="flex flex-wrap gap-2 mb-8">
                   {selectedProject.stack.map((s) => (
                     <span key={s} className="rounded bg-primary/10 px-3 py-1.5 text-xs font-mono text-primary border border-primary/20">{s}</span>

@@ -32,7 +32,7 @@ function Impressum() {
       <Nav />
       <section className="mx-auto max-w-3xl px-6 pt-20 pb-20">
         <div className="text-xs uppercase tracking-widest text-primary">{t("Rechtliches", "Legal", "Pháp lý")}</div>
-        <h1 className="mt-3 font-display text-5xl font-semibold leading-tight">
+        <h1 className="mt-3 font-display text-[1.75rem] md:text-[2.25rem] font-semibold leading-tight">
           {t("Impressum", "Imprint", "Thông tin pháp lý")}
         </h1>
 

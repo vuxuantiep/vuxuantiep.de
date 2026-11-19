@@ -83,7 +83,7 @@ export function Offers() {
         <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
           {t("Angebote", "Offers", "Gói dịch vụ")}
         </div>
-        <h2 className="mt-3 text-[1.6rem] font-semibold leading-tight md:text-4xl">
+        <h2 className="mt-3 text-[1.5rem] md:text-[1.875rem] font-semibold leading-tight">
           {t("Wie ich Sie unterstütze", "How I can help you", "Tôi có thể hỗ trợ bạn thế nào")}
         </h2>
         <p className="mt-4 text-lg leading-relaxed text-muted-foreground">

@@ -241,7 +241,7 @@ function Home() {
           <div className="text-xs font-semibold uppercase tracking-[0.22em] text-primary mb-3">
             {t("Journal", "Journal", "Nhật ký")}
           </div>
-          <h2 className="text-[1.6rem] leading-tight md:text-4xl font-semibold mb-4">{t("Gedanken & Architektur", "Thoughts & Architecture", "Suy nghĩ & Kiến trúc")}</h2>
+          <h2 className="text-[1.5rem] md:text-[1.875rem] leading-tight font-semibold mb-4">{t("Gedanken & Architektur", "Thoughts & Architecture", "Suy nghĩ & Kiến trúc")}</h2>
           <p className="text-lg text-muted-foreground mb-10 max-w-xl">
             {t(
               "Aktuelle Themen rund um IT, KI und Sicherheit – eingeordnet aus der Praxis, mit Quellen.",
@@ -286,7 +286,7 @@ function Home() {
         <section id="stimmen" className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
           <div className="mb-12">
             <div className="text-xs uppercase tracking-widest text-primary">{t("Kundenstimmen", "Testimonials", "Đánh giá khách hàng")}</div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-semibold">{t("Was Kunden sagen", "What clients say", "Khách hàng nói gì")}</h2>
+            <h2 className="mt-2 text-[1.5rem] md:text-[1.875rem] font-semibold">{t("Was Kunden sagen", "What clients say", "Khách hàng nói gì")}</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {TESTIMONIALS.map((item) => (
