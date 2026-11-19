@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, ExternalLink, Globe, X } from "lucide-react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
+import { ExperienceSection } from "@/components/site/ExperienceSection";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
@@ -12,14 +13,14 @@ export const Route = createFileRoute("/portfolio")({
     path: "/portfolio",
     search: match.search,
     title: {
-      de: "Portfolio — vuxuantiep.de",
+      de: "Projekte & Praxis — vuxuantiep.de",
       en: "Portfolio — vuxuantiep.de",
       vi: "Portfolio — vuxuantiep.de",
     },
     description: {
-      de: "Ausgewählte Freelance-Projekte: Cloud-Plattformen, KI-Produkte und Web-Apps.",
-      en: "Selected freelance projects: cloud platforms, AI products, and web apps.",
-      vi: "Các dự án freelance tiêu biểu: nền tảng đám mây, sản phẩm AI và ứng dụng web.",
+      de: "Eigene KI-Projekte (AI-OS, BDS Navigator, Broki AI, TRACE IT) und Berufspraxis aus Kliniken, Justiz und IT-Betrieb.",
+      en: "Own AI projects (AI-OS, BDS Navigator, Broki AI, TRACE IT) and professional experience from hospitals, the judiciary and IT operations.",
+      vi: "Dự án AI riêng (AI-OS, BDS Navigator, Broki AI, TRACE IT) và kinh nghiệm thực tế tại bệnh viện, tư pháp và vận hành IT.",
     },
   }),
   component: Portfolio,
@@ -28,35 +29,42 @@ export const Route = createFileRoute("/portfolio")({
 function Portfolio() {
   const { t } = useLang();
 
-  const projects = [
+  // Nur echte, eigene Projekte (Stand 19.11.2026). Die früheren Beispielprojekte
+  // der Website-Vorlage (Helio, Aurora, Northwind, PromptForge, Polaris, Lumen)
+  // und die Vorlagen-Kundenstimmen wurden entfernt: nicht belegbar.
+  const projects: {
+    tag: string; title: string; client: string; status: string; desc: string;
+    stack: string[]; metric: string; color: string; goals: string;
+    challenges: string; results: string; link?: string; stackImages?: string[];
+  }[] = [
     {
       tag: t("KI · Agenten", "AI · Agents", "AI · Agents"),
-      title: "AI-OS Multi-Agenten Fabrik",
-      client: t("KI-Plattform", "AI Platform", "Nền tảng AI"),
+      title: "AI-OS Multi-Agenten-Fabrik",
+      client: t("Eigenentwicklung", "Own development", "Tự phát triển"),
+      status: t("Im täglichen Eigenbetrieb", "In daily own use", "Đang vận hành hằng ngày"),
       desc: t(
-        "Enterprise-AI-Plattform mit Multi-Agenten-System. Orchestrierung von 10+ spezialisierten KI-Agenten für CTO, Planung, Entwicklung, Testing, Qualitätssicherung und Auslieferung.",
-        "Enterprise AI platform with multi-agent system. Orchestration of 10+ specialized AI agents for CTO, planning, development, testing, QA and delivery.",
-        "Nền tảng AI doanh nghiệp với hệ thống đa tác nhân. Điều phối 10+ agent AI chuyên biệt cho CTO, lập kế hoạch, phát triển, kiểm thử, QA và bàn giao."
+        "Mein eigenes KI-Betriebssystem: spezialisierte Agenten, Workflow-Engine, Wissensdatenbank (RAG) und Monitoring – lokal mit Ollama betrieben.",
+        "My own AI operating system: specialised agents, workflow engine, knowledge base (RAG) and monitoring – run locally with Ollama.",
+        "Hệ điều hành AI của riêng tôi: các agent chuyên biệt, workflow engine, cơ sở tri thức (RAG) và giám sát – chạy cục bộ với Ollama."
       ),
-      stack: ["React", "Node.js", "PostgreSQL", "Docker", "LangGraph", "Ollama"],
-      metric: t("10+ Agenten", "10+ Agents", "10+ Agents"),
+      stack: ["Python", "Flask", "LangGraph", "Ollama", "Docker"],
+      metric: t("10 Agenten", "10 agents", "10 agent"),
       color: "from-accent/30 to-primary/20",
       goals: t(
-        "Entwicklung einer modularen KI-Fabrik, die Business-Ideen in produktive Software verwandelt — von der CEO-Idee über CTO-Planung bis zur automatisierten Auslieferung.",
-        "Develop a modular AI factory that transforms business ideas into production-ready software — from CEO ideas through CTO planning to automated delivery.",
-        "Xây dựng một nhà máy AI mô-đun chuyển đổi ý tưởng kinh doanh thành phần mềm sản xuất — từ ý tưởng CEO qua lập kế hoạch CTO đến bàn giao tự động."
+        "Eine Werkbank, auf der ich KI-Agenten, lokale Modelle und Automatisierung unter realen Bedingungen entwickle und teste – bevor ich sie Kunden empfehle.",
+        "A workbench where I build and test AI agents, local models and automation under real conditions – before recommending them to clients.",
+        "Một xưởng làm việc nơi tôi phát triển và thử nghiệm agent AI, mô hình cục bộ và tự động hóa trong điều kiện thực tế – trước khi đề xuất cho khách hàng."
       ),
       challenges: t(
-        "Orchestrierung heterogener Agenten-Typen, Zustandsmanagement über lange Lebenszyklen, Echtzeit-Kollaboration zwischen Mensch und KI.",
-        "Orchestration of heterogeneous agent types, state management across long lifecycles, real-time collaboration between humans and AI.",
-        "Điều phối các loại agent khác nhau, quản lý trạng thái qua vòng đời dài, cộng tác thời gian thực giữa con người và AI."
+        "Agenten mit klaren Rollen und menschlicher Freigabe, Betrieb auf Standard-Hardware ohne GPU, Datenschutz-Schalter zwischen rein lokalem und hybridem LLM-Betrieb.",
+        "Agents with clear roles and human approval, running on standard hardware without a GPU, a privacy switch between purely local and hybrid LLM operation.",
+        "Agent có vai trò rõ ràng và cần con người phê duyệt, chạy trên phần cứng thông thường không có GPU, công tắc bảo mật giữa chế độ LLM thuần cục bộ và lai."
       ),
       results: t(
-        "Volle Automatisierung des Software-Produktionsprozesses, 10/13 Dienste online, reduzierte Time-to-Market für neue Features um 60%.",
-        "Full automation of the software production process, 10/13 services online, reduced time-to-market for new features by 60%.",
-        "Tự động hóa hoàn toàn quy trình sản xuất phần mềm, 10/13 dịch vụ hoạt động, giảm 60% thời gian đưa sản phẩm ra thị trường."
+        "Läuft täglich in meinem eigenen Betrieb mit Dashboard, zehn Agenten, Wissenssuche, Backups und Health-Checks. Es ist die technische Grundlage für TRACE AI.",
+        "Runs daily in my own operations with a dashboard, ten agents, knowledge search, backups and health checks. It is the technical foundation of TRACE AI.",
+        "Vận hành hằng ngày trong công việc của tôi với dashboard, mười agent, tìm kiếm tri thức, sao lưu và kiểm tra tình trạng. Đây là nền tảng kỹ thuật của TRACE AI."
       ),
-      link: "https://ai-os.vuxuantiep.de/",
       stackImages: [
         "/images/AI-OS/temp_image_1783206019551.png",
         "/images/AI-OS/temp_image_1783206113009.png",
@@ -64,31 +72,32 @@ function Portfolio() {
       ],
     },
     {
-      tag: t("KI · Tooling", "AI · Tooling", "AI · Công cụ"),
-      title: "BDS-Navigator",
-      client: t("Immobilien-Investoren", "Real Estate Investors", "Nhà đầu tư BĐS"),
+      tag: t("KI · Immobilien", "AI · Real estate", "AI · Bất động sản"),
+      title: "BDS Navigator",
+      client: t("Eigenentwicklung", "Own development", "Tự phát triển"),
+      status: t("Online als Prototyp", "Online as a prototype", "Bản thử nghiệm trực tuyến"),
       desc: t(
-        "Analyse-Tool für Immobilienmärkte in Vietnam und Deutschland. Automatisierte Marktanalyse und Investment-Bewertung.",
-        "Analysis tool for real estate markets in Vietnam and Germany. Automated market analysis and investment evaluation.",
-        "Công cụ phân tích thị trường bất động sản tại Việt Nam và Đức. Phân tích thị trường và đánh giá đầu tư tự động."
+        "Digitale Plattform mit Karten, Marktdaten und KI-Assistent für Immobilien-Investoren in Vietnam und Deutschland.",
+        "Digital platform with maps, market data and an AI assistant for real estate investors in Vietnam and Germany.",
+        "Nền tảng số với bản đồ, dữ liệu thị trường và trợ lý AI cho nhà đầu tư bất động sản tại Việt Nam và Đức."
       ),
       stack: ["Next.js", "Python", "PostgreSQL"],
       metric: t("2 Märkte", "2 markets", "2 thị trường"),
       color: "from-primary/20 to-accent/30",
       goals: t(
-        "Entwicklung einer Plattform zur Analyse und Bewertung von Immobilieninvestments in vietnamesischen und deutschen Märkten.",
-        "Develop a platform for analyzing and evaluating real estate investments in Vietnamese and German markets.",
-        "Xây dựng nền tảng phân tích và đánh giá đầu tư bất động sản tại thị trường Việt Nam và Đức."
+        "Marktdaten und Objektinformationen aus zwei Ländern an einem Ort zusammenführen und mit einem KI-Assistenten verständlich machen.",
+        "Bring market data and property information from two countries together in one place and make it understandable with an AI assistant.",
+        "Tập hợp dữ liệu thị trường và thông tin bất động sản từ hai quốc gia vào một nơi và giúp dễ hiểu hơn nhờ trợ lý AI."
       ),
       challenges: t(
-        "Dateninkonsistenz zwischen verschiedenen Quellen, kulturelle Unterschiede in der Bewertung, Echtzeit-Datenverarbeitung.",
-        "Data inconsistency between sources, cultural differences in valuation, real-time data processing.",
-        "Dữ liệu không nhất quán giữa các nguồn, khác biệt văn hóa trong định giá, xử lý dữ liệu thời gian thực."
+        "Uneinheitliche Datenquellen, unterschiedliche Bewertungslogik in beiden Märkten, dreisprachige Oberfläche (Deutsch, Englisch, Vietnamesisch).",
+        "Inconsistent data sources, different valuation logic in both markets, a trilingual interface (German, English, Vietnamese).",
+        "Nguồn dữ liệu không đồng nhất, logic định giá khác nhau ở hai thị trường, giao diện ba ngôn ngữ (Đức, Anh, Việt)."
       ),
       results: t(
-        "Investoren können nun fundierte Entscheidungen in beiden Märkten treffen, Analysezeit um 75% reduziert.",
-        "Investors can now make informed decisions in both markets, analysis time reduced by 75%.",
-        "Nhà đầu tư có thể đưa ra quyết định sáng suốt ở cả hai thị trường, giảm 75% thời gian phân tích."
+        "Online erreichbarer Prototyp mit Karten, Marktdaten und KI-Assistent.",
+        "Publicly reachable prototype with maps, market data and an AI assistant.",
+        "Bản thử nghiệm có thể truy cập trực tuyến với bản đồ, dữ liệu thị trường và trợ lý AI."
       ),
       link: "https://bds-navigator.vuxuantiep.de/",
       stackImages: [
@@ -98,174 +107,65 @@ function Portfolio() {
       ],
     },
     {
-      tag: t("KI · SaaS", "AI · SaaS", "AI · SaaS"),
-      title: "Helio Copilot",
-      client: t("FinTech Scale-up", "FinTech scale-up", "FinTech scale-up"),
+      tag: t("KI · Browser", "AI · Browser", "AI · Trình duyệt"),
+      title: "Broki AI",
+      client: t("Eigenentwicklung", "Own development", "Tự phát triển"),
+      status: t("Prototyp", "Prototype", "Bản thử nghiệm"),
       desc: t(
-        "RAG-basierter Support-Agent über 2 Mio. Tickets. Antwortzeit von 4 h auf 12 s.",
-        "RAG-based support agent across 2M+ tickets. Response time cut from 4h to 12s.",
-        "Agent hỗ trợ dựa trên RAG cho hơn 2 triệu ticket. Thời gian phản hồi giảm từ 4 giờ xuống 12 giây."
+        "Browser-Erweiterung mit eigener Wissensbasis, signierten Updates und Zero-Trust-Sicherheit.",
+        "Browser extension with its own knowledge base, signed updates and zero-trust security.",
+        "Tiện ích trình duyệt với kho tri thức riêng, cập nhật có chữ ký và bảo mật Zero Trust."
       ),
-      stack: ["Next.js", "OpenAI", "pgvector"],
-      metric: t("−87% Ticket-Backlog", "−87% ticket backlog", "−87% ticket tồn đọng"),
-      color: "from-primary/30 to-accent/20",
-      goals: t(
-        "Reduzierung der Support-Aufwände und Beschleunigung der Antwortzeiten im 1st-Level-Support durch Automatisierung wiederkehrender Anfragen.",
-        "Reduce support workload and speed up first-level response times by automating recurring requests.",
-        "Giảm khối lượng công việc hỗ trợ và tăng tốc thời gian phản hồi ở cấp độ 1 bằng cách tự động hóa các yêu cầu lặp lại."
-      ),
-      challenges: t(
-        "Sichere Anbindung an Altsysteme mit komplexen Berechtigungsstrukturen, Minimierung von Halluzinationen bei regulatorisch kritischen Fintech-Themen.",
-        "Secure integration with legacy systems with complex permission structures; minimizing hallucinations on regulatorily critical fintech topics.",
-        "Kết nối an toàn với hệ thống cũ có cấu trúc phân quyền phức tạp, giảm thiểu ảo giác (hallucination) ở các chủ đề fintech nhạy cảm về quy định."
-      ),
-      results: t(
-        "Reduktion der Ticket-Bearbeitungszeit um 87%, Antwortzeit von 4 Stunden auf durchschnittlich 12 Sekunden gesenkt, hohe Kundenzufriedenheit.",
-        "87% reduction in ticket handling time, average response time cut from 4 hours to 12 seconds, high customer satisfaction.",
-        "Giảm 87% thời gian xử lý ticket, thời gian phản hồi trung bình giảm từ 4 giờ xuống 12 giây, mức độ hài lòng khách hàng cao."
-      ),
-    },
-    {
-      tag: t("Cloud", "Cloud", "Cloud"),
-      title: "Aurora Platform",
-      client: t("B2B Logistik", "B2B logistics", "Logistics B2B"),
-      desc: t(
-        "Multi-Region AWS-Infrastruktur mit Event-Driven Architecture. 99.99% Uptime SLA.",
-        "Multi-region AWS infrastructure with event-driven architecture. 99.99% uptime SLA.",
-        "Hạ tầng AWS đa vùng với kiến trúc hướng sự kiện. SLA uptime 99.99%."
-      ),
-      stack: ["AWS CDK", "Kafka", "DynamoDB"],
-      metric: t("10× Durchsatz", "10× throughput", "10× thông lượng"),
-      color: "from-accent/30 to-primary/20",
-      goals: t(
-        "Modernisierung einer monolithischen Logistik-Plattform hin zu einer hochverfügbaren, skalierbaren Cloud-Architektur.",
-        "Modernize a monolithic logistics platform into a highly available, scalable cloud architecture.",
-        "Hiện đại hóa nền tảng logistics dạng monolith thành kiến trúc đám mây có tính sẵn sàng cao và khả năng mở rộng."
-      ),
-      challenges: t(
-        "Zero-Downtime Migration von On-Premise-Datenbanken zu DynamoDB, Event-Synchronisation über mehrere AWS-Regionen.",
-        "Zero-downtime migration from on-premise databases to DynamoDB, event synchronization across multiple AWS regions.",
-        "Di chuyển không downtime từ database on-premise sang DynamoDB, đồng bộ sự kiện qua nhiều vùng AWS."
-      ),
-      results: t(
-        "Erfolgreiche Skalierung für das 10-fache Transaktionsvolumen, Erreichen der 99.99% SLA, signifikante Reduktion der operativen Kosten.",
-        "Successfully scaled to 10× transaction volume, achieved 99.99% SLA, significant reduction in operational costs.",
-        "Mở rộng thành công lên 10 lần khối lượng giao dịch, đạt SLA 99.99%, giảm đáng kể chi phí vận hành."
-      ),
-    },
-    {
-      tag: t("Web", "Web", "Web"),
-      title: "Northwind Studio",
-      client: t("Designagentur", "Design agency", "Công ty thiết kế"),
-      desc: t(
-        "Headless CMS + Edge-Rendering. Lighthouse 100 / 100 / 100 / 100.",
-        "Headless CMS + edge rendering. Lighthouse 100 / 100 / 100 / 100.",
-        "Headless CMS + edge rendering. Lighthouse 100 / 100 / 100 / 100."
-      ),
-      stack: ["TanStack", "Sanity", "CF Workers"],
-      metric: t("1.2s LCP global", "1.2s LCP globally", "LCP 1.2s toàn cầu"),
-      color: "from-primary/20 to-accent/30",
-      goals: t(
-        "Neugestaltung und technische Optimierung einer Agentur-Website mit Fokus auf maximale Performance und SEO.",
-        "Redesign and technical optimization of an agency website focused on maximum performance and SEO.",
-        "Thiết kế lại và tối ưu kỹ thuật website agency, tập trung vào hiệu năng tối đa và SEO."
-      ),
-      challenges: t(
-        "Darstellung von hochauflösenden Medieninhalten bei gleichzeitig extrem schnellen Ladezeiten global (Edge Delivery).",
-        "Serving high-resolution media content while keeping load times extremely fast globally (edge delivery).",
-        "Hiển thị nội dung media độ phân giải cao trong khi vẫn giữ tốc độ tải cực nhanh trên toàn cầu (edge delivery)."
-      ),
-      results: t(
-        "Lighthouse Scores von 100/100/100/100, Largest Contentful Paint (LCP) weltweit unter 1.2 Sekunden, 40% mehr Inbound Leads.",
-        "Lighthouse scores of 100/100/100/100, Largest Contentful Paint (LCP) under 1.2s worldwide, 40% more inbound leads.",
-        "Điểm Lighthouse 100/100/100/100, Largest Contentful Paint (LCP) dưới 1.2 giây trên toàn cầu, tăng 40% lượng khách hàng tiềm năng."
-      ),
-    },
-    {
-      tag: t("KI · Tooling", "AI · Tooling", "AI · Công cụ"),
-      title: "PromptForge",
-      client: t("Open Source", "Open source", "Mã nguồn mở"),
-      desc: t(
-        "Prompt-Versioning und A/B-Testing für LLM-Pipelines. 4k Stars auf GitHub.",
-        "Prompt versioning and A/B testing for LLM pipelines. 4k stars on GitHub.",
-        "Quản lý phiên bản prompt và A/B testing cho LLM pipeline. 4k stars trên GitHub."
-      ),
-      stack: ["TypeScript", "tRPC", "Postgres"],
-      metric: "4.2k ⭐",
+      stack: ["Manifest V3", "WebLLM", "Tailscale"],
+      metric: t("Lokal + privat", "Local + private", "Cục bộ + riêng tư"),
       color: "from-accent/20 to-primary/30",
       goals: t(
-        "Entwicklung eines Open-Source-Tools zur Verwaltung, Versionierung und systematischen Evaluierung von LLM-Prompts für Entwicklerteams.",
-        "Build an open-source tool for managing, versioning, and systematically evaluating LLM prompts for developer teams.",
-        "Xây dựng công cụ mã nguồn mở để quản lý, phiên bản hóa và đánh giá có hệ thống các prompt LLM cho các đội phát triển."
+        "Eine KI-Assistentin direkt im Browser, die auf das eigene Wissen zugreift, ohne dass Daten an fremde Cloud-Dienste gehen.",
+        "An AI assistant right in the browser that uses your own knowledge without sending data to third-party cloud services.",
+        "Một trợ lý AI ngay trong trình duyệt, sử dụng tri thức của riêng bạn mà không gửi dữ liệu đến dịch vụ đám mây bên ngoài."
       ),
       challenges: t(
-        "Nahtlose Integration in bestehende CI/CD-Pipelines, performante Speicherung großer Prompt-Evaluation-Datensätze.",
-        "Seamless integration into existing CI/CD pipelines, performant storage of large prompt-evaluation datasets.",
-        "Tích hợp liền mạch vào các CI/CD pipeline hiện có, lưu trữ hiệu quả các tập dữ liệu đánh giá prompt lớn."
+        "Sprachmodell im Browser bzw. auf eigener Hardware, sichere Anbindung über Tailscale, signierte Konfiguration gegen Manipulation.",
+        "Language model in the browser or on own hardware, secure connection via Tailscale, signed configuration against tampering.",
+        "Mô hình ngôn ngữ trong trình duyệt hoặc trên phần cứng riêng, kết nối an toàn qua Tailscale, cấu hình có chữ ký chống giả mạo."
       ),
       results: t(
-        "Über 4.200 GitHub Stars, Adoption in dutzenden Enterprise-Teams, etablierter Standard für Prompt-Engineering Workflows.",
-        "Over 4,200 GitHub stars, adopted by dozens of enterprise teams, became a standard for prompt-engineering workflows.",
-        "Hơn 4.200 GitHub stars, được hàng chục đội enterprise áp dụng, trở thành tiêu chuẩn cho quy trình prompt-engineering."
+        "Funktionsfähiger Prototyp. Ich teste ihn derzeit selbst im Alltag, danach folgt die Pilotphase.",
+        "Working prototype. I am currently testing it myself in daily use; a pilot phase follows.",
+        "Bản thử nghiệm hoạt động được. Hiện tôi đang tự dùng thử hằng ngày, sau đó sẽ đến giai đoạn thí điểm."
       ),
+      link: "/broki",
     },
     {
-      tag: t("Cloud", "Cloud", "Cloud"),
-      title: "Polaris ETL",
-      client: t("Healthcare", "Healthcare", "Y tế"),
+      tag: t("IT · Automatisierung", "IT · Automation", "IT · Tự động hóa"),
+      title: "TRACE IT Werkbank",
+      client: t("Eigenentwicklung", "Own development", "Tự phát triển"),
+      status: t("Live im Eigenbetrieb", "Live in own use", "Đang vận hành"),
       desc: t(
-        "HIPAA-konforme Daten-Pipelines auf GCP. Migration von 400 GB legacy ETL.",
-        "HIPAA-compliant data pipelines on GCP. Migrated 400 GB of legacy ETL.",
-        "Pipeline dữ liệu tuân thủ HIPAA trên GCP. Di chuyển 400 GB ETL cũ."
+        "Web-Werkbank für den IT-Support-Alltag: 12 Module mit KI-Unterstützung über eine mehrstufige LLM-Ausweichkette.",
+        "Web workbench for everyday IT support: 12 modules with AI assistance via a multi-stage LLM fallback chain.",
+        "Bàn làm việc web cho công việc hỗ trợ IT hằng ngày: 12 mô-đun có hỗ trợ AI qua chuỗi LLM dự phòng nhiều tầng."
       ),
-      stack: ["GCP", "Dataflow", "BigQuery"],
-      metric: t("−62% Kosten", "−62% cost", "−62% chi phí"),
-      color: "from-primary/30 to-accent/10",
+      stack: ["Python", "Cloudflare Tunnel", "LiteLLM"],
+      metric: t("12 Module", "12 modules", "12 mô-đun"),
+      color: "from-primary/30 to-accent/20",
       goals: t(
-        "Zentralisierung und Migration historischer Gesundheitsdaten in ein modernes, HIPAA-konformes Data Warehouse zur Forschung.",
-        "Centralize and migrate historical health data into a modern, HIPAA-compliant data warehouse for research.",
-        "Tập trung hóa và di chuyển dữ liệu y tế lịch sử vào một data warehouse hiện đại, tuân thủ HIPAA phục vụ nghiên cứu."
+        "Wiederkehrende Support-Aufgaben bündeln und beschleunigen, mit KI als Helfer und dem Menschen als Entscheider.",
+        "Bundle and speed up recurring support tasks, with AI as a helper and a human making the decisions.",
+        "Gom và đẩy nhanh các tác vụ hỗ trợ lặp lại, với AI là trợ thủ và con người là người quyết định."
       ),
       challenges: t(
-        "Strenge Datenschutzvorgaben (HIPAA, DSGVO), Deduplizierung fehlerhafter Datensätze aus 15 verschiedenen Legacy-Systemen.",
-        "Strict privacy requirements (HIPAA, GDPR), deduplication of faulty records from 15 different legacy systems.",
-        "Yêu cầu bảo mật nghiêm ngặt (HIPAA, GDPR), khử trùng lặp dữ liệu lỗi từ 15 hệ thống cũ khác nhau."
+        "Ausfallsicherheit bei Cloud-LLMs (automatischer Wechsel zwischen mehreren Anbietern), sichere Veröffentlichung ohne offene Ports.",
+        "Resilience with cloud LLMs (automatic switching between several providers), secure publishing without open ports.",
+        "Đảm bảo hoạt động liên tục với LLM đám mây (tự động chuyển giữa nhiều nhà cung cấp), công bố an toàn mà không mở cổng."
       ),
       results: t(
-        "62% Einsparung bei Infrastrukturkosten, sichere und zentrale Datenverfügbarkeit für Data-Science Teams in nahezu Echtzeit.",
-        "62% savings in infrastructure costs, secure and centralized near real-time data availability for data science teams.",
-        "Tiết kiệm 62% chi phí hạ tầng, dữ liệu sẵn có an toàn, tập trung gần thời gian thực cho các đội data science."
+        "Seit Juli 2026 live und im täglichen Einsatz. Sie ist der Grundstein für TRACE IT.",
+        "Live and in daily use since July 2026. It is the cornerstone of TRACE IT.",
+        "Hoạt động và được dùng hằng ngày từ tháng 7/2026. Đây là nền móng của TRACE IT."
       ),
     },
-    {
-      tag: t("Web · KI", "Web · AI", "Web · AI"),
-      title: "Lumen Editor",
-      client: "MediaTech",
-      desc: t(
-        "Echtzeit-Kollaborativer Editor mit KI-Vorschlägen. Y.js + LLM-Streaming.",
-        "Real-time collaborative editor with AI suggestions. Y.js + LLM streaming.",
-        "Trình soạn thảo cộng tác thời gian thực với gợi ý AI. Y.js + LLM streaming."
-      ),
-      stack: ["React", "Yjs", "Claude"],
-      metric: t("12k MAU", "12k MAU", "12k MAU"),
-      color: "from-accent/30 to-primary/10",
-      goals: t(
-        "Aufbau eines webbasierten Text-Editors mit kollaborativen Echtzeit-Features und intelligenter Schreibunterstützung durch KI.",
-        "Build a web-based text editor with real-time collaboration and intelligent AI-powered writing support.",
-        "Xây dựng trình soạn thảo văn bản trên web với tính năng cộng tác thời gian thực và hỗ trợ viết thông minh bằng AI."
-      ),
-      challenges: t(
-        "Konfliktfreie Synchronisation (CRDTs) bei gleichzeitiger Textgenerierung durch LLM-Streams im selben Dokument.",
-        "Conflict-free synchronization (CRDTs) while an LLM stream simultaneously generates text in the same document.",
-        "Đồng bộ hóa không xung đột (CRDT) trong khi LLM stream đồng thời tạo văn bản trong cùng tài liệu."
-      ),
-        results: t(
-          "Skalierung auf 12.000 monatlich aktive Nutzer, hohe Retention-Rate durch nahtloses KI-gestütztes Co-Writing-Erlebnis.",
-          "Scaled to 12,000 monthly active users, high retention through a seamless AI-assisted co-writing experience.",
-          "Mở rộng lên 12.000 người dùng hoạt động hàng tháng, tỷ lệ giữ chân cao nhờ trải nghiệm đồng viết với AI liền mạch."
-        ),
-     },
-   ];
+  ];
 
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
@@ -281,32 +181,6 @@ function Portfolio() {
     };
   }, [selectedProject]);
 
-  const testimonials = [
-    {
-      q: t(
-        "Tiep hat unsere KI-Roadmap in 6 Wochen umgesetzt, wofür intern 6 Monate geplant waren.",
-        "Tiep implemented our AI roadmap in 6 weeks — internally we had planned 6 months for it.",
-        "Tiệp đã triển khai lộ trình AI của chúng tôi trong 6 tuần, trong khi nội bộ dự kiến mất 6 tháng."
-      ),
-      a: "Sarah K.", role: t("CTO, FinTech", "CTO, FinTech", "CTO, FinTech"),
-    },
-    {
-      q: t(
-        "Sauberer Code, klare Kommunikation, faire Preise. Wir buchen ihn jedes Quartal nach.",
-        "Clean code, clear communication, fair pricing. We book him again every quarter.",
-        "Code sạch, giao tiếp rõ ràng, giá cả hợp lý. Chúng tôi thuê lại anh ấy mỗi quý."
-      ),
-      a: "Markus B.", role: t("Head of Engineering", "Head of Engineering", "Head of Engineering"),
-    },
-    {
-      q: t(
-        "Endlich jemand, der KI-Hype und Realität trennen kann. Pragmatisch und liefert.",
-        "Finally someone who can separate AI hype from reality. Pragmatic and delivers.",
-        "Cuối cùng cũng có người phân biệt được sự cường điệu và thực tế của AI. Thực dụng và mang lại kết quả."
-      ),
-      a: "Lena W.", role: t("Founder", "Founder", "Founder"),
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -315,14 +189,14 @@ function Portfolio() {
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-12">
         <div className="text-xs uppercase tracking-widest text-primary">Portfolio</div>
         <h1 className="mt-3 font-display text-5xl md:text-6xl font-semibold leading-tight max-w-3xl">
-          {t("Ausgewählte Arbeiten", "Selected work", "Dự án tiêu biểu")}<br />
-          {t("der letzten ", "from the last ", "trong ")}<span className="text-primary">{t("5 Jahre", "5 years", "5 năm qua")}</span>.
+          {t("Eigene Projekte", "Own projects", "Dự án riêng")}<br />
+          {t("und ", "and ", "và ")}<span className="text-primary">{t("Berufspraxis", "professional practice", "kinh nghiệm thực tế")}</span>.
         </h1>
         <p className="mt-6 max-w-2xl text-muted-foreground">
           {t(
-            "Eine Auswahl produktiver Projekte für Startups, Scale-ups und Mittelstand. Mehr auf Anfrage unter NDA.",
-            "A selection of production projects for startups, scale-ups and SMEs. More available on request under NDA.",
-            "Một số dự án tiêu biểu cho startup, scale-up và doanh nghiệp vừa. Thêm thông tin theo yêu cầu, có NDA."
+            "Oben stehen meine eigenen Entwicklungen, die ich selbst betreibe oder als Prototyp teste. Darunter folgt meine Erfahrung aus Kliniken, Justiz und IT-Betrieb. Beides ist klar getrennt.",
+            "Above are my own developments, which I run myself or test as prototypes. Below is my experience from hospitals, the judiciary and IT operations. The two are kept clearly separate.",
+            "Phía trên là các dự án tôi tự phát triển, tự vận hành hoặc đang thử nghiệm. Phía dưới là kinh nghiệm của tôi tại bệnh viện, ngành tư pháp và vận hành IT. Hai phần được tách biệt rõ ràng."
           )}
         </p>
       </section>
@@ -340,7 +214,7 @@ function Portfolio() {
                 <div>
                   <div className="text-xs uppercase tracking-wider text-primary">{p.tag}</div>
                   <h2 className="mt-2 text-2xl font-semibold">{p.title}</h2>
-                  <div className="text-sm text-muted-foreground">{p.client}</div>
+                  <div className="text-sm text-muted-foreground">{p.client} · {p.status}</div>
                 </div>
                 <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
@@ -388,7 +262,7 @@ function Portfolio() {
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-xs uppercase tracking-wider text-primary">{selectedProject.tag}</span>
                   <span className="text-muted-foreground">·</span>
-                  <span className="text-sm text-muted-foreground">{selectedProject.client}</span>
+                  <span className="text-sm text-muted-foreground">{selectedProject.client} · {selectedProject.status}</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-display font-semibold mb-6">{selectedProject.title}</h2>
                 <div className="flex flex-wrap gap-2 mb-8">
@@ -463,22 +337,8 @@ function Portfolio() {
         )}
       </AnimatePresence>
 
-      {/* Testimonials */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="text-xs uppercase tracking-widest text-accent">{t("Stimmen", "Testimonials", "Đánh giá")}</div>
-        <h2 className="mt-2 text-3xl font-semibold">{t("Was Kunden sagen", "What clients say", "Khách hàng nói gì")}</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {testimonials.map((q) => (
-            <div key={q.a} className="rounded-xl border border-border bg-surface/40 p-6">
-              <p className="text-sm text-foreground leading-relaxed">„{q.q}"</p>
-              <div className="mt-5 pt-5 border-t border-border">
-                <div className="text-sm font-medium">{q.a}</div>
-                <div className="text-xs text-muted-foreground">{q.role}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Berufliche Praxis: echte Referenzen aus Anstellungen, getrennt von Eigenentwicklungen */}
+      <ExperienceSection />
 
       {/* CTA */}
       <section className="mx-auto max-w-6xl px-6 py-12">
