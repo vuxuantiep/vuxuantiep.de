@@ -67,7 +67,7 @@ function AboutPage() {
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-2"><Briefcase className="h-4 w-4 text-primary" /> {t("10+ Jahre IT-Praxis", "10+ years in IT", "10+ năm kinh nghiệm IT")}</span>
               <span className="inline-flex items-center gap-2"><MapPin className="h-4 w-4 text-primary" /> Hamburg, Deutschland</span>
-              <span className="inline-flex items-center gap-2"><Languages className="h-4 w-4 text-primary" /> Deutsch · English · Tiếng Việt</span>
+              <span className="inline-flex items-center gap-2"><Languages className="h-4 w-4 text-primary" /> Deutsch · Tiếng Việt</span>
             </div>
             <Link
               to="/kontakt"

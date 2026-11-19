@@ -67,7 +67,7 @@ export function Hero() {
               t("Auf Wunsch rein lokal – Daten bleiben im Haus", "Fully local on request – data stays in-house", "Chạy hoàn toàn cục bộ nếu muốn – dữ liệu ở lại nội bộ"),
               t("Jeder Zugriff mit Rolle & MFA", "Every access with role & MFA", "Mọi truy cập đều có vai trò & MFA"),
               t("Kritische Aktionen gibt ein Mensch frei", "A human approves critical actions", "Con người phê duyệt thao tác quan trọng"),
-              t("Beratung auf Deutsch, English, Tiếng Việt", "Advice in German, English, Vietnamese", "Tư vấn bằng tiếng Đức, Anh, Việt"),
+              t("Beratung auf Deutsch und Tiếng Việt", "Advice in German and Vietnamese", "Tư vấn bằng tiếng Đức và tiếng Việt"),
             ].map((item) => (
               <li key={item} className="flex items-start gap-2.5">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.5} />

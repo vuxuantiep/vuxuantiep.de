@@ -29,9 +29,9 @@ export function AboutSection({ variant = "home" }: { variant?: "home" | "page" }
     {
       title: t("Zwei Kulturen", "Two cultures", "Hai nền văn hóa"),
       desc: t(
-        "Deutsch, Englisch und Vietnamesisch — Brücken zwischen Menschen und Märkten.",
-        "German, English and Vietnamese — bridges between people and markets.",
-        "Tiếng Đức, Anh và Việt — cầu nối giữa con người và thị trường."
+        "Deutsch und Vietnamesisch — Brücken zwischen Menschen und Märkten.",
+        "German and Vietnamese — bridges between people and markets.",
+        "Tiếng Đức và tiếng Việt — cầu nối giữa con người và thị trường."
       ),
     },
   ];
