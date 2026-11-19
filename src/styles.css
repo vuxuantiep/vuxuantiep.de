@@ -218,14 +218,15 @@
 /* Wortmarke: i-Punkt als kleine goldene Sonne – ruhig, ohne Animation
    (CEO 18.11.2026: animiert wirkte unruhig). Mittig über dem ı, Abstand
    zum T über leichten Versatz nach rechts. */
+.logo-wordmark {
+  font-family: "Outfit", "Be Vietnam Pro", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.logo-t { font-family: "Lexend", "Outfit", sans-serif; font-weight: 800; }
 .logo-sun-dot {
-  /* Stamm-Mitte des „ı" in Be Vietnam Pro 500 liegt bei 0.14em (gemessen) */
-  position: absolute;
-  left: 0.14em;
-  top: 0em;
-  width: 0.2em;
-  height: 0.2em;
-  margin-left: -0.1em;
-  border-radius: 9999px;
-  background: oklch(0.8 0.13 80);
+  /* Lage wie der echte i-Punkt in Outfit 800 (aus der Schriftdatei gemessen):
+     Mitte x = 0.138em, Mitte y = 0.645em über der Grundlinie */
+  position: absolute; left: 0.138em; top: 0.125em; width: 0.2em; height: 0.2em;
+  margin-left: -0.1em; border-radius: 9999px; background: oklch(0.8 0.13 80);
 }

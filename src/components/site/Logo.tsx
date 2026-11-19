@@ -18,21 +18,20 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-// Wortmarke ohne Unterzeile (18.11.2026): Name in Be Vietnam Pro (vom CEO
-// gewählt) – modern, klar, mit vollem vietnamesischem Zeichensatz;
-// Dunkelgrün wie das Schild. Eine Zeile (nowrap).
+// Wortmarke (19.11.2026, vom CEO gewählt: Variante A): Outfit ExtraBold,
+// kleingeschrieben und eng gesetzt wie eine Marke; das „t" stammt aus Lexend
+// (schräg angeschnittener Kopf). Dunkelgrün wie das Schild, i-Punkt = goldene
+// Sonne passend zur Logo-Sonne.
 export function Logo({ light = false }: { tagline?: boolean; light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark className="h-10 w-10 shrink-0" />
       <span
-        className={`whitespace-nowrap text-[21px] font-medium leading-none tracking-[-0.005em] ${light ? "text-[oklch(0.97_0.012_85)]" : "text-[oklch(0.36_0.06_165)]"}`}
-        style={{ fontFamily: '"Be Vietnam Pro", Inter, system-ui, sans-serif' }}
+        className={`logo-wordmark whitespace-nowrap text-[27px] leading-none ${light ? "text-[oklch(0.97_0.012_85)]" : "text-[oklch(0.36_0.06_165)]"}`}
         aria-label="Vu Xuan Tiep"
       >
-        {/* i-Punkt in „Tiep" = kleine Sonne, leuchtet synchron mit der Logo-Sonne (18.11.2026) */}
         <span aria-hidden="true">
-          Vu Xuan T
+          vu xuan <span className="logo-t">t</span>
           <span className="relative inline-block">
             ı<span className="logo-sun-dot" />
           </span>
