@@ -2,10 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { useLang } from "@/contexts/LangContext";
-import { TraceVisual, BrokiVisual, AiOsVisual, BdsVisual } from "@/components/site/ProjectVisuals";
+import { TraceVisual, BrokiVisual, AiOsVisual, BdsVisual, JustizVisual, KlinikVisual, RolloutVisual, KanzleiVisual, OutsourcingVisual } from "@/components/site/ProjectVisuals";
 
 export type Project = {
-  key: "trace" | "broki" | "bds" | "aios";
+  key: "trace" | "broki" | "bds" | "aios" | "justiz" | "klinik" | "rollout" | "kanzlei" | "outsourcing";
   title: string;
   tagline: string;
   desc: string;
@@ -16,7 +16,69 @@ export type Project = {
 /** Gemeinsame Projektliste für Hero-Galerie und Projektsektion. */
 export function useProjects(): Project[] {
   const { t } = useLang();
+  // Reihenfolge (CEO 19.11.2026): erst echte IT-Praxis (Referenzen), dann Eigenentwicklungen.
+  // Kunden werden nicht namentlich genannt (nur Branche).
   return [
+    {
+      key: "justiz",
+      title: t("E-Akte Justiz", "E-files for the judiciary", "Hồ sơ điện tử ngành tư pháp"),
+      tagline: t("13 Fachgerichte · IT-Betrieb", "13 courts · IT operations", "13 tòa án · vận hành IT"),
+      desc: t(
+        "5 Fachanwendungen in Citrix- und Windows-Server-Umgebung betreut: ≥ 99,8 % Verfügbarkeit, über 100 Tickets im Monat.",
+        "Ran 5 specialist applications in a Citrix and Windows Server environment: ≥ 99.8 % availability, over 100 tickets a month.",
+        "Vận hành 5 ứng dụng chuyên ngành trong môi trường Citrix và Windows Server: độ sẵn sàng ≥ 99,8 %, hơn 100 ticket mỗi tháng."
+      ),
+      to: "/",
+      hash: "erfahrung",
+    },
+    {
+      key: "klinik",
+      title: t("Klinik-Rollout", "Hospital rollout", "Triển khai tại bệnh viện"),
+      tagline: t("Universitätsklinikum · Go-Live-Support", "University hospital · go-live support", "Bệnh viện đại học · hỗ trợ go-live"),
+      desc: t(
+        "Ärzte und Pflege auf 3 Stationen und in einer Ambulanz beim Software-Rollout begleitet, im laufenden Klinikbetrieb.",
+        "Supported doctors and nurses on 3 wards and in an outpatient clinic during a software rollout, while the hospital kept running.",
+        "Đồng hành cùng bác sĩ và điều dưỡng tại 3 khoa và 1 phòng khám khi triển khai phần mềm, ngay trong lúc bệnh viện vận hành."
+      ),
+      to: "/",
+      hash: "erfahrung",
+    },
+    {
+      key: "rollout",
+      title: t("Arbeitsplatz-Rollout", "Workstation rollout", "Triển khai máy trạm"),
+      tagline: t("Energieversorger · Onsite-Support", "Energy utility · on-site support", "Công ty năng lượng · hỗ trợ tại chỗ"),
+      desc: t(
+        "Rund 800 Windows-10-Arbeitsplätze mit Peripherie und Smartphones vor Ort eingerichtet, Softwareverteilung über SCCM.",
+        "Set up around 800 Windows 10 workstations on site with peripherals and smartphones, software deployment via SCCM.",
+        "Thiết lập tại chỗ khoảng 800 máy trạm Windows 10 cùng thiết bị ngoại vi và điện thoại, phân phối phần mềm qua SCCM."
+      ),
+      to: "/",
+      hash: "erfahrung",
+    },
+    {
+      key: "kanzlei",
+      title: t("Kanzlei-IT", "Tax-firm IT", "IT cho văn phòng thuế"),
+      tagline: t("Steuerkanzlei · IT aus einer Hand", "Tax firm · IT from one source", "Văn phòng thuế · IT trọn gói"),
+      desc: t(
+        "Netzwerk, Arbeitsplätze und Server einer Steuerkanzlei aufgebaut und betreut, inklusive Datenmigration.",
+        "Built and ran the network, workstations and servers of a tax firm, including data migration.",
+        "Xây dựng và vận hành mạng, máy trạm và máy chủ cho văn phòng thuế, kèm chuyển đổi dữ liệu."
+      ),
+      to: "/",
+      hash: "erfahrung",
+    },
+    {
+      key: "outsourcing",
+      title: t("IT-Outsourcing", "IT outsourcing", "Thuê ngoài IT"),
+      tagline: t("Schweiz & Vietnam · Entwicklerteam", "Switzerland & Vietnam · dev team", "Thụy Sĩ & Việt Nam · đội lập trình"),
+      desc: t(
+        "Web- und Softwareentwicklung mit C# und ASP.NET, Koordination eines Entwicklerteams in Vietnam.",
+        "Web and software development with C# and ASP.NET, coordinating a developer team in Vietnam.",
+        "Phát triển web và phần mềm với C# và ASP.NET, điều phối đội lập trình tại Việt Nam."
+      ),
+      to: "/",
+      hash: "erfahrung",
+    },
     {
       key: "trace",
       title: "TRACE AI",
@@ -88,7 +150,12 @@ export function ProjectMedia({ project, className = "" }: { project: Project; cl
           <img src={bg} alt="" loading="lazy" decoding="async" className="pm-pan absolute inset-0 h-full w-full object-cover object-top opacity-[0.32]" />
         ) : (
           <div className="pm-pan absolute inset-0 scale-150 opacity-[0.32]">
-            <BrokiVisual className="h-full w-full" />
+            {project.key === "justiz" ? <JustizVisual className="h-full w-full" />
+              : project.key === "klinik" ? <KlinikVisual className="h-full w-full" />
+              : project.key === "rollout" ? <RolloutVisual className="h-full w-full" />
+              : project.key === "kanzlei" ? <KanzleiVisual className="h-full w-full" />
+              : project.key === "outsourcing" ? <OutsourcingVisual className="h-full w-full" />
+              : <BrokiVisual className="h-full w-full" />}
           </div>
         )}
         {project.key === "trace" && (
@@ -100,6 +167,11 @@ export function ProjectMedia({ project, className = "" }: { project: Project; cl
         {project.key === "broki" && <BrokiVisual className="h-full w-full" />}
         {project.key === "bds" && <BdsVisual className="h-full w-full" />}
         {project.key === "aios" && <AiOsVisual className="h-full w-full" />}
+        {project.key === "justiz" && <JustizVisual className="h-full w-full" />}
+        {project.key === "klinik" && <KlinikVisual className="h-full w-full" />}
+        {project.key === "rollout" && <RolloutVisual className="h-full w-full" />}
+        {project.key === "kanzlei" && <KanzleiVisual className="h-full w-full" />}
+        {project.key === "outsourcing" && <OutsourcingVisual className="h-full w-full" />}
       </div>
       {/* weicher Übergang in die Kartenfläche */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-b from-transparent to-[var(--surface)]" />
@@ -113,7 +185,8 @@ export function ProjectMedia({ project, className = "" }: { project: Project; cl
  */
 export function ProjectsShowcase() {
   const { t } = useLang();
-  const projects = useProjects();
+  // 3 Praxis-Referenzen + 3 Eigenentwicklungen; BDS Navigator steht auf /portfolio
+  const projects = useProjects().filter((p) => !["bds", "kanzlei", "outsourcing"].includes(p.key));
 
   return (
     <section id="projekte" className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 md:py-24">

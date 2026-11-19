@@ -75,7 +75,7 @@ export function ExperienceSection() {
     },
     {
       icon: Code2,
-      sector: t("Softwareentwicklung · Deutschland & Vietnam", "Software development · Germany & Vietnam", "Phát triển phần mềm · Đức & Việt Nam"),
+      sector: t("Softwareentwicklung · Schweiz & Vietnam", "Software development · Switzerland & Vietnam", "Phát triển phần mềm · Thụy Sĩ & Việt Nam"),
       period: "2015 – 2017",
       title: t("Entwicklerteam über Grenzen koordiniert", "Coordinated a developer team across borders", "Điều phối đội lập trình xuyên biên giới"),
       text: t(

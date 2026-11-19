@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Check } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLang } from "@/contexts/LangContext";
 import { ProjectMedia, useProjects } from "@/components/site/ProjectsShowcase";
 
@@ -11,7 +12,21 @@ import { ProjectMedia, useProjects } from "@/components/site/ProjectsShowcase";
  */
 export function Hero() {
   const { t } = useLang();
-  const projects = useProjects();
+  // Galerie (19.11.2026): alle Projekte, Praxis-Referenzen zuerst. Ab sm blätterbar
+  // in Seiten zu je 4 (Pfeile, Punkte, Auto-Weiter alle 7 s, Pause bei Hover);
+  // auf dem Smartphone wie bisher horizontal wischbar.
+  // BDS Navigator nur auf /portfolio → genau 2 volle Seiten (5 Referenzen + 3 Eigenentwicklungen)
+  const projects = useProjects().filter((p) => p.key !== "bds");
+  const PER_PAGE = 4;
+  const pageCount = Math.ceil(projects.length / PER_PAGE);
+  const [page, setPage] = useState(0);
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    if (paused || pageCount < 2) return;
+    const id = window.setInterval(() => setPage((p) => (p + 1) % pageCount), 7000);
+    return () => window.clearInterval(id);
+  }, [paused, pageCount]);
+  const go = (d: number) => setPage((p) => (p + d + pageCount) % pageCount);
 
   return (
     <section id="start" className="relative isolate overflow-hidden">
@@ -87,14 +102,10 @@ export function Hero() {
               {t("Alle ansehen", "View all", "Xem tất cả")} <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
-          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 scrollbar-hidden sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0">
+          {/* Smartphone: alle Projekte wischbar */}
+          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 scrollbar-hidden sm:hidden">
             {projects.map((p) => (
-              <Link
-                key={p.key}
-                to={p.to}
-                hash={p.hash}
-                className="group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-3xl bg-surface sm:w-auto"
-              >
+              <Link key={p.key} to={p.to} hash={p.hash} className="group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-3xl bg-surface">
                 <ProjectMedia project={p} className="aspect-[4/3]" />
                 <div className="absolute inset-x-0 bottom-0 px-4 pb-3.5">
                   <div className="text-[15px] font-semibold text-foreground">{p.title}</div>
@@ -102,6 +113,74 @@ export function Hero() {
                 </div>
               </Link>
             ))}
+          </div>
+          {/* ab sm: blätterbare 2×2-Galerie */}
+          <div
+            className="hidden sm:block"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocus={() => setPaused(true)}
+            onBlur={() => setPaused(false)}
+          >
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-700 ease-out"
+                style={{ transform: `translateX(-${page * 100}%)` }}
+              >
+                {Array.from({ length: pageCount }, (_, pi) => (
+                  <div key={pi} className="grid w-full shrink-0 grid-cols-2 gap-3" aria-hidden={pi !== page}>
+                    {projects.slice(pi * PER_PAGE, pi * PER_PAGE + PER_PAGE).map((p) => (
+                      <Link
+                        key={p.key}
+                        to={p.to}
+                        hash={p.hash}
+                        tabIndex={pi === page ? 0 : -1}
+                        className="group relative overflow-hidden rounded-3xl bg-surface"
+                      >
+                        <ProjectMedia project={p} className="aspect-[4/3]" />
+                        <div className="absolute inset-x-0 bottom-0 px-4 pb-3.5">
+                          <div className="text-[15px] font-semibold text-foreground">{p.title}</div>
+                          <div className="truncate text-xs text-muted-foreground">{p.tagline}</div>
+                        </div>
+                      </Link>
+                    ))}
+                    {/* freien Platz der letzten Seite mit Link zur Projektseite füllen */}
+                    {projects.slice(pi * PER_PAGE, pi * PER_PAGE + PER_PAGE).length < PER_PAGE && (
+                      <Link
+                        to="/portfolio"
+                        tabIndex={pi === page ? 0 : -1}
+                        className="group flex aspect-[4/3] flex-col items-center justify-center gap-2 rounded-3xl border border-dashed border-primary/30 text-primary transition-colors hover:bg-surface"
+                      >
+                        <span className="grid h-11 w-11 place-items-center rounded-full bg-card shadow-sm">
+                          <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+                        </span>
+                        <span className="text-[15px] font-semibold">{t("Alle Projekte ansehen", "View all projects", "Xem tất cả dự án")}</span>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+            {pageCount > 1 && (
+              <div className="mt-3 flex items-center justify-center gap-3">
+                <button type="button" onClick={() => go(-1)} aria-label={t("Vorherige Projekte", "Previous projects", "Dự án trước")} className="grid h-9 w-9 place-items-center rounded-full bg-card text-foreground shadow-sm hover:bg-surface">
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                {Array.from({ length: pageCount }, (_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setPage(i)}
+                    aria-label={`${t("Seite", "Page", "Trang")} ${i + 1}`}
+                    aria-current={i === page}
+                    className={`h-2 rounded-full transition-all ${i === page ? "w-6 bg-primary" : "w-2 bg-primary/25 hover:bg-primary/40"}`}
+                  />
+                ))}
+                <button type="button" onClick={() => go(1)} aria-label={t("Nächste Projekte", "Next projects", "Dự án tiếp theo")} className="grid h-9 w-9 place-items-center rounded-full bg-card text-foreground shadow-sm hover:bg-surface">
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

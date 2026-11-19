@@ -186,3 +186,212 @@ export function BdsVisual({ className }: VisualProps) {
     </svg>
   );
 }
+
+/** Justiz-IT – E-Akte für 13 Fachgerichte: Aktenfenster + Gerichts-Siegel (Säulen). */
+export function JustizVisual({ className }: VisualProps) {
+  return (
+    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="E-Akte und IT-Betrieb in der Justiz">
+      <defs>
+        <linearGradient id="ju-shadow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={INK} stopOpacity="0.10" />
+          <stop offset="100%" stopColor={INK} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      {/* E-Akten-Fenster */}
+      <rect x="132" y="44" width="216" height="186" rx="14" fill="url(#ju-shadow)" transform="translate(4 8)" />
+      <rect x="132" y="44" width="216" height="186" rx="14" fill={PAPER} stroke={LINE} />
+      <path d="M132 58a14 14 0 0 1 14-14h188a14 14 0 0 1 14 14v12H132z" fill={SAND} />
+      <circle cx="150" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="162" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="174" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      {/* Akten mit Status */}
+      {[84, 120, 156, 192].map((y, i) => (
+        <g key={y}>
+          <path d={`M150 ${y}h14l4 4h16v18h-34z`} fill={i === 1 ? GREEN : INK} opacity={i === 1 ? 0.9 : 0.22} />
+          <rect x="196" y={y + 4} width={i % 2 ? 76 : 96} height="6" rx="3" fill={INK} opacity="0.18" />
+          <rect x="196" y={y + 14} width="48" height="5" rx="2.5" fill={INK} opacity="0.1" />
+          <circle cx="320" cy={y + 11} r="8" fill={i === 3 ? GOLD : GREEN} opacity={i === 3 ? 0.55 : 0.85} />
+          {i !== 3 && <path d={`M316 ${y + 11}l3 3 5-6`} fill="none" stroke={PAPER} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />}
+        </g>
+      ))}
+      {/* Gerichts-Siegel */}
+      <g transform="translate(92 140)">
+        <circle r="34" fill={PAPER} stroke={GOLD} strokeWidth="1.5" />
+        <circle r="27" fill="none" stroke={GOLD} strokeOpacity="0.5" strokeDasharray="2 3" />
+        <path d="M-16-6L0-16l16 10z" fill={GREEN} />
+        {[-11, -3.5, 4].map((x) => (
+          <rect key={x} x={x} y="-4" width="7" height="15" rx="1" fill={GREEN} />
+        ))}
+        <rect x="-16" y="12" width="32" height="4" rx="1" fill={GREEN} />
+      </g>
+    </svg>
+  );
+}
+
+/** Klinik – Go-Live-Support im laufenden Betrieb: Stationsplan mit Fortschritt + Kreuz-Siegel. */
+export function KlinikVisual({ className }: VisualProps) {
+  return (
+    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="Go-Live-Support im Klinikbetrieb">
+      <defs>
+        <linearGradient id="kl-shadow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={INK} stopOpacity="0.10" />
+          <stop offset="100%" stopColor={INK} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <rect x="132" y="44" width="216" height="186" rx="14" fill="url(#kl-shadow)" transform="translate(4 8)" />
+      <rect x="132" y="44" width="216" height="186" rx="14" fill={PAPER} stroke={LINE} />
+      <path d="M132 58a14 14 0 0 1 14-14h188a14 14 0 0 1 14 14v12H132z" fill={SAND} />
+      <circle cx="150" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="162" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="174" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      {/* Stationen mit Go-Live-Fortschritt */}
+      {[
+        [86, 1],
+        [120, 1],
+        [154, 0.75],
+        [188, 0.4],
+      ].map(([y, p]) => (
+        <g key={y}>
+          <rect x="150" y={y} width="44" height="7" rx="3.5" fill={INK} opacity="0.2" />
+          <rect x="150" y={y + 12} width="28" height="5" rx="2.5" fill={INK} opacity="0.1" />
+          <rect x="210" y={y + 4} width="118" height="10" rx="5" fill={GREEN_SOFT} />
+          <rect x="210" y={y + 4} width={118 * p} height="10" rx="5" fill={p === 1 ? GREEN : GOLD} opacity={p === 1 ? 0.85 : 0.6} />
+        </g>
+      ))}
+      {/* Kreuz-Siegel */}
+      <g transform="translate(92 140)">
+        <circle r="34" fill={PAPER} stroke={GOLD} strokeWidth="1.5" />
+        <circle r="27" fill="none" stroke={GOLD} strokeOpacity="0.5" strokeDasharray="2 3" />
+        <path d="M-5-16h10v11h11v10H5v11H-5V5h-11V-5h11z" fill={GREEN} />
+      </g>
+    </svg>
+  );
+}
+
+/** Energieversorger – Rollout von rund 800 Arbeitsplätzen: Geräte-Raster mit Status + Blitz-Siegel. */
+export function RolloutVisual({ className }: VisualProps) {
+  const cells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  return (
+    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="Rollout von Arbeitsplätzen beim Energieversorger">
+      <defs>
+        <linearGradient id="ro-shadow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={INK} stopOpacity="0.10" />
+          <stop offset="100%" stopColor={INK} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <rect x="132" y="44" width="216" height="186" rx="14" fill="url(#ro-shadow)" transform="translate(4 8)" />
+      <rect x="132" y="44" width="216" height="186" rx="14" fill={PAPER} stroke={LINE} />
+      <path d="M132 58a14 14 0 0 1 14-14h188a14 14 0 0 1 14 14v12H132z" fill={SAND} />
+      <circle cx="150" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="162" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="174" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      {/* Arbeitsplätze: Monitor-Symbole, die meisten fertig */}
+      {cells.map((i) => {
+        const x = 152 + (i % 3) * 62;
+        const y = 84 + Math.floor(i / 3) * 46;
+        const done = i < 7;
+        return (
+          <g key={i}>
+            <rect x={x} y={y} width="50" height="30" rx="5" fill={done ? GREEN_SOFT : PAPER} stroke={LINE} />
+            <rect x={x + 19} y={y + 30} width="12" height="6" fill={INK} opacity="0.18" />
+            <rect x={x + 13} y={y + 36} width="24" height="3" rx="1.5" fill={INK} opacity="0.18" />
+            {done ? (
+              <path d={`M${x + 18} ${y + 15}l5 5 9-10`} fill="none" stroke={GREEN} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            ) : (
+              <circle cx={x + 25} cy={y + 15} r="5" fill={GOLD} opacity="0.6" />
+            )}
+          </g>
+        );
+      })}
+      {/* Energie-Siegel */}
+      <g transform="translate(92 140)">
+        <circle r="34" fill={PAPER} stroke={GOLD} strokeWidth="1.5" />
+        <circle r="27" fill="none" stroke={GOLD} strokeOpacity="0.5" strokeDasharray="2 3" />
+        <path d="M3-17L-10 3h9l-3 14L10-3H1z" fill={GREEN} />
+      </g>
+    </svg>
+  );
+}
+
+/** Steuerkanzlei – komplette IT aus einer Hand: Arbeitsplätze am Server, Paragraf-Siegel. */
+export function KanzleiVisual({ className }: VisualProps) {
+  const pcs = [
+    [170, 92], [250, 92], [170, 176], [250, 176],
+  ];
+  return (
+    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="Komplette IT für eine Steuerkanzlei">
+      <defs>
+        <linearGradient id="ka-shadow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={INK} stopOpacity="0.10" />
+          <stop offset="100%" stopColor={INK} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <rect x="132" y="44" width="216" height="186" rx="14" fill="url(#ka-shadow)" transform="translate(4 8)" />
+      <rect x="132" y="44" width="216" height="186" rx="14" fill={PAPER} stroke={LINE} />
+      <path d="M132 58a14 14 0 0 1 14-14h188a14 14 0 0 1 14 14v12H132z" fill={SAND} />
+      <circle cx="150" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="162" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="174" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      {pcs.map(([x, y]) => (
+        <line key={`l${x}-${y}`} x1={x + 20} y1={y + 12} x2="240" y2="140" stroke={GREEN} strokeOpacity="0.35" strokeWidth="1.4" strokeDasharray="3 4" />
+      ))}
+      {pcs.map(([x, y]) => (
+        <g key={`p${x}-${y}`}>
+          <rect x={x} y={y} width="40" height="24" rx="4" fill={GREEN_SOFT} stroke={LINE} />
+          <rect x={x + 15} y={y + 24} width="10" height="5" fill={INK} opacity="0.18" />
+        </g>
+      ))}
+      <rect x="222" y="122" width="36" height="38" rx="5" fill={GREEN} opacity="0.9" />
+      {[130, 139, 148].map((y) => (
+        <g key={y}>
+          <rect x="228" y={y} width="16" height="4" rx="2" fill={PAPER} opacity="0.7" />
+          <circle cx="251" cy={y + 2} r="2" fill={GOLD} />
+        </g>
+      ))}
+      <g transform="translate(92 140)">
+        <circle r="34" fill={PAPER} stroke={GOLD} strokeWidth="1.5" />
+        <circle r="27" fill="none" stroke={GOLD} strokeOpacity="0.5" strokeDasharray="2 3" />
+        <text x="0" y="11" textAnchor="middle" fontSize="32" fontWeight="700" fill={GREEN} fontFamily="Georgia, serif">§</text>
+      </g>
+    </svg>
+  );
+}
+
+/** IT-Outsourcing – Team über Grenzen: Code-Fenster, zwei verbundene Standorte, Globus-Siegel. */
+export function OutsourcingVisual({ className }: VisualProps) {
+  return (
+    <svg viewBox="0 0 400 250" className={className} role="img" aria-label="IT-Outsourcing mit einem Team über Ländergrenzen">
+      <defs>
+        <linearGradient id="ou-shadow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={INK} stopOpacity="0.10" />
+          <stop offset="100%" stopColor={INK} stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <rect x="132" y="44" width="216" height="186" rx="14" fill="url(#ou-shadow)" transform="translate(4 8)" />
+      <rect x="132" y="44" width="216" height="186" rx="14" fill={PAPER} stroke={LINE} />
+      <path d="M132 58a14 14 0 0 1 14-14h188a14 14 0 0 1 14 14v12H132z" fill={SAND} />
+      <circle cx="150" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="162" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <circle cx="174" cy="57" r="3.5" fill={INK} opacity="0.25" />
+      <path d="M156 92l-8 8 8 8M176 92l8 8-8 8" fill="none" stroke={GREEN} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      {[0, 1, 2, 3].map((i) => (
+        <rect key={i} x={196 + (i % 2) * 14} y={90 + i * 8} width={i === 2 ? 70 : 110 - i * 12} height="5" rx="2.5" fill={INK} opacity={0.1 + (i % 2) * 0.06} />
+      ))}
+      <path d="M182 180 C 220 150, 262 150, 300 180" fill="none" stroke={GREEN} strokeOpacity="0.45" strokeWidth="1.6" strokeDasharray="4 4" />
+      {[[182, 180], [300, 180]].map(([x, y], i) => (
+        <g key={i}>
+          <circle cx={x} cy={y} r="17" fill={PAPER} stroke={GREEN} strokeOpacity="0.5" strokeWidth="1.3" />
+          <circle cx={x} cy={y - 4} r="5" fill={i ? GOLD : GREEN} />
+          <path d={`M${x - 8} ${y + 9}a8 7 0 0 1 16 0`} fill={i ? GOLD : GREEN} />
+        </g>
+      ))}
+      <g transform="translate(92 140)">
+        <circle r="34" fill={PAPER} stroke={GOLD} strokeWidth="1.5" />
+        <circle r="27" fill="none" stroke={GOLD} strokeOpacity="0.5" strokeDasharray="2 3" />
+        <circle r="15" fill="none" stroke={GREEN} strokeWidth="2.4" />
+        <ellipse rx="6.5" ry="15" fill="none" stroke={GREEN} strokeWidth="2" />
+        <line x1="-15" y1="0" x2="15" y2="0" stroke={GREEN} strokeWidth="2" />
+      </g>
+    </svg>
+  );
+}
